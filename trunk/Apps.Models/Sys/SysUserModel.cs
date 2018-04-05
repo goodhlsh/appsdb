@@ -143,6 +143,7 @@ namespace Apps.Models.Sys
         public override string Note { get; set; }
         public override string SortCode { get; set; }
         public override string RecommendID { get; set; }
+        public override string Recommendor { get => base.Recommendor; set => base.Recommendor = value; }
         public override Nullable<System.DateTime> RecommendTime { get; set; }
         public override string EditorID { get; set; }
         public override Nullable<System.DateTime> UpdateTime { get; set; }

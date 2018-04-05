@@ -71,6 +71,29 @@ namespace Apps.BLL
 								
 								
 								
+								|| a.HomePhone.Contains(queryStr)
+								|| a.WXID.Contains(queryStr)
+								|| a.Signature.Contains(queryStr)
+								|| a.QRCode.Contains(queryStr)
+								|| a.IdentityCardFile.Contains(queryStr)
+								|| a.IdentityCardBackFile.Contains(queryStr)
+								
+								|| a.AuditStatus.Contains(queryStr)
+								|| a.Note.Contains(queryStr)
+								|| a.SortCode.Contains(queryStr)
+								|| a.RecommendID.Contains(queryStr)
+								
+								|| a.EditorID.Contains(queryStr)
+								
+								
+								|| a.Questions.Contains(queryStr)
+								|| a.Answer.Contains(queryStr)
+								|| a.LastLoginIP.Contains(queryStr)
+								
+								|| a.CurrentLoginIP.Contains(queryStr)
+								
+								
+								|| a.Recommendor.Contains(queryStr)
 								);
             }
             else
@@ -126,6 +149,29 @@ namespace Apps.BLL
 													IsSelLead = r.IsSelLead,
 													IsReportCalendar = r.IsReportCalendar,
 													IsSecretary = r.IsSecretary,
+													HomePhone = r.HomePhone,
+													WXID = r.WXID,
+													Signature = r.Signature,
+													QRCode = r.QRCode,
+													IdentityCardFile = r.IdentityCardFile,
+													IdentityCardBackFile = r.IdentityCardBackFile,
+													IsAuth = r.IsAuth,
+													AuditStatus = r.AuditStatus,
+													Note = r.Note,
+													SortCode = r.SortCode,
+													RecommendID = r.RecommendID,
+													RecommendTime = r.RecommendTime,
+													EditorID = r.EditorID,
+													UpdateTime = r.UpdateTime,
+													IsDeleted = r.IsDeleted,
+													Questions = r.Questions,
+													Answer = r.Answer,
+													LastLoginIP = r.LastLoginIP,
+													LastLoginTime = r.LastLoginTime,
+													CurrentLoginIP = r.CurrentLoginIP,
+													CurrentLoginTime = r.CurrentLoginTime,
+													LastPasswdTime = r.LastPasswdTime,
+													Recommendor = r.Recommendor,
           
                                               }).ToList();
 
@@ -181,6 +227,29 @@ namespace Apps.BLL
 				entity.IsSelLead = model.IsSelLead;
 				entity.IsReportCalendar = model.IsReportCalendar;
 				entity.IsSecretary = model.IsSecretary;
+				entity.HomePhone = model.HomePhone;
+				entity.WXID = model.WXID;
+				entity.Signature = model.Signature;
+				entity.QRCode = model.QRCode;
+				entity.IdentityCardFile = model.IdentityCardFile;
+				entity.IdentityCardBackFile = model.IdentityCardBackFile;
+				entity.IsAuth = model.IsAuth;
+				entity.AuditStatus = model.AuditStatus;
+				entity.Note = model.Note;
+				entity.SortCode = model.SortCode;
+				entity.RecommendID = model.RecommendID;
+				entity.RecommendTime = model.RecommendTime;
+				entity.EditorID = model.EditorID;
+				entity.UpdateTime = model.UpdateTime;
+				entity.IsDeleted = model.IsDeleted;
+				entity.Questions = model.Questions;
+				entity.Answer = model.Answer;
+				entity.LastLoginIP = model.LastLoginIP;
+				entity.LastLoginTime = model.LastLoginTime;
+				entity.CurrentLoginIP = model.CurrentLoginIP;
+				entity.CurrentLoginTime = model.CurrentLoginTime;
+				entity.LastPasswdTime = model.LastPasswdTime;
+				entity.Recommendor = model.Recommendor;
   
 
                 if (m_Rep.Create(entity))
@@ -305,6 +374,29 @@ namespace Apps.BLL
 				entity.IsSelLead = model.IsSelLead;
 				entity.IsReportCalendar = model.IsReportCalendar;
 				entity.IsSecretary = model.IsSecretary;
+				entity.HomePhone = model.HomePhone;
+				entity.WXID = model.WXID;
+				entity.Signature = model.Signature;
+				entity.QRCode = model.QRCode;
+				entity.IdentityCardFile = model.IdentityCardFile;
+				entity.IdentityCardBackFile = model.IdentityCardBackFile;
+				entity.IsAuth = model.IsAuth;
+				entity.AuditStatus = model.AuditStatus;
+				entity.Note = model.Note;
+				entity.SortCode = model.SortCode;
+				entity.RecommendID = model.RecommendID;
+				entity.RecommendTime = model.RecommendTime;
+				entity.EditorID = model.EditorID;
+				entity.UpdateTime = model.UpdateTime;
+				entity.IsDeleted = model.IsDeleted;
+				entity.Questions = model.Questions;
+				entity.Answer = model.Answer;
+				entity.LastLoginIP = model.LastLoginIP;
+				entity.LastLoginTime = model.LastLoginTime;
+				entity.CurrentLoginIP = model.CurrentLoginIP;
+				entity.CurrentLoginTime = model.CurrentLoginTime;
+				entity.LastPasswdTime = model.LastPasswdTime;
+				entity.Recommendor = model.Recommendor;
  
 
 
@@ -373,6 +465,29 @@ namespace Apps.BLL
 				model.IsSelLead = entity.IsSelLead;
 				model.IsReportCalendar = entity.IsReportCalendar;
 				model.IsSecretary = entity.IsSecretary;
+				model.HomePhone = entity.HomePhone;
+				model.WXID = entity.WXID;
+				model.Signature = entity.Signature;
+				model.QRCode = entity.QRCode;
+				model.IdentityCardFile = entity.IdentityCardFile;
+				model.IdentityCardBackFile = entity.IdentityCardBackFile;
+				model.IsAuth = entity.IsAuth;
+				model.AuditStatus = entity.AuditStatus;
+				model.Note = entity.Note;
+				model.SortCode = entity.SortCode;
+				model.RecommendID = entity.RecommendID;
+				model.RecommendTime = entity.RecommendTime;
+				model.EditorID = entity.EditorID;
+				model.UpdateTime = entity.UpdateTime;
+				model.IsDeleted = entity.IsDeleted;
+				model.Questions = entity.Questions;
+				model.Answer = entity.Answer;
+				model.LastLoginIP = entity.LastLoginIP;
+				model.LastLoginTime = entity.LastLoginTime;
+				model.CurrentLoginIP = entity.CurrentLoginIP;
+				model.CurrentLoginTime = entity.CurrentLoginTime;
+				model.LastPasswdTime = entity.LastPasswdTime;
+				model.Recommendor = entity.Recommendor;
  
                 return model;
             }

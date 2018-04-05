@@ -19,7 +19,6 @@ using Apps.IDAL;
 using Apps.BLL.Core;
 using Apps.Locale;
 using Apps.Models.Sys;
-using Apps.Models.Common;
 namespace Apps.BLL
 {
 	public class Virtual_SysSampleBLL
@@ -47,7 +46,6 @@ namespace Apps.BLL
             {
                 queryData = m_Rep.GetList();
             }
-           
             pager.totalRows = queryData.Count();
             //排序
             queryData = LinqHelper.SortingAndPaging(queryData, pager.sort, pager.order, pager.page, pager.rows);
