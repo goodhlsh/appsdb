@@ -1,0 +1,10 @@
+D:\ymnets.AdminSystem\trunk\Apps.Locale\bin\Release\Apps.Locale.dll
+D:\ymnets.AdminSystem\trunk\Apps.Locale\bin\Release\Apps.Locale.pdb
+D:\ymnets.AdminSystem\trunk\Apps.Locale\bin\Release\en-US\Apps.Locale.resources.dll
+D:\ymnets.AdminSystem\trunk\Apps.Locale\obj\Release\Apps.Locale.csprojResolveAssemblyReference.cache
+D:\ymnets.AdminSystem\trunk\Apps.Locale\obj\Release\Apps.Locale.Resource.resources
+D:\ymnets.AdminSystem\trunk\Apps.Locale\obj\Release\Apps.Locale.Resource.en-US.resources
+D:\ymnets.AdminSystem\trunk\Apps.Locale\obj\Release\Apps.Locale.csproj.GenerateResource.Cache
+D:\ymnets.AdminSystem\trunk\Apps.Locale\obj\Release\en-US\Apps.Locale.resources.dll
+D:\ymnets.AdminSystem\trunk\Apps.Locale\obj\Release\Apps.Locale.dll
+D:\ymnets.AdminSystem\trunk\Apps.Locale\obj\Release\Apps.Locale.pdb
