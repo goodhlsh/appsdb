@@ -28,3 +28,7 @@ C:\Users\LabCenter\Desktop\ymnets.net20170401\20180405\trunk\Apps.WC.IDAL\obj\De
 C:\Users\LabCenter\Desktop\ymnets.net20170401\20180405\trunk\Apps.WC.IDAL\obj\Debug\Apps.WC.IDAL.csproj.CoreCompileInputs.cache
 C:\Users\LabCenter\Desktop\ymnets.net20170401\20180405\trunk\Apps.WC.IDAL\obj\Debug\Apps.WC.IDAL.dll
 C:\Users\LabCenter\Desktop\ymnets.net20170401\20180405\trunk\Apps.WC.IDAL\obj\Debug\Apps.WC.IDAL.pdb
+C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.WC.IDAL\obj\Debug\Apps.WC.IDAL.csprojResolveAssemblyReference.cache
+C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.WC.IDAL\obj\Debug\Apps.WC.IDAL.csproj.CoreCompileInputs.cache
+C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.WC.IDAL\obj\Debug\Apps.WC.IDAL.dll
+C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.WC.IDAL\obj\Debug\Apps.WC.IDAL.pdb

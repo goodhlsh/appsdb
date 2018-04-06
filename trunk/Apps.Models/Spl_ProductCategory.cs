@@ -21,7 +21,7 @@ namespace Apps.Models
     
         public string Id { get; set; }
         public string Name { get; set; }
-        public System.DateTime CreateTime { get; set; }
+        public Nullable<System.DateTime> CreateTime { get; set; }
         public string CreateBy { get; set; }
     
         public virtual ICollection<Spl_Ware> Spl_Ware { get; set; }

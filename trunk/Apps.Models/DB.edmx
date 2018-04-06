@@ -539,9 +539,9 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="CreateTime" Type="datetime" Nullable="false" />
-          <Property Name="CreateBy" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="CreateTime" Type="datetime" />
+          <Property Name="CreateBy" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Spl_Ware">
           <Key>
@@ -549,7 +549,7 @@
           </Key>
           <Property Name="id" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Name" Type="varchar" MaxLength="50" />
-          <Property Name="ProductCategoryId" Type="varchar" MaxLength="50" />
+          <Property Name="ProductCategoryId" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Unit" Type="varchar" MaxLength="10" />
           <Property Name="OriginPrice" Type="money" />
           <Property Name="Price" Type="money" />
@@ -1460,15 +1460,15 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Spl_Product_Spl_ProductCategory">
+        <Association Name="FK_Spl_Ware_Spl_ProductCategory">
           <End Role="Spl_ProductCategory" Type="Self.Spl_ProductCategory" Multiplicity="1" />
-          <End Role="Spl_Product" Type="Self.Spl_Product" Multiplicity="*" />
+          <End Role="Spl_Ware" Type="Self.Spl_Ware" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Spl_ProductCategory">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="Spl_Product">
-              <PropertyRef Name="CategoryId" />
+            <Dependent Role="Spl_Ware">
+              <PropertyRef Name="ProductCategoryId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -2169,9 +2169,9 @@
             <End Role="MIS_WebIM_Message" EntitySet="MIS_WebIM_Message" />
             <End Role="MIS_WebIM_Message_Rec" EntitySet="MIS_WebIM_Message_Rec" />
           </AssociationSet>
-          <AssociationSet Name="FK_Spl_Product_Spl_ProductCategory" Association="Self.FK_Spl_Product_Spl_ProductCategory">
+          <AssociationSet Name="FK_Spl_Ware_Spl_ProductCategory" Association="Self.FK_Spl_Ware_Spl_ProductCategory">
             <End Role="Spl_ProductCategory" EntitySet="Spl_ProductCategory" />
-            <End Role="Spl_Product" EntitySet="Spl_Product" />
+            <End Role="Spl_Ware" EntitySet="Spl_Ware" />
           </AssociationSet>
           <AssociationSet Name="FK_SysAreas_SysAreas" Association="Self.FK_SysAreas_SysAreas">
             <End Role="SysAreas" EntitySet="SysAreas" />
@@ -4213,9 +4213,9 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="CreateTime" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="CreateBy" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreateTime" Type="DateTime" Precision="3" />
+          <Property Name="CreateBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Spl_Ware" Relationship="DB.Spl_ProductCategorySpl_Ware" FromRole="Spl_ProductCategory" ToRole="Spl_Ware" />
         </EntityType>
         <EntityType Name="Spl_Person">
@@ -4504,7 +4504,7 @@
           </Key>
           <Property Name="id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="ProductCategoryId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ProductCategoryId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Unit" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="OriginPrice" Type="Decimal" Precision="19" Scale="4" />
           <Property Name="Price" Type="Decimal" Precision="19" Scale="4" />
@@ -4716,6 +4716,14 @@
         <Association Name="Spl_ProductCategorySpl_Ware">
           <End Type="DB.Spl_ProductCategory" Role="Spl_ProductCategory" Multiplicity="1" />
           <End Type="DB.Spl_Ware" Role="Spl_Ware" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Spl_ProductCategory">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Spl_Ware">
+              <PropertyRef Name="ProductCategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
         </Association>
         </Schema>
     </edmx:ConceptualModels>
@@ -5792,16 +5800,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Spl_ProductCategory">
-            <EntityTypeMapping TypeName="DB.Spl_ProductCategory">
-              <MappingFragment StoreEntitySet="Spl_ProductCategory">
-                <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
-                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Spl_Person">
             <EntityTypeMapping TypeName="DB.Spl_Person">
               <MappingFragment StoreEntitySet="Spl_Person">
@@ -6013,29 +6011,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Spl_Ware">
-            <EntityTypeMapping TypeName="DB.Spl_Ware">
-              <MappingFragment StoreEntitySet="Spl_Ware">
-                <ScalarProperty Name="Editor" ColumnName="Editor" />
-                <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
-                <ScalarProperty Name="Creator" ColumnName="Creator" />
-                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
-                <ScalarProperty Name="WareState" ColumnName="WareState" />
-                <ScalarProperty Name="WareCount" ColumnName="WareCount" />
-                <ScalarProperty Name="WareInfoId" ColumnName="WareInfoId" />
-                <ScalarProperty Name="ShowType" ColumnName="ShowType" />
-                <ScalarProperty Name="Thumbnail" ColumnName="Thumbnail" />
-                <ScalarProperty Name="Note" ColumnName="Note" />
-                <ScalarProperty Name="Stock" ColumnName="Stock" />
-                <ScalarProperty Name="Price" ColumnName="Price" />
-                <ScalarProperty Name="OriginPrice" ColumnName="OriginPrice" />
-                <ScalarProperty Name="Unit" ColumnName="Unit" />
-                <ScalarProperty Name="ProductCategoryId" ColumnName="ProductCategoryId" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="id" ColumnName="id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Spl_WareInfo">
             <EntityTypeMapping TypeName="DB.Spl_WareInfo">
               <MappingFragment StoreEntitySet="Spl_WareInfo">
@@ -6243,6 +6218,39 @@
           <FunctionImportMapping FunctionImportName="P_Sys_EveryMonth" FunctionName="DB.Store.P_Sys_EveryMonth" />
           <FunctionImportMapping FunctionImportName="P_Sys_PutErCi" FunctionName="DB.Store.P_Sys_PutErCi" />
           <FunctionImportMapping FunctionImportName="P_Sys_PutZi" FunctionName="DB.Store.P_Sys_PutZi" />
+          <EntitySetMapping Name="Spl_ProductCategory">
+            <EntityTypeMapping TypeName="IsTypeOf(DB.Spl_ProductCategory)">
+              <MappingFragment StoreEntitySet="Spl_ProductCategory">
+                <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Spl_Ware">
+            <EntityTypeMapping TypeName="IsTypeOf(DB.Spl_Ware)">
+              <MappingFragment StoreEntitySet="Spl_Ware">
+                <ScalarProperty Name="Editor" ColumnName="Editor" />
+                <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+                <ScalarProperty Name="Creator" ColumnName="Creator" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="WareState" ColumnName="WareState" />
+                <ScalarProperty Name="WareCount" ColumnName="WareCount" />
+                <ScalarProperty Name="WareInfoId" ColumnName="WareInfoId" />
+                <ScalarProperty Name="ShowType" ColumnName="ShowType" />
+                <ScalarProperty Name="Thumbnail" ColumnName="Thumbnail" />
+                <ScalarProperty Name="Note" ColumnName="Note" />
+                <ScalarProperty Name="Stock" ColumnName="Stock" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="OriginPrice" ColumnName="OriginPrice" />
+                <ScalarProperty Name="Unit" ColumnName="Unit" />
+                <ScalarProperty Name="ProductCategoryId" ColumnName="ProductCategoryId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

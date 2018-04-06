@@ -135,11 +135,11 @@ namespace Apps.Web.Areas.Mis.Controllers
             var json = from m in list
                        select new SysStructUserModel()
                        {
-                           id = m.Id,
-                           text = "<input id=\"" + m.Id + "\" class=\"" + (m.Type == "group" ? "CBGroup" : "CBMember") + "\" type=\"checkbox\" ref=\"" + id + "\" value=\"" + m.Id + "\" />" + m.Name,     //text
-                           attributes = m.Name,
-                           iconCls = m.Type == "group" ? "fa fa-users color-green" : SetOnlineIcon(m.Id, recorder),
-                           state = m.Type == "group" ? "closed" : "open"
+                           Id = m.Id,
+                           Text = "<input id=\"" + m.Id + "\" class=\"" + (m.Type == "group" ? "CBGroup" : "CBMember") + "\" type=\"checkbox\" ref=\"" + id + "\" value=\"" + m.Id + "\" />" + m.Name,     //text
+                           Attributes = m.Name,
+                           IconCls = m.Type == "group" ? "fa fa-users color-green" : SetOnlineIcon(m.Id, recorder),
+                           State = m.Type == "group" ? "closed" : "open"
 
                        };
             return Json(json);

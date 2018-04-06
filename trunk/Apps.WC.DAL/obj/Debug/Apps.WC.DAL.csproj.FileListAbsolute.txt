@@ -36,3 +36,7 @@ C:\Users\LabCenter\Desktop\ymnets.net20170401\20180405\trunk\Apps.WC.DAL\obj\Deb
 C:\Users\LabCenter\Desktop\ymnets.net20170401\20180405\trunk\Apps.WC.DAL\obj\Debug\Apps.WC.DAL.csproj.CoreCompileInputs.cache
 C:\Users\LabCenter\Desktop\ymnets.net20170401\20180405\trunk\Apps.WC.DAL\obj\Debug\Apps.WC.DAL.dll
 C:\Users\LabCenter\Desktop\ymnets.net20170401\20180405\trunk\Apps.WC.DAL\obj\Debug\Apps.WC.DAL.pdb
+C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.WC.DAL\obj\Debug\Apps.WC.DAL.csprojResolveAssemblyReference.cache
+C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.WC.DAL\obj\Debug\Apps.WC.DAL.csproj.CoreCompileInputs.cache
+C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.WC.DAL\obj\Debug\Apps.WC.DAL.dll
+C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.WC.DAL\obj\Debug\Apps.WC.DAL.pdb

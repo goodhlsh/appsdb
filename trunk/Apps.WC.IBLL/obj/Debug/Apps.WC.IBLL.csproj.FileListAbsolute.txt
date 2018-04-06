@@ -27,3 +27,7 @@ C:\Users\LabCenter\Desktop\ymnets.net20170401\20180405\trunk\Apps.WC.IBLL\obj\De
 C:\Users\LabCenter\Desktop\ymnets.net20170401\20180405\trunk\Apps.WC.IBLL\obj\Debug\Apps.WC.IBLL.csproj.CoreCompileInputs.cache
 C:\Users\LabCenter\Desktop\ymnets.net20170401\20180405\trunk\Apps.WC.IBLL\obj\Debug\Apps.WC.IBLL.dll
 C:\Users\LabCenter\Desktop\ymnets.net20170401\20180405\trunk\Apps.WC.IBLL\obj\Debug\Apps.WC.IBLL.pdb
+C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.WC.IBLL\obj\Debug\Apps.WC.IBLL.csprojResolveAssemblyReference.cache
+C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.WC.IBLL\obj\Debug\Apps.WC.IBLL.csproj.CoreCompileInputs.cache
+C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.WC.IBLL\obj\Debug\Apps.WC.IBLL.dll
+C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.WC.IBLL\obj\Debug\Apps.WC.IBLL.pdb

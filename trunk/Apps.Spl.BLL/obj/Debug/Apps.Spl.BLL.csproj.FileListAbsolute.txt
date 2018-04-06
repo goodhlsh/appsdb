@@ -59,3 +59,7 @@ C:\Users\LabCenter\Desktop\ymnets.net20170401\20180405\trunk\Apps.Spl.BLL\obj\De
 C:\Users\LabCenter\Desktop\ymnets.net20170401\20180405\trunk\Apps.Spl.BLL\obj\Debug\Apps.Spl.BLL.csproj.CoreCompileInputs.cache
 C:\Users\LabCenter\Desktop\ymnets.net20170401\20180405\trunk\Apps.Spl.BLL\obj\Debug\Apps.Spl.BLL.dll
 C:\Users\LabCenter\Desktop\ymnets.net20170401\20180405\trunk\Apps.Spl.BLL\obj\Debug\Apps.Spl.BLL.pdb
+C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Spl.BLL\obj\Debug\Apps.Spl.BLL.csprojResolveAssemblyReference.cache
+C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Spl.BLL\obj\Debug\Apps.Spl.BLL.csproj.CoreCompileInputs.cache
+C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Spl.BLL\obj\Debug\Apps.Spl.BLL.dll
+C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Spl.BLL\obj\Debug\Apps.Spl.BLL.pdb

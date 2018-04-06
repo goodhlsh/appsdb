@@ -8,11 +8,11 @@ namespace Apps.Models.Sys
 {
     public partial class SysStructUserModel
     {
-        public string id { get; set; }
-        public string text { get; set; }
-        public string iconCls { get; set; }
-        public string attributes { get; set; }
-        public string state { get; set; }
+        public string Id { get; set; }
+        public string Text { get; set; }
+        public string IconCls { get; set; }
+        public string Attributes { get; set; }
+        public string State { get; set; }
         
     }
 }

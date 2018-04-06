@@ -402,10 +402,6 @@
     </AssociationSet>
     <EntitySet Name="Spl_Product" EntityType="DB.Spl_Product" />
     <EntitySet Name="Spl_ProductCategory" EntityType="DB.Spl_ProductCategory" />
-    <AssociationSet Name="FK_Spl_Product_Spl_ProductCategory" Association="DB.FK_Spl_Product_Spl_ProductCategory">
-      <End Role="Spl_ProductCategory" EntitySet="Spl_ProductCategory" />
-      <End Role="Spl_Product" EntitySet="Spl_Product" />
-    </AssociationSet>
     <EntitySet Name="Spl_Person" EntityType="DB.Spl_Person" />
     <FunctionImport Name="P_Sys_GetAllUsers" ReturnType="Collection(DB.P_Sys_GetAllUsers_Result)" />
     <FunctionImport Name="P_WC_GetResponseContent" ReturnType="Collection(DB.P_WC_GetResponseContent_Result)">
@@ -440,6 +436,39 @@
     <AssociationSet Name="FK_WC_User_WC_OfficalAccounts" Association="DB.FK_WC_User_WC_OfficalAccounts">
       <End Role="WC_OfficalAccounts" EntitySet="WC_OfficalAccounts" />
       <End Role="WC_User" EntitySet="WC_User" />
+    </AssociationSet>
+    <EntitySet Name="SysPerson" EntityType="DB.SysPerson" />
+    <EntitySet Name="Spl_Actives" EntityType="DB.Spl_Actives" />
+    <EntitySet Name="Spl_Hotware" EntityType="DB.Spl_Hotware" />
+    <EntitySet Name="Spl_Orders" EntityType="DB.Spl_Orders" />
+    <EntitySet Name="Spl_Ware" EntityType="DB.Spl_Ware" />
+    <EntitySet Name="Spl_WareInfo" EntityType="DB.Spl_WareInfo" />
+    <EntitySet Name="SysAddress" EntityType="DB.SysAddress" />
+    <EntitySet Name="SysDcitTpe" EntityType="DB.SysDcitTpe" />
+    <EntitySet Name="SysDictData" EntityType="DB.SysDictData" />
+    <EntitySet Name="SysErCi" EntityType="DB.SysErCi" />
+    <EntitySet Name="SysHelps" EntityType="DB.SysHelps" />
+    <EntitySet Name="SysJiaPu" EntityType="DB.SysJiaPu" />
+    <EntitySet Name="SysLevels" EntityType="DB.SysLevels" />
+    <EntitySet Name="SysMessage" EntityType="DB.SysMessage" />
+    <EntitySet Name="SysProduct" EntityType="DB.SysProduct" />
+    <EntitySet Name="SysPurchaseHistory" EntityType="DB.SysPurchaseHistory" />
+    <EntitySet Name="SysWallet" EntityType="DB.SysWallet" />
+    <EntitySet Name="Spl_Order_Ware" EntityType="DB.Spl_Order_Ware" />
+    <FunctionImport Name="P_Sys_EveryMonth" />
+    <FunctionImport Name="P_Sys_PutErCi">
+      <Parameter Name="uid" Mode="In" Type="Int32" />
+      <Parameter Name="jine" Mode="In" Type="Decimal" />
+      <Parameter Name="orderid" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="P_Sys_PutZi">
+      <Parameter Name="uid" Mode="In" Type="Int32" />
+      <Parameter Name="pid" Mode="In" Type="Int32" />
+      <Parameter Name="fJE" Mode="In" Type="Decimal" />
+    </FunctionImport>
+    <AssociationSet Name="Spl_ProductCategorySpl_Ware" Association="DB.Spl_ProductCategorySpl_Ware">
+      <End Role="Spl_ProductCategory" EntitySet="Spl_ProductCategory" />
+      <End Role="Spl_Ware" EntitySet="Spl_Ware" />
     </AssociationSet>
   </EntityContainer>
   <EntityType Name="DEF_CaseType">
@@ -1237,8 +1266,8 @@
     <Property Name="Password" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
     <Property Name="TrueName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
     <Property Name="Card" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="MobileNumber" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
-    <Property Name="PhoneNumber" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="MobileNumber" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
     <Property Name="QQ" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="EmailAddress" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
     <Property Name="OtherContact" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
@@ -1280,6 +1309,29 @@
     <NavigationProperty Name="SysPosition" Relationship="DB.FK_SysUser_SysPosition" FromRole="SysUser" ToRole="SysPosition" />
     <NavigationProperty Name="SysStruct" Relationship="DB.FK_SysUser_SysStruct" FromRole="SysUser" ToRole="SysStruct" />
     <NavigationProperty Name="WC_OfficalAccounts" Relationship="DB.FK_WC_OfficalAcconts_SysUser" FromRole="SysUser" ToRole="WC_OfficalAccounts" />
+    <Property Name="HomePhone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="WXID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Signature" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="QRCode" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="IdentityCardFile" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="IdentityCardBackFile" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="IsAuth" Type="Boolean" />
+    <Property Name="AuditStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Note" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="SortCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="RecommendID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="RecommendTime" Type="DateTime" Precision="0" />
+    <Property Name="EditorID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UpdateTime" Type="DateTime" Precision="0" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <Property Name="Questions" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Answer" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="LastLoginIP" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="LastLoginTime" Type="DateTime" Precision="0" />
+    <Property Name="CurrentLoginIP" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CurrentLoginTime" Type="DateTime" Precision="0" />
+    <Property Name="LastPasswdTime" Type="DateTime" Precision="0" />
+    <Property Name="Recommendor" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
   </EntityType>
   <Association Name="FK_SysUserConfig_SysUser">
     <End Type="DB.SysUser" Role="SysUser" Multiplicity="0..1" />
@@ -1900,7 +1952,6 @@
     <Property Name="CategoryId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="CreateTime" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="CreateBy" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-    <NavigationProperty Name="Spl_ProductCategory" Relationship="DB.FK_Spl_Product_Spl_ProductCategory" FromRole="Spl_Product" ToRole="Spl_ProductCategory" />
     <Property Name="CostPrice" Type="Decimal" Precision="18" Scale="2" />
   </EntityType>
   <EntityType Name="Spl_ProductCategory">
@@ -1911,20 +1962,8 @@
     <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="CreateTime" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="CreateBy" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-    <NavigationProperty Name="Spl_Product" Relationship="DB.FK_Spl_Product_Spl_ProductCategory" FromRole="Spl_ProductCategory" ToRole="Spl_Product" />
+    <NavigationProperty Name="Spl_Ware" Relationship="DB.Spl_ProductCategorySpl_Ware" FromRole="Spl_ProductCategory" ToRole="Spl_Ware" />
   </EntityType>
-  <Association Name="FK_Spl_Product_Spl_ProductCategory">
-    <End Type="DB.Spl_ProductCategory" Role="Spl_ProductCategory" Multiplicity="1" />
-    <End Type="DB.Spl_Product" Role="Spl_Product" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Spl_ProductCategory">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Spl_Product">
-        <PropertyRef Name="CategoryId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <EntityType Name="Spl_Person">
     <Key>
       <PropertyRef Name="Id" />
@@ -2153,5 +2192,275 @@
         <PropertyRef Name="OfficalAccountId" />
       </Dependent>
     </ReferentialConstraint>
+  </Association>
+  <EntityType Name="SysPerson">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Sex" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="Age" Type="Int32" />
+    <Property Name="IDCard" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Address" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="CreateTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Region" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Category" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Spl_Actives">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Title" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Cont" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Fors" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="BeginDate" Type="DateTime" Precision="3" />
+    <Property Name="EndDate" Type="DateTime" Precision="3" />
+    <Property Name="IsShow" Type="Boolean" />
+    <Property Name="CreateTime" Type="DateTime" Precision="3" />
+    <Property Name="UpdateTime" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="Spl_Hotware">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="WareId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Amount" Type="Int32" />
+    <Property Name="SumJinE" Type="Decimal" Precision="19" Scale="4" />
+  </EntityType>
+  <EntityType Name="Spl_Orders">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="OrderNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Status" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="AddressId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CreateTime" Type="DateTime" Precision="3" />
+    <Property Name="UpdateTime" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="Spl_Ware">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ProductCategoryId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Unit" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="OriginPrice" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Price" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Stock" Type="Int32" />
+    <Property Name="Note" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Thumbnail" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="ShowType" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="WareInfoId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="WareCount" Type="Int32" />
+    <Property Name="WareState" Type="Boolean" />
+    <Property Name="CreateTime" Type="DateTime" Precision="3" />
+    <Property Name="Creator" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UpdateTime" Type="DateTime" Precision="3" />
+    <Property Name="Editor" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Spl_ProductCategory" Relationship="DB.Spl_ProductCategorySpl_Ware" FromRole="Spl_Ware" ToRole="Spl_ProductCategory" />
+  </EntityType>
+  <EntityType Name="Spl_WareInfo">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Picture0" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Picture1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Picture2" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Picture3" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Picture4" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Picture5" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Detail" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="ToTop" Type="Boolean" />
+    <Property Name="CreateTime" Type="DateTime" Precision="3" />
+    <Property Name="Creator" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UpdateTime" Type="DateTime" Precision="3" />
+    <Property Name="Editor" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="SysAddress">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Mobile" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+    <Property Name="Province" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="City" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Street" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="House" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Typs" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="IsDefault" Type="Boolean" />
+    <Property Name="CreateTime" Type="DateTime" Precision="3" />
+    <Property Name="UpdateTime" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="SysDcitTpe">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Remarek" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="SortCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Creator" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CreateTime" Type="DateTime" Precision="3" />
+    <Property Name="Editor" Type="Binary" MaxLength="50" FixedLength="false" />
+    <Property Name="EditTime" Type="DateTime" Precision="3" />
+    <Property Name="Pid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="SysDictData">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DictType_Id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DicValue" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Remark" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="SortCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Creator" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CreateTime" Type="DateTime" Precision="3" />
+    <Property Name="Editor" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="EditTime" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="SysErCi">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="OrderId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="JinE" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="CreateTime" Type="DateTime" Precision="3" />
+    <Property Name="Note" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="SysHelps">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Cont" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Category" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="CreateTime" Type="DateTime" Precision="3" />
+    <Property Name="UpdateTime" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="SysJiaPu">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ParentId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PPId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ZiMu" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ShuZi" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ErZiShu" Type="Int32" />
+    <Property Name="FirstJinE" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="LevelId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ZMP15" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="ZMPA2" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="ZMPB2" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="ZMPC2" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="ZMPD2" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="ZMPE2" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="ZMPF2" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="ZMPG2" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="ZMPH2" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="ZMPI2" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="ZMPJ2" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="CreateTime" Type="DateTime" Precision="3" />
+    <Property Name="UpdateTime" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="SysLevels">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Code" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="FirstDiscout" Type="Single" />
+    <Property Name="SecondDiscout" Type="Single" />
+    <Property Name="ThirdDiscout" Type="Single" />
+    <Property Name="Other" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="CreateTime" Type="DateTime" Precision="3" />
+    <Property Name="UpdateTime" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="SysMessage">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Title" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Cont" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Category" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="FromWho" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="ToWho" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="CreateTime" Type="DateTime" Precision="3" />
+    <Property Name="UpdateTime" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="SysProduct">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Code" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Price" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="CostPrice" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Color" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Number" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="CategoryId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CreateTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreateBy" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="SysPurchaseHistory">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ShouRu" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Froms" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="CreateTime" Type="DateTime" Precision="3" />
+    <Property Name="Note" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="IsShow" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="SysWallet">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Balance" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Froms" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="JieYu" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Note" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="CreateTime" Type="DateTime" Precision="3" />
+    <Property Name="UpdateTime" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="Spl_Order_Ware">
+    <Key>
+      <PropertyRef Name="WaresId" />
+      <PropertyRef Name="OrderID" />
+    </Key>
+    <Property Name="WaresId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Amount" Type="Int32" />
+    <Property Name="SumJinE" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="OrderID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <Association Name="Spl_ProductCategorySpl_Ware">
+    <End Type="DB.Spl_ProductCategory" Role="Spl_ProductCategory" Multiplicity="1" />
+    <End Type="DB.Spl_Ware" Role="Spl_Ware" Multiplicity="*" />
   </Association>
 </Schema>

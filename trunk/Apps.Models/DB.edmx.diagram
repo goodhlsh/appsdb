@@ -89,7 +89,7 @@
         <AssociationConnector Association="DB.FK_SysUser_SysPosition" />
         <AssociationConnector Association="DB.FK_SysUser_SysStruct" />
         <EntityTypeShape EntityType="DB.Spl_Product" Width="1.5" PointX="22.625" PointY="1" />
-        <EntityTypeShape EntityType="DB.Spl_ProductCategory" Width="1.5" PointX="18" PointY="20.625" />
+        <EntityTypeShape EntityType="DB.Spl_ProductCategory" Width="1.5" PointX="18.875" PointY="20.5" />
         <EntityTypeShape EntityType="DB.Spl_Person" Width="1.5" PointX="10.375" PointY="5.75" />
         <EntityTypeShape EntityType="DB.WC_MessageResponse" Width="1.5" PointX="10.5" PointY="49.25" />
         <EntityTypeShape EntityType="DB.WC_OfficalAccounts" Width="1.5" PointX="8.25" PointY="47" />
@@ -106,7 +106,7 @@
         <EntityTypeShape EntityType="DB.Spl_Actives" Width="1.5" PointX="17.75" PointY="4.75" />
         <EntityTypeShape EntityType="DB.Spl_Hotware" Width="1.5" PointX="17.75" PointY="8.75" />
         <EntityTypeShape EntityType="DB.Spl_Orders" Width="1.5" PointX="12.75" PointY="17.75" />
-        <EntityTypeShape EntityType="DB.Spl_Ware" Width="1.5" PointX="21.125" PointY="20.75" />
+        <EntityTypeShape EntityType="DB.Spl_Ware" Width="1.5" PointX="21.375" PointY="20.25" />
         <EntityTypeShape EntityType="DB.Spl_WareInfo" Width="1.5" PointX="0.75" PointY="21.75" />
         <EntityTypeShape EntityType="DB.SysAddress" Width="1.5" PointX="2.75" PointY="21.75" />
         <EntityTypeShape EntityType="DB.SysDcitTpe" Width="1.5" PointX="12.75" PointY="21.75" />

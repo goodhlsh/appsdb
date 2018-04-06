@@ -62,8 +62,8 @@ namespace Apps.Spl.BLL
 													CategoryId = r.CategoryId,
 													CreateTime = r.CreateTime,
 													CreateBy = r.CreateBy,
-													CostPrice = r.CostPrice,
-                                                    ProductCategory = r.Spl_ProductCategory.Name
+													CostPrice = r.CostPrice
+                                                    
                                               }).ToList();
 
             return modelList;
