@@ -24,9 +24,9 @@ namespace Apps.WebApi
             UnityConfig.RegisterComponents();
             UnityConfig.RegisterComponentsByWebApi();
             
-            GlobalConfiguration.Configuration.Services.Replace(typeof(IHttpControllerSelector),
-                                                   new AreaHttpControllerSelector(
-                                                       GlobalConfiguration.Configuration));
+           // GlobalConfiguration.Configuration.Services.Replace(typeof(IHttpControllerSelector),
+           //                                        new AreaHttpControllerSelector(
+           //                                            GlobalConfiguration.Configuration));
         }
         protected void Application_PostAuthorizeRequest()
         {

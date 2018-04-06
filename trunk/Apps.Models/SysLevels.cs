@@ -14,6 +14,11 @@ namespace Apps.Models
     
     public partial class SysLevels
     {
+        public SysLevels()
+        {
+            this.SysJiaPu = new HashSet<SysJiaPu>();
+        }
+    
         public string id { get; set; }
         public string Name { get; set; }
         public string Code { get; set; }
@@ -23,5 +28,7 @@ namespace Apps.Models
         public string Other { get; set; }
         public Nullable<System.DateTime> CreateTime { get; set; }
         public Nullable<System.DateTime> UpdateTime { get; set; }
+    
+        public virtual ICollection<SysJiaPu> SysJiaPu { get; set; }
     }
 }

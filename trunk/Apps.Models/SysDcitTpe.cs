@@ -14,6 +14,11 @@ namespace Apps.Models
     
     public partial class SysDcitTpe
     {
+        public SysDcitTpe()
+        {
+            this.SysDictData = new HashSet<SysDictData>();
+        }
+    
         public string id { get; set; }
         public string Name { get; set; }
         public string Remarek { get; set; }
@@ -23,5 +28,7 @@ namespace Apps.Models
         public byte[] Editor { get; set; }
         public Nullable<System.DateTime> EditTime { get; set; }
         public string Pid { get; set; }
+    
+        public virtual ICollection<SysDictData> SysDictData { get; set; }
     }
 }

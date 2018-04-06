@@ -24,5 +24,7 @@ namespace Apps.Models
         public Nullable<System.DateTime> CreateTime { get; set; }
         public string Editor { get; set; }
         public Nullable<System.DateTime> EditTime { get; set; }
+    
+        public virtual SysDcitTpe SysDcitTpe { get; set; }
     }
 }

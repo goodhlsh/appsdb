@@ -1070,16 +1070,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Spl_ProductCategory">
-      <EntityTypeMapping TypeName="DB.Spl_ProductCategory">
-        <MappingFragment StoreEntitySet="Spl_ProductCategory">
-          <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
-          <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
-          <ScalarProperty Name="Id" ColumnName="Id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="Spl_Person">
       <EntityTypeMapping TypeName="DB.Spl_Person">
         <MappingFragment StoreEntitySet="Spl_Person">
@@ -1291,29 +1281,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Spl_Ware">
-      <EntityTypeMapping TypeName="DB.Spl_Ware">
-        <MappingFragment StoreEntitySet="Spl_Ware">
-          <ScalarProperty Name="Editor" ColumnName="Editor" />
-          <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
-          <ScalarProperty Name="Creator" ColumnName="Creator" />
-          <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
-          <ScalarProperty Name="WareState" ColumnName="WareState" />
-          <ScalarProperty Name="WareCount" ColumnName="WareCount" />
-          <ScalarProperty Name="WareInfoId" ColumnName="WareInfoId" />
-          <ScalarProperty Name="ShowType" ColumnName="ShowType" />
-          <ScalarProperty Name="Thumbnail" ColumnName="Thumbnail" />
-          <ScalarProperty Name="Note" ColumnName="Note" />
-          <ScalarProperty Name="Stock" ColumnName="Stock" />
-          <ScalarProperty Name="Price" ColumnName="Price" />
-          <ScalarProperty Name="OriginPrice" ColumnName="OriginPrice" />
-          <ScalarProperty Name="Unit" ColumnName="Unit" />
-          <ScalarProperty Name="ProductCategoryId" ColumnName="ProductCategoryId" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
-          <ScalarProperty Name="id" ColumnName="id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="Spl_WareInfo">
       <EntityTypeMapping TypeName="DB.Spl_WareInfo">
         <MappingFragment StoreEntitySet="Spl_WareInfo">
@@ -1521,5 +1488,38 @@
     <FunctionImportMapping FunctionImportName="P_Sys_EveryMonth" FunctionName="DB.Store.P_Sys_EveryMonth" />
     <FunctionImportMapping FunctionImportName="P_Sys_PutErCi" FunctionName="DB.Store.P_Sys_PutErCi" />
     <FunctionImportMapping FunctionImportName="P_Sys_PutZi" FunctionName="DB.Store.P_Sys_PutZi" />
+    <EntitySetMapping Name="Spl_ProductCategory">
+      <EntityTypeMapping TypeName="IsTypeOf(DB.Spl_ProductCategory)">
+        <MappingFragment StoreEntitySet="Spl_ProductCategory">
+          <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+          <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Spl_Ware">
+      <EntityTypeMapping TypeName="IsTypeOf(DB.Spl_Ware)">
+        <MappingFragment StoreEntitySet="Spl_Ware">
+          <ScalarProperty Name="Editor" ColumnName="Editor" />
+          <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+          <ScalarProperty Name="Creator" ColumnName="Creator" />
+          <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+          <ScalarProperty Name="WareState" ColumnName="WareState" />
+          <ScalarProperty Name="WareCount" ColumnName="WareCount" />
+          <ScalarProperty Name="WareInfoId" ColumnName="WareInfoId" />
+          <ScalarProperty Name="ShowType" ColumnName="ShowType" />
+          <ScalarProperty Name="Thumbnail" ColumnName="Thumbnail" />
+          <ScalarProperty Name="Note" ColumnName="Note" />
+          <ScalarProperty Name="Stock" ColumnName="Stock" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="OriginPrice" ColumnName="OriginPrice" />
+          <ScalarProperty Name="Unit" ColumnName="Unit" />
+          <ScalarProperty Name="ProductCategoryId" ColumnName="ProductCategoryId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

@@ -14,6 +14,11 @@ namespace Apps.Models
     
     public partial class Spl_Orders
     {
+        public Spl_Orders()
+        {
+            this.Spl_Order_Ware = new HashSet<Spl_Order_Ware>();
+        }
+    
         public string id { get; set; }
         public string UserId { get; set; }
         public string OrderNo { get; set; }
@@ -21,5 +26,8 @@ namespace Apps.Models
         public string AddressId { get; set; }
         public Nullable<System.DateTime> CreateTime { get; set; }
         public Nullable<System.DateTime> UpdateTime { get; set; }
+    
+        public virtual ICollection<Spl_Order_Ware> Spl_Order_Ware { get; set; }
+        public virtual SysUser SysUser { get; set; }
     }
 }

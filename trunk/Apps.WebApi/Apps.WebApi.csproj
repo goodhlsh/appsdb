@@ -154,7 +154,9 @@
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Spl2\Models\" />
     <Folder Include="Areas\Spl2\Views\Shared\" />
-    <Folder Include="Areas\Spl\" />
+    <Folder Include="Areas\Ware\Controllers\" />
+    <Folder Include="Areas\Ware\Models\" />
+    <Folder Include="Areas\Ware\Views\Shared\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
@@ -179,6 +181,7 @@
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Areas\Spl2\Spl2AreaRegistration.cs" />
     <Compile Include="Areas\Spl2\Controllers\Spl_ProductCategoryController.cs" />
+    <Compile Include="Areas\Ware\WareAreaRegistration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -212,6 +215,7 @@
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ApiGroup.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\Api.cshtml" />
     <Content Include="Areas\Spl2\Views\web.config" />
+    <Content Include="Areas\Ware\Views\web.config" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />

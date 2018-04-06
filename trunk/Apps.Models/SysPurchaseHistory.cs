@@ -21,5 +21,7 @@ namespace Apps.Models
         public Nullable<System.DateTime> CreateTime { get; set; }
         public string Note { get; set; }
         public Nullable<bool> IsShow { get; set; }
+    
+        public virtual SysUser SysUser { get; set; }
     }
 }

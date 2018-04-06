@@ -14,6 +14,12 @@ namespace Apps.Models
     
     public partial class Spl_Ware
     {
+        public Spl_Ware()
+        {
+            this.Spl_Order_Ware = new HashSet<Spl_Order_Ware>();
+            this.Spl_Hotware = new HashSet<Spl_Hotware>();
+        }
+    
         public string id { get; set; }
         public string Name { get; set; }
         public string ProductCategoryId { get; set; }
@@ -31,7 +37,11 @@ namespace Apps.Models
         public string Creator { get; set; }
         public Nullable<System.DateTime> UpdateTime { get; set; }
         public string Editor { get; set; }
+        public string Description { get; set; }
     
         public virtual Spl_ProductCategory Spl_ProductCategory { get; set; }
+        public virtual ICollection<Spl_Order_Ware> Spl_Order_Ware { get; set; }
+        public virtual ICollection<Spl_Hotware> Spl_Hotware { get; set; }
+        public virtual Spl_WareInfo Spl_WareInfo { get; set; }
     }
 }

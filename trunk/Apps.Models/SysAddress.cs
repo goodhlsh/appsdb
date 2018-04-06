@@ -26,5 +26,7 @@ namespace Apps.Models
         public Nullable<bool> IsDefault { get; set; }
         public Nullable<System.DateTime> CreateTime { get; set; }
         public Nullable<System.DateTime> UpdateTime { get; set; }
+    
+        public virtual SysUser SysUser { get; set; }
     }
 }

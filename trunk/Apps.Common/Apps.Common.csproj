@@ -61,6 +61,7 @@
     <Compile Include="ContextKeys.cs" />
     <Compile Include="ContextRequest.cs" />
     <Compile Include="CookieHelper.cs" />
+    <Compile Include="Encrypt\EncryptHelper.cs" />
     <Compile Include="ExcelHelper\ImportDataHelper.cs" />
     <Compile Include="LinqHelper\DataFilterModel.cs" />
     <Compile Include="LinqHelper\DataFliterOperatorTypeEnum.cs" />

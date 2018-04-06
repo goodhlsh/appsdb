@@ -14,6 +14,11 @@ namespace Apps.Models
     
     public partial class Spl_WareInfo
     {
+        public Spl_WareInfo()
+        {
+            this.Spl_Ware = new HashSet<Spl_Ware>();
+        }
+    
         public string id { get; set; }
         public string Picture0 { get; set; }
         public string Picture1 { get; set; }
@@ -27,5 +32,7 @@ namespace Apps.Models
         public string Creator { get; set; }
         public Nullable<System.DateTime> UpdateTime { get; set; }
         public string Editor { get; set; }
+    
+        public virtual ICollection<Spl_Ware> Spl_Ware { get; set; }
     }
 }

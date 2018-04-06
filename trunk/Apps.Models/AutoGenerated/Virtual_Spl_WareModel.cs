@@ -30,5 +30,6 @@ namespace Apps.Models.Spl
 			public virtual string Creator { get; set; }
 			public virtual Nullable<System.DateTime> UpdateTime { get; set; }
 			public virtual string Editor { get; set; }
+			public virtual string Description { get; set; }
 		}
 }

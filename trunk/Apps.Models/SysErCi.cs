@@ -20,5 +20,7 @@ namespace Apps.Models
         public Nullable<decimal> JinE { get; set; }
         public Nullable<System.DateTime> CreateTime { get; set; }
         public string Note { get; set; }
+    
+        public virtual SysUser SysUser { get; set; }
     }
 }

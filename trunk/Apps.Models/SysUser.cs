@@ -24,6 +24,12 @@ namespace Apps.Models
             this.Flow_FormContent = new HashSet<Flow_FormContent>();
             this.Flow_FormContentStepCheckState = new HashSet<Flow_FormContentStepCheckState>();
             this.WC_OfficalAccounts = new HashSet<WC_OfficalAccounts>();
+            this.SysPurchaseHistory = new HashSet<SysPurchaseHistory>();
+            this.SysWallet = new HashSet<SysWallet>();
+            this.SysErCi = new HashSet<SysErCi>();
+            this.SysAddress = new HashSet<SysAddress>();
+            this.Spl_Orders = new HashSet<Spl_Orders>();
+            this.SysJiaPu = new HashSet<SysJiaPu>();
         }
     
         public string Id { get; set; }
@@ -98,5 +104,11 @@ namespace Apps.Models
         public virtual SysPosition SysPosition { get; set; }
         public virtual SysStruct SysStruct { get; set; }
         public virtual ICollection<WC_OfficalAccounts> WC_OfficalAccounts { get; set; }
+        public virtual ICollection<SysPurchaseHistory> SysPurchaseHistory { get; set; }
+        public virtual ICollection<SysWallet> SysWallet { get; set; }
+        public virtual ICollection<SysErCi> SysErCi { get; set; }
+        public virtual ICollection<SysAddress> SysAddress { get; set; }
+        public virtual ICollection<Spl_Orders> Spl_Orders { get; set; }
+        public virtual ICollection<SysJiaPu> SysJiaPu { get; set; }
     }
 }

@@ -23,6 +23,25 @@ namespace Apps.WebApi.Core
             var content = actionContext.Request.Properties[ConfigPara.MS_HttpContext] as HttpContextBase;
 
             var token = content.Request.QueryString[ConfigPara.Token];
+            //获取headers["X-APICLoud-AppKey"]
+            var appId = System.Configuration.ConfigurationManager.AppSettings["AppId"];
+            var appKey = System.Configuration.ConfigurationManager.AppSettings["AppKey"];
+            var appKeyFromRequest = content.Request.Headers["X-APICLoud-AppKey"];
+            try
+            {
+                var appKeyInSha1FromRequest = appKeyFromRequest.Split('.')[0];
+                var now = appKeyFromRequest.Split('.')[1];
+                var appKeyInSha1 = EncryptHelper.EncryptToSHA1(appId + "UZ" + appKey + "UZ" + now);
+                
+                if (appKeyInSha1!=appKeyInSha1FromRequest.ToUpper())
+                {
+                    HandleUnauthorizedRequest(actionContext);
+                }
+            }
+            catch
+            {
+                HandleUnauthorizedRequest(actionContext);
+            }
             if (!string.IsNullOrEmpty(token))
             {
                 //解密用户ticket,并校验用户名密码是否匹配

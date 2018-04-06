@@ -26,6 +26,7 @@ namespace Apps.WebApi.Controllers
         /// <param name="passsword">密码</param>
         /// <returns></returns>
         [HttpGet]
+        [SupportFilter]
         public object Login(string userName, string password)
         {
             SysUser user = accountBLL.Login(userName, ValueConvert.MD5(password));

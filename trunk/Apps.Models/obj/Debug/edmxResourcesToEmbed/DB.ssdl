@@ -534,9 +534,9 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="CreateTime" Type="datetime" Nullable="false" />
-    <Property Name="CreateBy" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" />
+    <Property Name="CreateTime" Type="datetime" />
+    <Property Name="CreateBy" Type="varchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="Spl_Ware">
     <Key>
@@ -544,7 +544,7 @@
     </Key>
     <Property Name="id" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="Name" Type="varchar" MaxLength="50" />
-    <Property Name="ProductCategoryId" Type="varchar" MaxLength="50" />
+    <Property Name="ProductCategoryId" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="Unit" Type="varchar" MaxLength="10" />
     <Property Name="OriginPrice" Type="money" />
     <Property Name="Price" Type="money" />
@@ -1455,15 +1455,15 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Spl_Product_Spl_ProductCategory">
+  <Association Name="FK_Spl_Ware_Spl_ProductCategory">
     <End Role="Spl_ProductCategory" Type="Self.Spl_ProductCategory" Multiplicity="1" />
-    <End Role="Spl_Product" Type="Self.Spl_Product" Multiplicity="*" />
+    <End Role="Spl_Ware" Type="Self.Spl_Ware" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Spl_ProductCategory">
         <PropertyRef Name="Id" />
       </Principal>
-      <Dependent Role="Spl_Product">
-        <PropertyRef Name="CategoryId" />
+      <Dependent Role="Spl_Ware">
+        <PropertyRef Name="ProductCategoryId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -2164,9 +2164,9 @@
       <End Role="MIS_WebIM_Message" EntitySet="MIS_WebIM_Message" />
       <End Role="MIS_WebIM_Message_Rec" EntitySet="MIS_WebIM_Message_Rec" />
     </AssociationSet>
-    <AssociationSet Name="FK_Spl_Product_Spl_ProductCategory" Association="Self.FK_Spl_Product_Spl_ProductCategory">
+    <AssociationSet Name="FK_Spl_Ware_Spl_ProductCategory" Association="Self.FK_Spl_Ware_Spl_ProductCategory">
       <End Role="Spl_ProductCategory" EntitySet="Spl_ProductCategory" />
-      <End Role="Spl_Product" EntitySet="Spl_Product" />
+      <End Role="Spl_Ware" EntitySet="Spl_Ware" />
     </AssociationSet>
     <AssociationSet Name="FK_SysAreas_SysAreas" Association="Self.FK_SysAreas_SysAreas">
       <End Role="SysAreas" EntitySet="SysAreas" />
