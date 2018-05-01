@@ -21,6 +21,8 @@ namespace Apps.BLL
         public ISysStructRepository structRep { get; set; }
         [Dependency]
         public ISysPositionRepository posRep { get; set; }
+        [Dependency]
+        public ISysJiaPuRepository jpRep { get; set; }
         public List<permModel> GetPermission(string accountid, string controller)
         {
             return sysRightRep.GetPermission(accountid,controller);
@@ -515,6 +517,16 @@ namespace Apps.BLL
                                                 Status = 0,//0离线状态1在线2忙碌3离开
                                             }).ToList();
             return modelList;
+        }
+        /// <summary>
+        /// jiapu
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <param name="pId"></param>
+        /// <param name="fJE"></param>
+        public void IntoSysJiaPu(string userId, string pId, decimal fJE)
+        {
+            jpRep.IntoSysJiaPu(userId, pId, fJE);
         }
     }
 }

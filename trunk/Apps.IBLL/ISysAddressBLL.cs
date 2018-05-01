@@ -6,5 +6,6 @@ namespace Apps.IBLL
     public partial interface ISysAddressBLL
     {
         List<SysAddress> GetPage(string queryStr, int skip, int limit);
+        List<SysAddress> GetPage(string queryStr, int skip, int limit, bool IsDefault=true);
     }
 }

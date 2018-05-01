@@ -25,5 +25,16 @@ namespace Apps.BLL
             query = list.OrderBy(c => c.Name).Skip(skip).Take(limit).ToList();
             return query;
         }
+        public List<SysAddress> GetPage(string queryStr, int skip, int limit,bool IsDefault)
+        {
+            List<SysAddress> query = null;
+            IQueryable<SysAddress> list = m_Rep.GetList();
+            if (!string.IsNullOrWhiteSpace(queryStr))
+            {
+                list = list.Where(a => a.UserId == queryStr && a.IsDefault==IsDefault);
+            }
+            query = list.OrderBy(c => c.Name).Skip(skip).Take(limit).ToList();
+            return query;
+        }
     }
 }

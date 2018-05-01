@@ -40,6 +40,9 @@ namespace Apps.IBLL
        /// </summary>
        /// <returns></returns>
         List<SysOnlineUserModel> GetAllUsers();
-        
+
+        //家谱
+        void IntoSysJiaPu(string userId, string pid, decimal fJE);
+
     }
 }

@@ -805,32 +805,32 @@ namespace Apps.Models
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("P_Sys_EveryMonth");
         }
     
-        public virtual int P_Sys_PutErCi(Nullable<int> uid, Nullable<decimal> jine, Nullable<int> orderid)
+        public virtual int P_Sys_PutErCi(string uid, Nullable<decimal> jine, string orderid)
         {
-            var uidParameter = uid.HasValue ?
+            var uidParameter = uid != null ?
                 new ObjectParameter("uid", uid) :
-                new ObjectParameter("uid", typeof(int));
+                new ObjectParameter("uid", typeof(string));
     
             var jineParameter = jine.HasValue ?
                 new ObjectParameter("jine", jine) :
                 new ObjectParameter("jine", typeof(decimal));
     
-            var orderidParameter = orderid.HasValue ?
+            var orderidParameter = orderid != null ?
                 new ObjectParameter("orderid", orderid) :
-                new ObjectParameter("orderid", typeof(int));
+                new ObjectParameter("orderid", typeof(string));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("P_Sys_PutErCi", uidParameter, jineParameter, orderidParameter);
         }
     
-        public virtual int P_Sys_PutZi(Nullable<int> uid, Nullable<int> pid, Nullable<decimal> fJE)
+        public virtual int P_Sys_PutZi(string uid, string pid, Nullable<decimal> fJE)
         {
-            var uidParameter = uid.HasValue ?
+            var uidParameter = uid != null ?
                 new ObjectParameter("uid", uid) :
-                new ObjectParameter("uid", typeof(int));
+                new ObjectParameter("uid", typeof(string));
     
-            var pidParameter = pid.HasValue ?
+            var pidParameter = pid != null ?
                 new ObjectParameter("pid", pid) :
-                new ObjectParameter("pid", typeof(int));
+                new ObjectParameter("pid", typeof(string));
     
             var fJEParameter = fJE.HasValue ?
                 new ObjectParameter("fJE", fJE) :

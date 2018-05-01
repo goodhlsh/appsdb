@@ -127,7 +127,7 @@ namespace Apps.WebApi.Areas.User.Controllers
                 model.IsDefault = info.IsDefault;
                 model.UserId = info.UserId;
                 model.UpdateTime = DateTime.Now;
-                bool result=ma_BLL.Edit(ref errors, model);
+                bool result = ma_BLL.Edit(ref errors, model);
                 return result;
             }
             //新增
@@ -149,7 +149,11 @@ namespace Apps.WebApi.Areas.User.Controllers
                 return result;
             }
         }
-
+        /// <summary>
+        /// 获取用户所有地址
+        /// </summary>
+        /// <param name="filter"></param>
+        /// <returns></returns>
         [HttpGet]
         public object GetAllAddress(string filter)
         {
@@ -166,15 +170,35 @@ namespace Apps.WebApi.Areas.User.Controllers
             return Json(list);
         }
         /// <summary>
+        /// 获取用户默认地址
+        /// </summary>
+        /// <param name="filter"></param>
+        /// <returns></returns>
+        [HttpGet]
+        public object GetDefaultAddress(string filter)
+        {
+            JObject opc = JObject.Parse(filter);
+            var queryStr = "";
+            
+            if (JObject.Parse(opc["where"].ToString())["ID"] != null)
+            {
+                queryStr = JObject.Parse(opc["where"].ToString())["ID"].ToString();
+            }
+
+            List<SysAddress> list = ma_BLL.GetPage(queryStr, int.Parse(opc["skip"].ToString()), int.Parse(opc["limit"].ToString()),true);
+
+            return Json(list);
+        }
+        /// <summary>
         /// 调用存储过程
         /// 参数：userid 用户id，pid 推荐人id，fje选择级别费
         /// </summary>
         /// <param name="sysJiaPu"></param>
         /// <returns></returns>
         [HttpPost]
-        public bool PutJiapu([FromBody]SysJiaPu sysJiaPu)
+        public void PutJiapu([FromBody]SysJiaPu sysJiaPu)
         {
-
+            m_BLL.IntoSysJiaPu(sysJiaPu.UserId, sysJiaPu.ParentId, (decimal)sysJiaPu.FirstJinE);
         }
     }
 }

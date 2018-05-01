@@ -2068,13 +2068,13 @@
         </Function>
         <Function Name="P_Sys_InsertSysRight" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="P_Sys_PutErCi" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="uid" Type="int" Mode="In" />
+          <Parameter Name="uid" Type="varchar" Mode="In" />
           <Parameter Name="jine" Type="money" Mode="In" />
-          <Parameter Name="orderid" Type="int" Mode="In" />
+          <Parameter Name="orderid" Type="varchar" Mode="In" />
         </Function>
         <Function Name="P_Sys_PutZi" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="uid" Type="int" Mode="In" />
-          <Parameter Name="pid" Type="int" Mode="In" />
+          <Parameter Name="uid" Type="varchar" Mode="In" />
+          <Parameter Name="pid" Type="varchar" Mode="In" />
           <Parameter Name="fJE" Type="money" Mode="In" />
         </Function>
         <Function Name="P_Sys_UpdateSysRightRightFlag" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
@@ -2920,13 +2920,13 @@
           <EntitySet Name="Spl_Order_Ware" EntityType="DB.Spl_Order_Ware" />
           <FunctionImport Name="P_Sys_EveryMonth" />
           <FunctionImport Name="P_Sys_PutErCi">
-            <Parameter Name="uid" Mode="In" Type="Int32" />
+            <Parameter Name="uid" Mode="In" Type="String" />
             <Parameter Name="jine" Mode="In" Type="Decimal" />
-            <Parameter Name="orderid" Mode="In" Type="Int32" />
+            <Parameter Name="orderid" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="P_Sys_PutZi">
-            <Parameter Name="uid" Mode="In" Type="Int32" />
-            <Parameter Name="pid" Mode="In" Type="Int32" />
+            <Parameter Name="uid" Mode="In" Type="String" />
+            <Parameter Name="pid" Mode="In" Type="String" />
             <Parameter Name="fJE" Mode="In" Type="Decimal" />
           </FunctionImport>
           <AssociationSet Name="Spl_ProductCategorySpl_Ware" Association="DB.Spl_ProductCategorySpl_Ware">
