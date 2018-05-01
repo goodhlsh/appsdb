@@ -8,3 +8,13 @@ C:\Users\LabCenter\Desktop\ymnets.net20170401\20180405\trunk\Apps.CodeHelper\obj
 C:\Users\LabCenter\Desktop\ymnets.net20170401\20180405\trunk\Apps.CodeHelper\obj\Debug\Apps.CodeHelper.csproj.CoreCompileInputs.cache
 C:\Users\LabCenter\Desktop\ymnets.net20170401\20180405\trunk\Apps.CodeHelper\obj\Debug\Apps.CodeHelper.exe
 C:\Users\LabCenter\Desktop\ymnets.net20170401\20180405\trunk\Apps.CodeHelper\obj\Debug\Apps.CodeHelper.pdb
+C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.CodeHelper\bin\Debug\Apps.CodeHelper.exe.config
+C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.CodeHelper\bin\Debug\Apps.CodeHelper.exe
+C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.CodeHelper\bin\Debug\Apps.CodeHelper.pdb
+C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.CodeHelper\obj\Debug\Apps.CodeHelper.csprojResolveAssemblyReference.cache
+C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.CodeHelper\obj\Debug\Apps.CodeHelper.CodeFrom.resources
+C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.CodeHelper\obj\Debug\Apps.CodeHelper.Properties.Resources.resources
+C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.CodeHelper\obj\Debug\Apps.CodeHelper.csproj.GenerateResource.Cache
+C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.CodeHelper\obj\Debug\Apps.CodeHelper.csproj.CoreCompileInputs.cache
+C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.CodeHelper\obj\Debug\Apps.CodeHelper.exe
+C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.CodeHelper\obj\Debug\Apps.CodeHelper.pdb

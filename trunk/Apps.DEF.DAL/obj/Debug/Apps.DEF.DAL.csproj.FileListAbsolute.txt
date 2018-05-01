@@ -76,3 +76,4 @@ C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.DEF.DAL\obj\Debug\Apps.DEF
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.DEF.DAL\obj\Debug\Apps.DEF.DAL.csproj.CoreCompileInputs.cache
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.DEF.DAL\obj\Debug\Apps.DEF.DAL.dll
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.DEF.DAL\obj\Debug\Apps.DEF.DAL.pdb
+C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.DEF.DAL\obj\Debug\Apps.DEF.DAL.csproj.CopyComplete

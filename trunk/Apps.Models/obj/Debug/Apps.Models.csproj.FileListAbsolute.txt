@@ -52,3 +52,4 @@ C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Models\obj\Debug\Apps.Mode
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Models\obj\Debug\Apps.Models.csproj.CoreCompileInputs.cache
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Models\obj\Debug\Apps.Models.dll
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Models\obj\Debug\Apps.Models.pdb
+C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Models\obj\Debug\Apps.Models.csproj.CopyComplete

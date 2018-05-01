@@ -120,3 +120,4 @@ C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.DEF.BLL\obj\Debug\Apps.DEF
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.DEF.BLL\obj\Debug\Apps.DEF.BLL.csproj.CoreCompileInputs.cache
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.DEF.BLL\obj\Debug\Apps.DEF.BLL.dll
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.DEF.BLL\obj\Debug\Apps.DEF.BLL.pdb
+C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.DEF.BLL\obj\Debug\Apps.DEF.BLL.csproj.CopyComplete

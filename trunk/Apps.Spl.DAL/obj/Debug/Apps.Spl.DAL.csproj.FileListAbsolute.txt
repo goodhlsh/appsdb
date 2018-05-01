@@ -74,3 +74,4 @@ C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Spl.DAL\obj\Debug\Apps.Spl
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Spl.DAL\obj\Debug\Apps.Spl.DAL.csproj.CoreCompileInputs.cache
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Spl.DAL\obj\Debug\Apps.Spl.DAL.dll
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Spl.DAL\obj\Debug\Apps.Spl.DAL.pdb
+C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Spl.DAL\obj\Debug\Apps.Spl.DAL.csproj.CopyComplete

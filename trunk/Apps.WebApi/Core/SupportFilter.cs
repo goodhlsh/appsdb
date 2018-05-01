@@ -21,10 +21,10 @@ namespace Apps.WebApi.Core
         {
             //url获取token
             var content = actionContext.Request.Properties[ConfigPara.MS_HttpContext] as HttpContextBase;
-
             var token = content.Request.QueryString[ConfigPara.Token];
-            //获取headers["X-APICLoud-AppKey"]
-            var appId = System.Configuration.ConfigurationManager.AppSettings["AppId"];
+            #region 与apicloud保持一致
+            //获取headers["X-APICLoud-AppKey"]  
+            /*var appId = System.Configuration.ConfigurationManager.AppSettings["AppId"];
             var appKey = System.Configuration.ConfigurationManager.AppSettings["AppKey"];
             var appKeyFromRequest = content.Request.Headers["X-APICLoud-AppKey"];
             try
@@ -32,8 +32,8 @@ namespace Apps.WebApi.Core
                 var appKeyInSha1FromRequest = appKeyFromRequest.Split('.')[0];
                 var now = appKeyFromRequest.Split('.')[1];
                 var appKeyInSha1 = EncryptHelper.EncryptToSHA1(appId + "UZ" + appKey + "UZ" + now);
-                
-                if (appKeyInSha1!=appKeyInSha1FromRequest.ToUpper())
+
+                if (appKeyInSha1 != appKeyInSha1FromRequest.ToUpper())
                 {
                     HandleUnauthorizedRequest(actionContext);
                 }
@@ -42,6 +42,8 @@ namespace Apps.WebApi.Core
             {
                 HandleUnauthorizedRequest(actionContext);
             }
+            */
+            #endregion
             if (!string.IsNullOrEmpty(token))
             {
                 //解密用户ticket,并校验用户名密码是否匹配
@@ -74,10 +76,7 @@ namespace Apps.WebApi.Core
                 else HandleUnauthorizedRequest(actionContext);
             }
         }
-
-
-
-
+            
         public bool ValiddatePermission(string token, string controller, string action, string filePath)
         {
             bool bResult = false;
@@ -98,19 +97,19 @@ namespace Apps.WebApi.Core
                     HttpContext.Current.Session[filePath] = perm;//获取的劝降放入会话由Controller调用
                 }
             }
-                //查询当前Action 是否有操作权限，大于0表示有，否则没有
-                int count = perm.Where(a => a.KeyCode.ToLower() == action.ToLower()).Count();
-                if (count > 0)
-                {
-                    bResult = true;
-                }
-                else
-                {
-                    bResult = false;
-                    LoginUserManage.RedirectUrlFor401();
-                }
+            //查询当前Action 是否有操作权限，大于0表示有，否则没有
+            int count = perm.Where(a => a.KeyCode.ToLower() == action.ToLower()).Count();
+            if (count > 0)
+            {
+                bResult = true;
+            }
+            else
+            {
+                bResult = false;
+                LoginUserManage.RedirectUrlFor401();
+            }
 
-            
+
             return bResult;
 
         }

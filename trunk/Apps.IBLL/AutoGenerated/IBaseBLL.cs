@@ -9,7 +9,7 @@ namespace Apps.IBLL
 {
     public interface IBaseBLL<T> : IDisposable
     {
-        List<T> GetList(ref GridPager pager, string queryStr);
+        List<T> GetList(ref GridPager pager, string queryStr);  
         bool Create(ref ValidationErrors errors, T model);
         bool Delete(ref ValidationErrors errors, string id);
         bool Delete(ref ValidationErrors errors, string[] deleteCollection);

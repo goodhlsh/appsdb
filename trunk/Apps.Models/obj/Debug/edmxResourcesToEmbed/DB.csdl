@@ -470,6 +470,58 @@
       <End Role="Spl_ProductCategory" EntitySet="Spl_ProductCategory" />
       <End Role="Spl_Ware" EntitySet="Spl_Ware" />
     </AssociationSet>
+    <AssociationSet Name="SysUserSysPurchaseHistory" Association="DB.SysUserSysPurchaseHistory">
+      <End Role="SysUser" EntitySet="SysUser" />
+      <End Role="SysPurchaseHistory" EntitySet="SysPurchaseHistory" />
+    </AssociationSet>
+    <AssociationSet Name="SysUserSysWallet" Association="DB.SysUserSysWallet">
+      <End Role="SysUser" EntitySet="SysUser" />
+      <End Role="SysWallet" EntitySet="SysWallet" />
+    </AssociationSet>
+    <AssociationSet Name="SysUserSysErCi" Association="DB.SysUserSysErCi">
+      <End Role="SysUser" EntitySet="SysUser" />
+      <End Role="SysErCi" EntitySet="SysErCi" />
+    </AssociationSet>
+    <AssociationSet Name="Spl_WareSpl_Order_Ware" Association="DB.Spl_WareSpl_Order_Ware">
+      <End Role="Spl_Ware" EntitySet="Spl_Ware" />
+      <End Role="Spl_Order_Ware" EntitySet="Spl_Order_Ware" />
+    </AssociationSet>
+    <AssociationSet Name="SysDcitTpeSysDictData" Association="DB.SysDcitTpeSysDictData">
+      <End Role="SysDcitTpe" EntitySet="SysDcitTpe" />
+      <End Role="SysDictData" EntitySet="SysDictData" />
+    </AssociationSet>
+    <AssociationSet Name="SysJiaPuSysJiaPu" Association="DB.SysJiaPuSysJiaPu">
+      <End Role="SysJiaPu" EntitySet="SysJiaPu" />
+      <End Role="SysJiaPu1" EntitySet="SysJiaPu" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Spl_Order_Ware_Spl_Orders" Association="DB.FK_Spl_Order_Ware_Spl_Orders">
+      <End Role="Spl_Orders" EntitySet="Spl_Orders" />
+      <End Role="Spl_Order_Ware" EntitySet="Spl_Order_Ware" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SysAddress_SysUser" Association="DB.FK_SysAddress_SysUser">
+      <End Role="SysUser" EntitySet="SysUser" />
+      <End Role="SysAddress" EntitySet="SysAddress" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Spl_Hotware_Spl_Ware" Association="DB.FK_Spl_Hotware_Spl_Ware">
+      <End Role="Spl_Ware" EntitySet="Spl_Ware" />
+      <End Role="Spl_Hotware" EntitySet="Spl_Hotware" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Spl_Orders_SysUser" Association="DB.FK_Spl_Orders_SysUser">
+      <End Role="SysUser" EntitySet="SysUser" />
+      <End Role="Spl_Orders" EntitySet="Spl_Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Spl_Ware_Spl_WareInfo" Association="DB.FK_Spl_Ware_Spl_WareInfo">
+      <End Role="Spl_WareInfo" EntitySet="Spl_WareInfo" />
+      <End Role="Spl_Ware" EntitySet="Spl_Ware" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SysJiaPu_SysLevels" Association="DB.FK_SysJiaPu_SysLevels">
+      <End Role="SysLevels" EntitySet="SysLevels" />
+      <End Role="SysJiaPu" EntitySet="SysJiaPu" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SysJiaPu_SysUser" Association="DB.FK_SysJiaPu_SysUser">
+      <End Role="SysUser" EntitySet="SysUser" />
+      <End Role="SysJiaPu" EntitySet="SysJiaPu" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="DEF_CaseType">
     <Key>
@@ -1332,6 +1384,12 @@
     <Property Name="CurrentLoginTime" Type="DateTime" Precision="0" />
     <Property Name="LastPasswdTime" Type="DateTime" Precision="0" />
     <Property Name="Recommendor" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="SysPurchaseHistory" Relationship="DB.SysUserSysPurchaseHistory" FromRole="SysUser" ToRole="SysPurchaseHistory" />
+    <NavigationProperty Name="SysWallet" Relationship="DB.SysUserSysWallet" FromRole="SysUser" ToRole="SysWallet" />
+    <NavigationProperty Name="SysErCi" Relationship="DB.SysUserSysErCi" FromRole="SysUser" ToRole="SysErCi" />
+    <NavigationProperty Name="SysAddress" Relationship="DB.FK_SysAddress_SysUser" FromRole="SysUser" ToRole="SysAddress" />
+    <NavigationProperty Name="Spl_Orders" Relationship="DB.FK_Spl_Orders_SysUser" FromRole="SysUser" ToRole="Spl_Orders" />
+    <NavigationProperty Name="SysJiaPu" Relationship="DB.FK_SysJiaPu_SysUser" FromRole="SysUser" ToRole="SysJiaPu" />
   </EntityType>
   <Association Name="FK_SysUserConfig_SysUser">
     <End Type="DB.SysUser" Role="SysUser" Multiplicity="0..1" />
@@ -2228,9 +2286,10 @@
       <PropertyRef Name="id" />
     </Key>
     <Property Name="id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="WareId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="WareId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="Amount" Type="Int32" />
     <Property Name="SumJinE" Type="Decimal" Precision="19" Scale="4" />
+    <NavigationProperty Name="Spl_Ware" Relationship="DB.FK_Spl_Hotware_Spl_Ware" FromRole="Spl_Hotware" ToRole="Spl_Ware" />
   </EntityType>
   <EntityType Name="Spl_Orders">
     <Key>
@@ -2243,6 +2302,8 @@
     <Property Name="AddressId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="CreateTime" Type="DateTime" Precision="3" />
     <Property Name="UpdateTime" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Spl_Order_Ware" Relationship="DB.FK_Spl_Order_Ware_Spl_Orders" FromRole="Spl_Orders" ToRole="Spl_Order_Ware" />
+    <NavigationProperty Name="SysUser" Relationship="DB.FK_Spl_Orders_SysUser" FromRole="Spl_Orders" ToRole="SysUser" />
   </EntityType>
   <EntityType Name="Spl_Ware">
     <Key>
@@ -2258,7 +2319,7 @@
     <Property Name="Note" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
     <Property Name="Thumbnail" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
     <Property Name="ShowType" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-    <Property Name="WareInfoId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="WareInfoId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="WareCount" Type="Int32" />
     <Property Name="WareState" Type="Boolean" />
     <Property Name="CreateTime" Type="DateTime" Precision="3" />
@@ -2266,6 +2327,10 @@
     <Property Name="UpdateTime" Type="DateTime" Precision="3" />
     <Property Name="Editor" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="Spl_ProductCategory" Relationship="DB.Spl_ProductCategorySpl_Ware" FromRole="Spl_Ware" ToRole="Spl_ProductCategory" />
+    <NavigationProperty Name="Spl_Order_Ware" Relationship="DB.Spl_WareSpl_Order_Ware" FromRole="Spl_Ware" ToRole="Spl_Order_Ware" />
+    <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Spl_Hotware" Relationship="DB.FK_Spl_Hotware_Spl_Ware" FromRole="Spl_Ware" ToRole="Spl_Hotware" />
+    <NavigationProperty Name="Spl_WareInfo" Relationship="DB.FK_Spl_Ware_Spl_WareInfo" FromRole="Spl_Ware" ToRole="Spl_WareInfo" />
   </EntityType>
   <EntityType Name="Spl_WareInfo">
     <Key>
@@ -2284,6 +2349,7 @@
     <Property Name="Creator" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="UpdateTime" Type="DateTime" Precision="3" />
     <Property Name="Editor" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Spl_Ware" Relationship="DB.FK_Spl_Ware_Spl_WareInfo" FromRole="Spl_WareInfo" ToRole="Spl_Ware" />
   </EntityType>
   <EntityType Name="SysAddress">
     <Key>
@@ -2301,6 +2367,7 @@
     <Property Name="IsDefault" Type="Boolean" />
     <Property Name="CreateTime" Type="DateTime" Precision="3" />
     <Property Name="UpdateTime" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="SysUser" Relationship="DB.FK_SysAddress_SysUser" FromRole="SysAddress" ToRole="SysUser" />
   </EntityType>
   <EntityType Name="SysDcitTpe">
     <Key>
@@ -2315,13 +2382,14 @@
     <Property Name="Editor" Type="Binary" MaxLength="50" FixedLength="false" />
     <Property Name="EditTime" Type="DateTime" Precision="3" />
     <Property Name="Pid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="SysDictData" Relationship="DB.SysDcitTpeSysDictData" FromRole="SysDcitTpe" ToRole="SysDictData" />
   </EntityType>
   <EntityType Name="SysDictData">
     <Key>
       <PropertyRef Name="id" />
     </Key>
     <Property Name="id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="DictType_Id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DictType_Id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="DicValue" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="Remark" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
@@ -2330,6 +2398,7 @@
     <Property Name="CreateTime" Type="DateTime" Precision="3" />
     <Property Name="Editor" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="EditTime" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="SysDcitTpe" Relationship="DB.SysDcitTpeSysDictData" FromRole="SysDictData" ToRole="SysDcitTpe" />
   </EntityType>
   <EntityType Name="SysErCi">
     <Key>
@@ -2341,6 +2410,7 @@
     <Property Name="JinE" Type="Decimal" Precision="19" Scale="4" />
     <Property Name="CreateTime" Type="DateTime" Precision="3" />
     <Property Name="Note" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="SysUser" Relationship="DB.SysUserSysErCi" FromRole="SysErCi" ToRole="SysUser" />
   </EntityType>
   <EntityType Name="SysHelps">
     <Key>
@@ -2359,13 +2429,13 @@
     </Key>
     <Property Name="id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="UserId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="ParentId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ParentId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="PPId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="ZiMu" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="ShuZi" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="ErZiShu" Type="Int32" />
     <Property Name="FirstJinE" Type="Decimal" Precision="19" Scale="4" />
-    <Property Name="LevelId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="LevelId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="ZMP15" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
     <Property Name="ZMPA2" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
     <Property Name="ZMPB2" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
@@ -2380,6 +2450,10 @@
     <Property Name="Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
     <Property Name="CreateTime" Type="DateTime" Precision="3" />
     <Property Name="UpdateTime" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="SysJiaPu1" Relationship="DB.SysJiaPuSysJiaPu" FromRole="SysJiaPu" ToRole="SysJiaPu1" />
+    <NavigationProperty Name="SysJiaPu2" Relationship="DB.SysJiaPuSysJiaPu" FromRole="SysJiaPu1" ToRole="SysJiaPu" />
+    <NavigationProperty Name="SysLevels" Relationship="DB.FK_SysJiaPu_SysLevels" FromRole="SysJiaPu" ToRole="SysLevels" />
+    <NavigationProperty Name="SysUser" Relationship="DB.FK_SysJiaPu_SysUser" FromRole="SysJiaPu" ToRole="SysUser" />
   </EntityType>
   <EntityType Name="SysLevels">
     <Key>
@@ -2394,6 +2468,7 @@
     <Property Name="Other" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
     <Property Name="CreateTime" Type="DateTime" Precision="3" />
     <Property Name="UpdateTime" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="SysJiaPu" Relationship="DB.FK_SysJiaPu_SysLevels" FromRole="SysLevels" ToRole="SysJiaPu" />
   </EntityType>
   <EntityType Name="SysMessage">
     <Key>
@@ -2424,6 +2499,9 @@
     <Property Name="CreateBy" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityType Name="SysPurchaseHistory">
+    <Documentation>
+      <LongDescription>账单记录表（所有人的业绩）</LongDescription>
+    </Documentation>
     <Key>
       <PropertyRef Name="id" />
     </Key>
@@ -2434,6 +2512,7 @@
     <Property Name="CreateTime" Type="DateTime" Precision="3" />
     <Property Name="Note" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
     <Property Name="IsShow" Type="Boolean" />
+    <NavigationProperty Name="SysUser" Relationship="DB.SysUserSysPurchaseHistory" FromRole="SysPurchaseHistory" ToRole="SysUser" />
   </EntityType>
   <EntityType Name="SysWallet">
     <Key>
@@ -2447,6 +2526,7 @@
     <Property Name="Note" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
     <Property Name="CreateTime" Type="DateTime" Precision="3" />
     <Property Name="UpdateTime" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="SysUser" Relationship="DB.SysUserSysWallet" FromRole="SysWallet" ToRole="SysUser" />
   </EntityType>
   <EntityType Name="Spl_Order_Ware">
     <Key>
@@ -2458,6 +2538,8 @@
     <Property Name="Amount" Type="Int32" />
     <Property Name="SumJinE" Type="Decimal" Precision="19" Scale="4" />
     <Property Name="OrderID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Spl_Ware" Relationship="DB.Spl_WareSpl_Order_Ware" FromRole="Spl_Order_Ware" ToRole="Spl_Ware" />
+    <NavigationProperty Name="Spl_Orders" Relationship="DB.FK_Spl_Order_Ware_Spl_Orders" FromRole="Spl_Order_Ware" ToRole="Spl_Orders" />
   </EntityType>
   <Association Name="Spl_ProductCategorySpl_Ware">
     <End Type="DB.Spl_ProductCategory" Role="Spl_ProductCategory" Multiplicity="1" />
@@ -2468,6 +2550,162 @@
       </Principal>
       <Dependent Role="Spl_Ware">
         <PropertyRef Name="ProductCategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="SysUserSysPurchaseHistory">
+    <End Type="DB.SysUser" Role="SysUser" Multiplicity="1" />
+    <End Type="DB.SysPurchaseHistory" Role="SysPurchaseHistory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SysUser">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SysPurchaseHistory">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="SysUserSysWallet">
+    <End Type="DB.SysUser" Role="SysUser" Multiplicity="1" />
+    <End Type="DB.SysWallet" Role="SysWallet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SysUser">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SysWallet">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="SysUserSysErCi">
+    <End Type="DB.SysUser" Role="SysUser" Multiplicity="1" />
+    <End Type="DB.SysErCi" Role="SysErCi" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SysUser">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SysErCi">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Spl_WareSpl_Order_Ware">
+    <End Type="DB.Spl_Ware" Role="Spl_Ware" Multiplicity="1" />
+    <End Type="DB.Spl_Order_Ware" Role="Spl_Order_Ware" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Spl_Ware">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Spl_Order_Ware">
+        <PropertyRef Name="WaresId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="SysDcitTpeSysDictData">
+    <End Type="DB.SysDcitTpe" Role="SysDcitTpe" Multiplicity="1" />
+    <End Type="DB.SysDictData" Role="SysDictData" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SysDcitTpe">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="SysDictData">
+        <PropertyRef Name="DictType_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="SysJiaPuSysJiaPu">
+    <End Type="DB.SysJiaPu" Role="SysJiaPu" Multiplicity="1" />
+    <End Type="DB.SysJiaPu" Role="SysJiaPu1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SysJiaPu">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="SysJiaPu1">
+        <PropertyRef Name="ParentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Spl_Order_Ware_Spl_Orders">
+    <End Type="DB.Spl_Orders" Role="Spl_Orders" Multiplicity="1" />
+    <End Type="DB.Spl_Order_Ware" Role="Spl_Order_Ware" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Spl_Orders">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Spl_Order_Ware">
+        <PropertyRef Name="OrderID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SysAddress_SysUser">
+    <End Type="DB.SysUser" Role="SysUser" Multiplicity="1" />
+    <End Type="DB.SysAddress" Role="SysAddress" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SysUser">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SysAddress">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Spl_Hotware_Spl_Ware">
+    <End Type="DB.Spl_Ware" Role="Spl_Ware" Multiplicity="1" />
+    <End Type="DB.Spl_Hotware" Role="Spl_Hotware" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Spl_Ware">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Spl_Hotware">
+        <PropertyRef Name="WareId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Spl_Orders_SysUser">
+    <End Type="DB.SysUser" Role="SysUser" Multiplicity="1" />
+    <End Type="DB.Spl_Orders" Role="Spl_Orders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SysUser">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Spl_Orders">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Spl_Ware_Spl_WareInfo">
+    <End Type="DB.Spl_WareInfo" Role="Spl_WareInfo" Multiplicity="1" />
+    <End Type="DB.Spl_Ware" Role="Spl_Ware" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Spl_WareInfo">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Spl_Ware">
+        <PropertyRef Name="WareInfoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SysJiaPu_SysLevels">
+    <End Type="DB.SysLevels" Role="SysLevels" Multiplicity="1" />
+    <End Type="DB.SysJiaPu" Role="SysJiaPu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SysLevels">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="SysJiaPu">
+        <PropertyRef Name="LevelId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SysJiaPu_SysUser">
+    <End Type="DB.SysUser" Role="SysUser" Multiplicity="1" />
+    <End Type="DB.SysJiaPu" Role="SysJiaPu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SysUser">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SysJiaPu">
+        <PropertyRef Name="UserId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

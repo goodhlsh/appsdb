@@ -161,6 +161,7 @@
     <Compile Include="SysStructRepository.cs" />
     <Compile Include="SysUserConfigRepository.cs" />
     <Compile Include="SysUserRepository.cs" />
+    <Compile Include="SysWalletRepository.cs" />
     <Compile Include="WebpartRepository.cs" />
   </ItemGroup>
   <ItemGroup>

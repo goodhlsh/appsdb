@@ -56,3 +56,4 @@ C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Spl.IBLL\obj\Debug\Apps.Sp
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Spl.IBLL\obj\Debug\Apps.Spl.IBLL.csproj.CoreCompileInputs.cache
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Spl.IBLL\obj\Debug\Apps.Spl.IBLL.dll
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Spl.IBLL\obj\Debug\Apps.Spl.IBLL.pdb
+C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Spl.IBLL\obj\Debug\Apps.Spl.IBLL.csproj.CopyComplete

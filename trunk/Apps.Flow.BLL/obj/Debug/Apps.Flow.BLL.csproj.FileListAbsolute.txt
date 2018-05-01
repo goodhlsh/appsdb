@@ -108,3 +108,4 @@ C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Flow.BLL\obj\Debug\Apps.Fl
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Flow.BLL\obj\Debug\Apps.Flow.BLL.csproj.CoreCompileInputs.cache
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Flow.BLL\obj\Debug\Apps.Flow.BLL.dll
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Flow.BLL\obj\Debug\Apps.Flow.BLL.pdb
+C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Flow.BLL\obj\Debug\Apps.Flow.BLL.csproj.CopyComplete

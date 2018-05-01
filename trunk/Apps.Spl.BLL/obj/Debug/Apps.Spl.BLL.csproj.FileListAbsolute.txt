@@ -120,3 +120,4 @@ C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Spl.BLL\bin\Debug\en-US\Ap
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Spl.BLL\bin\Debug\zh-Hans\System.Web.Mvc.resources.dll
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Spl.BLL\bin\Debug\zh-Hans\System.Web.WebPages.resources.dll
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Spl.BLL\bin\Debug\zh-Hans\System.Web.WebPages.Deployment.resources.dll
+C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Spl.BLL\obj\Debug\Apps.Spl.BLL.csproj.CopyComplete

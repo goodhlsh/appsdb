@@ -1501,6 +1501,7 @@
     <EntitySetMapping Name="Spl_Ware">
       <EntityTypeMapping TypeName="IsTypeOf(DB.Spl_Ware)">
         <MappingFragment StoreEntitySet="Spl_Ware">
+          <ScalarProperty Name="Description" ColumnName="Description" />
           <ScalarProperty Name="Editor" ColumnName="Editor" />
           <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
           <ScalarProperty Name="Creator" ColumnName="Creator" />

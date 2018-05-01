@@ -11,7 +11,7 @@ using System.Web.Http;
 
 namespace Apps.WebApi.Controllers
 {
-    public class ValuesController : BaseApiController
+    public class ValuesController : ApiController
     {
         public IEnumerable<string> Get()
         {

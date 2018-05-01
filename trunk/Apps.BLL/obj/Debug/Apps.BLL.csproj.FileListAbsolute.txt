@@ -92,3 +92,4 @@ C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.BLL\obj\Debug\Apps.BLL.csp
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.BLL\obj\Debug\Apps.BLL.csproj.CoreCompileInputs.cache
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.BLL\obj\Debug\Apps.BLL.dll
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.BLL\obj\Debug\Apps.BLL.pdb
+C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.BLL\obj\Debug\Apps.BLL.csproj.CopyComplete

@@ -28,7 +28,6 @@ C:\Users\LabCenter\Desktop\ymnets.net20170401\20180405\trunk\Apps.WC.IDAL\obj\De
 C:\Users\LabCenter\Desktop\ymnets.net20170401\20180405\trunk\Apps.WC.IDAL\obj\Debug\Apps.WC.IDAL.csproj.CoreCompileInputs.cache
 C:\Users\LabCenter\Desktop\ymnets.net20170401\20180405\trunk\Apps.WC.IDAL\obj\Debug\Apps.WC.IDAL.dll
 C:\Users\LabCenter\Desktop\ymnets.net20170401\20180405\trunk\Apps.WC.IDAL\obj\Debug\Apps.WC.IDAL.pdb
-C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.WC.IDAL\obj\Debug\Apps.WC.IDAL.csprojResolveAssemblyReference.cache
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.WC.IDAL\obj\Debug\Apps.WC.IDAL.csproj.CoreCompileInputs.cache
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.WC.IDAL\obj\Debug\Apps.WC.IDAL.dll
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.WC.IDAL\obj\Debug\Apps.WC.IDAL.pdb
@@ -58,3 +57,5 @@ C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.WC.IDAL\bin\Debug\zh-Hans\
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.WC.IDAL\bin\Debug\zh-Hans\System.Web.WebPages.resources.dll
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.WC.IDAL\bin\Debug\en-US\Apps.Locale.resources.dll
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.WC.IDAL\bin\Debug\zh-Hans\System.Web.WebPages.Deployment.resources.dll
+C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.WC.IDAL\obj\Debug\Apps.WC.IDAL.csproj.CopyComplete
+C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.WC.IDAL\obj\Debug\Apps.WC.IDAL.csprojResolveAssemblyReference.cache

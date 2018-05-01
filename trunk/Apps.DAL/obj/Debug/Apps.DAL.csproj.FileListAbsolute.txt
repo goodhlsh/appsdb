@@ -64,3 +64,4 @@ C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.DAL\obj\Debug\Apps.DAL.csp
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.DAL\obj\Debug\Apps.DAL.csproj.CoreCompileInputs.cache
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.DAL\obj\Debug\Apps.DAL.dll
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.DAL\obj\Debug\Apps.DAL.pdb
+C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.DAL\obj\Debug\Apps.DAL.csproj.CopyComplete

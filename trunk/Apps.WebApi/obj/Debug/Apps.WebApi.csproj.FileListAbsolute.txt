@@ -272,3 +272,4 @@ C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.WebApi\obj\Debug\Apps.WebA
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.WebApi\obj\Debug\Apps.WebApi.csproj.CoreCompileInputs.cache
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.WebApi\obj\Debug\Apps.WebApi.dll
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.WebApi\obj\Debug\Apps.WebApi.pdb
+C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.WebApi\obj\Debug\Apps.WebApi.csproj.CopyComplete

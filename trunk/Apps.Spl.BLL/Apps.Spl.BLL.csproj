@@ -151,6 +151,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Spl_PersonBLL.cs" />
     <Compile Include="Spl_ProductBLL.cs" />
+    <Compile Include="Spl_ProductCategoryBLL.cs" />
+    <Compile Include="Spl_WareBLL.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

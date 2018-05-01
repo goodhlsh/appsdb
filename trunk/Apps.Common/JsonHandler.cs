@@ -10,7 +10,7 @@ namespace Apps.Common
     public class JsonHandler
     {
 
-        public static JsonMessage CreateMessage(int ptype,string pmessage,string pvalue)
+        public static JsonMessage CreateMessage(int ptype, string pmessage, string pvalue)
         {
             JsonMessage json = new JsonMessage()
             {
@@ -29,7 +29,7 @@ namespace Apps.Common
             };
             return json;
         }
-
+        
 
         /// <summary>
         /// 将对象序列化为JSON格式
@@ -101,15 +101,15 @@ namespace Apps.Common
 
 
 
-    }
+    }   
 
     public class JsonMessage
     {
-        public int type{get;set;}
-        public string message{get;set;}
-        public string value{get;set;}
+        public int type { get; set; }
+        public string message { get; set; }
+        public string value { get; set; }
     }
 
-    
-  
+
+
 }

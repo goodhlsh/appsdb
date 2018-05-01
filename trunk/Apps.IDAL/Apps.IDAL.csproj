@@ -159,6 +159,7 @@
     <Compile Include="ISysStructRepository.cs" />
     <Compile Include="ISysUserConfigRepository.cs" />
     <Compile Include="ISysUserRepository.cs" />
+    <Compile Include="ISysWalletRepository.cs" />
     <Compile Include="IWebpartRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

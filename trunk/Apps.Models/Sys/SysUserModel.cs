@@ -9,29 +9,41 @@ using System.Web.Mvc;
 namespace Apps.Models.Sys
 {
 
-
+    public class SysUserInfo
+    {
+        public string Id { get; set; }
+        public string UserName { get; set; }
+        public string TrueName { get; set; }
+        public string Card { get; set; }
+        public string shfzh { get; set; }
+        public string MobileNumber { get; set; }
+        public string Token { get; set; }
+        public bool State { get; set; }
+        public string Photo { get; set; }
+        public string QRCode { get; set; }
+        public Nullable<bool> IsAuth { get; set; }
+        public string Recommendor { get; set; }
+        public string Jibie { get; set; }
+    }
 
     public class SysUserLogingData
     {
         public string UserName { get; set; }
         public string Password { get; set; }
-        public string Ticket { get; set; }
-
     }
     public partial class SysUserModel
     {
-        [Display(Name = "ID")]
-        
+        [Display(Name = "ID")]        
         public override string Id { get; set; }
         [NotNullExpression]
         [Display(Name = "用户名")]
         public override string UserName { get; set; }
         [NotNullExpression]
         [StringLength(50,MinimumLength=5)]
-        //[System.Web.Mvc.Compare("ComparePassword", ErrorMessage = "两次密码不一致")]
+        [System.Web.Mvc.Compare("ComparePassword", ErrorMessage = "两次密码不一致")]
         [Display(Name = "密码")]
         public override string Password { get; set; }
-        //[System.Web.Mvc.Compare("Password", ErrorMessage = "两次密码不一致")]
+        [System.Web.Mvc.Compare("Password", ErrorMessage = "两次密码不一致")]
         [Display(Name = "确认密码")]
         public string ComparePassword { get; set; }
         [NotNullExpression]
@@ -163,8 +175,21 @@ namespace Apps.Models.Sys
         [Display(Name = "上次密码修改时间")]
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:yyyy-MM-dd}")]
         public override Nullable<System.DateTime> LastPasswdTime { get; set; }
-    }
+        public SysJiaPu SysJiaPu { get; set; } 
 
+    }
+    //实名认证用户
+    public class SysAuthUserModel
+    {
+        [Display(Name = "ID")]
+        public string Id { get; set; }
+        [Display(Name = "真实名称")]
+        public string TrueName { get; set; }
+        [Display(Name = "身份证")]
+        public string Card { get; set; }
+        [Display(Name = "手机号码")]
+        public string MobileNumber { get; set; }
+    }
     public class SysUserEditModel
     {
         [Display(Name = "ID")]

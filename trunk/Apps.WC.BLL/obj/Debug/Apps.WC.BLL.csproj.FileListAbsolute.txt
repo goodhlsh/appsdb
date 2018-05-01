@@ -100,3 +100,4 @@ C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.WC.BLL\obj\Debug\Apps.WC.B
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.WC.BLL\obj\Debug\Apps.WC.BLL.csproj.CoreCompileInputs.cache
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.WC.BLL\obj\Debug\Apps.WC.BLL.dll
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.WC.BLL\obj\Debug\Apps.WC.BLL.pdb
+C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.WC.BLL\obj\Debug\Apps.WC.BLL.csproj.CopyComplete

@@ -78,6 +78,13 @@ namespace Apps.Core
             container.RegisterType<IJOB_TASKJOBSRepository, JOB_TASKJOBSRepository>();
             container.RegisterType<IJOB_TASKJOBS_LOGBLL, JOB_TASKJOBS_LOGBLL>();//用户配置
             container.RegisterType<IJOB_TASKJOBS_LOGRepository, JOB_TASKJOBS_LOGRepository>();
+
+            //余额 注入
+            container.RegisterType<ISysWalletRepository, SysWalletRepository>();
+            container.RegisterType<ISysWalletBLL, SysWalletBLL>();
+            //家谱注入
+            container.RegisterType<ISysLevelsRepository, SysLevelsRepository>();
+            container.RegisterType<ISysLevelsBLL, SysLevelsBLL>();
         }
 
 
@@ -173,7 +180,10 @@ namespace Apps.Core
         /// <param name="container"></param>
         public static void Container_Sql(ref UnityContainer container)
         {
-            container.RegisterType<ISpl_ProductCategoryBLL, Spl_ProductCategoryBLL>();
+            container.RegisterType<ISpl_WareBLL, Spl_WareBLL>();//商品
+            container.RegisterType<ISpl_WareRepository, Spl_WareRepository>();
+
+            container.RegisterType<ISpl_ProductCategoryBLL, Spl_ProductCategoryBLL>();//商品分类
             container.RegisterType<ISpl_ProductCategoryRepository, Spl_ProductCategoryRepository>();
 
             container.RegisterType<ISpl_ProductBLL, Spl_ProductBLL>();

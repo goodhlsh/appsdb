@@ -76,3 +76,4 @@ C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.MIS.DAL\obj\Debug\Apps.MIS
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.MIS.DAL\obj\Debug\Apps.MIS.DAL.csproj.CoreCompileInputs.cache
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.MIS.DAL\obj\Debug\Apps.MIS.DAL.dll
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.MIS.DAL\obj\Debug\Apps.MIS.DAL.pdb
+C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.MIS.DAL\obj\Debug\Apps.MIS.DAL.csproj.CopyComplete

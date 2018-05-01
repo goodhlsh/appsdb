@@ -469,7 +469,7 @@
       <PropertyRef Name="id" />
     </Key>
     <Property Name="id" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="WareId" Type="varchar" MaxLength="50" />
+    <Property Name="WareId" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="Amount" Type="int" />
     <Property Name="SumJinE" Type="money" />
   </EntityType>
@@ -549,10 +549,11 @@
     <Property Name="OriginPrice" Type="money" />
     <Property Name="Price" Type="money" />
     <Property Name="Stock" Type="int" />
+    <Property Name="Description" Type="varchar" MaxLength="50" />
     <Property Name="Note" Type="varchar" MaxLength="100" />
     <Property Name="Thumbnail" Type="varchar" MaxLength="100" />
     <Property Name="ShowType" Type="varchar" MaxLength="10" />
-    <Property Name="WareInfoId" Type="varchar" MaxLength="50" />
+    <Property Name="WareInfoId" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="WareCount" Type="int" />
     <Property Name="WareState" Type="bit" />
     <Property Name="CreateTime" Type="datetime" />
@@ -628,7 +629,7 @@
       <PropertyRef Name="id" />
     </Key>
     <Property Name="id" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="DictType_Id" Type="varchar" MaxLength="50" />
+    <Property Name="DictType_Id" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="Name" Type="varchar" MaxLength="50" />
     <Property Name="DicValue" Type="varchar" MaxLength="50" />
     <Property Name="Remark" Type="varchar" MaxLength="255" />
@@ -679,13 +680,13 @@
     </Key>
     <Property Name="id" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="UserId" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="ParentId" Type="varchar" MaxLength="50" />
+    <Property Name="ParentId" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="PPId" Type="varchar" MaxLength="50" />
     <Property Name="ZiMu" Type="varchar" MaxLength="50" />
     <Property Name="ShuZi" Type="varchar" MaxLength="50" />
     <Property Name="ErZiShu" Type="int" />
     <Property Name="FirstJinE" Type="money" />
-    <Property Name="LevelId" Type="varchar" MaxLength="50" />
+    <Property Name="LevelId" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="ZMP15" Type="varchar" MaxLength="10" />
     <Property Name="ZMPA2" Type="varchar" MaxLength="10" />
     <Property Name="ZMPB2" Type="varchar" MaxLength="10" />
@@ -1455,6 +1456,54 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_Spl_Hotware_Spl_Ware">
+    <End Role="Spl_Ware" Type="Self.Spl_Ware" Multiplicity="1" />
+    <End Role="Spl_Hotware" Type="Self.Spl_Hotware" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Spl_Ware">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Spl_Hotware">
+        <PropertyRef Name="WareId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Spl_Order_Ware_Spl_Orders">
+    <End Role="Spl_Orders" Type="Self.Spl_Orders" Multiplicity="1" />
+    <End Role="Spl_Order_Ware" Type="Self.Spl_Order_Ware" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Spl_Orders">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Spl_Order_Ware">
+        <PropertyRef Name="OrderID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Spl_Order_Ware_Spl_Ware">
+    <End Role="Spl_Ware" Type="Self.Spl_Ware" Multiplicity="1" />
+    <End Role="Spl_Order_Ware" Type="Self.Spl_Order_Ware" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Spl_Ware">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Spl_Order_Ware">
+        <PropertyRef Name="WaresId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Spl_Orders_SysUser">
+    <End Role="SysUser" Type="Self.SysUser" Multiplicity="1" />
+    <End Role="Spl_Orders" Type="Self.Spl_Orders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SysUser">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Spl_Orders">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_Spl_Ware_Spl_ProductCategory">
     <End Role="Spl_ProductCategory" Type="Self.Spl_ProductCategory" Multiplicity="1" />
     <End Role="Spl_Ware" Type="Self.Spl_Ware" Multiplicity="*" />
@@ -1467,6 +1516,30 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_Spl_Ware_Spl_WareInfo">
+    <End Role="Spl_WareInfo" Type="Self.Spl_WareInfo" Multiplicity="1" />
+    <End Role="Spl_Ware" Type="Self.Spl_Ware" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Spl_WareInfo">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Spl_Ware">
+        <PropertyRef Name="WareInfoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SysAddress_SysUser">
+    <End Role="SysUser" Type="Self.SysUser" Multiplicity="1" />
+    <End Role="SysAddress" Type="Self.SysAddress" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SysUser">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SysAddress">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_SysAreas_SysAreas">
     <End Role="SysAreas" Type="Self.SysAreas" Multiplicity="1" />
     <End Role="SysAreas1" Type="Self.SysAreas" Multiplicity="*" />
@@ -1476,6 +1549,66 @@
       </Principal>
       <Dependent Role="SysAreas1">
         <PropertyRef Name="ParentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SysDictData_SysDcitTpe">
+    <End Role="SysDcitTpe" Type="Self.SysDcitTpe" Multiplicity="1" />
+    <End Role="SysDictData" Type="Self.SysDictData" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SysDcitTpe">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="SysDictData">
+        <PropertyRef Name="DictType_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SysErCi_SysUser">
+    <End Role="SysUser" Type="Self.SysUser" Multiplicity="1" />
+    <End Role="SysErCi" Type="Self.SysErCi" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SysUser">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SysErCi">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SysJiaPu_SysJiaPu">
+    <End Role="SysJiaPu" Type="Self.SysJiaPu" Multiplicity="1" />
+    <End Role="SysJiaPu1" Type="Self.SysJiaPu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SysJiaPu">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="SysJiaPu1">
+        <PropertyRef Name="ParentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SysJiaPu_SysLevels">
+    <End Role="SysLevels" Type="Self.SysLevels" Multiplicity="1" />
+    <End Role="SysJiaPu" Type="Self.SysJiaPu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SysLevels">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="SysJiaPu">
+        <PropertyRef Name="LevelId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SysJiaPu_SysUser">
+    <End Role="SysUser" Type="Self.SysUser" Multiplicity="1" />
+    <End Role="SysJiaPu" Type="Self.SysJiaPu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SysUser">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SysJiaPu">
+        <PropertyRef Name="UserId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -1516,6 +1649,18 @@
       </Principal>
       <Dependent Role="SysPosition">
         <PropertyRef Name="DepId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SysPurchaseHistory_SysUser">
+    <End Role="SysUser" Type="Self.SysUser" Multiplicity="1" />
+    <End Role="SysPurchaseHistory" Type="Self.SysPurchaseHistory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SysUser">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SysPurchaseHistory">
+        <PropertyRef Name="UserId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -1633,6 +1778,18 @@
         <PropertyRef Name="Id" />
       </Principal>
       <Dependent Role="SysUserConfig">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SysWallet_SysUser">
+    <End Role="SysUser" Type="Self.SysUser" Multiplicity="1" />
+    <End Role="SysWallet" Type="Self.SysWallet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SysUser">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SysWallet">
         <PropertyRef Name="UserId" />
       </Dependent>
     </ReferentialConstraint>
@@ -2164,13 +2321,57 @@
       <End Role="MIS_WebIM_Message" EntitySet="MIS_WebIM_Message" />
       <End Role="MIS_WebIM_Message_Rec" EntitySet="MIS_WebIM_Message_Rec" />
     </AssociationSet>
+    <AssociationSet Name="FK_Spl_Hotware_Spl_Ware" Association="Self.FK_Spl_Hotware_Spl_Ware">
+      <End Role="Spl_Ware" EntitySet="Spl_Ware" />
+      <End Role="Spl_Hotware" EntitySet="Spl_Hotware" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Spl_Order_Ware_Spl_Orders" Association="Self.FK_Spl_Order_Ware_Spl_Orders">
+      <End Role="Spl_Orders" EntitySet="Spl_Orders" />
+      <End Role="Spl_Order_Ware" EntitySet="Spl_Order_Ware" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Spl_Order_Ware_Spl_Ware" Association="Self.FK_Spl_Order_Ware_Spl_Ware">
+      <End Role="Spl_Ware" EntitySet="Spl_Ware" />
+      <End Role="Spl_Order_Ware" EntitySet="Spl_Order_Ware" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Spl_Orders_SysUser" Association="Self.FK_Spl_Orders_SysUser">
+      <End Role="SysUser" EntitySet="SysUser" />
+      <End Role="Spl_Orders" EntitySet="Spl_Orders" />
+    </AssociationSet>
     <AssociationSet Name="FK_Spl_Ware_Spl_ProductCategory" Association="Self.FK_Spl_Ware_Spl_ProductCategory">
       <End Role="Spl_ProductCategory" EntitySet="Spl_ProductCategory" />
       <End Role="Spl_Ware" EntitySet="Spl_Ware" />
     </AssociationSet>
+    <AssociationSet Name="FK_Spl_Ware_Spl_WareInfo" Association="Self.FK_Spl_Ware_Spl_WareInfo">
+      <End Role="Spl_WareInfo" EntitySet="Spl_WareInfo" />
+      <End Role="Spl_Ware" EntitySet="Spl_Ware" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SysAddress_SysUser" Association="Self.FK_SysAddress_SysUser">
+      <End Role="SysUser" EntitySet="SysUser" />
+      <End Role="SysAddress" EntitySet="SysAddress" />
+    </AssociationSet>
     <AssociationSet Name="FK_SysAreas_SysAreas" Association="Self.FK_SysAreas_SysAreas">
       <End Role="SysAreas" EntitySet="SysAreas" />
       <End Role="SysAreas1" EntitySet="SysAreas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SysDictData_SysDcitTpe" Association="Self.FK_SysDictData_SysDcitTpe">
+      <End Role="SysDcitTpe" EntitySet="SysDcitTpe" />
+      <End Role="SysDictData" EntitySet="SysDictData" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SysErCi_SysUser" Association="Self.FK_SysErCi_SysUser">
+      <End Role="SysUser" EntitySet="SysUser" />
+      <End Role="SysErCi" EntitySet="SysErCi" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SysJiaPu_SysJiaPu" Association="Self.FK_SysJiaPu_SysJiaPu">
+      <End Role="SysJiaPu" EntitySet="SysJiaPu" />
+      <End Role="SysJiaPu1" EntitySet="SysJiaPu" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SysJiaPu_SysLevels" Association="Self.FK_SysJiaPu_SysLevels">
+      <End Role="SysLevels" EntitySet="SysLevels" />
+      <End Role="SysJiaPu" EntitySet="SysJiaPu" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SysJiaPu_SysUser" Association="Self.FK_SysJiaPu_SysUser">
+      <End Role="SysUser" EntitySet="SysUser" />
+      <End Role="SysJiaPu" EntitySet="SysJiaPu" />
     </AssociationSet>
     <AssociationSet Name="FK_SysModule_SysModule" Association="Self.FK_SysModule_SysModule">
       <End Role="SysModule" EntitySet="SysModule" />
@@ -2183,6 +2384,10 @@
     <AssociationSet Name="FK_SysPosition_SysStruct" Association="Self.FK_SysPosition_SysStruct">
       <End Role="SysStruct" EntitySet="SysStruct" />
       <End Role="SysPosition" EntitySet="SysPosition" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SysPurchaseHistory_SysUser" Association="Self.FK_SysPurchaseHistory_SysUser">
+      <End Role="SysUser" EntitySet="SysUser" />
+      <End Role="SysPurchaseHistory" EntitySet="SysPurchaseHistory" />
     </AssociationSet>
     <AssociationSet Name="FK_SysRight_SysModule" Association="Self.FK_SysRight_SysModule">
       <End Role="SysModule" EntitySet="SysModule" />
@@ -2219,6 +2424,10 @@
     <AssociationSet Name="FK_SysUserConfig_SysUser" Association="Self.FK_SysUserConfig_SysUser">
       <End Role="SysUser" EntitySet="SysUser" />
       <End Role="SysUserConfig" EntitySet="SysUserConfig" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SysWallet_SysUser" Association="Self.FK_SysWallet_SysUser">
+      <End Role="SysUser" EntitySet="SysUser" />
+      <End Role="SysWallet" EntitySet="SysWallet" />
     </AssociationSet>
     <AssociationSet Name="FK_WC_Group_WC_OfficalAccounts" Association="Self.FK_WC_Group_WC_OfficalAccounts">
       <End Role="WC_OfficalAccounts" EntitySet="WC_OfficalAccounts" />

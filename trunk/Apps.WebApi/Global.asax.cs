@@ -19,7 +19,7 @@ namespace Apps.WebApi
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             //让jsonp请求能正确返回Json数据
-            GlobalConfiguration.Configuration.Filters.Add(new JsonCallbackAttribute());
+            //GlobalConfiguration.Configuration.Filters.Add(new JsonCallbackAttribute());
             //注入
             UnityConfig.RegisterComponents();
             UnityConfig.RegisterComponentsByWebApi();

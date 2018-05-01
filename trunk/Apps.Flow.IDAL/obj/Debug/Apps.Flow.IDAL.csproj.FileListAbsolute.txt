@@ -64,3 +64,4 @@ C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Flow.IDAL\obj\Debug\Apps.F
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Flow.IDAL\obj\Debug\Apps.Flow.IDAL.csproj.CoreCompileInputs.cache
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Flow.IDAL\obj\Debug\Apps.Flow.IDAL.dll
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Flow.IDAL\obj\Debug\Apps.Flow.IDAL.pdb
+C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Flow.IDAL\obj\Debug\Apps.Flow.IDAL.csproj.CopyComplete

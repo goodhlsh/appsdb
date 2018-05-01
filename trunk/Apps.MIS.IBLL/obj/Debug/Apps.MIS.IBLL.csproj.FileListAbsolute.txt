@@ -80,3 +80,4 @@ C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.MIS.IBLL\obj\Debug\Apps.MI
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.MIS.IBLL\obj\Debug\Apps.MIS.IBLL.csproj.CoreCompileInputs.cache
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.MIS.IBLL\obj\Debug\Apps.MIS.IBLL.dll
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.MIS.IBLL\obj\Debug\Apps.MIS.IBLL.pdb
+C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.MIS.IBLL\obj\Debug\Apps.MIS.IBLL.csproj.CopyComplete

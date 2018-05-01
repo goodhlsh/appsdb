@@ -74,3 +74,4 @@ C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.WC.DAL\bin\Debug\zh-Hans\S
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.WC.DAL\bin\Debug\zh-Hans\System.Web.WebPages.resources.dll
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.WC.DAL\bin\Debug\en-US\Apps.Locale.resources.dll
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.WC.DAL\bin\Debug\zh-Hans\System.Web.WebPages.Deployment.resources.dll
+C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.WC.DAL\obj\Debug\Apps.WC.DAL.csproj.CopyComplete

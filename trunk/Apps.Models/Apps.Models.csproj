@@ -640,6 +640,7 @@
     <Compile Include="P_WC_GetResponseContent_Result.cs">
       <DependentUpon>DB.tt</DependentUpon>
     </Compile>
+    <Compile Include="Spl\Spl_ProductCategoryModel.cs" />
     <Compile Include="Spl_Actives.cs">
       <DependentUpon>DB.tt</DependentUpon>
     </Compile>
@@ -745,6 +746,7 @@
     <Compile Include="SysWallet.cs">
       <DependentUpon>DB.tt</DependentUpon>
     </Compile>
+    <Compile Include="Sys\SysWalletModel.cs" />
     <Compile Include="V_DEF_Defect.cs">
       <DependentUpon>DB.tt</DependentUpon>
     </Compile>

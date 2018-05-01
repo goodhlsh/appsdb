@@ -146,7 +146,16 @@ namespace Apps.BLL
                                             }).ToList();
             return modelList;
         }
-
+        //获取指定用户的家谱信息
+        public SysJiaPu GetRefSysJiaPu(string userId)
+        {
+            var jiapuList = m_Rep.GetRefSysJiaPu(userId);
+            if(jiapuList!=null&&jiapuList.Count()>0)
+            {
+               return jiapuList.First<SysJiaPu>();
+            }
+            return null;
+        }
         public string GetRefSysRole(string userId)
         {
             string RoleName = "";

@@ -13,8 +13,8 @@ using System.Collections.Generic;
 using Apps.Models.Sys;
 namespace Apps.IBLL
 {
-	public partial interface ISysAddressBLL:IBaseBLL<SysAddressModel>
-	{
-      
-	}
+    public partial interface ISysAddressBLL : IBaseBLL<SysAddressModel>
+    {
+       
+    }
 }

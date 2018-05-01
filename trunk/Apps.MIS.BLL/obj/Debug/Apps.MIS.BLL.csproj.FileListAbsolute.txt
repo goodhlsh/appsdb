@@ -108,3 +108,4 @@ C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.MIS.BLL\obj\Debug\Apps.MIS
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.MIS.BLL\obj\Debug\Apps.MIS.BLL.csproj.CoreCompileInputs.cache
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.MIS.BLL\obj\Debug\Apps.MIS.BLL.dll
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.MIS.BLL\obj\Debug\Apps.MIS.BLL.pdb
+C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.MIS.BLL\obj\Debug\Apps.MIS.BLL.csproj.CopyComplete

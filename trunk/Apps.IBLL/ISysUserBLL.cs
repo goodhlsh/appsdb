@@ -13,6 +13,7 @@ namespace Apps.IBLL
 
         List<permModel> GetPermission(string accountid, string controller);
         List<SysUserModel> GetListByPosId(string posId);
+        SysJiaPu GetRefSysJiaPu(string userID);
         string GetRefSysRole(string userId);
         IQueryable<P_Sys_GetRoleByUserId_Result> GetRoleByUserId(ref GridPager pager, string roleId);
         List<SysUserModel> GetUserByDepId(ref GridPager pager, string depId, string queryStr);

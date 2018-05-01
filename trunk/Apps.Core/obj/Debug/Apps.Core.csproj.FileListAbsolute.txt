@@ -224,3 +224,4 @@ C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Core\obj\Debug\Apps.Core.c
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Core\obj\Debug\Apps.Core.csproj.CoreCompileInputs.cache
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Core\obj\Debug\Apps.Core.dll
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Core\obj\Debug\Apps.Core.pdb
+C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Core\obj\Debug\Apps.Core.csproj.CopyComplete

@@ -58,3 +58,4 @@ C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.IDAL\obj\Debug\Apps.IDAL.c
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.IDAL\obj\Debug\Apps.IDAL.csproj.CoreCompileInputs.cache
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.IDAL\obj\Debug\Apps.IDAL.dll
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.IDAL\obj\Debug\Apps.IDAL.pdb
+C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.IDAL\obj\Debug\Apps.IDAL.csproj.CopyComplete

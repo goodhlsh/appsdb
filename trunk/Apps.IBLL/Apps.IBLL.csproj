@@ -138,6 +138,7 @@
     <Compile Include="IHomeBLL.cs" />
     <Compile Include="IJOB_TASKJOBSBLL.cs" />
     <Compile Include="IJOB_TASKJOBS_LOGBLL.cs" />
+    <Compile Include="ISysAddressBLL.cs" />
     <Compile Include="ISysAreasBLL.cs" />
     <Compile Include="ISysExceptionBLL.cs" />
     <Compile Include="ISysLogBLL.cs" />
@@ -153,6 +154,7 @@
     <Compile Include="ISysStructBLL.cs" />
     <Compile Include="ISysUserBLL.cs" />
     <Compile Include="ISysUserConfigBLL.cs" />
+    <Compile Include="ISysWalletBLL.cs" />
     <Compile Include="IWebpartBLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

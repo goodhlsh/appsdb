@@ -66,9 +66,8 @@
     <Reference Include="Microsoft.Practices.Unity.RegistrationByConvention">
       <HintPath>..\packages\Unity.4.0.1\lib\net45\Microsoft.Practices.Unity.RegistrationByConvention.dll</HintPath>
     </Reference>
-    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Newtonsoft.Json.6.0.8\lib\net45\Newtonsoft.Json.dll</HintPath>
+    <Reference Include="Newtonsoft.Json, Version=8.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.8.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -152,9 +151,11 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\Spl2\Controllers\" />
     <Folder Include="Areas\Spl2\Models\" />
     <Folder Include="Areas\Spl2\Views\Shared\" />
-    <Folder Include="Areas\Ware\Controllers\" />
+    <Folder Include="Areas\User\Models\" />
+    <Folder Include="Areas\User\Views\Shared\" />
     <Folder Include="Areas\Ware\Models\" />
     <Folder Include="Areas\Ware\Views\Shared\" />
     <Folder Include="Models\" />
@@ -180,7 +181,11 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Areas\Spl2\Spl2AreaRegistration.cs" />
-    <Compile Include="Areas\Spl2\Controllers\Spl_ProductCategoryController.cs" />
+    <Compile Include="Areas\User\Controllers\SysUserController.cs" />
+    <Compile Include="Areas\User\Controllers\SysWalletController.cs" />
+    <Compile Include="Areas\User\UserAreaRegistration.cs" />
+    <Compile Include="Areas\Ware\Controllers\Spl_ProductCategoryController.cs" />
+    <Compile Include="Areas\Ware\Controllers\Spl_WareController.cs" />
     <Compile Include="Areas\Ware\WareAreaRegistration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
@@ -188,6 +193,7 @@
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Core\BaseApiController.cs" />
     <Compile Include="Core\JsonCallbackAttribute.cs" />
+    <Compile Include="Core\LogHandler.cs" />
     <Compile Include="Core\SupportFilter.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -216,6 +222,7 @@
     <Content Include="Areas\HelpPage\Views\Help\Api.cshtml" />
     <Content Include="Areas\Spl2\Views\web.config" />
     <Content Include="Areas\Ware\Views\web.config" />
+    <Content Include="Areas\User\Views\web.config" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -276,6 +283,10 @@
     <ProjectReference Include="..\Apps.Spl.IBLL\Apps.Spl.IBLL.csproj">
       <Project>{8fc51389-7f60-440d-8142-b9fb08bac8a8}</Project>
       <Name>Apps.Spl.IBLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Apps.Spl.IDAL\Apps.Spl.IDAL.csproj">
+      <Project>{15a8cd80-af62-41e3-bd3a-dfc8bd9fc339}</Project>
+      <Name>Apps.Spl.IDAL</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

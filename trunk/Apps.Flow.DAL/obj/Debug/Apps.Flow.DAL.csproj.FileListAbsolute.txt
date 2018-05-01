@@ -76,3 +76,4 @@ C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Flow.DAL\obj\Debug\Apps.Fl
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Flow.DAL\obj\Debug\Apps.Flow.DAL.csproj.CoreCompileInputs.cache
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Flow.DAL\obj\Debug\Apps.Flow.DAL.dll
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Flow.DAL\obj\Debug\Apps.Flow.DAL.pdb
+C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Flow.DAL\obj\Debug\Apps.Flow.DAL.csproj.CopyComplete
