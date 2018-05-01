@@ -60,8 +60,8 @@ C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Flow.IDAL\bin\Debug\zh-Han
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Flow.IDAL\bin\Debug\zh-Hans\System.Web.WebPages.resources.dll
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Flow.IDAL\bin\Debug\en-US\Apps.Locale.resources.dll
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Flow.IDAL\bin\Debug\zh-Hans\System.Web.WebPages.Deployment.resources.dll
-C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Flow.IDAL\obj\Debug\Apps.Flow.IDAL.csprojResolveAssemblyReference.cache
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Flow.IDAL\obj\Debug\Apps.Flow.IDAL.csproj.CoreCompileInputs.cache
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Flow.IDAL\obj\Debug\Apps.Flow.IDAL.dll
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Flow.IDAL\obj\Debug\Apps.Flow.IDAL.pdb
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Flow.IDAL\obj\Debug\Apps.Flow.IDAL.csproj.CopyComplete
+C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Flow.IDAL\obj\Debug\Apps.Flow.IDAL.csprojResolveAssemblyReference.cache

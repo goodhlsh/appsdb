@@ -156,3 +156,4 @@ C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Jobs\obj\Debug\Apps.Jobs.c
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Jobs\obj\Debug\Apps.Jobs.csproj.CoreCompileInputs.cache
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Jobs\obj\Debug\Apps.Jobs.dll
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Jobs\obj\Debug\Apps.Jobs.pdb
+C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Jobs\obj\Debug\Apps.Jobs.csproj.CopyComplete

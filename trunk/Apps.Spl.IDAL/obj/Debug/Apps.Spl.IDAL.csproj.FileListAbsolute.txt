@@ -54,7 +54,6 @@ C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Spl.IDAL\bin\Debug\zh-Hans
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Spl.IDAL\bin\Debug\zh-Hans\System.Web.WebPages.resources.dll
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Spl.IDAL\bin\Debug\en-US\Apps.Locale.resources.dll
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Spl.IDAL\bin\Debug\zh-Hans\System.Web.WebPages.Deployment.resources.dll
-C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Spl.IDAL\obj\Debug\Apps.Spl.IDAL.csprojResolveAssemblyReference.cache
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Spl.IDAL\obj\Debug\Apps.Spl.IDAL.csproj.CoreCompileInputs.cache
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Spl.IDAL\obj\Debug\Apps.Spl.IDAL.dll
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Spl.IDAL\obj\Debug\Apps.Spl.IDAL.pdb

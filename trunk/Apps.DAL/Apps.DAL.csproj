@@ -148,6 +148,7 @@
     <Compile Include="SysAreasRepository.cs" />
     <Compile Include="SysConfigRepository.cs" />
     <Compile Include="SysExceptionRepository.cs" />
+    <Compile Include="SysJiaPuRepository.cs" />
     <Compile Include="SysLogRepository.cs" />
     <Compile Include="SysModuleOperateRepository.cs" />
     <Compile Include="SysModuleRepository.cs" />

@@ -16,7 +16,7 @@ namespace Apps.Models
     {
         public Spl_ProductCategory()
         {
-            this.Spl_Ware = new HashSet<Spl_Ware>();
+            this.Spl_Ware = new HashSet<Spl_WareInfo>();
         }
     
         public string Id { get; set; }
@@ -24,6 +24,6 @@ namespace Apps.Models
         public Nullable<System.DateTime> CreateTime { get; set; }
         public string CreateBy { get; set; }
     
-        public virtual ICollection<Spl_Ware> Spl_Ware { get; set; }
+        public virtual ICollection<Spl_WareInfo> Spl_Ware { get; set; }
     }
 }

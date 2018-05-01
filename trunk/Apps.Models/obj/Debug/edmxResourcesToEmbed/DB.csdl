@@ -457,13 +457,13 @@
     <EntitySet Name="Spl_Order_Ware" EntityType="DB.Spl_Order_Ware" />
     <FunctionImport Name="P_Sys_EveryMonth" />
     <FunctionImport Name="P_Sys_PutErCi">
-      <Parameter Name="uid" Mode="In" Type="Int32" />
+      <Parameter Name="uid" Mode="In" Type="String" />
       <Parameter Name="jine" Mode="In" Type="Decimal" />
-      <Parameter Name="orderid" Mode="In" Type="Int32" />
+      <Parameter Name="orderid" Mode="In" Type="String" />
     </FunctionImport>
     <FunctionImport Name="P_Sys_PutZi">
-      <Parameter Name="uid" Mode="In" Type="Int32" />
-      <Parameter Name="pid" Mode="In" Type="Int32" />
+      <Parameter Name="uid" Mode="In" Type="String" />
+      <Parameter Name="pid" Mode="In" Type="String" />
       <Parameter Name="fJE" Mode="In" Type="Decimal" />
     </FunctionImport>
     <AssociationSet Name="Spl_ProductCategorySpl_Ware" Association="DB.Spl_ProductCategorySpl_Ware">

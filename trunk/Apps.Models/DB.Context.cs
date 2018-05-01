@@ -86,7 +86,7 @@ namespace Apps.Models
         public virtual DbSet<Spl_Actives> Spl_Actives { get; set; }
         public virtual DbSet<Spl_Hotware> Spl_Hotware { get; set; }
         public virtual DbSet<Spl_Orders> Spl_Orders { get; set; }
-        public virtual DbSet<Spl_Ware> Spl_Ware { get; set; }
+        public virtual DbSet<Spl_WareInfo> Spl_Ware { get; set; }
         public virtual DbSet<Spl_WareInfo> Spl_WareInfo { get; set; }
         public virtual DbSet<SysAddress> SysAddress { get; set; }
         public virtual DbSet<SysDcitTpe> SysDcitTpe { get; set; }

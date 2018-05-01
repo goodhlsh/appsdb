@@ -146,6 +146,7 @@
     <Compile Include="IJOB_TASKJOBS_LOGRepository.cs" />
     <Compile Include="ISysAreasRepository.cs" />
     <Compile Include="ISysExceptionRepository.cs" />
+    <Compile Include="ISysJiaPuRepository.cs" />
     <Compile Include="ISysLogRepository.cs" />
     <Compile Include="ISysModuleOperateRepository.cs" />
     <Compile Include="ISysModuleRepository.cs" />

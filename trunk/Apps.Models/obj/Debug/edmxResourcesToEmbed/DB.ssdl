@@ -2063,13 +2063,13 @@
   </Function>
   <Function Name="P_Sys_InsertSysRight" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <Function Name="P_Sys_PutErCi" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="uid" Type="int" Mode="In" />
+    <Parameter Name="uid" Type="varchar" Mode="In" />
     <Parameter Name="jine" Type="money" Mode="In" />
-    <Parameter Name="orderid" Type="int" Mode="In" />
+    <Parameter Name="orderid" Type="varchar" Mode="In" />
   </Function>
   <Function Name="P_Sys_PutZi" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="uid" Type="int" Mode="In" />
-    <Parameter Name="pid" Type="int" Mode="In" />
+    <Parameter Name="uid" Type="varchar" Mode="In" />
+    <Parameter Name="pid" Type="varchar" Mode="In" />
     <Parameter Name="fJE" Type="money" Mode="In" />
   </Function>
   <Function Name="P_Sys_UpdateSysRightRightFlag" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">

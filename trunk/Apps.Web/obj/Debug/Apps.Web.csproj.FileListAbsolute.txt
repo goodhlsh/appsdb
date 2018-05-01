@@ -344,3 +344,4 @@ C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Web\obj\Debug\Apps.Web.csp
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Web\obj\Debug\Apps.Web.csproj.CoreCompileInputs.cache
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Web\obj\Debug\Apps.Web.dll
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Web\obj\Debug\Apps.Web.pdb
+C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Web\obj\Debug\Apps.Web.csproj.CopyComplete

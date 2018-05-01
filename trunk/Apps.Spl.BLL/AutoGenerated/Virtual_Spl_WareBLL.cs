@@ -49,6 +49,7 @@ namespace Apps.Spl.BLL
 								|| a.Creator.Contains(queryStr)
 								
 								|| a.Editor.Contains(queryStr)
+								|| a.Description.Contains(queryStr)
 								);
             }
             else
@@ -83,6 +84,7 @@ namespace Apps.Spl.BLL
 													Creator = r.Creator,
 													UpdateTime = r.UpdateTime,
 													Editor = r.Editor,
+													Description = r.Description,
           
                                               }).ToList();
 
@@ -117,6 +119,7 @@ namespace Apps.Spl.BLL
 				entity.Creator = model.Creator;
 				entity.UpdateTime = model.UpdateTime;
 				entity.Editor = model.Editor;
+				entity.Description = model.Description;
   
 
                 if (m_Rep.Create(entity))
@@ -220,6 +223,7 @@ namespace Apps.Spl.BLL
 				entity.Creator = model.Creator;
 				entity.UpdateTime = model.UpdateTime;
 				entity.Editor = model.Editor;
+				entity.Description = model.Description;
  
 
 
@@ -267,6 +271,7 @@ namespace Apps.Spl.BLL
 				model.Creator = entity.Creator;
 				model.UpdateTime = entity.UpdateTime;
 				model.Editor = entity.Editor;
+				model.Description = entity.Description;
  
                 return model;
             }
