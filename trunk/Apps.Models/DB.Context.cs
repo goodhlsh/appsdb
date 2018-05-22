@@ -86,7 +86,7 @@ namespace Apps.Models
         public virtual DbSet<Spl_Actives> Spl_Actives { get; set; }
         public virtual DbSet<Spl_Hotware> Spl_Hotware { get; set; }
         public virtual DbSet<Spl_Orders> Spl_Orders { get; set; }
-        public virtual DbSet<Spl_WareInfo> Spl_Ware { get; set; }
+        public virtual DbSet<Spl_Ware> Spl_Ware { get; set; }
         public virtual DbSet<Spl_WareInfo> Spl_WareInfo { get; set; }
         public virtual DbSet<SysAddress> SysAddress { get; set; }
         public virtual DbSet<SysDcitTpe> SysDcitTpe { get; set; }
@@ -100,6 +100,7 @@ namespace Apps.Models
         public virtual DbSet<SysPurchaseHistory> SysPurchaseHistory { get; set; }
         public virtual DbSet<SysWallet> SysWallet { get; set; }
         public virtual DbSet<Spl_Order_Ware> Spl_Order_Ware { get; set; }
+        public virtual DbSet<SysJiaPuBefore> SysJiaPuBefore { get; set; }
     
         public virtual int P_DEF_CreateTestJobs(string vercode)
         {
@@ -822,21 +823,46 @@ namespace Apps.Models
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("P_Sys_PutErCi", uidParameter, jineParameter, orderidParameter);
         }
     
-        public virtual int P_Sys_PutZi(string uid, string pid, Nullable<decimal> fJE)
+        public virtual int P_Sys_PutZi(string uid, string tid, string pid, string erzibiao, Nullable<decimal> fJE)
         {
             var uidParameter = uid != null ?
                 new ObjectParameter("uid", uid) :
                 new ObjectParameter("uid", typeof(string));
     
+            var tidParameter = tid != null ?
+                new ObjectParameter("tid", tid) :
+                new ObjectParameter("tid", typeof(string));
+    
             var pidParameter = pid != null ?
                 new ObjectParameter("pid", pid) :
                 new ObjectParameter("pid", typeof(string));
+    
+            var erzibiaoParameter = erzibiao != null ?
+                new ObjectParameter("erzibiao", erzibiao) :
+                new ObjectParameter("erzibiao", typeof(string));
     
             var fJEParameter = fJE.HasValue ?
                 new ObjectParameter("fJE", fJE) :
                 new ObjectParameter("fJE", typeof(decimal));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("P_Sys_PutZi", uidParameter, pidParameter, fJEParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("P_Sys_PutZi", uidParameter, tidParameter, pidParameter, erzibiaoParameter, fJEParameter);
+        }
+    
+        public virtual int P_Sys_PutZiBefore(string uid, string tid, Nullable<decimal> fje)
+        {
+            var uidParameter = uid != null ?
+                new ObjectParameter("uid", uid) :
+                new ObjectParameter("uid", typeof(string));
+    
+            var tidParameter = tid != null ?
+                new ObjectParameter("tid", tid) :
+                new ObjectParameter("tid", typeof(string));
+    
+            var fjeParameter = fje.HasValue ?
+                new ObjectParameter("fje", fje) :
+                new ObjectParameter("fje", typeof(decimal));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("P_Sys_PutZiBefore", uidParameter, tidParameter, fjeParameter);
         }
     }
 }

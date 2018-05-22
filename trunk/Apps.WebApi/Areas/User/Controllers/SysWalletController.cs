@@ -21,7 +21,7 @@ namespace Apps.WebApi.Areas.User.Controllers
         ValidationErrors errors =new ValidationErrors();
 
         [HttpGet]
-        public decimal GetWallet(string filter)
+        public SysWalletModel GetWallet(string filter)
         {
             JObject opc = JObject.Parse(filter);
             var queryStr = "";
@@ -30,11 +30,8 @@ namespace Apps.WebApi.Areas.User.Controllers
 
                 queryStr = JObject.Parse(opc["where"].ToString())["userid"].ToString();
             }
-            if (GetWalletByUserID(queryStr)==null)
-            {
-                return 0;
-            }
-            return  (decimal)GetWalletByUserID(queryStr).JieYu;
+            
+            return  GetWalletByUserID(queryStr);
         }
         public SysWalletModel GetWalletByUserID(string userID)
         {

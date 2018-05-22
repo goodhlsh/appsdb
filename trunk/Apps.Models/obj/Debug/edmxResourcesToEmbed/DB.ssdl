@@ -680,14 +680,16 @@
     </Key>
     <Property Name="id" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="UserId" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="ParentId" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="ParentId" Type="varchar" MaxLength="50" />
     <Property Name="PPId" Type="varchar" MaxLength="50" />
-    <Property Name="ZiMu" Type="varchar" MaxLength="50" />
-    <Property Name="ShuZi" Type="varchar" MaxLength="50" />
+    <Property Name="TId" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="TopId" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="ZiMu" Type="varchar" MaxLength="150" />
+    <Property Name="ShuZi" Type="varchar" MaxLength="150" />
     <Property Name="ErZiShu" Type="int" />
     <Property Name="FirstJinE" Type="money" />
-    <Property Name="LevelId" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="ZMP15" Type="varchar" MaxLength="10" />
+    <Property Name="LevelId" Type="int" Nullable="false" />
+    <Property Name="ZMP15" Type="varchar" MaxLength="150" />
     <Property Name="ZMPA2" Type="varchar" MaxLength="10" />
     <Property Name="ZMPB2" Type="varchar" MaxLength="10" />
     <Property Name="ZMPC2" Type="varchar" MaxLength="10" />
@@ -702,11 +704,22 @@
     <Property Name="CreateTime" Type="datetime" />
     <Property Name="UpdateTime" Type="datetime" />
   </EntityType>
-  <EntityType Name="SysLevels">
+  <EntityType Name="SysJiaPuBefore">
     <Key>
       <PropertyRef Name="id" />
     </Key>
     <Property Name="id" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="uid" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="tid" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="fje" Type="money" Nullable="false" />
+    <Property Name="isdone" Type="bit" />
+    <Property Name="createTime" Type="date" />
+  </EntityType>
+  <EntityType Name="SysLevels">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
     <Property Name="Name" Type="varchar" MaxLength="20" />
     <Property Name="Code" Type="varchar" MaxLength="20" />
     <Property Name="FirstDiscout" Type="real" />
@@ -935,7 +948,7 @@
     <Property Name="DepId" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="PosId" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="Expertise" Type="varchar" MaxLength="3000" />
-    <Property Name="JobState" Type="bit" Nullable="false" />
+    <Property Name="JobState" Type="bit" />
     <Property Name="Photo" Type="varchar" MaxLength="200" />
     <Property Name="IdentityCardFile" Type="varchar" MaxLength="200" />
     <Property Name="IdentityCardBackFile" Type="varchar" MaxLength="200" />
@@ -1576,42 +1589,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_SysJiaPu_SysJiaPu">
-    <End Role="SysJiaPu" Type="Self.SysJiaPu" Multiplicity="1" />
-    <End Role="SysJiaPu1" Type="Self.SysJiaPu" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="SysJiaPu">
-        <PropertyRef Name="id" />
-      </Principal>
-      <Dependent Role="SysJiaPu1">
-        <PropertyRef Name="ParentId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_SysJiaPu_SysLevels">
-    <End Role="SysLevels" Type="Self.SysLevels" Multiplicity="1" />
-    <End Role="SysJiaPu" Type="Self.SysJiaPu" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="SysLevels">
-        <PropertyRef Name="id" />
-      </Principal>
-      <Dependent Role="SysJiaPu">
-        <PropertyRef Name="LevelId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_SysJiaPu_SysUser">
-    <End Role="SysUser" Type="Self.SysUser" Multiplicity="1" />
-    <End Role="SysJiaPu" Type="Self.SysJiaPu" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="SysUser">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="SysJiaPu">
-        <PropertyRef Name="UserId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_SysModule_SysModule">
     <End Role="SysModule" Type="Self.SysModule" Multiplicity="0..1" />
     <End Role="SysModule1" Type="Self.SysModule" Multiplicity="*" />
@@ -2069,8 +2046,15 @@
   </Function>
   <Function Name="P_Sys_PutZi" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="uid" Type="varchar" Mode="In" />
+    <Parameter Name="tid" Type="varchar" Mode="In" />
     <Parameter Name="pid" Type="varchar" Mode="In" />
+    <Parameter Name="erzibiao" Type="varchar" Mode="In" />
     <Parameter Name="fJE" Type="money" Mode="In" />
+  </Function>
+  <Function Name="P_Sys_PutZiBefore" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="uid" Type="varchar" Mode="In" />
+    <Parameter Name="tid" Type="varchar" Mode="In" />
+    <Parameter Name="fje" Type="money" Mode="In" />
   </Function>
   <Function Name="P_Sys_UpdateSysRightRightFlag" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="moduleId" Type="varchar" Mode="In" />
@@ -2134,6 +2118,7 @@
     <EntitySet Name="SysException" EntityType="Self.SysException" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="SysHelps" EntityType="Self.SysHelps" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="SysJiaPu" EntityType="Self.SysJiaPu" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SysJiaPuBefore" EntityType="Self.SysJiaPuBefore" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="SysLevels" EntityType="Self.SysLevels" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="SysLog" EntityType="Self.SysLog" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="SysMessage" EntityType="Self.SysMessage" Schema="dbo" store:Type="Tables" />
@@ -2360,18 +2345,6 @@
     <AssociationSet Name="FK_SysErCi_SysUser" Association="Self.FK_SysErCi_SysUser">
       <End Role="SysUser" EntitySet="SysUser" />
       <End Role="SysErCi" EntitySet="SysErCi" />
-    </AssociationSet>
-    <AssociationSet Name="FK_SysJiaPu_SysJiaPu" Association="Self.FK_SysJiaPu_SysJiaPu">
-      <End Role="SysJiaPu" EntitySet="SysJiaPu" />
-      <End Role="SysJiaPu1" EntitySet="SysJiaPu" />
-    </AssociationSet>
-    <AssociationSet Name="FK_SysJiaPu_SysLevels" Association="Self.FK_SysJiaPu_SysLevels">
-      <End Role="SysLevels" EntitySet="SysLevels" />
-      <End Role="SysJiaPu" EntitySet="SysJiaPu" />
-    </AssociationSet>
-    <AssociationSet Name="FK_SysJiaPu_SysUser" Association="Self.FK_SysJiaPu_SysUser">
-      <End Role="SysUser" EntitySet="SysUser" />
-      <End Role="SysJiaPu" EntitySet="SysJiaPu" />
     </AssociationSet>
     <AssociationSet Name="FK_SysModule_SysModule" Association="Self.FK_SysModule_SysModule">
       <End Role="SysModule" EntitySet="SysModule" />

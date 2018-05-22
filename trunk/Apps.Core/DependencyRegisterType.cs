@@ -1,32 +1,28 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using Microsoft.Practices.Unity;
-using Apps.IBLL;
-using Apps.BLL;
-using Apps.IDAL;
+﻿using Apps.BLL;
 using Apps.DAL;
-using Apps.MIS.IBLL;
-using Apps.MIS.BLL;
-using Apps.MIS.IDAL;
-using Apps.MIS.DAL;
-using Apps.DEF.IBLL;
 using Apps.DEF.BLL;
-using Apps.DEF.IDAL;
 using Apps.DEF.DAL;
-using Apps.Flow.IBLL;
+using Apps.DEF.IBLL;
+using Apps.DEF.IDAL;
 using Apps.Flow.BLL;
-using Apps.Flow.IDAL;
 using Apps.Flow.DAL;
-using Apps.Spl.IBLL;
-using Apps.Spl.IDAL;
+using Apps.Flow.IBLL;
+using Apps.Flow.IDAL;
+using Apps.IBLL;
+using Apps.IDAL;
+using Apps.MIS.BLL;
+using Apps.MIS.DAL;
+using Apps.MIS.IBLL;
+using Apps.MIS.IDAL;
 using Apps.Spl.BLL;
 using Apps.Spl.DAL;
-using Apps.WC.IBLL;
-using Apps.WC.IDAL;
+using Apps.Spl.IBLL;
+using Apps.Spl.IDAL;
 using Apps.WC.BLL;
 using Apps.WC.DAL;
+using Apps.WC.IBLL;
+using Apps.WC.IDAL;
+using Microsoft.Practices.Unity;
 
 namespace Apps.Core
 {
@@ -85,6 +81,14 @@ namespace Apps.Core
             //家谱注入
             container.RegisterType<ISysLevelsRepository, SysLevelsRepository>();
             container.RegisterType<ISysLevelsBLL, SysLevelsBLL>();
+            container.RegisterType<ISysJiaPuRepository, SysJiaPuRepository>();
+            container.RegisterType<ISysJiaPuBLL, SysJiaPuBLL>();
+            container.RegisterType<ISysJiaPuBeforeRepository, SysJiaPuBeforeRepository>();
+            container.RegisterType<ISysJiaPuBeforeBLL, SysJiaPuBeforeBLL>();
+            //地址注入
+            container.RegisterType<ISysAddressRepository, SysAddressRepository>();
+            container.RegisterType<ISysAddressBLL, SysAddressBLL>();
+
         }
 
 
@@ -191,6 +195,12 @@ namespace Apps.Core
 
             container.RegisterType<ISpl_PersonBLL, Spl_PersonBLL>();
             container.RegisterType<ISpl_PersonRepository, Spl_PersonRepository>();
+
+            container.RegisterType<ISpl_WareInfoBLL, Spl_WareInfoBLL>();
+            container.RegisterType<ISpl_WareInfoRepository, Spl_WareInfoRepository>();
+            //活动
+            container.RegisterType<ISpl_ActivesBLL, Spl_ActivesBLL>();
+            container.RegisterType<ISpl_ActivesRepository, Spl_ActivesRepository>();
         }
 
 

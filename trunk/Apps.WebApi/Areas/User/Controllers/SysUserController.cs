@@ -19,7 +19,14 @@ namespace Apps.WebApi.Areas.User.Controllers
     {
         [Dependency]
         public ISysUserBLL m_BLL { get; set; }
+        [Dependency]
+        public ISysJiaPuBLL mj_BLL { get; set; }
+        [Dependency]
+        public ISysJiaPuBeforeBLL mjb_BLL { get; set; }
+        [Dependency]
         public ISysAddressBLL ma_BLL { get; set; }
+
+
         ValidationErrors errors = new ValidationErrors();
 
         [HttpPost]
@@ -30,8 +37,11 @@ namespace Apps.WebApi.Areas.User.Controllers
             model.CreateTime = ResultHelper.NowTime;
             model.UserName = json.UserName;
             model.Password = ValueConvert.MD5(json.Password);
+            model.MobileNumber = json.UserName;
             //model.CreatePerson = GetUserTrueName();
             model.State = true;
+            model.DepId = "20140724111955028255487bb419149";
+            model.PosId = "201408071548164259039f26de27e49";
             if (m_BLL.Create(ref errors, model))
             {
                 LogHandler.WriteServiceLog(model.UserName, "Id:" + model.Id + ",Name:" + model.UserName, "成功", "创建", "用户设置");
@@ -81,13 +91,13 @@ namespace Apps.WebApi.Areas.User.Controllers
         /// <param name="id"></param>
         /// <returns></returns>
         [HttpGet]
-        public object GetById(string id)
+        public SysUserModel GetById(string id)
         {
             SysUserModel model = new SysUserModel();
             model = m_BLL.GetById(id);
             if (model != null)
             {
-                return Json(model);
+                return model;
             }
             else
             {
@@ -95,6 +105,7 @@ namespace Apps.WebApi.Areas.User.Controllers
             }
 
         }
+        
         /// <summary>
         /// 添加收货人地址
         /// 参数：
@@ -179,13 +190,13 @@ namespace Apps.WebApi.Areas.User.Controllers
         {
             JObject opc = JObject.Parse(filter);
             var queryStr = "";
-            
-            if (JObject.Parse(opc["where"].ToString())["ID"] != null)
+
+            if (JObject.Parse(opc["where"].ToString())["userId"] != null)
             {
-                queryStr = JObject.Parse(opc["where"].ToString())["ID"].ToString();
+                queryStr = JObject.Parse(opc["where"].ToString())["userId"].ToString();
             }
 
-            List<SysAddress> list = ma_BLL.GetPage(queryStr, int.Parse(opc["skip"].ToString()), int.Parse(opc["limit"].ToString()),true);
+            List<SysAddress> list = ma_BLL.GetPage(queryStr, int.Parse(opc["skip"].ToString()), int.Parse(opc["limit"].ToString()), true);
 
             return Json(list);
         }
@@ -196,10 +207,80 @@ namespace Apps.WebApi.Areas.User.Controllers
         /// <param name="sysJiaPu"></param>
         /// <returns></returns>
         [HttpPost]
+        public void PutJiaPuBefore([FromBody]SysJiaPuBefore sysJiaPu)
+        {
+            if(sysJiaPu.uid.Length==32&&sysJiaPu.tid.Length==32&&sysJiaPu.fje>0)
+               m_BLL.IntoSysJiaPuBefore(sysJiaPu.uid, sysJiaPu.tid, (decimal)sysJiaPu.fje);
+        }
+        /// <summary>
+        /// 调用存储过程
+        /// 参数：userid 用户id，pid 推荐人id，fje选择级别费
+        /// </summary>
+        /// <param name="sysJiaPu"></param>
+        /// <returns></returns>
+        [HttpPost]
         public void PutJiapu([FromBody]SysJiaPu sysJiaPu)
         {
-            m_BLL.IntoSysJiaPu(sysJiaPu.UserId, sysJiaPu.ParentId, (decimal)sysJiaPu.FirstJinE);
+            if (sysJiaPu.UserId.Length == 32 && sysJiaPu.ParentId.Length == 32 && m_BLL.GetRefSysJiaPu(sysJiaPu.UserId) == null)
+                m_BLL.IntoSysJiaPu(sysJiaPu.UserId, sysJiaPu.TId,sysJiaPu.ParentId,sysJiaPu.ZMPB2, (decimal)sysJiaPu.FirstJinE);
         }
+        public object GetByIdFromJiaPu(string userId)
+        {
+            if (mj_BLL.GetById(userId)!=null)
+            {
+                return Json(mj_BLL.GetById(userId));
+            }
+            else
+            {
+                return null;
+            }
+                   
+        }
+        /// <summary>
+        /// 根据推荐人tid获取未指定位置的儿子
+        /// </summary>
+        /// <param name="tid_"></param>
+        /// <returns></returns>
+        public object GetListByTID(string tid_)
+        {
+            if (m_BLL.GetSysJiaPuBefore(tid_) != null)
+            {
+                return Json(m_BLL.GetSysJiaPuBefore(tid_));
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        [HttpPost]
+        public object PostUserAuth([FromBody]SysUserEditModel user)
+        {
+
+            SysUserEditModel model = new SysUserEditModel();
+            SysUserModel user2 = GetById(user.Id);
+            model.Id = user2.Id;
+            model.TrueName = user.TrueName;
+            model.IdentityCardFile = user.IdentityCardFile;
+            model.IdentityCardBackFile = user.IdentityCardBackFile;
+            model.MobileNumber = user.MobileNumber;
+            model.Card = user.Card;
+            model.IsAuth = true;
+            bool ret = m_BLL.Edit(ref errors, model);
+            if (ret)
+            {
+                user2= GetById(user.Id);
+                return Json(user2);
+            }
+            else
+            {
+                RetBool rb = new RetBool();
+                rb.ret = ret;
+                return Json(rb);
+            }
+        }
+
+
     }
 }
 

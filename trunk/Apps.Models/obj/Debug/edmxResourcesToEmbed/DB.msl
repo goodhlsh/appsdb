@@ -1376,6 +1376,8 @@
     <EntitySetMapping Name="SysJiaPu">
       <EntityTypeMapping TypeName="DB.SysJiaPu">
         <MappingFragment StoreEntitySet="SysJiaPu">
+          <ScalarProperty Name="TId" ColumnName="TId" />
+          <ScalarProperty Name="TopId" ColumnName="TopId" />
           <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
           <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
           <ScalarProperty Name="Comment" ColumnName="Comment" />
@@ -1522,5 +1524,18 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="SysJiaPuBefore">
+      <EntityTypeMapping TypeName="DB.SysJiaPuBefore">
+        <MappingFragment StoreEntitySet="SysJiaPuBefore">
+          <ScalarProperty Name="createTime" ColumnName="createTime" />
+          <ScalarProperty Name="isdone" ColumnName="isdone" />
+          <ScalarProperty Name="fje" ColumnName="fje" />
+          <ScalarProperty Name="tid" ColumnName="tid" />
+          <ScalarProperty Name="uid" ColumnName="uid" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="P_Sys_PutZiBefore" FunctionName="DB.Store.P_Sys_PutZiBefore" />
   </EntityContainerMapping>
 </Mapping>

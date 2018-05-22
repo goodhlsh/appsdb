@@ -16,6 +16,8 @@ namespace Apps.WebApi.Areas.Ware.Controllers
 {
     public class Spl_ProductCategoryController : ApiController
     {
+        //[Dependency]
+        //public Spl.IBLL.ISpl_WareBLL m2_BLL { get; set; }
         [Dependency]
         public Spl.IBLL.ISpl_ProductCategoryBLL m_BLL { get; set; }
         Common.ValidationErrors errors = new Common.ValidationErrors();

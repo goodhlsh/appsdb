@@ -20,7 +20,7 @@ namespace Apps.Models
         public Nullable<decimal> SumJinE { get; set; }
         public string OrderID { get; set; }
     
-        public virtual Spl_WareInfo Spl_Ware { get; set; }
+        public virtual Spl_Ware Spl_Ware { get; set; }
         public virtual Spl_Orders Spl_Orders { get; set; }
     }
 }

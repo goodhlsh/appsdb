@@ -12,6 +12,7 @@ namespace Apps.IDAL
       
         IQueryable<SysUser> GetListByPosId(string posId);
         IQueryable<SysJiaPu> GetRefSysJiaPu(string userId);
+        IQueryable<SysJiaPuBefore> GetSysJiaPuBefore(string tid);
         IQueryable<SysRole> GetRefSysRole(string id);
         IQueryable<P_Sys_GetRoleByUserId_Result> GetRoleByUserId( string userId);
         IQueryable<P_Sys_GetUserByDepId_Result> GetUserByDepId(string DepId);

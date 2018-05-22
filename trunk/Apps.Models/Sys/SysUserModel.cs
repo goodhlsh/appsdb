@@ -111,7 +111,7 @@ namespace Apps.Models.Sys
         [Display(Name = "备注")]
         public override string Expertise { get; set; }
         [Display(Name = "是否在职")]
-        public override bool JobState { get; set; }
+        public override bool? JobState { get; set; }
         [Display(Name = "照片")]
         public override string Photo { get; set; }
         [Display(Name = "附件")]

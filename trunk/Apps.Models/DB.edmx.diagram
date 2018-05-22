@@ -126,7 +126,6 @@
         <AssociationConnector Association="DB.SysUserSysErCi" />
         <AssociationConnector Association="DB.Spl_WareSpl_Order_Ware" />
         <AssociationConnector Association="DB.SysDcitTpeSysDictData" />
-        <AssociationConnector Association="DB.SysJiaPuSysJiaPu" />
         <AssociationConnector Association="DB.FK_Spl_Order_Ware_Spl_Orders" />
         <AssociationConnector Association="DB.FK_SysAddress_SysUser" />
         <AssociationConnector Association="DB.FK_Spl_Hotware_Spl_Ware" />
@@ -134,6 +133,7 @@
         <AssociationConnector Association="DB.FK_Spl_Ware_Spl_WareInfo" />
         <AssociationConnector Association="DB.FK_SysJiaPu_SysLevels" />
         <AssociationConnector Association="DB.FK_SysJiaPu_SysUser" />
+        <EntityTypeShape EntityType="DB.SysJiaPuBefore" Width="1.5" PointX="21.375" PointY="0.75" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

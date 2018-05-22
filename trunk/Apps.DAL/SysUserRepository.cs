@@ -26,6 +26,16 @@ namespace Apps.DAL
             }
             return null;
         }
+        public IQueryable<SysJiaPuBefore> GetSysJiaPuBefore(string tid)
+        {
+            if (!string.IsNullOrEmpty(tid))
+            {
+                return from m in Context.SysJiaPuBefore                       
+                       where m.tid == tid & m.isdone==false
+                       select m;
+            }
+            return null;
+        }
         public IQueryable<SysRole> GetRefSysRole(string id)
         {
             if (!string.IsNullOrEmpty(id))

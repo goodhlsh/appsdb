@@ -14,11 +14,6 @@ namespace Apps.Models
     
     public partial class SysJiaPu
     {
-        public SysJiaPu()
-        {
-            this.SysJiaPu1 = new HashSet<SysJiaPu>();
-        }
-    
         public string id { get; set; }
         public string UserId { get; set; }
         public string ParentId { get; set; }
@@ -27,7 +22,7 @@ namespace Apps.Models
         public string ShuZi { get; set; }
         public Nullable<int> ErZiShu { get; set; }
         public Nullable<decimal> FirstJinE { get; set; }
-        public string LevelId { get; set; }
+        public int LevelId { get; set; }
         public string ZMP15 { get; set; }
         public string ZMPA2 { get; set; }
         public string ZMPB2 { get; set; }
@@ -42,9 +37,9 @@ namespace Apps.Models
         public string Comment { get; set; }
         public Nullable<System.DateTime> CreateTime { get; set; }
         public Nullable<System.DateTime> UpdateTime { get; set; }
+        public string TopId { get; set; }
+        public string TId { get; set; }
     
-        public virtual ICollection<SysJiaPu> SysJiaPu1 { get; set; }
-        public virtual SysJiaPu SysJiaPu2 { get; set; }
         public virtual SysLevels SysLevels { get; set; }
         public virtual SysUser SysUser { get; set; }
     }

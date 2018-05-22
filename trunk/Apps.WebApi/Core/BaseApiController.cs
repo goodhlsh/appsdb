@@ -5,7 +5,7 @@ using System.Web.Http.Cors;
 
 namespace Apps.WebApi.Core
 {
-    [SupportFilter]
+    //[SupportFilter]
     [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class BaseApiController : ApiController
     {

@@ -19,7 +19,7 @@ namespace Apps.Models
             this.SysJiaPu = new HashSet<SysJiaPu>();
         }
     
-        public string id { get; set; }
+        public int id { get; set; }
         public string Name { get; set; }
         public string Code { get; set; }
         public Nullable<float> FirstDiscout { get; set; }

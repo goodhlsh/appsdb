@@ -61,9 +61,9 @@ namespace Apps.WebApi.Controllers
             userInfo.QRCode = user.QRCode;
             userInfo.IsAuth = (user.IsAuth != null) ? user.IsAuth : false;
             userInfo.Recommendor = user.Recommendor;
-            if (isuBLL.GetRefSysJiaPu(user.Id)!=null&&islBll.GetById(isuBLL.GetRefSysJiaPu(user.Id).LevelId)!=null)
+            if (isuBLL.GetRefSysJiaPu(user.Id)!=null&&islBll.GetById(isuBLL.GetRefSysJiaPu(user.Id).LevelId.ToString())!=null)
             {
-                userInfo.Jibie = islBll.GetById(isuBLL.GetRefSysJiaPu(user.Id).LevelId).Name;
+                userInfo.Jibie = islBll.GetById(isuBLL.GetRefSysJiaPu(user.Id).LevelId.ToString()).Name;
             }
             else
             {

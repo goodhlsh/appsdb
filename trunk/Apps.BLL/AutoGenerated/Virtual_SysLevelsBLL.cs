@@ -33,8 +33,8 @@ namespace Apps.BLL
             if (!string.IsNullOrWhiteSpace(queryStr))
             {
                 queryData = m_Rep.GetList(
-								a=>a.id.Contains(queryStr)
-								|| a.Name.Contains(queryStr)
+								
+								a=>a.Name.Contains(queryStr)
 								|| a.Code.Contains(queryStr)
 								
 								

@@ -272,7 +272,7 @@ namespace Apps.Web.Controllers
                 DepId = entity.DepId,
                 PosId = entity.PosId,
                 Expertise = entity.Expertise,
-                JobState = entity.JobState,
+                JobState = (bool)entity.JobState,
                 Photo = entity.Photo,
                 Attach = entity.Attach,
                 RoleName = userBLL.GetRefSysRole(GetUserId()),

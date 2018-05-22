@@ -13,7 +13,7 @@ namespace Apps.Models.Sys
 {
 	public class Virtual_SysLevelsModel
 	{
-			public virtual string id { get; set; }
+			public virtual int id { get; set; }
 			public virtual string Name { get; set; }
 			public virtual string Code { get; set; }
 			public virtual Nullable<float> FirstDiscout { get; set; }

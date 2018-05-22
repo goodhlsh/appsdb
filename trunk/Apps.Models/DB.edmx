@@ -685,14 +685,16 @@
           </Key>
           <Property Name="id" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="UserId" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="ParentId" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ParentId" Type="varchar" MaxLength="50" />
           <Property Name="PPId" Type="varchar" MaxLength="50" />
-          <Property Name="ZiMu" Type="varchar" MaxLength="50" />
-          <Property Name="ShuZi" Type="varchar" MaxLength="50" />
+          <Property Name="TId" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="TopId" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ZiMu" Type="varchar" MaxLength="150" />
+          <Property Name="ShuZi" Type="varchar" MaxLength="150" />
           <Property Name="ErZiShu" Type="int" />
           <Property Name="FirstJinE" Type="money" />
-          <Property Name="LevelId" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="ZMP15" Type="varchar" MaxLength="10" />
+          <Property Name="LevelId" Type="int" Nullable="false" />
+          <Property Name="ZMP15" Type="varchar" MaxLength="150" />
           <Property Name="ZMPA2" Type="varchar" MaxLength="10" />
           <Property Name="ZMPB2" Type="varchar" MaxLength="10" />
           <Property Name="ZMPC2" Type="varchar" MaxLength="10" />
@@ -707,11 +709,22 @@
           <Property Name="CreateTime" Type="datetime" />
           <Property Name="UpdateTime" Type="datetime" />
         </EntityType>
-        <EntityType Name="SysLevels">
+        <EntityType Name="SysJiaPuBefore">
           <Key>
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="uid" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="tid" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="fje" Type="money" Nullable="false" />
+          <Property Name="isdone" Type="bit" />
+          <Property Name="createTime" Type="date" />
+        </EntityType>
+        <EntityType Name="SysLevels">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
           <Property Name="Name" Type="varchar" MaxLength="20" />
           <Property Name="Code" Type="varchar" MaxLength="20" />
           <Property Name="FirstDiscout" Type="real" />
@@ -940,7 +953,7 @@
           <Property Name="DepId" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="PosId" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Expertise" Type="varchar" MaxLength="3000" />
-          <Property Name="JobState" Type="bit" Nullable="false" />
+          <Property Name="JobState" Type="bit" />
           <Property Name="Photo" Type="varchar" MaxLength="200" />
           <Property Name="IdentityCardFile" Type="varchar" MaxLength="200" />
           <Property Name="IdentityCardBackFile" Type="varchar" MaxLength="200" />
@@ -1581,42 +1594,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_SysJiaPu_SysJiaPu">
-          <End Role="SysJiaPu" Type="Self.SysJiaPu" Multiplicity="1" />
-          <End Role="SysJiaPu1" Type="Self.SysJiaPu" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="SysJiaPu">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="SysJiaPu1">
-              <PropertyRef Name="ParentId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_SysJiaPu_SysLevels">
-          <End Role="SysLevels" Type="Self.SysLevels" Multiplicity="1" />
-          <End Role="SysJiaPu" Type="Self.SysJiaPu" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="SysLevels">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="SysJiaPu">
-              <PropertyRef Name="LevelId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_SysJiaPu_SysUser">
-          <End Role="SysUser" Type="Self.SysUser" Multiplicity="1" />
-          <End Role="SysJiaPu" Type="Self.SysJiaPu" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="SysUser">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="SysJiaPu">
-              <PropertyRef Name="UserId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_SysModule_SysModule">
           <End Role="SysModule" Type="Self.SysModule" Multiplicity="0..1" />
           <End Role="SysModule1" Type="Self.SysModule" Multiplicity="*" />
@@ -2074,8 +2051,15 @@
         </Function>
         <Function Name="P_Sys_PutZi" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="uid" Type="varchar" Mode="In" />
+          <Parameter Name="tid" Type="varchar" Mode="In" />
           <Parameter Name="pid" Type="varchar" Mode="In" />
+          <Parameter Name="erzibiao" Type="varchar" Mode="In" />
           <Parameter Name="fJE" Type="money" Mode="In" />
+        </Function>
+        <Function Name="P_Sys_PutZiBefore" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="uid" Type="varchar" Mode="In" />
+          <Parameter Name="tid" Type="varchar" Mode="In" />
+          <Parameter Name="fje" Type="money" Mode="In" />
         </Function>
         <Function Name="P_Sys_UpdateSysRightRightFlag" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="moduleId" Type="varchar" Mode="In" />
@@ -2139,6 +2123,7 @@
           <EntitySet Name="SysException" EntityType="Self.SysException" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SysHelps" EntityType="Self.SysHelps" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SysJiaPu" EntityType="Self.SysJiaPu" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SysJiaPuBefore" EntityType="Self.SysJiaPuBefore" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SysLevels" EntityType="Self.SysLevels" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SysLog" EntityType="Self.SysLog" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SysMessage" EntityType="Self.SysMessage" Schema="dbo" store:Type="Tables" />
@@ -2365,18 +2350,6 @@
           <AssociationSet Name="FK_SysErCi_SysUser" Association="Self.FK_SysErCi_SysUser">
             <End Role="SysUser" EntitySet="SysUser" />
             <End Role="SysErCi" EntitySet="SysErCi" />
-          </AssociationSet>
-          <AssociationSet Name="FK_SysJiaPu_SysJiaPu" Association="Self.FK_SysJiaPu_SysJiaPu">
-            <End Role="SysJiaPu" EntitySet="SysJiaPu" />
-            <End Role="SysJiaPu1" EntitySet="SysJiaPu" />
-          </AssociationSet>
-          <AssociationSet Name="FK_SysJiaPu_SysLevels" Association="Self.FK_SysJiaPu_SysLevels">
-            <End Role="SysLevels" EntitySet="SysLevels" />
-            <End Role="SysJiaPu" EntitySet="SysJiaPu" />
-          </AssociationSet>
-          <AssociationSet Name="FK_SysJiaPu_SysUser" Association="Self.FK_SysJiaPu_SysUser">
-            <End Role="SysUser" EntitySet="SysUser" />
-            <End Role="SysJiaPu" EntitySet="SysJiaPu" />
           </AssociationSet>
           <AssociationSet Name="FK_SysModule_SysModule" Association="Self.FK_SysModule_SysModule">
             <End Role="SysModule" EntitySet="SysModule" />
@@ -2926,7 +2899,9 @@
           </FunctionImport>
           <FunctionImport Name="P_Sys_PutZi">
             <Parameter Name="uid" Mode="In" Type="String" />
+            <Parameter Name="tid" Mode="In" Type="String" />
             <Parameter Name="pid" Mode="In" Type="String" />
+            <Parameter Name="erzibiao" Mode="In" Type="String" />
             <Parameter Name="fJE" Mode="In" Type="Decimal" />
           </FunctionImport>
           <AssociationSet Name="Spl_ProductCategorySpl_Ware" Association="DB.Spl_ProductCategorySpl_Ware">
@@ -2952,10 +2927,6 @@
           <AssociationSet Name="SysDcitTpeSysDictData" Association="DB.SysDcitTpeSysDictData">
             <End Role="SysDcitTpe" EntitySet="SysDcitTpe" />
             <End Role="SysDictData" EntitySet="SysDictData" />
-          </AssociationSet>
-          <AssociationSet Name="SysJiaPuSysJiaPu" Association="DB.SysJiaPuSysJiaPu">
-            <End Role="SysJiaPu" EntitySet="SysJiaPu" />
-            <End Role="SysJiaPu1" EntitySet="SysJiaPu" />
           </AssociationSet>
           <AssociationSet Name="FK_Spl_Order_Ware_Spl_Orders" Association="DB.FK_Spl_Order_Ware_Spl_Orders">
             <End Role="Spl_Orders" EntitySet="Spl_Orders" />
@@ -2985,6 +2956,12 @@
             <End Role="SysUser" EntitySet="SysUser" />
             <End Role="SysJiaPu" EntitySet="SysJiaPu" />
           </AssociationSet>
+          <EntitySet Name="SysJiaPuBefore" EntityType="DB.SysJiaPuBefore" />
+          <FunctionImport Name="P_Sys_PutZiBefore">
+            <Parameter Name="uid" Mode="In" Type="String" />
+            <Parameter Name="tid" Mode="In" Type="String" />
+            <Parameter Name="fje" Mode="In" Type="Decimal" />
+          </FunctionImport>
           </EntityContainer>
         <EntityType Name="DEF_CaseType">
           <Key>
@@ -3803,10 +3780,10 @@
           <Property Name="School" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Professional" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="Degree" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="DepId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="PosId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DepId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PosId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Expertise" Type="String" MaxLength="3000" FixedLength="false" Unicode="false" />
-          <Property Name="JobState" Type="Boolean" Nullable="false" />
+          <Property Name="JobState" Type="Boolean" />
           <Property Name="Photo" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
           <Property Name="Attach" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
           <Property Name="Lead" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
@@ -4892,14 +4869,14 @@
           </Key>
           <Property Name="id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="UserId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="ParentId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ParentId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="PPId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="ZiMu" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="ShuZi" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ZiMu" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="ShuZi" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
           <Property Name="ErZiShu" Type="Int32" />
           <Property Name="FirstJinE" Type="Decimal" Precision="19" Scale="4" />
-          <Property Name="LevelId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="ZMP15" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="LevelId" Type="Int32" Nullable="false" />
+          <Property Name="ZMP15" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
           <Property Name="ZMPA2" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="ZMPB2" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="ZMPC2" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
@@ -4913,16 +4890,16 @@
           <Property Name="Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="CreateTime" Type="DateTime" Precision="3" />
           <Property Name="UpdateTime" Type="DateTime" Precision="3" />
-          <NavigationProperty Name="SysJiaPu1" Relationship="DB.SysJiaPuSysJiaPu" FromRole="SysJiaPu" ToRole="SysJiaPu1" />
-          <NavigationProperty Name="SysJiaPu2" Relationship="DB.SysJiaPuSysJiaPu" FromRole="SysJiaPu1" ToRole="SysJiaPu" />
           <NavigationProperty Name="SysLevels" Relationship="DB.FK_SysJiaPu_SysLevels" FromRole="SysJiaPu" ToRole="SysLevels" />
           <NavigationProperty Name="SysUser" Relationship="DB.FK_SysJiaPu_SysUser" FromRole="SysJiaPu" ToRole="SysUser" />
+          <Property Name="TopId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           </EntityType>
         <EntityType Name="SysLevels">
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="id" Type="Int32" Nullable="false" />
           <Property Name="Name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="Code" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="FirstDiscout" Type="Single" />
@@ -5076,18 +5053,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="SysJiaPuSysJiaPu">
-          <End Type="DB.SysJiaPu" Role="SysJiaPu" Multiplicity="1" />
-          <End Type="DB.SysJiaPu" Role="SysJiaPu1" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="SysJiaPu">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="SysJiaPu1">
-              <PropertyRef Name="ParentId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Spl_Order_Ware_Spl_Orders">
           <End Type="DB.Spl_Orders" Role="Spl_Orders" Multiplicity="1" />
           <End Type="DB.Spl_Order_Ware" Role="Spl_Order_Ware" Multiplicity="*" />
@@ -5172,6 +5137,17 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="SysJiaPuBefore">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="uid" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="tid" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="fje" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <Property Name="isdone" Type="Boolean" />
+          <Property Name="createTime" Type="DateTime" Precision="0" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -6553,6 +6529,8 @@
           <EntitySetMapping Name="SysJiaPu">
             <EntityTypeMapping TypeName="DB.SysJiaPu">
               <MappingFragment StoreEntitySet="SysJiaPu">
+                <ScalarProperty Name="TId" ColumnName="TId" />
+                <ScalarProperty Name="TopId" ColumnName="TopId" />
                 <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
                 <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
                 <ScalarProperty Name="Comment" ColumnName="Comment" />
@@ -6699,6 +6677,19 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="SysJiaPuBefore">
+            <EntityTypeMapping TypeName="DB.SysJiaPuBefore">
+              <MappingFragment StoreEntitySet="SysJiaPuBefore">
+                <ScalarProperty Name="createTime" ColumnName="createTime" />
+                <ScalarProperty Name="isdone" ColumnName="isdone" />
+                <ScalarProperty Name="fje" ColumnName="fje" />
+                <ScalarProperty Name="tid" ColumnName="tid" />
+                <ScalarProperty Name="uid" ColumnName="uid" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="P_Sys_PutZiBefore" FunctionName="DB.Store.P_Sys_PutZiBefore" />
           </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

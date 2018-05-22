@@ -41,7 +41,7 @@ namespace Apps.BLL
 								|| a.ShuZi.Contains(queryStr)
 								
 								
-								|| a.LevelId.Contains(queryStr)
+								
 								|| a.ZMP15.Contains(queryStr)
 								|| a.ZMPA2.Contains(queryStr)
 								|| a.ZMPB2.Contains(queryStr)
@@ -56,6 +56,8 @@ namespace Apps.BLL
 								|| a.Comment.Contains(queryStr)
 								
 								
+								|| a.TopId.Contains(queryStr)
+								|| a.TId.Contains(queryStr)
 								);
             }
             else
@@ -96,6 +98,8 @@ namespace Apps.BLL
 													Comment = r.Comment,
 													CreateTime = r.CreateTime,
 													UpdateTime = r.UpdateTime,
+													TopId = r.TopId,
+													TId = r.TId,
           
                                               }).ToList();
 
@@ -136,6 +140,8 @@ namespace Apps.BLL
 				entity.Comment = model.Comment;
 				entity.CreateTime = model.CreateTime;
 				entity.UpdateTime = model.UpdateTime;
+				entity.TopId = model.TopId;
+				entity.TId = model.TId;
   
 
                 if (m_Rep.Create(entity))
@@ -245,6 +251,8 @@ namespace Apps.BLL
 				entity.Comment = model.Comment;
 				entity.CreateTime = model.CreateTime;
 				entity.UpdateTime = model.UpdateTime;
+				entity.TopId = model.TopId;
+				entity.TId = model.TId;
  
 
 
@@ -298,6 +306,8 @@ namespace Apps.BLL
 				model.Comment = entity.Comment;
 				model.CreateTime = entity.CreateTime;
 				model.UpdateTime = entity.UpdateTime;
+				model.TopId = entity.TopId;
+				model.TId = entity.TId;
  
                 return model;
             }

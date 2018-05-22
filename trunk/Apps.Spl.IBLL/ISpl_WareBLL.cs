@@ -10,9 +10,10 @@ namespace Apps.Spl.IBLL
 {
    public partial interface ISpl_WareBLL
     {
-       List<Spl_Ware> GetPage(string queryStr, int skip, int limit);
-        List<Spl_WareInfo> GetPage(bool queryStr, int skip, int limit);
-        List<Spl_Ware> GetPageLike(string queryStr, int skip, int limit);
-        List<Spl_Actives> GetPageActive(string queryStr, int skip, int limit);
+       List<Spl_WareShowModel> GetPage(string queryStr, int skip, int limit);
+        List<Spl_WareShowModel> GetPage(bool queryStr, int skip, int limit);
+        List<Spl_WareInfo> GetPageWareInfo(bool queryStr, int skip, int limit);
+        List<Spl_WareShowModel> GetPageLike(string queryStr, int skip, int limit);
+        List<Spl_Actives> GetPageActive(bool queryStr, int skip, int limit);
     }
 }

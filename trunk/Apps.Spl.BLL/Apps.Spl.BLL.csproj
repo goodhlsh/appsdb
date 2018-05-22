@@ -153,6 +153,7 @@
     <Compile Include="Spl_ProductBLL.cs" />
     <Compile Include="Spl_ProductCategoryBLL.cs" />
     <Compile Include="Spl_WareBLL.cs" />
+    <Compile Include="Spl_WareInfoBLL.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

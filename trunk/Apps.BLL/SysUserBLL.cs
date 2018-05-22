@@ -25,11 +25,11 @@ namespace Apps.BLL
         public ISysJiaPuRepository jpRep { get; set; }
         public List<permModel> GetPermission(string accountid, string controller)
         {
-            return sysRightRep.GetPermission(accountid,controller);
+            return sysRightRep.GetPermission(accountid, controller);
         }
 
 
-        public override List<SysUserModel> GetList(ref GridPager pager,string queryStr)
+        public override List<SysUserModel> GetList(ref GridPager pager, string queryStr)
         {
 
             List<SysUser> query = null;
@@ -66,12 +66,12 @@ namespace Apps.BLL
                     query = list.OrderByDescending(c => c.CreateTime).Skip((pager.page - 1) * pager.rows).Take(pager.rows).ToList();
                 }
             }
-           
+
             List<SysUserModel> userInfoList = new List<SysUserModel>();
             List<SysUser> dataList = query.ToList();
             foreach (var user in dataList)
             {
-               
+
 
                 SysUserModel userModel = new SysUserModel()
                 {
@@ -137,7 +137,7 @@ namespace Apps.BLL
                                                 DepId = r.DepId,
                                                 PosId = r.PosId,
                                                 Expertise = r.Expertise,
-                                                JobState = r.JobState,
+                                                JobState = (bool)r.JobState,
                                                 Photo = r.Photo,
                                                 Attach = r.Attach,
                                                 Lead = r.Lead,
@@ -152,9 +152,19 @@ namespace Apps.BLL
         public SysJiaPu GetRefSysJiaPu(string userId)
         {
             var jiapuList = m_Rep.GetRefSysJiaPu(userId);
-            if(jiapuList!=null&&jiapuList.Count()>0)
+            if (jiapuList != null && jiapuList.Count() > 0)
             {
-               return jiapuList.First<SysJiaPu>();
+                return jiapuList.First<SysJiaPu>();
+            }
+            return null;
+        }
+        //获取指定用户的家谱前信息
+        public SysJiaPuBefore GetSysJiaPuBefore(string tid)
+        {
+            var jiapuList = m_Rep.GetSysJiaPuBefore(tid);
+            if (jiapuList != null && jiapuList.Count() > 0)
+            {
+                return jiapuList.First<SysJiaPuBefore>();
             }
             return null;
         }
@@ -195,7 +205,7 @@ namespace Apps.BLL
                 pager.totalRows = queryData.Count();
                 queryData = m_Rep.GetUserByDepId(depId);
             }
-           
+
             queryData = LinqHelper.SortingAndPaging(queryData, pager.sort, pager.order, pager.page, pager.rows);
             return CreateModelList(ref queryData);
 
@@ -264,7 +274,7 @@ namespace Apps.BLL
                 ExceptionHander.WriteException(ex);
                 return false;
             }
-            
+
         }
 
 
@@ -272,7 +282,7 @@ namespace Apps.BLL
         {
             try
             {
-                if (m_Rep.GetList(a => a.UserName == model.UserName).Count()>0)
+                if (m_Rep.GetList(a => a.UserName == model.UserName).Count() > 0)
                 {
                     errors.Add("用户名已经存在！");
                     return false;
@@ -316,6 +326,7 @@ namespace Apps.BLL
                 entity.IsSelLead = model.IsSelLead;
                 entity.IsReportCalendar = model.IsReportCalendar;
                 entity.IsSecretary = model.IsSecretary;
+
 
 
                 if (m_Rep.Create(entity))
@@ -370,8 +381,8 @@ namespace Apps.BLL
                 entity.School = model.School;
                 entity.Professional = model.Professional;
                 entity.Degree = model.Degree;
-                entity.DepId = model.DepId;
-                entity.PosId = model.PosId;
+                entity.DepId = model.DepId == null ? "20140724111955028255487bb419149" : model.DepId;
+                entity.PosId = model.PosId == null ? "201408071548164259039f26de27e49" : model.PosId;
                 entity.Expertise = model.Expertise;
                 entity.JobState = model.JobState;
                 entity.Photo = model.Photo;
@@ -381,6 +392,27 @@ namespace Apps.BLL
                 entity.IsSelLead = model.IsSelLead;
                 entity.IsReportCalendar = model.IsReportCalendar;
                 entity.IsSecretary = model.IsSecretary;
+
+
+
+                entity.HomePhone = model.HomePhone;
+                entity.WXID = model.WXID;
+                entity.Signature = model.Signature;
+                entity.QRCode = model.QRCode;
+                entity.IdentityCardFile = model.IdentityCardFile;
+                entity.IdentityCardBackFile = model.IdentityCardBackFile;
+                entity.IsAuth = model.IsAuth;
+                entity.AuditStatus = model.AuditStatus;
+                entity.Note = model.Note;
+                entity.SortCode = model.SortCode;
+                entity.RecommendID = model.RecommendID;
+                entity.RecommendTime = model.RecommendTime;
+                entity.EditorID = model.EditorID;
+                entity.UpdateTime = DateTime.Now;
+                entity.IsDeleted = model.IsDeleted;
+                entity.Questions = model.Questions;
+                entity.Answer = model.Answer;
+
 
                 if (m_Rep.Edit(entity))
                 {
@@ -411,7 +443,7 @@ namespace Apps.BLL
                     errors.Add(Resource.Disable);
                     return false;
                 }
-              
+
                 entity.Password = model.Password;
 
                 if (m_Rep.Edit(entity))
@@ -434,51 +466,70 @@ namespace Apps.BLL
         }
         public override SysUserModel GetById(string id)
         {
-            
-                SysUser entity = m_Rep.GetById(id);
-                SysUserModel model = new SysUserModel();
-                model.Id = entity.Id;
-                model.UserName = entity.UserName;
-                model.Password = entity.Password;
-                model.TrueName = entity.TrueName;
-                model.Card = entity.Card;
-                model.MobileNumber = entity.MobileNumber;
-                model.PhoneNumber = entity.PhoneNumber;
-                model.QQ = entity.QQ;
-                model.EmailAddress = entity.EmailAddress;
-                model.OtherContact = entity.OtherContact;
-                model.Province = entity.Province;
-                model.City = entity.City;
-                model.Village = entity.Village;
-                model.Address = entity.Address;
-                model.State = entity.State;
-                model.CreateTime = entity.CreateTime;
-                model.CreatePerson = entity.CreatePerson;
-                model.Sex = entity.Sex;
-                model.Birthday = entity.Birthday;
-                model.JoinDate = entity.JoinDate;
-                model.Marital = entity.Marital;
-                model.Political = entity.Political;
-                model.Nationality = entity.Nationality;
-                model.Native = entity.Native;
-                model.School = entity.School;
-                model.Professional = entity.Professional;
-                model.Degree = entity.Degree;
-                model.DepId = entity.DepId;
-                model.DepName = entity.SysStruct.Name; 
-                model.PosId = entity.PosId;
-                model.PosName = entity.SysPosition.Name;
-                model.Expertise = entity.Expertise;
-                model.JobState = entity.JobState;
-                model.Photo = entity.Photo;
-                model.Attach = entity.Attach;
-                model.Lead = entity.Lead;
-                model.LeadName = entity.LeadName;
-                model.IsSelLead = entity.IsSelLead;
-                model.IsReportCalendar = entity.IsReportCalendar;
-                model.IsSecretary = entity.IsSecretary;
-                return model;
-          
+
+            SysUser entity = m_Rep.GetById(id);
+            SysUserModel model = new SysUserModel();
+            model.Id = entity.Id;
+            model.UserName = entity.UserName;
+            //model.Password = entity.Password;
+            model.TrueName = entity.TrueName;
+            model.Card = entity.Card;
+            model.MobileNumber = entity.MobileNumber;
+            model.PhoneNumber = entity.PhoneNumber;
+            model.QQ = entity.QQ;
+            model.EmailAddress = entity.EmailAddress;
+            model.OtherContact = entity.OtherContact;
+            model.Province = entity.Province;
+            model.City = entity.City;
+            model.Village = entity.Village;
+            model.Address = entity.Address;
+            model.State = entity.State;
+            model.CreateTime = entity.CreateTime;
+            model.CreatePerson = entity.CreatePerson;
+            model.Sex = entity.Sex;
+            model.Birthday = entity.Birthday;
+            model.JoinDate = entity.JoinDate;
+            model.Marital = entity.Marital;
+            model.Political = entity.Political;
+            model.Nationality = entity.Nationality;
+            model.Native = entity.Native;
+            model.School = entity.School;
+            model.Professional = entity.Professional;
+            model.Degree = entity.Degree;
+            model.DepId = entity.DepId;
+            model.DepName = entity.SysStruct.Name;
+            model.PosId = entity.PosId;
+            model.PosName = entity.SysPosition.Name;
+            model.Expertise = entity.Expertise;
+            model.JobState = entity.JobState == null ? false : (bool)entity.JobState;
+            model.Photo = entity.Photo;
+            model.Attach = entity.Attach;
+            model.Lead = entity.Lead;
+            model.LeadName = entity.LeadName;
+            model.IsSelLead = entity.IsSelLead;
+            model.IsReportCalendar = entity.IsReportCalendar;
+            model.IsSecretary = entity.IsSecretary;
+
+            model.HomePhone = entity.HomePhone;
+            model.WXID = entity.WXID;
+            model.Signature = entity.Signature;
+            model.QRCode = entity.QRCode;
+            model.IdentityCardFile = entity.IdentityCardFile;
+            model.IdentityCardBackFile = entity.IdentityCardBackFile;
+            model.IsAuth = entity.IsAuth;
+            model.AuditStatus = entity.AuditStatus;
+            model.Note = entity.Note;
+            model.SortCode = entity.SortCode;
+            model.RecommendID = entity.RecommendID;
+            model.RecommendTime = entity.RecommendTime;
+            model.EditorID = entity.EditorID;
+            model.UpdateTime = entity.UpdateTime;
+            model.IsDeleted = entity.IsDeleted;
+            model.Questions = entity.Questions;
+            model.Answer = entity.Answer;
+
+            return model;
+
         }
         public string GetNameById(string id)
         {
@@ -491,7 +542,7 @@ namespace Apps.BLL
         }
         public List<SysUser> GetListByDepId(string id)
         {
-            return m_Rep.GetList(a => a.DepId==id).ToList();
+            return m_Rep.GetList(a => a.DepId == id).ToList();
         }
 
         /// <summary>
@@ -503,19 +554,19 @@ namespace Apps.BLL
             IQueryable<P_Sys_GetAllUsers_Result> queryData = m_Rep.GetAllUsers();
             List<SysOnlineUserModel> modelList = (from r in queryData
                                                   select new SysOnlineUserModel
-                                            {
-                                                UserId = r.UserId,
-                                                TrueName = r.TrueName,
-                                                Email = r.EmailAddress,
-                                                PhoneNumber = r.PhoneNumber,
-                                                Photo = r.Photo,
-                                                PosName = r.PosName,
-                                                Sort = r.Sort,
-                                                StructId = r.StructId,
-                                                StructName = r.StructName,
-                                                ContextId = "",
-                                                Status = 0,//0离线状态1在线2忙碌3离开
-                                            }).ToList();
+                                                  {
+                                                      UserId = r.UserId,
+                                                      TrueName = r.TrueName,
+                                                      Email = r.EmailAddress,
+                                                      PhoneNumber = r.PhoneNumber,
+                                                      Photo = r.Photo,
+                                                      PosName = r.PosName,
+                                                      Sort = r.Sort,
+                                                      StructId = r.StructId,
+                                                      StructName = r.StructName,
+                                                      ContextId = "",
+                                                      Status = 0,//0离线状态1在线2忙碌3离开
+                                                  }).ToList();
             return modelList;
         }
         /// <summary>
@@ -524,9 +575,13 @@ namespace Apps.BLL
         /// <param name="userId"></param>
         /// <param name="pId"></param>
         /// <param name="fJE"></param>
-        public void IntoSysJiaPu(string userId, string pId, decimal fJE)
+        public void IntoSysJiaPu(string userId, string tid, string pid, string erbiao, decimal fJE)
         {
-            jpRep.IntoSysJiaPu(userId, pId, fJE);
+            jpRep.IntoSysJiaPu(userId, tid, pid, erbiao, fJE);
+        }
+        public void IntoSysJiaPuBefore(string uid, string tid, decimal fJE)
+        {
+            jpRep.IntoSysJiaPuBefore(uid, tid, fJE);
         }
     }
 }

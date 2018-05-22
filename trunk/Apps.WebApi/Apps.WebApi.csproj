@@ -159,6 +159,8 @@
     <Folder Include="Areas\Ware\Models\" />
     <Folder Include="Areas\Ware\Views\Shared\" />
     <Folder Include="Models\" />
+    <Folder Include="uploadfile\" />
+    <Folder Include="Views\UploadServer\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
@@ -190,11 +192,13 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\UploadServerApiController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Core\BaseApiController.cs" />
     <Compile Include="Core\JsonCallbackAttribute.cs" />
     <Compile Include="Core\LogHandler.cs" />
     <Compile Include="Core\SupportFilter.cs" />
+    <Compile Include="Core\Tools.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -223,13 +227,16 @@
     <Content Include="Areas\Spl2\Views\web.config" />
     <Content Include="Areas\Ware\Views\web.config" />
     <Content Include="Areas\User\Views\web.config" />
+    <Content Include="Core\site.config" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>

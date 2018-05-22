@@ -25,6 +25,7 @@ C:\Users\LabCenter\Desktop\ymnets.net20170401\20180405\trunk\Apps.Models\obj\Deb
 C:\Users\LabCenter\Desktop\ymnets.net20170401\20180405\trunk\Apps.Models\obj\Debug\Apps.Models.csproj.CoreCompileInputs.cache
 C:\Users\LabCenter\Desktop\ymnets.net20170401\20180405\trunk\Apps.Models\obj\Debug\Apps.Models.dll
 C:\Users\LabCenter\Desktop\ymnets.net20170401\20180405\trunk\Apps.Models\obj\Debug\Apps.Models.pdb
+C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Models\obj\Debug\Apps.Models.dll
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Models\bin\Debug\Apps.Models.dll.config
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Models\bin\Debug\Apps.Models.dll
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Models\bin\Debug\Apps.Models.pdb
@@ -50,6 +51,5 @@ C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Models\bin\Debug\zh-Hans\S
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Models\bin\Debug\zh-Hans\System.Web.WebPages.Deployment.resources.dll
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Models\obj\Debug\Apps.Models.csprojResolveAssemblyReference.cache
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Models\obj\Debug\Apps.Models.csproj.CoreCompileInputs.cache
-C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Models\obj\Debug\Apps.Models.dll
-C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Models\obj\Debug\Apps.Models.pdb
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Models\obj\Debug\Apps.Models.csproj.CopyComplete
+C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Models\obj\Debug\Apps.Models.pdb

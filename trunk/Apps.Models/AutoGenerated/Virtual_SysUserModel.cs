@@ -43,7 +43,7 @@ namespace Apps.Models.Sys
 			public virtual string DepId { get; set; }
 			public virtual string PosId { get; set; }
 			public virtual string Expertise { get; set; }
-			public virtual bool JobState { get; set; }
+			public virtual Nullable<bool> JobState { get; set; }
 			public virtual string Photo { get; set; }
 			public virtual string Attach { get; set; }
 			public virtual string Lead { get; set; }

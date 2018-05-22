@@ -21,7 +21,7 @@ namespace Apps.Models.Sys
 			public virtual string ShuZi { get; set; }
 			public virtual Nullable<int> ErZiShu { get; set; }
 			public virtual Nullable<decimal> FirstJinE { get; set; }
-			public virtual string LevelId { get; set; }
+			public virtual int LevelId { get; set; }
 			public virtual string ZMP15 { get; set; }
 			public virtual string ZMPA2 { get; set; }
 			public virtual string ZMPB2 { get; set; }
@@ -36,5 +36,7 @@ namespace Apps.Models.Sys
 			public virtual string Comment { get; set; }
 			public virtual Nullable<System.DateTime> CreateTime { get; set; }
 			public virtual Nullable<System.DateTime> UpdateTime { get; set; }
+			public virtual string TopId { get; set; }
+			public virtual string TId { get; set; }
 		}
 }

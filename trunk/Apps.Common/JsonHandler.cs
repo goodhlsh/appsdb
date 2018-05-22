@@ -29,7 +29,7 @@ namespace Apps.Common
             };
             return json;
         }
-        
+
 
         /// <summary>
         /// 将对象序列化为JSON格式
@@ -99,9 +99,9 @@ namespace Apps.Common
             return (T)result;
         }
 
+    }
 
 
-    }   
 
     public class JsonMessage
     {
@@ -110,6 +110,10 @@ namespace Apps.Common
         public string value { get; set; }
     }
 
+    public class RetBool
+    {
+        public bool ret;
+    }
 
+} 
 
-}

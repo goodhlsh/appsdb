@@ -62,7 +62,7 @@ namespace Apps.Models
         public string DepId { get; set; }
         public string PosId { get; set; }
         public string Expertise { get; set; }
-        public bool JobState { get; set; }
+        public Nullable<bool> JobState { get; set; }
         public string Photo { get; set; }
         public string Attach { get; set; }
         public string Lead { get; set; }

@@ -8,6 +8,7 @@ namespace Apps.IDAL
 {
     public partial interface ISysJiaPuRepository
     {
-        void IntoSysJiaPu(string userId, string pid, decimal fJE);
+        void IntoSysJiaPu(string userId, string tid, string pid, string erbiao, decimal? fJE);
+        void IntoSysJiaPuBefore(string uid, string tid, decimal? fJE);
     }
 }

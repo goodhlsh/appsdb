@@ -23,7 +23,7 @@ namespace Apps.Spl.BLL
             {
                 list = list.Where(a => a.Id==queryStr|| a.Name==queryStr);
             }
-            query = list.OrderBy(c => c.Name).Skip(skip).Take(limit).ToList();
+            query = list.OrderBy(c => c.CreateBy).Skip(skip).Take(limit).ToList();
             List<Spl_ProductCategoryModel> productCategoryInfoList = new List<Spl_ProductCategoryModel>();
             List<Spl_ProductCategory> dataList = query.ToList();
             foreach (var productCategory in dataList)
