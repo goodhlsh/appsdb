@@ -11,7 +11,7 @@ namespace Apps.IDAL
         int GetChildrenCount(string id);
         IQueryable<SysModule> GetModuleBySystem(string parentId);
          //分配给角色
-        void P_Sys_InsertSysRight();
+        void P_Sys_InsertSysRight(string id);
                     //清理无用的项
         void P_Sys_ClearUnusedRightOperate();
     }

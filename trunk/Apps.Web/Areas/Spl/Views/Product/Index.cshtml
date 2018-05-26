@@ -13,11 +13,12 @@
 @Scripts.Render("~/bundles/easyui/datagridfilter")
 <div class="mvctool">
     <input id="txtQuery" type="text" class="searchText" />
-    @Html.ToolButton("btnQuery", "fa fa-search", Resource.Query,ref perm, "Query", true)
-    @Html.ToolButton("btnCreate", "fa fa-plus", Resource.Create,ref perm, "Create", true)
-    @Html.ToolButton("btnEdit", "fa fa-pencil", Resource.Edit,ref perm, "Edit", true)
-    @Html.ToolButton("btnDetails", "fa fa-list", Resource.Details,ref perm, "Details", true)
-    @Html.ToolButton("btnDelete", "fa fa-trash", Resource.Delete,ref perm, "Delete", true)
+    @Html.ToolButton("btnQuery", "fa fa-search", Resource.Query, true)
+   @* @Html.ToolButton("btnQuery", "fa fa-search", Resource.Query, ref perm, "Query", true)*@
+    @Html.ToolButton("btnCreate", "fa fa-plus", Resource.Create, ref perm, "Create", true)
+    @Html.ToolButton("btnEdit", "fa fa-pencil", Resource.Edit, ref perm, "Edit", true)
+    @Html.ToolButton("btnDetails", "fa fa-list", Resource.Details, ref perm, "Details", true)
+    @Html.ToolButton("btnDelete", "fa fa-trash", Resource.Delete, ref perm, "Delete", true)
 </div>
 
   <!-- 为ECharts准备一个具备大小（宽高）的Dom -->

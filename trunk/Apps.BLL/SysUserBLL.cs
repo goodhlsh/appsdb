@@ -192,23 +192,31 @@ namespace Apps.BLL
 
         public List<SysUserModel> GetUserByDepId(ref GridPager pager, string depId, string queryStr)
         {
-            IQueryable<P_Sys_GetUserByDepId_Result> queryData = null;
-            if (!string.IsNullOrWhiteSpace(queryStr))
+            try
             {
-                queryData = m_Rep.GetUserByDepId(depId).Where(a => a.TrueName.Contains(queryStr));
-                pager.totalRows = queryData.Count();
-                queryData = m_Rep.GetUserByDepId(depId).Where(a => a.TrueName.Contains(queryStr));
+
+                IQueryable<P_Sys_GetUserByDepId_Result> queryData = null;
+                if (!string.IsNullOrWhiteSpace(queryStr))
+                {
+                    queryData = m_Rep.GetUserByDepId(depId).Where(a => a.TrueName.Contains(queryStr));
+                    pager.totalRows = queryData.Count();
+                    queryData = m_Rep.GetUserByDepId(depId).Where(a => a.TrueName.Contains(queryStr));
+                }
+                else
+                {
+                    queryData = m_Rep.GetUserByDepId(depId);
+                    pager.totalRows = queryData.Count();
+                    queryData = m_Rep.GetUserByDepId(depId);
+                }
+
+                queryData = LinqHelper.SortingAndPaging(queryData, pager.sort, pager.order, pager.page, pager.rows);
+                return CreateModelList(ref queryData);
+
             }
-            else
+            catch (Exception ex)
             {
-                queryData = m_Rep.GetUserByDepId(depId);
-                pager.totalRows = queryData.Count();
-                queryData = m_Rep.GetUserByDepId(depId);
+                return null;
             }
-
-            queryData = LinqHelper.SortingAndPaging(queryData, pager.sort, pager.order, pager.page, pager.rows);
-            return CreateModelList(ref queryData);
-
         }
         private List<SysUserModel> CreateModelList(ref IQueryable<P_Sys_GetUserByDepId_Result> queryData)
         {

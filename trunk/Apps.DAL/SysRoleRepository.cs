@@ -45,9 +45,9 @@ namespace Apps.DAL
             }
         }
 
-        public void P_Sys_InsertSysRight()
+        public void P_Sys_InsertSysRight(string id)
         {
-            Context.P_Sys_InsertSysRight();
+            Context.P_Sys_InsertSysRight(id);
         }
         //清理无用的项
         public void P_Sys_ClearUnusedRightOperate() {

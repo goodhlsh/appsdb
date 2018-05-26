@@ -59,7 +59,7 @@ namespace Apps.BLL
                 if (m_Rep.Create(entity))
                 {
                     //分配给角色
-                    m_Rep.P_Sys_InsertSysRight();
+                    m_Rep.P_Sys_InsertSysRight(entity.Id);
                     //清理无用的项
                     m_Rep.P_Sys_ClearUnusedRightOperate();
                     return true;

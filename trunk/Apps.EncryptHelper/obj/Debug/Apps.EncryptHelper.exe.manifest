@@ -49,7 +49,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>/0rgXnNA8i6hk5LHtI4u1YzsiWH8spacf+yJ6NFIk/g=</dsig:DigestValue>
+        <dsig:DigestValue>KXIzqZfTOo6vvcmnnz4179nKqUJ9K6zMPV4gZOFGu2E=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -61,7 +61,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>bk8ORoCZq8xDgE6thkoKkWfMsojWkm++rqyWH+/Rbxc=</dsig:DigestValue>
+        <dsig:DigestValue>npEwHVTepx29xeWeHpD9HOEvqKp5T419DwyxxfXf0Wk=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -101,13 +101,13 @@
       </hash>
     </dependentAssembly>
   </dependency>
-  <file name="Apps.EncryptHelper.exe.config" size="534">
+  <file name="Apps.EncryptHelper.exe.config" size="521">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>oJe5xWN4Lpbee7rSiMkDEQc1+VxG9LcetpaFB0+/QgM=</dsig:DigestValue>
+      <dsig:DigestValue>lfbdCHrypAQczYtm9/v92Qp4TIdPEErY7nHmaUwrJdk=</dsig:DigestValue>
     </hash>
   </file>
 </asmv1:assembly>

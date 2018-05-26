@@ -206,7 +206,9 @@
     <FunctionImport Name="P_Sys_GetUserCountByDepId" ReturnType="Collection(Int32)">
       <Parameter Name="DepId" Mode="In" Type="String" />
     </FunctionImport>
-    <FunctionImport Name="P_Sys_InsertSysRight" />
+    <FunctionImport Name="P_Sys_InsertSysRight">
+      <Parameter Name="Id" Mode="In" Type="String" />
+    </FunctionImport>
     <FunctionImport Name="P_Sys_UpdateSysRightRightFlag">
       <Parameter Name="moduleId" Mode="In" Type="String" />
       <Parameter Name="roleId" Mode="In" Type="String" />

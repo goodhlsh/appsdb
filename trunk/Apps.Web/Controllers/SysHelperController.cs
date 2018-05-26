@@ -87,6 +87,12 @@ namespace Apps.Web.Controllers
             ViewBag.StructTree = commonHelper.GetStructTree(true);
             return View();
         }
+        public ActionResult UserLookUp2()
+        {
+            CommonHelper commonHelper = new CommonHelper();
+            ViewBag.StructTree = commonHelper.GetStructTree(true);
+            return View();
+        }
         public JsonResult GetUserListByDep(GridPager pager, string depId, string queryStr)
         {
             if (string.IsNullOrWhiteSpace(depId))

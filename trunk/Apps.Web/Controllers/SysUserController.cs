@@ -28,7 +28,7 @@ namespace Apps.Web.Controllers
         [SupportFilter]
         public ActionResult Index()
         {
-            
+
             return View();
         }
         [SupportFilter(ActionName = "Index")]
@@ -42,45 +42,45 @@ namespace Apps.Web.Controllers
                         select new SysUserModel()
                         {
                             Id = r.Id,
-		                    UserName = r.UserName,
-		                    Password = r.Password,
-		                    TrueName = r.TrueName,
-		                    Card = r.Card,
-		                    MobileNumber = r.MobileNumber,
-		                    PhoneNumber = r.PhoneNumber,
-		                    QQ = r.QQ,
-		                    EmailAddress = r.EmailAddress,
-		                    OtherContact = r.OtherContact,
-		                    Province = r.Province,
-		                    City = r.City,
-		                    Village = r.Village,
-		                    Address = r.Address,
-		                    State = r.State,
-		                    CreateTime = r.CreateTime,
-		                   CreatePerson = r.CreatePerson,
-		                    Sex = r.Sex,
-		                    Birthday = r.Birthday,
-		                    JoinDate = r.JoinDate,
-		                    Marital = r.Marital,
-		                    Political = r.Political,
-		                    Nationality = r.Nationality,
-		                    Native = r.Native,
-		                    School = r.School,
-		                    Professional = r.Professional,
-		                    Degree = r.Degree,
-		                    DepId = r.DepId,
-		                    PosId = r.PosId,
-		                    Expertise = r.Expertise,
-		                    JobState = r.JobState,
-		                    Photo = r.Photo,
-		                    Attach = r.Attach,
-		                    Lead = r.Lead,
-		                    LeadName = r.LeadName,
-		                    IsSelLead = r.IsSelLead,
-		                    IsReportCalendar = r.IsReportCalendar,
-		                    IsSecretary = r.IsSecretary,
-                            RoleName=r.RoleName,
-                            DepName =r.DepName,
+                            UserName = r.UserName,
+                            Password = r.Password,
+                            TrueName = r.TrueName,
+                            Card = r.Card,
+                            MobileNumber = r.MobileNumber,
+                            PhoneNumber = r.PhoneNumber,
+                            QQ = r.QQ,
+                            EmailAddress = r.EmailAddress,
+                            OtherContact = r.OtherContact,
+                            Province = r.Province,
+                            City = r.City,
+                            Village = r.Village,
+                            Address = r.Address,
+                            State = r.State,
+                            CreateTime = r.CreateTime,
+                            CreatePerson = r.CreatePerson,
+                            Sex = r.Sex,
+                            Birthday = r.Birthday,
+                            JoinDate = r.JoinDate,
+                            Marital = r.Marital,
+                            Political = r.Political,
+                            Nationality = r.Nationality,
+                            Native = r.Native,
+                            School = r.School,
+                            Professional = r.Professional,
+                            Degree = r.Degree,
+                            DepId = r.DepId,
+                            PosId = r.PosId,
+                            Expertise = r.Expertise,
+                            JobState = r.JobState,
+                            Photo = r.Photo,
+                            Attach = r.Attach,
+                            Lead = r.Lead,
+                            LeadName = r.LeadName,
+                            IsSelLead = r.IsSelLead,
+                            IsReportCalendar = r.IsReportCalendar,
+                            IsSecretary = r.IsSecretary,
+                            RoleName = r.RoleName,
+                            DepName = r.DepName,
                             PosName = r.PosName
                         }).ToArray()
 
@@ -109,14 +109,14 @@ namespace Apps.Web.Controllers
             return View();
         }
 
-   
+
 
         #region 设置用户角色
         [SupportFilter(ActionName = "Allot")]
         public ActionResult GetRoleByUser(string userId)
         {
             ViewBag.UserId = userId;
-            
+
 
             return View();
         }
@@ -126,7 +126,7 @@ namespace Apps.Web.Controllers
         {
             if (string.IsNullOrWhiteSpace(userId))
                 return Json(0);
-            var userList = m_BLL.GetRoleByUserId(ref pager,userId);
+            var userList = m_BLL.GetRoleByUserId(ref pager, userId);
             var jsonData = new
             {
                 total = pager.totalRows,
@@ -134,10 +134,10 @@ namespace Apps.Web.Controllers
                     from r in userList
                     select new SysRoleModel()
                     {
-                      Id= r.Id,
-                      Name= r.Name,
-                      Description = r.Description,
-                      Flag = r.flag=="0"?"0":"1",
+                        Id = r.Id,
+                        Name = r.Name,
+                        Description = r.Description,
+                        Flag = r.flag == "0" ? "0" : "1",
                     }
                 ).ToArray()
             };
@@ -161,37 +161,43 @@ namespace Apps.Web.Controllers
                 LogHandler.WriteServiceLog(GetUserId(), "Ids:" + roleIds, "失败", "分配角色", "用户设置");
                 return Json(JsonHandler.CreateMessage(0, Resource.SetFail), JsonRequestBehavior.AllowGet);
             }
-            
+
         }
 
         #region 创建
         [SupportFilter]
         public ActionResult Create()
         {
-            
+
             ViewBag.Struct = new SelectList(structBLL.GetList("0"), "Id", "Name");
             ViewBag.Areas = new SelectList(areasBLL.GetList("0"), "Id", "Name");
             SysUserModel model = new SysUserModel()
             {
-                Password="123456",
+                Password = "123456",
                 JoinDate = ResultHelper.NowTime
-                
+
             };
             return View(model);
+
         }
 
         [HttpPost]
         [SupportFilter]
         public JsonResult Create(SysUserModel model)
         {
-            if (model != null && ModelState.IsValid)
-            {
+            model.Id = ResultHelper.NewId;
+            model.CreateTime = ResultHelper.NowTime;
+            model.Password = ValueConvert.MD5(model.Password);
+            model.CreatePerson = GetUserTrueName();
+            model.JobState = model.JobState == null ? false : true;
+            model.IsDeleted = false;
+            model.IsReportCalendar = false;
+            model.IsSecretary = false;
+            model.IsSelLead = false;
 
-                model.Id = ResultHelper.NewId;
-                model.CreateTime = ResultHelper.NowTime;
-                model.Password = ValueConvert.MD5(model.Password);
-                model.CreatePerson = GetUserTrueName();
-                model.State = true;
+             if (model != null && model.DepId!=null&&model.PosId!=null)
+            //if (model != null&&ModelState.IsValid)
+            {
                 if (m_BLL.Create(ref errors, model))
                 {
                     LogHandler.WriteServiceLog(GetUserId(), "Id:" + model.Id + ",Name:" + model.UserName, "成功", "创建", "用户设置");
@@ -200,10 +206,10 @@ namespace Apps.Web.Controllers
                 else
                 {
                     string ErrorCol = errors.Error;
-                    LogHandler.WriteServiceLog(GetUserId(), "Id:" + model.Id + ",Name:" + model.UserName + "," + ErrorCol, 
+                    LogHandler.WriteServiceLog(GetUserId(), "Id:" + model.Id + ",Name:" + model.UserName + "," + ErrorCol,
 
 "失败", "创建", "用户设置");
-                    return Json(JsonHandler.CreateMessage(0, Resource.InsertFail + ErrorCol), 
+                    return Json(JsonHandler.CreateMessage(0, Resource.InsertFail + ErrorCol),
 
 JsonRequestBehavior.AllowGet);
                 }
@@ -217,7 +223,7 @@ JsonRequestBehavior.AllowGet);
         [HttpPost]
         public JsonResult JudgeUserName(string userName)
         {
-            return Json("用户名已经存在！",JsonRequestBehavior.AllowGet);
+            return Json("用户名已经存在！", JsonRequestBehavior.AllowGet);
         }
         #endregion
 
@@ -225,11 +231,8 @@ JsonRequestBehavior.AllowGet);
         [SupportFilter]
         public ActionResult Edit(string id)
         {
-            
-           
-            
             ViewBag.Areas = new SelectList(areasBLL.GetList("0"), "Id", "Name");
-            
+
             SysUserModel entity = m_BLL.GetById(id);
             return View(entity);
         }
@@ -249,7 +252,7 @@ JsonRequestBehavior.AllowGet);
                 {
                     string ErrorCol = errors.Error;
                     LogHandler.WriteServiceLog(GetUserId(), "Id:" + info.Id + ",Name:" + info.UserName + "," + ErrorCol, "失败", "修改", "用户设置");
-                    return Json(JsonHandler.CreateMessage(0, Resource.EditFail + ":"+ErrorCol));
+                    return Json(JsonHandler.CreateMessage(0, Resource.EditFail + ":" + ErrorCol));
                 }
             }
             else
@@ -259,8 +262,8 @@ JsonRequestBehavior.AllowGet);
         }
 
         [HttpPost]
-        [SupportFilter(ActionName="Edit")]
-        public JsonResult ReSet(string Id,string Pwd)
+        [SupportFilter(ActionName = "Edit")]
+        public JsonResult ReSet(string Id, string Pwd)
         {
             SysUserEditModel editModel = new SysUserEditModel();
             editModel.Id = Id;
@@ -274,7 +277,7 @@ JsonRequestBehavior.AllowGet);
             {
                 string ErrorCol = errors.Error;
                 LogHandler.WriteServiceLog(GetUserId(), "Id:" + Id + ",,密码:********" + ErrorCol, "失败", "初始化密码", "用户设置");
-                return Json(JsonHandler.CreateMessage(0, Resource.EditFail + ":"+ErrorCol), JsonRequestBehavior.AllowGet);
+                return Json(JsonHandler.CreateMessage(0, Resource.EditFail + ":" + ErrorCol), JsonRequestBehavior.AllowGet);
             }
         }
         #endregion
@@ -283,7 +286,7 @@ JsonRequestBehavior.AllowGet);
         [SupportFilter]
         public ActionResult Details(string id)
         {
-            
+
             SysUserModel entity = m_BLL.GetById(id);
             //防止读取错误
             string CityName, ProvinceName, VillageName, DepName, PosName;
@@ -322,7 +325,7 @@ JsonRequestBehavior.AllowGet);
                 CreateTime = entity.CreateTime,
                 CreatePerson = entity.CreatePerson,
                 Sex = entity.Sex,
-                Birthday =ResultHelper.DateTimeConvertString(entity.Birthday),
+                Birthday = ResultHelper.DateTimeConvertString(entity.Birthday),
                 JoinDate = ResultHelper.DateTimeConvertString(entity.JoinDate),
                 Marital = entity.Marital,
                 Political = entity.Political,

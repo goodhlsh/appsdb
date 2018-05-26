@@ -101,7 +101,7 @@ namespace Apps.Models.Sys
         public override string Professional { get; set; }
         [Display(Name = "学历")]
         public override string Degree { get; set; }
-        [NotNullExpression]
+        [NotNullExpression]        
         [Display(Name = "部门")]
         public override string DepId { get; set; }
         public  string DepName { get; set; }

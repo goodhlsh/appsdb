@@ -12,17 +12,21 @@ namespace Apps.DAL
     {
         public int UpdateRight(SysRightOperateModel model)
         {
-            //转换
-            SysRightOperate rightOperate = new SysRightOperate();
-            rightOperate.Id = model.Id;
-            rightOperate.RightId = model.RightId;
-            rightOperate.KeyCode = model.KeyCode;
-            rightOperate.IsValid = model.IsValid;
-            //判断rightOperate是否存在，如果存在就更新rightOperate,否则就添加一条
-            SysRightOperate right = Context.SysRightOperate.Where(a => a.Id == rightOperate.Id).FirstOrDefault();
+            try
+            {
+                //转换
+                SysRightOperate rightOperate = new SysRightOperate();
+                rightOperate.Id = model.Id;
+                rightOperate.RightId = model.RightId;
+                rightOperate.KeyCode = model.KeyCode;
+                rightOperate.IsValid = model.IsValid;
+                //判断rightOperate是否存在，如果存在就更新rightOperate,否则就添加一条
+                SysRightOperate right = Context.SysRightOperate.Where(a => a.Id == rightOperate.Id).FirstOrDefault();
                 if (right != null)
                 {
                     right.IsValid = rightOperate.IsValid;
+                    right.KeyCode = rightOperate.KeyCode;
+                    right.RightId = rightOperate.RightId;                    
                 }
                 else
                 {
@@ -37,7 +41,13 @@ namespace Apps.DAL
                     Context.P_Sys_UpdateSysRightRightFlag(sysRight.ModuleId, sysRight.RoleId);
                     return 1;
                 }
-            return 0;
+                return 0;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
         }
         //按选择的角色及模块加载模块的权限项
         public List<P_Sys_GetRightByRoleAndModule_Result> GetRightByRoleAndModule(string roleId, string moduleId)
@@ -52,16 +62,16 @@ namespace Apps.DAL
         /// <param name="accountid">acount Id</param>
         /// <param name="controller">url</param>
         /// <returns></returns>
-        public List<permModel> GetPermission(string accountid, string controller) 
+        public List<permModel> GetPermission(string accountid, string controller)
         {
-                List<permModel> rights = (from r in Context.P_Sys_GetRightOperate(accountid, controller)
-                                         select new permModel
-                                         {
-                                             KeyCode = r.KeyCode,
-                                             IsValid = r.IsValid
-                                         }).ToList();
-                return rights;
-            }
-     
+            List<permModel> rights = (from r in Context.P_Sys_GetRightOperate(accountid, controller)
+                                      select new permModel
+                                      {
+                                          KeyCode = r.KeyCode,
+                                          IsValid = r.IsValid
+                                      }).ToList();
+            return rights;
+        }
+
     }
 }

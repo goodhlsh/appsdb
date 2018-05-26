@@ -102,6 +102,11 @@
             $("#modalwindow").html("<iframe width='100%' height='100%' scrolling='no' frameborder='0'' src='/SysHelper/UserLookUp'></iframe>");
             $("#modalwindow").window({ title: '选择人员', width: 620, height: 388, iconCls: 'fa fa-plus' }).window('open');
         });
+         $("#selExc2").click(function () {
+            $("#modalwindow").html("<iframe width='100%' height='100%' scrolling='no' frameborder='0'' src='/SysHelper/UserLookUp2'></iframe>");
+            $("#modalwindow").window({ title: '选择人员', width: 620, height: 388, iconCls: 'fa fa-plus' }).window('open');
+        });
+        $("#JoinDate").datebox("setValue", myformatter('@Model.JoinDate'));
     });
 
     function SetSelResult(result, resultName) {
@@ -113,6 +118,17 @@
         var arrayObj = new Array()
         arrayObj[0] = $("#Lead").val();
         arrayObj[1] = $("#LeadName").val();
+        return arrayObj;
+    }
+    function SetSelResult2(result, resultName) {
+
+        $("#Recommendor").val(result);
+        $("#RecommendorName").val(resultName);
+    }
+    function GetSelResult2() {
+        var arrayObj = new Array()
+        arrayObj[0] = $("#Recommendor").val();
+        arrayObj[1] = $("#RecommendorName").val();
         return arrayObj;
     }
     //ifram 返回
@@ -156,7 +172,7 @@
                                 @Html.LabelFor(model => model.JobState)：
                             </th>
                             <td>
-                                @Html.SwitchButtonByEdit("JobState", Model.JobState)
+                                @Html.SwitchButtonByEdit("JobState",(bool)Model.JobState)
                             </td>
                             <th>
 
@@ -192,28 +208,30 @@
 
                         <tr>
                             <th>
-                                自选领导：
+                                推荐人账号：
                             </th>
                             <td>
-                                @Html.SwitchButtonByEdit("IsSelLead", Model.IsSelLead)
+                                @Html.HiddenFor(model => model.Recommendor)
+                                <input id="RecommendorName" name="RecommendorName" readonly="readonly" type="text" style="width: 90px; display: inline; background: #dedede; ">
+                                <a class="fa fa-plus-square color-gray fa-lg" id="selExc2" href="javascript:void(1)"></a>
+
                             </td>
 
 
                             <th>
-                                工作汇报：
+                                @Html.LabelFor(model => model.Card)：
                             </th>
                             <td>
-                                @Html.SwitchButtonByEdit("IsReportCalendar", Model.IsReportCalendar)
+                                @Html.EditorFor(model => model.Card)
                             </td>
 
 
                             <th>
-                                @Html.LabelFor(model => model.IsSecretary)：
+                                @Html.LabelFor(model => model.IsAuth)：
                             </th>
                             <td>
-                                @Html.SwitchButtonByEdit("IsSecretary", Model.IsSecretary)
+                                @Html.SwitchButtonByEdit("IsAuth", false)
                             </td>
-
                         </tr>
                     </tbody>
                 </table>

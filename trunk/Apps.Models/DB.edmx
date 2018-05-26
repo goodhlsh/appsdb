@@ -2043,7 +2043,9 @@
         <Function Name="P_Sys_GetUserCountByDepId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="DepId" Type="varchar" Mode="In" />
         </Function>
-        <Function Name="P_Sys_InsertSysRight" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="P_Sys_InsertSysRight" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Id" Type="varchar" Mode="In" />
+        </Function>
         <Function Name="P_Sys_PutErCi" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="uid" Type="varchar" Mode="In" />
           <Parameter Name="jine" Type="money" Mode="In" />
@@ -2642,7 +2644,9 @@
           <FunctionImport Name="P_Sys_GetUserCountByDepId" ReturnType="Collection(Int32)">
           <Parameter Name="DepId" Mode="In" Type="String" />
           </FunctionImport>
-          <FunctionImport Name="P_Sys_InsertSysRight" />
+          <FunctionImport Name="P_Sys_InsertSysRight" >
+            <Parameter Name="Id" Mode="In" Type="String" />
+          </FunctionImport>
           <FunctionImport Name="P_Sys_UpdateSysRightRightFlag">
             <Parameter Name="moduleId" Mode="In" Type="String" />
             <Parameter Name="roleId" Mode="In" Type="String" />

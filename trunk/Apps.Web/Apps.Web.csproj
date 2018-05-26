@@ -949,6 +949,7 @@
     <Content Include="Views\SysModule\IconList.cshtml" />
     <Content Include="Views\Shared\_IconList.cshtml" />
     <Content Include="Views\IM\Index.cshtml" />
+    <Content Include="Views\SysHelper\UserLookUp2.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Apps.BLL\Apps.BLL.csproj">
