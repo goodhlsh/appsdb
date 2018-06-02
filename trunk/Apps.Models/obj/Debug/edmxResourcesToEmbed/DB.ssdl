@@ -976,8 +976,6 @@
     <Property Name="CurrentLoginTime" Type="date" />
     <Property Name="LastPasswdTime" Type="date" />
   </EntityType>
-  <!--生成过程中发现错误:
-警告 6002: 表/视图“AppsDB.dbo.SysUserConfig”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
   <EntityType Name="SysUserConfig">
     <Key>
       <PropertyRef Name="Id" />
@@ -2038,6 +2036,7 @@
   <Function Name="P_Sys_GetUserCountByDepId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="DepId" Type="varchar" Mode="In" />
   </Function>
+  <Function Name="P_Sys_GetUserWallet" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <Function Name="P_Sys_InsertSysRight" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="Id" Type="varchar" Mode="In" />
   </Function>
@@ -2138,6 +2137,7 @@
     <EntitySet Name="SysSettings" EntityType="Self.SysSettings" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="SysStruct" EntityType="Self.SysStruct" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="SysUser" EntityType="Self.SysUser" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SysUserConfig" EntityType="Self.SysUserConfig" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="SysWallet" EntityType="Self.SysWallet" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="WC_Group" EntityType="Self.WC_Group" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="WC_MessageResponse" EntityType="Self.WC_MessageResponse" Schema="dbo" store:Type="Tables" />
@@ -2152,16 +2152,6 @@
     [Spl_Order_Ware].[SumJinE] AS [SumJinE], 
     [Spl_Order_Ware].[OrderID] AS [OrderID]
     FROM [dbo].[Spl_Order_Ware] AS [Spl_Order_Ware]</DefiningQuery>
-    </EntitySet>
-    <EntitySet Name="SysUserConfig" EntityType="Self.SysUserConfig" store:Type="Tables" store:Schema="dbo">
-      <DefiningQuery>SELECT 
-    [SysUserConfig].[Id] AS [Id], 
-    [SysUserConfig].[Name] AS [Name], 
-    [SysUserConfig].[Value] AS [Value], 
-    [SysUserConfig].[Type] AS [Type], 
-    [SysUserConfig].[State] AS [State], 
-    [SysUserConfig].[UserId] AS [UserId]
-    FROM [dbo].[SysUserConfig] AS [SysUserConfig]</DefiningQuery>
     </EntitySet>
     <EntitySet Name="V_DEF_Defect" EntityType="Self.V_DEF_Defect" store:Type="Views" store:Schema="dbo">
       <DefiningQuery>SELECT 

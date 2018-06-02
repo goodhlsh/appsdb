@@ -155,6 +155,7 @@ namespace Apps.Models.Sys
         public override string Note { get; set; }
         public override string SortCode { get; set; }
         public override string RecommendID { get; set; }
+        [Display(Name = "推荐人")]
         public override string Recommendor { get => base.Recommendor; set => base.Recommendor = value; }
         public override Nullable<System.DateTime> RecommendTime { get; set; }
         public override string EditorID { get; set; }
@@ -183,7 +184,7 @@ namespace Apps.Models.Sys
     {
         [Display(Name = "ID")]
         public string Id { get; set; }
-        [Display(Name = "真实名称")]
+        [Display(Name = "真实姓名")]
         public string TrueName { get; set; }
         [Display(Name = "身份证")]
         public string Card { get; set; }
@@ -204,7 +205,7 @@ namespace Apps.Models.Sys
         [Display(Name = "确认密码")]
         public  string ComparePassword { get; set; }
         [NotNullExpression]
-        [Display(Name = "真实名称")]
+        [Display(Name = "真实姓名")]
         public  string TrueName { get; set; }
         [Display(Name = "身份证")]
         public  string Card { get; set; }
@@ -315,6 +316,8 @@ namespace Apps.Models.Sys
         public  string Note { get; set; }
         public  string SortCode { get; set; }
         public  string RecommendID { get; set; }
+        [Display(Name = "推荐人")]
+        public string Recommendor { get; set; }
         public  DateTime? RecommendTime { get; set; }
         public  string EditorID { get; set; }
         public  DateTime? UpdateTime { get; set; }

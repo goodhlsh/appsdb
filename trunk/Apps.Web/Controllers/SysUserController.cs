@@ -81,7 +81,12 @@ namespace Apps.Web.Controllers
                             IsSecretary = r.IsSecretary,
                             RoleName = r.RoleName,
                             DepName = r.DepName,
-                            PosName = r.PosName
+                            PosName = r.PosName,
+                            RecommendID=r.RecommendID,
+                            Recommendor=r.Recommendor,
+                            WXID=r.WXID,
+                            IsAuth=r.IsAuth
+                            
                         }).ToArray()
 
             };
@@ -194,6 +199,7 @@ namespace Apps.Web.Controllers
             model.IsReportCalendar = false;
             model.IsSecretary = false;
             model.IsSelLead = false;
+            model.City=model.City=="--未选择--"? "":model.City;
 
              if (model != null && model.DepId!=null&&model.PosId!=null)
             //if (model != null&&ModelState.IsValid)

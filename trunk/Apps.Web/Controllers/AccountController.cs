@@ -37,23 +37,23 @@ namespace Apps.Web.Controllers
             ViewBag.ComName = siteConfig.webcompany;
             //
             ViewBag.CopyRight = siteConfig.webcopyright;
-            #if DEBUG
-            SysUser user = accountBLL.Login("admin", ValueConvert.MD5("zxczxc"));
-            AccountModel account = new AccountModel();
-            account.Id = user.Id;
-            account.TrueName = user.TrueName;
-            account.Photo = string.IsNullOrEmpty(user.Photo) ? "/Images/Photo.jpg" : user.Photo;
-            Session["Account"] = account;
-            
-            GetThemes(user.Id);
-            //在线用户统计
-            //OnlineHttpModule.ProcessRequest();
+#if DEBUG
+            //SysUser user = accountBLL.Login("admin", ValueConvert.MD5("zxczxc"));
+            //AccountModel account = new AccountModel();
+            //account.Id = user.Id;
+            //account.TrueName = user.TrueName;
+            //account.Photo = string.IsNullOrEmpty(user.Photo) ? "/Images/Photo.jpg" : user.Photo;
+            //Session["Account"] = account;
 
-            return RedirectToAction("Index", "Home");
-            #else
+            //GetThemes(user.Id);
+            ////在线用户统计
+            ////OnlineHttpModule.ProcessRequest();
+
+            //return RedirectToAction("Index", "Home");
+#else
             return View();
-           #endif
-
+#endif
+            return View();
         }
   
 

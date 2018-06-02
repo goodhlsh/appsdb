@@ -31,13 +31,13 @@ namespace Apps.Web.Controllers
         ValidationErrors errors = new ValidationErrors();
         [Dependency]
         public ISysUserConfigBLL userConfigBLL { get; set; }
-
+     
         public ActionResult Index()
         {
             if (Session["Account"] != null)
             {
                 //获取是否开启WEBIM
-                ViewBag.IsEnable = siteConfig.webimstatus;
+                //ViewBag.IsEnable = siteConfig.webimstatus;
                 //获取信息间隔时间
                 ViewBag.NewMesTime = siteConfig.refreshnewmessage;
                 //系统名称

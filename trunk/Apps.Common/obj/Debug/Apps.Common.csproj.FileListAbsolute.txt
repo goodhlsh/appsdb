@@ -20,3 +20,4 @@ C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Common\obj\Debug\Apps.Comm
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Common\obj\Debug\Apps.Common.dll
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Common\obj\Debug\Apps.Common.pdb
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Common\obj\Debug\Apps.Common.csproj.CopyComplete
+C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Common\obj\Debug\Apps.Common.csprojResolveAssemblyReference.cache

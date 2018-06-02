@@ -634,10 +634,16 @@
     <Compile Include="P_Sys_GetRoleByUserId_Result.cs">
       <DependentUpon>DB.tt</DependentUpon>
     </Compile>
+    <Compile Include="P_Sys_GetUserByDepId1_Result.cs">
+      <DependentUpon>DB.tt</DependentUpon>
+    </Compile>
     <Compile Include="P_Sys_GetUserByDepId_Result.cs">
       <DependentUpon>DB.tt</DependentUpon>
     </Compile>
     <Compile Include="P_Sys_GetUserByRoleId_Result.cs">
+      <DependentUpon>DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="P_Sys_GetUserWallet_Result.cs">
       <DependentUpon>DB.tt</DependentUpon>
     </Compile>
     <Compile Include="P_Sys_WebPart_Result.cs">
@@ -756,6 +762,8 @@
     <Compile Include="SysWallet.cs">
       <DependentUpon>DB.tt</DependentUpon>
     </Compile>
+    <Compile Include="Sys\SysJiaPuModel.cs" />
+    <Compile Include="Sys\SysPurchaseHistoryModel.cs" />
     <Compile Include="Sys\SysWalletModel.cs" />
     <Compile Include="V_DEF_Defect.cs">
       <DependentUpon>DB.tt</DependentUpon>

@@ -356,21 +356,21 @@
     <div class="mvctool bgb">
         @Html.ToolButton("ChoiceSave", "fa fa-cog", Resource.Save, false)
     </div>
-    <div class="checkBoxPart">
-        <input id="cshortcutPart" type="checkbox" value="shortcutPart" /><lable>待办事项</lable>
-    </div>
-    <div class="checkBoxPart">
-        <input id="cnoticePart" type="checkbox" value="noticePart" />我的申请
-    </div>
-    <div class="checkBoxPart">
-        <input id="cmyJobPart" type="checkbox" value="myJobPart" />我的批阅
-    </div>
+    @* <div class="checkBoxPart">
+            <input id="cshortcutPart" type="checkbox" value="shortcutPart" /><lable>待办事项</lable>
+        </div>
+        <div class="checkBoxPart">
+                <input id="cnoticePart" type="checkbox" value="noticePart" />我的申请
+            </div>
+            <div class="checkBoxPart">
+                <input id="cmyJobPart" type="checkbox" value="myJobPart" />我的批阅
+            </div>*@
     <div class="checkBoxPart">
         <input id="cdataPart" type="checkbox" value="dataPart" />数据统计
     </div>
-    <div class="checkBoxPart">
+    @*<div class="checkBoxPart">
         <input id="cnotePart" type="checkbox" value="notePart" />留言板
-    </div>
+    </div>*@
 </div>
 <div class="mvctool" style="float:right; margin-right:40px;">
     <div class="groupEdit">
@@ -413,7 +413,7 @@
                                     </a>
                                 </div>
                             </td>
-                            <td style="width:25%">
+                            @*<td style="width:25%">
                                 <div style="width:95%;">
                                     <a href="javascript:;" class="tile-button btn bg-blue-alt" title="">
                                         <div class="tile-content-wrapper">
@@ -433,7 +433,7 @@
                                         </div>
                                     </a>
                                 </div>
-                            </td>
+                            </td>*@
                             <td style="width:25%">
                                 <div style="width:95%;">
                                     <a href="javascript:;" class="tile-button btn bg-azure" title="">
@@ -462,11 +462,11 @@
                                             <i class="glyph-icon fa fa-tasks"></i>
                                             <div class="tile-content">
 
-                                                78<span>（4568分）</span>
+                                                78<span>（4568元）</span>
                                             </div>
                                             <small>
                                                 <i class="glyph-icon fa fa-pagelines"></i>
-                                                个人积分排名
+                                                平台分红收益排名
                                             </small>
                                         </div>
                                         <div class="tile-footer">
@@ -498,7 +498,7 @@
                     </div>
                 </div>
             </div>
-            <div id="myJobPart" class="easyui-draggable" data-options="handle:'#title5'">
+            @*<div id="myJobPart" class="easyui-draggable" data-options="handle:'#title5'">
                 <div id="title5" class="panel-header" style="border: 0">
                     <div class="panel-title" style="">
                         <span class="fa fa-tasks"></span>&nbsp;&nbsp;我的批阅(Top 6)
@@ -528,7 +528,7 @@
                     </div>
                 </div>
             </div>
-            <div id="notePart" class="easyui-draggable" data-options="handle:'#title7'">
+           <div id="notePart" class="easyui-draggable" data-options="handle:'#title7'">
                 <div id="title7" class="panel-header" style="border: 0">
                     <div class="panel-title" style="">
                         <span class="fa fa-tags"></span>&nbsp;&nbsp;项目进度
@@ -550,7 +550,7 @@
                         <div id="pb4" class="easyui-progressbar" data-options="value:22" style="width:100%;"></div>
                     </div>
                 </div>
-            </div>
+            </div>*@
             <script id="JsSet">
                 $(function () { SetWebpartLayout(); });
                 $(window).resize(function () {

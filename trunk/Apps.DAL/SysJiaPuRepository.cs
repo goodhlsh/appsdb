@@ -9,7 +9,7 @@ namespace Apps.DAL
     public partial class SysJiaPuRepository
     {
 
-        public void IntoSysJiaPu(string userId, string tid, string pid, string erbiao, decimal? fJE)
+        public int IntoSysJiaPu(string userId, string tid, string pid, string erbiao, decimal? fJE)
         {
             if (fJE == null)
             {
@@ -17,7 +17,7 @@ namespace Apps.DAL
             }
             Context.P_Sys_PutZi(userId, tid, pid, erbiao, fJE);
 
-            this.SaveChanges();
+            return this.SaveChanges();
         }
         public void IntoSysJiaPuBefore(string userId, string tid, decimal? fJE)
         {

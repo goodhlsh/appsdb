@@ -109,9 +109,11 @@ namespace Apps.Web.Controllers
                         Id = r.Id,
                         UserName = r.UserName,
                         TrueName = r.TrueName,
+                        LeadName=r.LeadName,
+                        Recommendor=r.Recommendor,
                         DepName = structBLL.GetById(r.DepId).Name,
                         PosName =sysPosBLL.GetById(r.PosId).Name,
-                        Flag = "<input type='checkbox' id='cb_" + r.Id + "' onclick='SetValue(\"" + r.Id + "\",\"" + r.TrueName + "\")'>",
+                        Flag = "<input type='radio' id='cb_" + r.Id + "' name='myselect'  onclick='SetValue(\"" + r.Id + "\",\"" + r.TrueName + "\")'>",
                     }
                 ).ToArray()
             };

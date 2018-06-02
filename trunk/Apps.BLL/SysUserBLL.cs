@@ -35,6 +35,7 @@ namespace Apps.BLL
             List<SysUser> query = null;
             IQueryable<SysUser> list = m_Rep.GetList();
             pager.totalRows = list.Count();
+            
             if (!string.IsNullOrWhiteSpace(queryStr))
             {
                 list = list.Where(a => a.UserName.Contains(queryStr) || a.TrueName.Contains(queryStr));
@@ -70,9 +71,7 @@ namespace Apps.BLL
             List<SysUserModel> userInfoList = new List<SysUserModel>();
             List<SysUser> dataList = query.ToList();
             foreach (var user in dataList)
-            {
-
-
+            {                
                 SysUserModel userModel = new SysUserModel()
                 {
                     Id = user.Id,
@@ -93,7 +92,12 @@ namespace Apps.BLL
                     CreatePerson = user.CreatePerson,
                     RoleName = GetRefSysRole(user.Id),
                     PosName = user.SysPosition.Name,
-                    DepName = user.SysStruct.Name
+                    DepName = user.SysStruct.Name,
+                    LeadName=user.LeadName,
+                    IsAuth=user.IsAuth,
+                    RecommendID=user.RecommendID,
+                    Recommendor=user.Recommendor
+
                 };
                 userInfoList.Add(userModel);
             }
@@ -144,7 +148,11 @@ namespace Apps.BLL
                                                 LeadName = r.LeadName,
                                                 IsSelLead = r.IsSelLead,
                                                 IsReportCalendar = r.IsReportCalendar,
-                                                IsSecretary = r.IsSecretary
+                                                IsSecretary = r.IsSecretary,
+                                                IsAuth=r.IsAuth,
+                                                RecommendID=r.RecommendID,
+                                                Recommendor=r.Recommendor
+                                                
                                             }).ToList();
             return modelList;
         }
@@ -237,7 +245,7 @@ namespace Apps.BLL
                                                 City = r.City,
                                                 Village = r.Village,
                                                 Address = r.Address,
-                                                State = r.State,
+                                                State = (bool)r.State,
                                                 CreateTime = r.CreateTime,
                                                 CreatePerson = r.CreatePerson,
                                                 Sex = r.Sex,
@@ -258,9 +266,13 @@ namespace Apps.BLL
                                                 Attach = r.Attach,
                                                 Lead = r.Lead,
                                                 LeadName = r.LeadName,
-                                                IsSelLead = r.IsSelLead,
-                                                IsReportCalendar = r.IsReportCalendar,
-                                                IsSecretary = r.IsSecretary
+                                                IsSelLead = (bool)r.IsSelLead,
+                                                IsReportCalendar = (bool)r.IsReportCalendar,
+                                                IsSecretary = (bool)r.IsSecretary,
+                                                IsAuth=r.IsAuth,
+                                                RecommendID=r.RecommendID,
+                                                Recommendor=r.Recommendor
+                                               
                                             }).ToList();
             foreach (var v in modelList)
             {
@@ -334,6 +346,10 @@ namespace Apps.BLL
                 entity.IsSelLead = model.IsSelLead;
                 entity.IsReportCalendar = model.IsReportCalendar;
                 entity.IsSecretary = model.IsSecretary;
+                entity.IsAuth = model.IsAuth==null?false:true;
+                entity.IsDeleted = model.IsDeleted;
+                entity.RecommendID = model.RecommendID;
+                entity.Recommendor = model.Recommendor;
 
 
 
@@ -414,6 +430,7 @@ namespace Apps.BLL
                 entity.Note = model.Note;
                 entity.SortCode = model.SortCode;
                 entity.RecommendID = model.RecommendID;
+                entity.Recommendor = model.Recommendor;
                 entity.RecommendTime = model.RecommendTime;
                 entity.EditorID = model.EditorID;
                 entity.UpdateTime = DateTime.Now;
@@ -529,6 +546,7 @@ namespace Apps.BLL
             model.Note = entity.Note;
             model.SortCode = entity.SortCode;
             model.RecommendID = entity.RecommendID;
+            model.Recommendor = entity.Recommendor;
             model.RecommendTime = entity.RecommendTime;
             model.EditorID = entity.EditorID;
             model.UpdateTime = entity.UpdateTime;
@@ -583,9 +601,9 @@ namespace Apps.BLL
         /// <param name="userId"></param>
         /// <param name="pId"></param>
         /// <param name="fJE"></param>
-        public void IntoSysJiaPu(string userId, string tid, string pid, string erbiao, decimal fJE)
+        public int IntoSysJiaPu(string userId, string tid, string pid, string erbiao, decimal fJE)
         {
-            jpRep.IntoSysJiaPu(userId, tid, pid, erbiao, fJE);
+           return  jpRep.IntoSysJiaPu(userId, tid, pid, erbiao, fJE);
         }
         public void IntoSysJiaPuBefore(string uid, string tid, decimal fJE)
         {

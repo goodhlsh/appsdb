@@ -8,11 +8,10 @@
 
     List<permModel> perm = null;
 }
-
 <div class="mvctool bgb">
-     <input id="txtQuery" type="text" class="searchText" />
-    @Html.ToolButton("btnQuery", "fa fa-search", Resource.Query,  true)
-     @Html.ToolButton("btnClear", "fa fa-trash", Resource.Clear,  false)
+    <input id="txtQuery" type="text" class="searchText" />
+    @Html.ToolButton("btnQuery", "fa fa-search", Resource.Query, true)
+    @Html.ToolButton("btnClear", "fa fa-trash", Resource.Clear, false)
     @Html.ToolButton("btnReturn", "fa fa-reply", Resource.Reply, false)  <span style="line-height:26px;float:right;margin-right:5px;" id="selCount"></span>
 </div>
 <table>
@@ -65,9 +64,11 @@
                 { field: 'Id', title: '@Resource.TitleID', width: 80, hidden: true },
                 { field: 'UserName', title: '用户名', width: 120 },
                 { field: 'TrueName', title: '姓名', width: 80 },
-                { field: 'DepName', title: '部门', width: 80 },
-                { field: 'PosName', title: '职位', width: 80 },
-                { field: 'Flag', title: '是否选择了', width: 80}
+                { field: 'LeadName', title: '上级', width: 80 },
+                { field: 'Recommendor', title: '姓名', width: 80 },
+                { field: 'DepName', title: '部门', width: 80,hidden: true },
+                { field: 'PosName', title: '职位', width: 80, hidden: true },
+                { field: 'Flag', title: '是否选择', width: 80 }
             ]],
             onLoadSuccess: function () {
                 var rows = $("#UserList").datagrid("getRows");
@@ -86,7 +87,7 @@
                     }
                     $("#selCount").html("已经选择了 " + arr.length + " 人");
                 }
-              
+
             }
         });
         $("#btnReturn").click(function () {
@@ -94,11 +95,13 @@
         });
     });
 </script>
-
 @*operation*@
 <script type="text/javascript">
-    function SetValue(id,name)
-    {
+    function SetValue(id, name) {
+        window.parent.SetSelResult(id, name)
+        $("#selCount").html("已经选择了 1 人");
+    }
+    function SetValue2(id, name) {
         var b = false;
         var arrVal = window.parent.GetSelResult();//获得已经选择的值
         if (arrVal[0] != "") {
@@ -107,18 +110,16 @@
             arr = arrVal[0].split(',');
             arrName = arrVal[1].split(',');
             for (var i = 0; i < arr.length; i++) {
-                if (id == arr[i])
-                {
+                if (id == arr[i]) {
                     if (!$("#cb_" + id).prop("checked"))//如果不是选择就是撤销
                     {
                         arr.splice(i, 1);
                         arrName.splice(i, 1);
                         b = true;
-                    } 
+                    }
                 }
             }
-            if (!b)
-            {
+            if (!b) {
                 arr.push(id);
                 arrName.push(name);
             }
@@ -132,13 +133,12 @@
             window.parent.SetSelResult(id, name)
             $("#selCount").html("已经选择了 1 人");
         }
-       
+
     }
 </script>
-
 @* 在上级页面必须加入这2个方法才能调用 function SetSelResult(result,resultName)
     {
-        
+
         $("#Execution").val(result);
         $("#ExecutionName").val(resultName);
     }

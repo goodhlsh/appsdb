@@ -260,10 +260,12 @@
     <Compile Include="SysAreasBLL.cs" />
     <Compile Include="SysConfigBLL.cs" />
     <Compile Include="SysExceptionBLL.cs" />
+    <Compile Include="SysJiaPuBLL.cs" />
     <Compile Include="SysLogBLL.cs" />
     <Compile Include="SysModuleBLL.cs" />
     <Compile Include="SysModuleOperateBLL.cs" />
     <Compile Include="SysPositionBLL.cs" />
+    <Compile Include="SysPurchaseHistoryBLL.cs" />
     <Compile Include="SysRightBLL.cs" />
     <Compile Include="SysRightGetModuleRightBLL.cs" />
     <Compile Include="SysRightGetRoleRightBLL.cs" />

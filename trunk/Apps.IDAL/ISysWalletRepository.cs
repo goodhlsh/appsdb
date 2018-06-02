@@ -11,5 +11,6 @@ namespace Apps.IDAL
     public partial interface ISysWalletRepository
     {
         IQueryable<SysWallet> GetWallByUserID(string userID);
+        List<P_Sys_GetUserWallet_Result> GetUserWallet();
     }
 }

@@ -1187,6 +1187,25 @@ public partial class DBContainer : DbContext
         return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("P_Sys_PutZiBefore", uidParameter, tidParameter, fjeParameter);
     }
 
+
+    public virtual ObjectResult<P_Sys_GetUserWallet_Result> P_Sys_GetUserWallet()
+    {
+
+        return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<P_Sys_GetUserWallet_Result>("P_Sys_GetUserWallet");
+    }
+
+
+    public virtual ObjectResult<P_Sys_GetUserByDepId1_Result> P_Sys_GetUserByDepId1(string depId)
+    {
+
+        var depIdParameter = depId != null ?
+            new ObjectParameter("DepId", depId) :
+            new ObjectParameter("DepId", typeof(string));
+
+
+        return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<P_Sys_GetUserByDepId1_Result>("P_Sys_GetUserByDepId1", depIdParameter);
+    }
+
 }
 
 }

@@ -88,6 +88,9 @@ namespace Apps.Core
             //地址注入
             container.RegisterType<ISysAddressRepository, SysAddressRepository>();
             container.RegisterType<ISysAddressBLL, SysAddressBLL>();
+            //业绩注入
+            container.RegisterType<ISysPurchaseHistoryRepository, SysPurchaseHistoryRepository>();
+            container.RegisterType<ISysPurchaseHistoryBLL, SysPurchaseHistoryBLL>();
 
         }
 

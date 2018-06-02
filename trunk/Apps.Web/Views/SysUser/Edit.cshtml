@@ -122,13 +122,13 @@
     }
     function SetSelResult2(result, resultName) {
 
-        $("#Recommendor").val(result);
-        $("#RecommendorName").val(resultName);
+        $("#RecommendID").val(result);
+        $("#Recommendor").val(resultName);
     }
     function GetSelResult2() {
         var arrayObj = new Array()
-        arrayObj[0] = $("#Recommendor").val();
-        arrayObj[1] = $("#RecommendorName").val();
+        arrayObj[0] = $("#RecommendID").val();
+        arrayObj[1] = $("#Recommendor").val();
         return arrayObj;
     }
     //ifram 返回
@@ -208,12 +208,12 @@
 
                         <tr>
                             <th>
-                                推荐人账号：
+                                @Html.LabelFor(model => model.Recommendor)：
                             </th>
                             <td>
-                                @Html.HiddenFor(model => model.Recommendor)
-                                <input id="RecommendorName" name="RecommendorName" readonly="readonly" type="text" style="width: 90px; display: inline; background: #dedede; ">
-                                <a class="fa fa-plus-square color-gray fa-lg" id="selExc2" href="javascript:void(1)"></a>
+                                @Html.HiddenFor(model => model.RecommendID)
+                                <input id="Recommendor" name="Recommendor" readonly="readonly" value="@Model.Recommendor"  type="text" style="width: 90px; display: inline; background: #dedede; ">
+                            @*    <a class="fa fa-plus-square color-gray fa-lg" id="selExc2" href="javascript:void(1)"></a>*@
 
                             </td>
 

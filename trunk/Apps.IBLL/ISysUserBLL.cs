@@ -43,7 +43,7 @@ namespace Apps.IBLL
         List<SysOnlineUserModel> GetAllUsers();
 
         //家谱
-        void IntoSysJiaPu(string userId, string tid, string pid, string erbiao, decimal fJE);
+        int IntoSysJiaPu(string userId, string tid, string pid, string erbiao, decimal fJE);
         void IntoSysJiaPuBefore(string uid, string tid, decimal fje);
     }
 }

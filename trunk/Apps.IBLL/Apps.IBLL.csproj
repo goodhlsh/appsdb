@@ -148,6 +148,7 @@
     <Compile Include="ISysModuleBLL.cs" />
     <Compile Include="ISysModuleOperateBLL.cs" />
     <Compile Include="ISysPositionBLL.cs" />
+    <Compile Include="ISysPurchaseHistoryBLL.cs" />
     <Compile Include="ISysRightBLL.cs" />
     <Compile Include="ISysRightGetModuleRightBLL.cs" />
     <Compile Include="ISysRightGetRoleRightBLL.cs" />

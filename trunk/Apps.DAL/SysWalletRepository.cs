@@ -22,5 +22,10 @@ namespace Apps.DAL
             }
             return null;
         }
+        public List<P_Sys_GetUserWallet_Result> GetUserWallet()
+        {
+            return Context.P_Sys_GetUserWallet().ToList();
+            
+        }
     }
 }

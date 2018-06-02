@@ -45,7 +45,7 @@ public partial class P_Sys_GetUserByDepId_Result
 
     public string Address { get; set; }
 
-    public bool State { get; set; }
+    public Nullable<bool> State { get; set; }
 
     public Nullable<System.DateTime> CreateTime { get; set; }
 
@@ -77,7 +77,7 @@ public partial class P_Sys_GetUserByDepId_Result
 
     public string Expertise { get; set; }
 
-    public bool JobState { get; set; }
+    public Nullable<bool> JobState { get; set; }
 
     public string Photo { get; set; }
 
@@ -87,13 +87,59 @@ public partial class P_Sys_GetUserByDepId_Result
 
     public string LeadName { get; set; }
 
-    public bool IsSelLead { get; set; }
+    public Nullable<bool> IsSelLead { get; set; }
 
-    public bool IsReportCalendar { get; set; }
+    public Nullable<bool> IsReportCalendar { get; set; }
 
-    public bool IsSecretary { get; set; }
+    public Nullable<bool> IsSecretary { get; set; }
 
     public int flag { get; set; }
+
+    public string HomePhone { get; set; }
+
+    public string WXID { get; set; }
+
+    public string Signature { get; set; }
+
+    public string QRCode { get; set; }
+
+    public string IdentityCardFile { get; set; }
+
+    public string IdentityCardBackFile { get; set; }
+
+    public Nullable<bool> IsAuth { get; set; }
+
+    public string AuditStatus { get; set; }
+
+    public string Note { get; set; }
+
+    public string SortCode { get; set; }
+
+    public string RecommendID { get; set; }
+
+    public string Recommendor { get; set; }
+
+    public Nullable<System.DateTime> RecommendTime { get; set; }
+
+    public string EditorID { get; set; }
+
+    public Nullable<System.DateTime> UpdateTime { get; set; }
+
+    public Nullable<bool> IsDeleted { get; set; }
+
+    public string Questions { get; set; }
+
+    public string Answer { get; set; }
+
+    public string LastLoginIP { get; set; }
+
+    public Nullable<System.DateTime> LastLoginTime { get; set; }
+
+    public string CurrentLoginIP { get; set; }
+
+    public Nullable<System.DateTime> CurrentLoginTime { get; set; }
+
+    public Nullable<System.DateTime> LastPasswdTime { get; set; }
 
 }
 

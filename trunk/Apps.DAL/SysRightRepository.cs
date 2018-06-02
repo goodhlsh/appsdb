@@ -14,6 +14,8 @@ namespace Apps.DAL
         {
             try
             {
+                //写权限操作码表之前，先加模块加入用户角色
+
                 //转换
                 SysRightOperate rightOperate = new SysRightOperate();
                 rightOperate.Id = model.Id;
@@ -32,7 +34,7 @@ namespace Apps.DAL
                 {
                     Context.SysRightOperate.Add(rightOperate);
                 }
-                if (Context.SaveChanges() > 0)
+                if (Context.SaveChanges() >= 0)
                 {
                     //更新角色--模块的有效标志RightFlag
                     var sysRight = (from r in Context.SysRight

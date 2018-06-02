@@ -1,4 +1,5 @@
-﻿using Apps.IDAL;
+﻿using Apps.Common;
+using Apps.IDAL;
 using Apps.Models;
 using Apps.Models.Sys;
 using Microsoft.Practices.Unity;
@@ -14,11 +15,11 @@ namespace Apps.BLL
     {
         [Dependency]
         public ISysWalletRepository sysWRep { get; set; }
-      
+
         public SysWalletModel GetWallByUserID(string userID)
         {
-            IQueryable<SysWallet> sw= sysWRep.GetWallByUserID(userID);
-            if (sw == null||sw.Count()<=0) return null;
+            IQueryable<SysWallet> sw = sysWRep.GetWallByUserID(userID);
+            if (sw == null || sw.Count() <= 0) return null;
             SysWallet s = sw.First<SysWallet>();
             SysWalletModel sm = new SysWalletModel();
             sm.id = s.id;
@@ -33,5 +34,9 @@ namespace Apps.BLL
 
             return sm;
         }
+        public List<P_Sys_GetUserWallet_Result> GetUserWallet()
+        {
+            return m_Rep.GetUserWallet();
+        }        
     }
 }

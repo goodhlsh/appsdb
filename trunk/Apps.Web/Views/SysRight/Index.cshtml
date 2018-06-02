@@ -1,10 +1,11 @@
 ﻿@using Apps.Common;
 @using Apps.Web.Core;
 @using Apps.Locale;
+@using Apps.Models.Sys;
 @{
     ViewBag.Title = "角色授权设置";
     Layout = "~/Views/Shared/_Index_Layout.cshtml";
-    List<Apps.Models.Sys.permModel> perm = null;
+    List<permModel> perm = null;
 }
 <div class="mvctool">
     <div style="float:left">
@@ -13,7 +14,7 @@
             <option value="api">Api接口</option>
         </select>
     </div>
-    @Html.ToolButton("btnSave", "fa fa-save", Resource.Save,ref perm, "Save", true)
+    @Html.ToolButton("btnSave", "fa fa-save", Resource.Save, ref perm, "Save", true)
 </div>
 <table style="width: 100%">
     <tbody>
@@ -32,7 +33,6 @@
         </tr>
     </tbody>
 </table>
-
 <script type="text/javascript">
 
 
@@ -41,10 +41,10 @@
         onSelect: function (record) {
             if (record.value == "api") {
                 $('#moduleList').treegrid({ "url": '@Url.Action("GetModelList")?id=ApiInterfaceAuth' });
-               
+
             } else {
                 $('#moduleList').treegrid({ "url": '@Url.Action("GetModelList")?id=0' });
-                
+
             }
 
         }
@@ -209,7 +209,7 @@
             } else {
                 $.messageBox5s('@Resource.Tip', '@Resource.NoAnyChanges！');
             }
-           
+
         });
         $(window).resize(function () {
             resizeLayout();
@@ -243,4 +243,3 @@
     }
 
 </script>
-

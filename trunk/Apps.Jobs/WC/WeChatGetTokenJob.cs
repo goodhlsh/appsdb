@@ -22,29 +22,37 @@ namespace Apps.Jobs.WC
 
         public string RunJob(ref JobDataMap dataMap, string jobName, string id, string taskName)
         {
+            try
+            {
+                using (IWC_OfficalAccountsRepository m_Rep = new WC_OfficalAccountsRepository(new DBContainer()))
+                {
 
-            using (IWC_OfficalAccountsRepository m_Rep = new WC_OfficalAccountsRepository(new DBContainer()))
+                    IQueryable<WC_OfficalAccounts> queryable = m_Rep.GetList();
+                    ValidationErrors validationErrors = new ValidationErrors();
+                    foreach (var entity in queryable)
+                    {
+                        if (!string.IsNullOrEmpty(entity.AppId) && !string.IsNullOrEmpty(entity.AppSecret))
+                        {
+                            entity.AccessToken = Senparc.Weixin.MP.CommonAPIs.CommonApi.GetToken(entity.AppId, entity.AppSecret).access_token;
+                            entity.ModifyTime = ResultHelper.NowTime;
+                        }
+                    }
+                    if (queryable.Count() > 0)
+                    {
+                        TaskJob.UpdateState(ref validationErrors, jobName, 1, "成功");
+                        m_Rep.SaveChanges();
+                    }
+
+                    return "批量更新Access_Token！";
+                }
+
+            }
+            catch (Exception)
             {
 
-                IQueryable<WC_OfficalAccounts> queryable = m_Rep.GetList();
-                ValidationErrors validationErrors = new ValidationErrors();
-                foreach (var entity in queryable)
-                {
-                    if (!string.IsNullOrEmpty(entity.AppId) && !string.IsNullOrEmpty(entity.AppSecret))
-                    {
-                        entity.AccessToken = Senparc.Weixin.MP.CommonAPIs.CommonApi.GetToken(entity.AppId, entity.AppSecret).access_token;
-                        entity.ModifyTime = ResultHelper.NowTime;
-                    }
-                }
-                if(queryable.Count()>0)
-                {
-                    TaskJob.UpdateState(ref validationErrors, jobName, 1, "成功");
-                    m_Rep.SaveChanges();
-                }
-
-                return "批量更新Access_Token！";
+                throw;
             }
-        }
+          }
 
         public string RunJobBefore(JobModel jobModel)
         {

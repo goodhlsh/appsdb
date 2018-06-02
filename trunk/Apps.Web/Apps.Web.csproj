@@ -267,6 +267,9 @@
     <Compile Include="Areas\Spl\Controllers\PersonController.cs" />
     <Compile Include="Areas\Spl\Controllers\ProductController.cs" />
     <Compile Include="Areas\Spl\Controllers\ProductCategoryController.cs" />
+    <Compile Include="Areas\Spl\Controllers\WareController.cs" />
+    <Compile Include="Areas\Spl\Controllers\WareInfoController.cs" />
+    <Compile Include="Controllers\SysJiaPuController.cs" />
     <Compile Include="Areas\Spl\SplAreaRegistration.cs" />
     <Compile Include="Areas\WC\Controllers\GroupController.cs" />
     <Compile Include="Areas\WC\Controllers\MenuSettingController.cs" />
@@ -293,6 +296,7 @@
     <Compile Include="Controllers\SysLogController.cs" />
     <Compile Include="Controllers\SysModuleController.cs" />
     <Compile Include="Controllers\SysPositionController.cs" />
+    <Compile Include="Controllers\SysPurchaseHistoryController.cs" />
     <Compile Include="Controllers\SysRightController.cs" />
     <Compile Include="Controllers\SysRightGetModuleRightController.cs" />
     <Compile Include="Controllers\SysRightGetRoleRightController.cs" />
@@ -302,6 +306,7 @@
     <Compile Include="Controllers\SysSampleController.cs" />
     <Compile Include="Controllers\SysStructController.cs" />
     <Compile Include="Controllers\SysUserController.cs" />
+    <Compile Include="Controllers\SysWalletController.cs" />
     <Compile Include="Core\BaseController.cs" />
     <Compile Include="Core\CommonHelper.cs" />
     <Compile Include="Core\CultureAwareHttpModule.cs" />
@@ -602,6 +607,18 @@
     <Content Include="Areas\WC\Views\OAuth2\Index.cshtml" />
     <Content Include="Areas\WC\Views\OAuth2\UserInfoCallback.cshtml" />
     <Content Include="Content\Templete\PersonBatch.xlsx" />
+    <Content Include="Views\SysJiaPu\index.cshtml" />
+    <Content Include="Views\SysJiaPu\Create.cshtml" />
+    <Content Include="Views\SysJiaPu\Edit.cshtml" />
+    <Content Include="Views\SysJiaPu\Details.cshtml" />
+    <Content Include="Areas\Spl\Views\Ware\index.cshtml" />
+    <Content Include="Areas\Spl\Views\Ware\Create.cshtml" />
+    <Content Include="Areas\Spl\Views\Ware\Edit.cshtml" />
+    <Content Include="Areas\Spl\Views\Ware\Details.cshtml" />
+    <Content Include="Areas\Spl\Views\WareInfo\index.cshtml" />
+    <Content Include="Areas\Spl\Views\WareInfo\Edit.cshtml" />
+    <Content Include="Areas\Spl\Views\WareInfo\Create.cshtml" />
+    <Content Include="Areas\Spl\Views\WareInfo\Details.cshtml" />
     <None Include="job_scheduling_data_2_0.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -949,7 +966,12 @@
     <Content Include="Views\SysModule\IconList.cshtml" />
     <Content Include="Views\Shared\_IconList.cshtml" />
     <Content Include="Views\IM\Index.cshtml" />
+    <Content Include="Views\SysJiaPu\LookUp.cshtml" />
     <Content Include="Views\SysHelper\UserLookUp2.cshtml" />
+    <Content Include="Views\SysWallet\index.cshtml" />
+    <Content Include="Views\SysWallet\Create.cshtml" />
+    <Content Include="Views\SysWallet\Edit.cshtml" />
+    <Content Include="Views\SysPurchaseHistory\index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Apps.BLL\Apps.BLL.csproj">
