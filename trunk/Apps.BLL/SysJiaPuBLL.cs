@@ -15,6 +15,8 @@ namespace Apps.BLL
     {
         [Dependency]
         public ISysJiaPuRepository jpRep { get; set; }
+        [Dependency]
+        public ISysUserRepository mu_Rep { get; set; }
         public override List<SysJiaPuModel> GetList(ref GridPager pager, string queryStr)
         {
             List<SysJiaPu> query = null;
@@ -56,25 +58,30 @@ namespace Apps.BLL
             List<SysJiaPu> dataList = query.ToList();
             foreach (var user in dataList)
             {
-
+                SysUser sysUser = new SysUser();
+                if (user.ParentId!=null)
+                {
+sysUser = mu_Rep.GetById(user.ParentId);
+                }
+                
 
                 SysJiaPuModel jiapuModel = new SysJiaPuModel()
                 {
-                    id = user.id,
+                   
+                
+                id = user.id,
                     UserId=user.UserId,
                     UserName = user.SysUser.UserName,                   
                     TrueName = user.SysUser.TrueName,
                     ParentId=user.ParentId,
                     LevelId=user.LevelId,
-                    LeadName = user.SysUser.LeadName,
+                    ParentName =sysUser==null?null:sysUser.TrueName,
                     CreateTime = user.CreateTime,
                     FirstJinE = user.FirstJinE,
                     ErZiShu=user.ErZiShu,
                     ZMPA2 = user.ZMPA2,
                     TId = user.TId,
-                    TName = user.SysUser.Recommendor
-                    
-
+                    TName = user.SysUser.Recommendor  
                 };
                 jiapuInfoList.Add(jiapuModel);
             }

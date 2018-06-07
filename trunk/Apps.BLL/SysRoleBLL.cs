@@ -33,7 +33,12 @@ namespace Apps.BLL
             }
             return modelList;
         }
-
+        /// <summary>
+        /// 添加角色
+        /// </summary>
+        /// <param name="errors"></param>
+        /// <param name="model"></param>
+        /// <returns></returns>
         public override bool Create(ref ValidationErrors errors, SysRoleModel model)
         {
             try
@@ -52,7 +57,7 @@ namespace Apps.BLL
                 entity.CreatePerson = model.CreatePerson;
                 if (m_Rep.Create(entity))
                 {
-                    //分配给角色
+                    //模块分配给角色
                     m_Rep.P_Sys_InsertSysRight(entity.Id);
                     //清理无用的项
                     m_Rep.P_Sys_ClearUnusedRightOperate();

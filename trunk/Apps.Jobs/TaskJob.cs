@@ -57,9 +57,9 @@ namespace Apps.Jobs
                     null, new Object[] { }, null, null);
 
                 MethodInfo m = assem.GetType(taskName).GetMethod("RunJob");//默认调用方法
-                Object ret = m.Invoke(o, new Object[] { dataMap, jobName, id, taskName });
+                //Object ret = m.Invoke(o, new Object[] { dataMap, jobName, id, taskName });
                 //更新任务状态
-                TaskJob.UpdateState(ref validationErrors, jobName, 1, ret.ToString());
+                //TaskJob.UpdateState(ref validationErrors, jobName, 1, ret.ToString());
                 
                 //////////////////////////////////////////////////////////////////
                 if (validationErrors.Count > 0)

@@ -25,6 +25,7 @@ namespace Apps.BLL
 	{
         [Dependency]
         public ISysJiaPuRepository m_Rep { get; set; }
+        public ISysUserRepository mu_Rep { get;set; }
 
 		public virtual List<SysJiaPuModel> GetList(ref GridPager pager, string queryStr)
         {

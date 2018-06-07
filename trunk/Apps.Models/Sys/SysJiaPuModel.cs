@@ -18,7 +18,7 @@ namespace Apps.Models.Sys
         public string TrueName { get; set; }
         public override string ParentId { get; set; }
         [Display(Name ="上级领导")]
-        public string LeadName { get; set; }
+        public string ParentName { get; set; }
         [Display(Name ="入会金额")]
         public override decimal? FirstJinE { get; set; }
         [Display(Name ="指定位置")]

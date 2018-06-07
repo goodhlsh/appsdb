@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="DB.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2005" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+<Schema Namespace="DB.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
   <EntityType Name="DEF_CaseType">
     <Key>
       <PropertyRef Name="Id" />
@@ -450,6 +450,54 @@
     <Property Name="InfoTime" Type="datetime" Nullable="false" />
     <Property Name="ContactPersonsTitle" Type="varchar" MaxLength="5120" />
   </EntityType>
+  <EntityType Name="Spl_Actives">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Title" Type="varchar" MaxLength="100" />
+    <Property Name="Cont" Type="text" />
+    <Property Name="Fors" Type="varchar" MaxLength="20" />
+    <Property Name="BeginDate" Type="datetime" />
+    <Property Name="EndDate" Type="datetime" />
+    <Property Name="IsShow" Type="bit" />
+    <Property Name="CreateTime" Type="datetime" />
+    <Property Name="UpdateTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Spl_Hotware">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="WareId" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Amount" Type="int" />
+    <Property Name="SumJinE" Type="money" />
+  </EntityType>
+  <!--生成过程中发现错误:
+警告 6002: 表/视图“AppsDB.dbo.Spl_Order_Ware”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+  <EntityType Name="Spl_Order_Ware">
+    <Key>
+      <PropertyRef Name="WaresId" />
+      <PropertyRef Name="OrderID" />
+    </Key>
+    <Property Name="WaresId" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="255" />
+    <Property Name="Amount" Type="int" />
+    <Property Name="SumJinE" Type="money" />
+    <Property Name="OrderID" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Spl_Orders">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="UserId" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="OrderNo" Type="varchar" MaxLength="50" />
+    <Property Name="Status" Type="varchar" MaxLength="10" />
+    <Property Name="AddressId" Type="varchar" MaxLength="50" />
+    <Property Name="CreateTime" Type="datetime" />
+    <Property Name="UpdateTime" Type="datetime" />
+  </EntityType>
   <EntityType Name="Spl_Person">
     <Key>
       <PropertyRef Name="Id" />
@@ -486,9 +534,67 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="CreateTime" Type="datetime" Nullable="false" />
-    <Property Name="CreateBy" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" />
+    <Property Name="CreateTime" Type="datetime" />
+    <Property Name="CreateBy" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Spl_Ware">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" />
+    <Property Name="ProductCategoryId" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Unit" Type="varchar" MaxLength="10" />
+    <Property Name="OriginPrice" Type="money" />
+    <Property Name="Price" Type="money" />
+    <Property Name="Stock" Type="int" />
+    <Property Name="Description" Type="varchar" MaxLength="50" />
+    <Property Name="Note" Type="varchar" MaxLength="100" />
+    <Property Name="Thumbnail" Type="varchar" MaxLength="100" />
+    <Property Name="ShowType" Type="varchar" MaxLength="10" />
+    <Property Name="WareInfoId" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="WareCount" Type="int" />
+    <Property Name="WareState" Type="bit" />
+    <Property Name="CreateTime" Type="datetime" />
+    <Property Name="Creator" Type="varchar" MaxLength="50" />
+    <Property Name="UpdateTime" Type="datetime" />
+    <Property Name="Editor" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Spl_WareInfo">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Picture0" Type="varchar" MaxLength="100" />
+    <Property Name="Picture1" Type="varchar" MaxLength="100" />
+    <Property Name="Picture2" Type="varchar" MaxLength="100" />
+    <Property Name="Picture3" Type="varchar" MaxLength="100" />
+    <Property Name="Picture4" Type="varchar" MaxLength="100" />
+    <Property Name="Picture5" Type="varchar" MaxLength="100" />
+    <Property Name="Detail" Type="text" />
+    <Property Name="ToTop" Type="bit" />
+    <Property Name="CreateTime" Type="datetime" />
+    <Property Name="Creator" Type="varchar" MaxLength="50" />
+    <Property Name="UpdateTime" Type="datetime" />
+    <Property Name="Editor" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="SysAddress">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="UserId" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" />
+    <Property Name="Mobile" Type="varchar" MaxLength="11" />
+    <Property Name="Province" Type="varchar" MaxLength="20" />
+    <Property Name="City" Type="varchar" MaxLength="20" />
+    <Property Name="Street" Type="varchar" MaxLength="50" />
+    <Property Name="House" Type="varchar" MaxLength="50" />
+    <Property Name="Typs" Type="varchar" MaxLength="10" />
+    <Property Name="IsDefault" Type="bit" />
+    <Property Name="CreateTime" Type="datetime" />
+    <Property Name="UpdateTime" Type="datetime" />
   </EntityType>
   <EntityType Name="SysAreas">
     <Key>
@@ -504,6 +610,46 @@
     <Property Name="IsHKMT" Type="bit" Nullable="false" />
     <Property Name="IsOther" Type="bit" Nullable="false" />
   </EntityType>
+  <EntityType Name="SysDcitTpe">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" />
+    <Property Name="Remarek" Type="varchar" MaxLength="255" />
+    <Property Name="SortCode" Type="varchar" MaxLength="50" />
+    <Property Name="Creator" Type="varchar" MaxLength="50" />
+    <Property Name="CreateTime" Type="datetime" />
+    <Property Name="Editor" Type="varbinary" MaxLength="50" />
+    <Property Name="EditTime" Type="datetime" />
+    <Property Name="Pid" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="SysDictData">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="DictType_Id" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" />
+    <Property Name="DicValue" Type="varchar" MaxLength="50" />
+    <Property Name="Remark" Type="varchar" MaxLength="255" />
+    <Property Name="SortCode" Type="varchar" MaxLength="50" />
+    <Property Name="Creator" Type="varchar" MaxLength="50" />
+    <Property Name="CreateTime" Type="datetime" />
+    <Property Name="Editor" Type="varchar" MaxLength="50" />
+    <Property Name="EditTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="SysErCi">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="UserId" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="OrderId" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="JinE" Type="money" />
+    <Property Name="CreateTime" Type="datetime" />
+    <Property Name="Note" Type="text" />
+  </EntityType>
   <EntityType Name="SysException">
     <Key>
       <PropertyRef Name="Id" />
@@ -517,6 +663,72 @@
     <Property Name="Data" Type="varchar" MaxLength="500" />
     <Property Name="CreateTime" Type="datetime" />
   </EntityType>
+  <EntityType Name="SysHelps">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Title" Type="varchar" MaxLength="50" />
+    <Property Name="Cont" Type="text" />
+    <Property Name="Category" Type="varchar" MaxLength="10" />
+    <Property Name="CreateTime" Type="datetime" />
+    <Property Name="UpdateTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="SysJiaPu">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="UserId" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="ParentId" Type="varchar" MaxLength="50" />
+    <Property Name="PPId" Type="varchar" MaxLength="50" />
+    <Property Name="TId" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="TopId" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="ZiMu" Type="varchar" MaxLength="150" />
+    <Property Name="ShuZi" Type="varchar" MaxLength="150" />
+    <Property Name="ErZiShu" Type="int" />
+    <Property Name="FirstJinE" Type="money" />
+    <Property Name="LevelId" Type="int" Nullable="false" />
+    <Property Name="ZMP15" Type="varchar" MaxLength="150" />
+    <Property Name="ZMPA2" Type="varchar" MaxLength="10" />
+    <Property Name="ZMPB2" Type="varchar" MaxLength="10" />
+    <Property Name="ZMPC2" Type="varchar" MaxLength="10" />
+    <Property Name="ZMPD2" Type="varchar" MaxLength="10" />
+    <Property Name="ZMPE2" Type="varchar" MaxLength="10" />
+    <Property Name="ZMPF2" Type="varchar" MaxLength="10" />
+    <Property Name="ZMPG2" Type="varchar" MaxLength="10" />
+    <Property Name="ZMPH2" Type="varchar" MaxLength="10" />
+    <Property Name="ZMPI2" Type="varchar" MaxLength="10" />
+    <Property Name="ZMPJ2" Type="varchar" MaxLength="10" />
+    <Property Name="Comment" Type="text" />
+    <Property Name="CreateTime" Type="datetime" />
+    <Property Name="UpdateTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="SysJiaPuBefore">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="uid" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="tid" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="fje" Type="money" Nullable="false" />
+    <Property Name="isdone" Type="bit" />
+    <Property Name="createTime" Type="date" />
+  </EntityType>
+  <EntityType Name="SysLevels">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="20" />
+    <Property Name="Code" Type="varchar" MaxLength="20" />
+    <Property Name="FirstDiscout" Type="real" />
+    <Property Name="SecondDiscout" Type="real" />
+    <Property Name="ThirdDiscout" Type="real" />
+    <Property Name="Other" Type="varchar" MaxLength="20" />
+    <Property Name="CreateTime" Type="datetime" />
+    <Property Name="UpdateTime" Type="datetime" />
+  </EntityType>
   <EntityType Name="SysLog">
     <Key>
       <PropertyRef Name="Id" />
@@ -528,6 +740,19 @@
     <Property Name="Type" Type="varchar" MaxLength="20" />
     <Property Name="Module" Type="varchar" MaxLength="220" />
     <Property Name="CreateTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="SysMessage">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Title" Type="varchar" MaxLength="20" />
+    <Property Name="Cont" Type="text" />
+    <Property Name="Category" Type="varchar" MaxLength="50" />
+    <Property Name="FromWho" Type="varchar" MaxLength="20" />
+    <Property Name="ToWho" Type="varchar" MaxLength="20" />
+    <Property Name="CreateTime" Type="datetime" />
+    <Property Name="UpdateTime" Type="datetime" />
   </EntityType>
   <EntityType Name="SysModule">
     <Key>
@@ -558,6 +783,22 @@
     <Property Name="IsValid" Type="bit" Nullable="false" />
     <Property Name="Sort" Type="int" Nullable="false" />
   </EntityType>
+  <EntityType Name="SysPerson">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Sex" Type="nchar" MaxLength="10" />
+    <Property Name="Age" Type="int" />
+    <Property Name="IDCard" Type="nvarchar" MaxLength="50" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="50" />
+    <Property Name="Email" Type="nvarchar" MaxLength="200" />
+    <Property Name="Address" Type="nvarchar" MaxLength="300" />
+    <Property Name="CreateTime" Type="datetime" Nullable="false" />
+    <Property Name="Region" Type="nvarchar" MaxLength="50" />
+    <Property Name="Category" Type="nvarchar" MaxLength="50" />
+  </EntityType>
   <EntityType Name="SysPosition">
     <Key>
       <PropertyRef Name="Id" />
@@ -570,6 +811,33 @@
     <Property Name="Enable" Type="bit" Nullable="false" />
     <Property Name="MemberCount" Type="int" Nullable="false" />
     <Property Name="DepId" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SysProduct">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Code" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Price" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="CostPrice" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Color" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Number" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="CategoryId" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="CreateTime" Type="datetime" Nullable="false" />
+    <Property Name="CreateBy" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SysPurchaseHistory">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="UserId" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="ShouRu" Type="money" />
+    <Property Name="Froms" Type="varchar" MaxLength="20" />
+    <Property Name="CreateTime" Type="datetime" />
+    <Property Name="Note" Type="text" />
+    <Property Name="IsShow" Type="bit" />
   </EntityType>
   <EntityType Name="SysRight">
     <Key>
@@ -651,9 +919,13 @@
     <Property Name="Password" Type="varchar" MaxLength="200" Nullable="false" />
     <Property Name="TrueName" Type="varchar" MaxLength="200" />
     <Property Name="Card" Type="varchar" MaxLength="50" />
-    <Property Name="MobileNumber" Type="varchar" MaxLength="200" Nullable="false" />
-    <Property Name="PhoneNumber" Type="varchar" MaxLength="200" />
+    <Property Name="MobileNumber" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="HomePhone" Type="varchar" MaxLength="20" />
+    <Property Name="PhoneNumber" Type="varchar" MaxLength="20" />
     <Property Name="QQ" Type="varchar" MaxLength="50" />
+    <Property Name="WXID" Type="varchar" MaxLength="50" />
+    <Property Name="Signature" Type="varchar" MaxLength="200" />
+    <Property Name="QRCode" Type="varchar" MaxLength="100" />
     <Property Name="EmailAddress" Type="varchar" MaxLength="200" />
     <Property Name="OtherContact" Type="varchar" MaxLength="200" />
     <Property Name="Province" Type="varchar" MaxLength="200" />
@@ -676,14 +948,33 @@
     <Property Name="DepId" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="PosId" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="Expertise" Type="varchar" MaxLength="3000" />
-    <Property Name="JobState" Type="bit" Nullable="false" />
+    <Property Name="JobState" Type="bit" />
     <Property Name="Photo" Type="varchar" MaxLength="200" />
+    <Property Name="IdentityCardFile" Type="varchar" MaxLength="200" />
+    <Property Name="IdentityCardBackFile" Type="varchar" MaxLength="200" />
     <Property Name="Attach" Type="varchar" MaxLength="200" />
     <Property Name="Lead" Type="varchar" MaxLength="4000" />
     <Property Name="LeadName" Type="varchar" MaxLength="4000" />
     <Property Name="IsSelLead" Type="bit" Nullable="false" />
     <Property Name="IsReportCalendar" Type="bit" Nullable="false" />
     <Property Name="IsSecretary" Type="bit" Nullable="false" />
+    <Property Name="IsAuth" Type="bit" />
+    <Property Name="AuditStatus" Type="varchar" MaxLength="50" />
+    <Property Name="Note" Type="text" />
+    <Property Name="SortCode" Type="varchar" MaxLength="50" />
+    <Property Name="RecommendID" Type="varchar" MaxLength="50" />
+    <Property Name="Recommendor" Type="varchar" MaxLength="50" />
+    <Property Name="RecommendTime" Type="date" />
+    <Property Name="EditorID" Type="varchar" MaxLength="50" />
+    <Property Name="UpdateTime" Type="date" />
+    <Property Name="IsDeleted" Type="bit" />
+    <Property Name="Questions" Type="varchar" MaxLength="100" />
+    <Property Name="Answer" Type="varchar" MaxLength="100" />
+    <Property Name="LastLoginIP" Type="varchar" MaxLength="50" />
+    <Property Name="LastLoginTime" Type="date" />
+    <Property Name="CurrentLoginIP" Type="varchar" MaxLength="50" />
+    <Property Name="CurrentLoginTime" Type="date" />
+    <Property Name="LastPasswdTime" Type="date" />
   </EntityType>
   <EntityType Name="SysUserConfig">
     <Key>
@@ -691,10 +982,23 @@
     </Key>
     <Property Name="Id" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="Name" Type="varchar" MaxLength="50" />
-    <Property Name="Value" Type="varchar" MaxLength="8000" />
+    <Property Name="Value" Type="varchar(max)" />
     <Property Name="Type" Type="varchar" MaxLength="50" />
     <Property Name="State" Type="bit" />
     <Property Name="UserId" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="SysWallet">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="UserId" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Balance" Type="money" />
+    <Property Name="Froms" Type="varchar" MaxLength="50" />
+    <Property Name="JieYu" Type="money" />
+    <Property Name="Note" Type="text" />
+    <Property Name="CreateTime" Type="datetime" />
+    <Property Name="UpdateTime" Type="datetime" />
   </EntityType>
   <EntityType Name="WC_Group">
     <Key>
@@ -1163,15 +1467,87 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Spl_Product_Spl_ProductCategory">
+  <Association Name="FK_Spl_Hotware_Spl_Ware">
+    <End Role="Spl_Ware" Type="Self.Spl_Ware" Multiplicity="1" />
+    <End Role="Spl_Hotware" Type="Self.Spl_Hotware" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Spl_Ware">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Spl_Hotware">
+        <PropertyRef Name="WareId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Spl_Order_Ware_Spl_Orders">
+    <End Role="Spl_Orders" Type="Self.Spl_Orders" Multiplicity="1" />
+    <End Role="Spl_Order_Ware" Type="Self.Spl_Order_Ware" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Spl_Orders">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Spl_Order_Ware">
+        <PropertyRef Name="OrderID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Spl_Order_Ware_Spl_Ware">
+    <End Role="Spl_Ware" Type="Self.Spl_Ware" Multiplicity="1" />
+    <End Role="Spl_Order_Ware" Type="Self.Spl_Order_Ware" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Spl_Ware">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Spl_Order_Ware">
+        <PropertyRef Name="WaresId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Spl_Orders_SysUser">
+    <End Role="SysUser" Type="Self.SysUser" Multiplicity="1" />
+    <End Role="Spl_Orders" Type="Self.Spl_Orders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SysUser">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Spl_Orders">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Spl_Ware_Spl_ProductCategory">
     <End Role="Spl_ProductCategory" Type="Self.Spl_ProductCategory" Multiplicity="1" />
-    <End Role="Spl_Product" Type="Self.Spl_Product" Multiplicity="*" />
+    <End Role="Spl_Ware" Type="Self.Spl_Ware" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Spl_ProductCategory">
         <PropertyRef Name="Id" />
       </Principal>
-      <Dependent Role="Spl_Product">
-        <PropertyRef Name="CategoryId" />
+      <Dependent Role="Spl_Ware">
+        <PropertyRef Name="ProductCategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Spl_Ware_Spl_WareInfo">
+    <End Role="Spl_WareInfo" Type="Self.Spl_WareInfo" Multiplicity="1" />
+    <End Role="Spl_Ware" Type="Self.Spl_Ware" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Spl_WareInfo">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Spl_Ware">
+        <PropertyRef Name="WareInfoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SysAddress_SysUser">
+    <End Role="SysUser" Type="Self.SysUser" Multiplicity="1" />
+    <End Role="SysAddress" Type="Self.SysAddress" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SysUser">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SysAddress">
+        <PropertyRef Name="UserId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -1184,6 +1560,30 @@
       </Principal>
       <Dependent Role="SysAreas1">
         <PropertyRef Name="ParentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SysDictData_SysDcitTpe">
+    <End Role="SysDcitTpe" Type="Self.SysDcitTpe" Multiplicity="1" />
+    <End Role="SysDictData" Type="Self.SysDictData" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SysDcitTpe">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="SysDictData">
+        <PropertyRef Name="DictType_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SysErCi_SysUser">
+    <End Role="SysUser" Type="Self.SysUser" Multiplicity="1" />
+    <End Role="SysErCi" Type="Self.SysErCi" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SysUser">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SysErCi">
+        <PropertyRef Name="UserId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -1224,6 +1624,18 @@
       </Principal>
       <Dependent Role="SysPosition">
         <PropertyRef Name="DepId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SysPurchaseHistory_SysUser">
+    <End Role="SysUser" Type="Self.SysUser" Multiplicity="1" />
+    <End Role="SysPurchaseHistory" Type="Self.SysPurchaseHistory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SysUser">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SysPurchaseHistory">
+        <PropertyRef Name="UserId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -1341,6 +1753,18 @@
         <PropertyRef Name="Id" />
       </Principal>
       <Dependent Role="SysUserConfig">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SysWallet_SysUser">
+    <End Role="SysUser" Type="Self.SysUser" Multiplicity="1" />
+    <End Role="SysWallet" Type="Self.SysWallet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SysUser">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SysWallet">
         <PropertyRef Name="UserId" />
       </Dependent>
     </ReferentialConstraint>
@@ -1577,6 +2001,7 @@
   <Function Name="P_Sys_DeleteSysRoleSysUserByUserId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="userId" Type="varchar" Mode="In" />
   </Function>
+  <Function Name="P_Sys_EveryMonth" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <Function Name="P_Sys_GetAllUsers" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <Function Name="P_Sys_GetModule_RoleRight" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="moduleId" Type="varchar" Mode="In" />
@@ -1611,7 +2036,27 @@
   <Function Name="P_Sys_GetUserCountByDepId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="DepId" Type="varchar" Mode="In" />
   </Function>
-  <Function Name="P_Sys_InsertSysRight" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="P_Sys_GetUserWallet" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="P_Sys_InsertSysRight" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="P_Sys_PutErCi" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="uid" Type="varchar" Mode="In" />
+    <Parameter Name="jine" Type="money" Mode="In" />
+    <Parameter Name="orderid" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="P_Sys_PutZi" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="uid" Type="varchar" Mode="In" />
+    <Parameter Name="tid" Type="varchar" Mode="In" />
+    <Parameter Name="pid" Type="varchar" Mode="In" />
+    <Parameter Name="erzibiao" Type="varchar" Mode="In" />
+    <Parameter Name="fJE" Type="money" Mode="In" />
+  </Function>
+  <Function Name="P_Sys_PutZiBefore" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="uid" Type="varchar" Mode="In" />
+    <Parameter Name="tid" Type="varchar" Mode="In" />
+    <Parameter Name="fje" Type="money" Mode="In" />
+  </Function>
   <Function Name="P_Sys_UpdateSysRightRightFlag" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="moduleId" Type="varchar" Mode="In" />
     <Parameter Name="roleId" Type="varchar" Mode="In" />
@@ -1658,15 +2103,32 @@
     <EntitySet Name="MIS_WebIM_Message" EntityType="Self.MIS_WebIM_Message" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="MIS_WebIM_Message_Rec" EntityType="Self.MIS_WebIM_Message_Rec" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="MIS_WebIM_RecentContact" EntityType="Self.MIS_WebIM_RecentContact" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Spl_Actives" EntityType="Self.Spl_Actives" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Spl_Hotware" EntityType="Self.Spl_Hotware" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Spl_Orders" EntityType="Self.Spl_Orders" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Spl_Person" EntityType="Self.Spl_Person" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Spl_Product" EntityType="Self.Spl_Product" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Spl_ProductCategory" EntityType="Self.Spl_ProductCategory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Spl_Ware" EntityType="Self.Spl_Ware" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Spl_WareInfo" EntityType="Self.Spl_WareInfo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SysAddress" EntityType="Self.SysAddress" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="SysAreas" EntityType="Self.SysAreas" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SysDcitTpe" EntityType="Self.SysDcitTpe" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SysDictData" EntityType="Self.SysDictData" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SysErCi" EntityType="Self.SysErCi" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="SysException" EntityType="Self.SysException" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SysHelps" EntityType="Self.SysHelps" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SysJiaPu" EntityType="Self.SysJiaPu" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SysJiaPuBefore" EntityType="Self.SysJiaPuBefore" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SysLevels" EntityType="Self.SysLevels" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="SysLog" EntityType="Self.SysLog" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SysMessage" EntityType="Self.SysMessage" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="SysModule" EntityType="Self.SysModule" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="SysModuleOperate" EntityType="Self.SysModuleOperate" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SysPerson" EntityType="Self.SysPerson" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="SysPosition" EntityType="Self.SysPosition" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SysProduct" EntityType="Self.SysProduct" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SysPurchaseHistory" EntityType="Self.SysPurchaseHistory" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="SysRight" EntityType="Self.SysRight" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="SysRightOperate" EntityType="Self.SysRightOperate" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="SysRole" EntityType="Self.SysRole" Schema="dbo" store:Type="Tables" />
@@ -1676,51 +2138,61 @@
     <EntitySet Name="SysStruct" EntityType="Self.SysStruct" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="SysUser" EntityType="Self.SysUser" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="SysUserConfig" EntityType="Self.SysUserConfig" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SysWallet" EntityType="Self.SysWallet" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="WC_Group" EntityType="Self.WC_Group" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="WC_MessageResponse" EntityType="Self.WC_MessageResponse" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="WC_OfficalAccounts" EntityType="Self.WC_OfficalAccounts" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="WC_ResponseLog" EntityType="Self.WC_ResponseLog" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="WC_User" EntityType="Self.WC_User" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Spl_Order_Ware" EntityType="Self.Spl_Order_Ware" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Spl_Order_Ware].[WaresId] AS [WaresId], 
+    [Spl_Order_Ware].[Name] AS [Name], 
+    [Spl_Order_Ware].[Amount] AS [Amount], 
+    [Spl_Order_Ware].[SumJinE] AS [SumJinE], 
+    [Spl_Order_Ware].[OrderID] AS [OrderID]
+    FROM [dbo].[Spl_Order_Ware] AS [Spl_Order_Ware]</DefiningQuery>
+    </EntitySet>
     <EntitySet Name="V_DEF_Defect" EntityType="Self.V_DEF_Defect" store:Type="Views" store:Schema="dbo">
       <DefiningQuery>SELECT 
-[V_DEF_Defect].[ItemID] AS [ItemID], 
-[V_DEF_Defect].[VerCode] AS [VerCode], 
-[V_DEF_Defect].[Code] AS [Code], 
-[V_DEF_Defect].[Title] AS [Title], 
-[V_DEF_Defect].[Creator] AS [Creator], 
-[V_DEF_Defect].[CrtDt] AS [CrtDt], 
-[V_DEF_Defect].[Receiver] AS [Receiver], 
-[V_DEF_Defect].[SendDt] AS [SendDt], 
-[V_DEF_Defect].[CloseState] AS [CloseState], 
-[V_DEF_Defect].[Closer] AS [Closer], 
-[V_DEF_Defect].[CloseDt] AS [CloseDt], 
-[V_DEF_Defect].[TestContent] AS [TestContent], 
-[V_DEF_Defect].[ResultContent] AS [ResultContent], 
-[V_DEF_Defect].[Remark] AS [Remark], 
-[V_DEF_Defect].[MessageId] AS [MessageId], 
-[V_DEF_Defect].[Sort] AS [Sort], 
-[V_DEF_Defect].[ProcessState] AS [ProcessState], 
-[V_DEF_Defect].[Processor] AS [Processor], 
-[V_DEF_Defect].[ProcessDt] AS [ProcessDt], 
-[V_DEF_Defect].[ErrorLevel] AS [ErrorLevel], 
-[V_DEF_Defect].[CaseName] AS [CaseName], 
-[V_DEF_Defect].[Complex] AS [Complex], 
-[V_DEF_Defect].[PStartDt] AS [PStartDt], 
-[V_DEF_Defect].[PEndDt] AS [PEndDt], 
-[V_DEF_Defect].[Executor] AS [Executor]
-FROM [dbo].[V_DEF_Defect] AS [V_DEF_Defect]</DefiningQuery>
+    [V_DEF_Defect].[ItemID] AS [ItemID], 
+    [V_DEF_Defect].[VerCode] AS [VerCode], 
+    [V_DEF_Defect].[Code] AS [Code], 
+    [V_DEF_Defect].[Title] AS [Title], 
+    [V_DEF_Defect].[Creator] AS [Creator], 
+    [V_DEF_Defect].[CrtDt] AS [CrtDt], 
+    [V_DEF_Defect].[Receiver] AS [Receiver], 
+    [V_DEF_Defect].[SendDt] AS [SendDt], 
+    [V_DEF_Defect].[CloseState] AS [CloseState], 
+    [V_DEF_Defect].[Closer] AS [Closer], 
+    [V_DEF_Defect].[CloseDt] AS [CloseDt], 
+    [V_DEF_Defect].[TestContent] AS [TestContent], 
+    [V_DEF_Defect].[ResultContent] AS [ResultContent], 
+    [V_DEF_Defect].[Remark] AS [Remark], 
+    [V_DEF_Defect].[MessageId] AS [MessageId], 
+    [V_DEF_Defect].[Sort] AS [Sort], 
+    [V_DEF_Defect].[ProcessState] AS [ProcessState], 
+    [V_DEF_Defect].[Processor] AS [Processor], 
+    [V_DEF_Defect].[ProcessDt] AS [ProcessDt], 
+    [V_DEF_Defect].[ErrorLevel] AS [ErrorLevel], 
+    [V_DEF_Defect].[CaseName] AS [CaseName], 
+    [V_DEF_Defect].[Complex] AS [Complex], 
+    [V_DEF_Defect].[PStartDt] AS [PStartDt], 
+    [V_DEF_Defect].[PEndDt] AS [PEndDt], 
+    [V_DEF_Defect].[Executor] AS [Executor]
+    FROM [dbo].[V_DEF_Defect] AS [V_DEF_Defect]</DefiningQuery>
     </EntitySet>
     <EntitySet Name="V_DEF_RPT_DefectReport" EntityType="Self.V_DEF_RPT_DefectReport" store:Type="Views" store:Schema="dbo">
       <DefiningQuery>SELECT 
-[V_DEF_RPT_DefectReport].[ItemID] AS [ItemID], 
-[V_DEF_RPT_DefectReport].[Code] AS [Code], 
-[V_DEF_RPT_DefectReport].[CodeTitle] AS [CodeTitle], 
-[V_DEF_RPT_DefectReport].[Title] AS [Title], 
-[V_DEF_RPT_DefectReport].[CrtDt] AS [CrtDt], 
-[V_DEF_RPT_DefectReport].[Creator] AS [Creator], 
-[V_DEF_RPT_DefectReport].[CreatorTitle] AS [CreatorTitle], 
-[V_DEF_RPT_DefectReport].[VerCode] AS [VerCode]
-FROM [dbo].[V_DEF_RPT_DefectReport] AS [V_DEF_RPT_DefectReport]</DefiningQuery>
+    [V_DEF_RPT_DefectReport].[ItemID] AS [ItemID], 
+    [V_DEF_RPT_DefectReport].[Code] AS [Code], 
+    [V_DEF_RPT_DefectReport].[CodeTitle] AS [CodeTitle], 
+    [V_DEF_RPT_DefectReport].[Title] AS [Title], 
+    [V_DEF_RPT_DefectReport].[CrtDt] AS [CrtDt], 
+    [V_DEF_RPT_DefectReport].[Creator] AS [Creator], 
+    [V_DEF_RPT_DefectReport].[CreatorTitle] AS [CreatorTitle], 
+    [V_DEF_RPT_DefectReport].[VerCode] AS [VerCode]
+    FROM [dbo].[V_DEF_RPT_DefectReport] AS [V_DEF_RPT_DefectReport]</DefiningQuery>
     </EntitySet>
     <AssociationSet Name="FK_DEF_Defect_DEF_TestJobs" Association="Self.FK_DEF_Defect_DEF_TestJobs">
       <End Role="DEF_TestJobs" EntitySet="DEF_TestJobs" />
@@ -1826,13 +2298,45 @@ FROM [dbo].[V_DEF_RPT_DefectReport] AS [V_DEF_RPT_DefectReport]</DefiningQuery>
       <End Role="MIS_WebIM_Message" EntitySet="MIS_WebIM_Message" />
       <End Role="MIS_WebIM_Message_Rec" EntitySet="MIS_WebIM_Message_Rec" />
     </AssociationSet>
-    <AssociationSet Name="FK_Spl_Product_Spl_ProductCategory" Association="Self.FK_Spl_Product_Spl_ProductCategory">
+    <AssociationSet Name="FK_Spl_Hotware_Spl_Ware" Association="Self.FK_Spl_Hotware_Spl_Ware">
+      <End Role="Spl_Ware" EntitySet="Spl_Ware" />
+      <End Role="Spl_Hotware" EntitySet="Spl_Hotware" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Spl_Order_Ware_Spl_Orders" Association="Self.FK_Spl_Order_Ware_Spl_Orders">
+      <End Role="Spl_Orders" EntitySet="Spl_Orders" />
+      <End Role="Spl_Order_Ware" EntitySet="Spl_Order_Ware" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Spl_Order_Ware_Spl_Ware" Association="Self.FK_Spl_Order_Ware_Spl_Ware">
+      <End Role="Spl_Ware" EntitySet="Spl_Ware" />
+      <End Role="Spl_Order_Ware" EntitySet="Spl_Order_Ware" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Spl_Orders_SysUser" Association="Self.FK_Spl_Orders_SysUser">
+      <End Role="SysUser" EntitySet="SysUser" />
+      <End Role="Spl_Orders" EntitySet="Spl_Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Spl_Ware_Spl_ProductCategory" Association="Self.FK_Spl_Ware_Spl_ProductCategory">
       <End Role="Spl_ProductCategory" EntitySet="Spl_ProductCategory" />
-      <End Role="Spl_Product" EntitySet="Spl_Product" />
+      <End Role="Spl_Ware" EntitySet="Spl_Ware" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Spl_Ware_Spl_WareInfo" Association="Self.FK_Spl_Ware_Spl_WareInfo">
+      <End Role="Spl_WareInfo" EntitySet="Spl_WareInfo" />
+      <End Role="Spl_Ware" EntitySet="Spl_Ware" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SysAddress_SysUser" Association="Self.FK_SysAddress_SysUser">
+      <End Role="SysUser" EntitySet="SysUser" />
+      <End Role="SysAddress" EntitySet="SysAddress" />
     </AssociationSet>
     <AssociationSet Name="FK_SysAreas_SysAreas" Association="Self.FK_SysAreas_SysAreas">
       <End Role="SysAreas" EntitySet="SysAreas" />
       <End Role="SysAreas1" EntitySet="SysAreas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SysDictData_SysDcitTpe" Association="Self.FK_SysDictData_SysDcitTpe">
+      <End Role="SysDcitTpe" EntitySet="SysDcitTpe" />
+      <End Role="SysDictData" EntitySet="SysDictData" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SysErCi_SysUser" Association="Self.FK_SysErCi_SysUser">
+      <End Role="SysUser" EntitySet="SysUser" />
+      <End Role="SysErCi" EntitySet="SysErCi" />
     </AssociationSet>
     <AssociationSet Name="FK_SysModule_SysModule" Association="Self.FK_SysModule_SysModule">
       <End Role="SysModule" EntitySet="SysModule" />
@@ -1845,6 +2349,10 @@ FROM [dbo].[V_DEF_RPT_DefectReport] AS [V_DEF_RPT_DefectReport]</DefiningQuery>
     <AssociationSet Name="FK_SysPosition_SysStruct" Association="Self.FK_SysPosition_SysStruct">
       <End Role="SysStruct" EntitySet="SysStruct" />
       <End Role="SysPosition" EntitySet="SysPosition" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SysPurchaseHistory_SysUser" Association="Self.FK_SysPurchaseHistory_SysUser">
+      <End Role="SysUser" EntitySet="SysUser" />
+      <End Role="SysPurchaseHistory" EntitySet="SysPurchaseHistory" />
     </AssociationSet>
     <AssociationSet Name="FK_SysRight_SysModule" Association="Self.FK_SysRight_SysModule">
       <End Role="SysModule" EntitySet="SysModule" />
@@ -1881,6 +2389,10 @@ FROM [dbo].[V_DEF_RPT_DefectReport] AS [V_DEF_RPT_DefectReport]</DefiningQuery>
     <AssociationSet Name="FK_SysUserConfig_SysUser" Association="Self.FK_SysUserConfig_SysUser">
       <End Role="SysUser" EntitySet="SysUser" />
       <End Role="SysUserConfig" EntitySet="SysUserConfig" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SysWallet_SysUser" Association="Self.FK_SysWallet_SysUser">
+      <End Role="SysUser" EntitySet="SysUser" />
+      <End Role="SysWallet" EntitySet="SysWallet" />
     </AssociationSet>
     <AssociationSet Name="FK_WC_Group_WC_OfficalAccounts" Association="Self.FK_WC_Group_WC_OfficalAccounts">
       <End Role="WC_OfficalAccounts" EntitySet="WC_OfficalAccounts" />
