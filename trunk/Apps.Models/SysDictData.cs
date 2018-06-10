@@ -18,8 +18,6 @@ using System;
 public partial class SysDictData
 {
 
-    public string id { get; set; }
-
     public string DictType_Id { get; set; }
 
     public string Name { get; set; }
@@ -37,6 +35,8 @@ public partial class SysDictData
     public string Editor { get; set; }
 
     public Nullable<System.DateTime> EditTime { get; set; }
+
+    public string Id { get; set; }
 
 
 

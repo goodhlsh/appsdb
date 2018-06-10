@@ -69,7 +69,7 @@ sysUser = mu_Rep.GetById(user.ParentId);
                 {
                    
                 
-                id = user.id,
+                Id = user.Id,
                     UserId=user.UserId,
                     UserName = user.SysUser.UserName,                   
                     TrueName = user.SysUser.TrueName,

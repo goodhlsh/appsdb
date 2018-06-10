@@ -181,6 +181,10 @@ public partial class DBContainer : DbContext
 
     public virtual DbSet<SysJiaPuBefore> SysJiaPuBefore { get; set; }
 
+    public virtual DbSet<Spl_Brand> Spl_Brand { get; set; }
+
+    public virtual DbSet<Spl_ProductCategoryS> Spl_ProductCategoryS { get; set; }
+
 
     public virtual int P_DEF_CreateTestJobs(string vercode)
     {

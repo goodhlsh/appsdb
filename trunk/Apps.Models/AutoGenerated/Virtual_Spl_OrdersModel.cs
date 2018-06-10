@@ -16,8 +16,6 @@ namespace Apps.Models.Spl
 	public class Virtual_Spl_OrdersModel
 	{
 		
-	public virtual string id { get; set; }
-		
 	public virtual string UserId { get; set; }
 		
 	public virtual string OrderNo { get; set; }
@@ -29,6 +27,8 @@ namespace Apps.Models.Spl
 	public virtual Nullable<System.DateTime> CreateTime { get; set; }
 		
 	public virtual Nullable<System.DateTime> UpdateTime { get; set; }
+		
+	public virtual string Id { get; set; }
 		
 }
 

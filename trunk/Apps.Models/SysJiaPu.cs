@@ -18,8 +18,6 @@ using System;
 public partial class SysJiaPu
 {
 
-    public string id { get; set; }
-
     public string UserId { get; set; }
 
     public string ParentId { get; set; }
@@ -67,6 +65,8 @@ public partial class SysJiaPu
     public string TopId { get; set; }
 
     public string TId { get; set; }
+
+    public string Id { get; set; }
 
 
 

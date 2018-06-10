@@ -1,0 +1,24 @@
+﻿@model IEnumerable<Apps.Models.Spl_Ware>
+@{
+    ViewBag.Title = "商品列表";
+}
+
+<!-- 商品列表 -->
+<div id="jnProduct">
+    <div id="jnProductTab">
+        <h2 title="商品列表">商品列表</h2>
+    </div>
+    <div id="jnProductContent">
+        <ul>
+            @foreach (var pro in Model)
+            {
+                <li>
+                    <a href="#" class="JS_live">
+                        <img alt="pro.Name" src="@Url.Content(pro.Spl_WareInfo.FirstOrDefault()==null?"~/Content/images/advertise.jpg":pro.Spl_WareInfo.FirstOrDefault().Picture0)" /></a>
+                        <span>@Html.ActionLink(pro.Name, "Detail", new { Id = pro.Id })</span>
+                </li>
+            }
+        </ul>
+    </div>
+</div>
+

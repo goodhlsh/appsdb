@@ -26,8 +26,6 @@ public partial class SysLevels
     }
 
 
-    public int id { get; set; }
-
     public string Name { get; set; }
 
     public string Code { get; set; }
@@ -43,6 +41,8 @@ public partial class SysLevels
     public Nullable<System.DateTime> CreateTime { get; set; }
 
     public Nullable<System.DateTime> UpdateTime { get; set; }
+
+    public int Id { get; set; }
 
 
 

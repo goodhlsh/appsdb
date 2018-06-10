@@ -17,7 +17,7 @@ using System;
 public partial class P_Sys_GetUserWallet_Result
 {
 
-    public string id { get; set; }
+    public string Id { get; set; }
 
     public string UserId { get; set; }
 

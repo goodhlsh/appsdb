@@ -18,17 +18,19 @@ using System;
 public partial class Spl_Hotware
 {
 
-    public string id { get; set; }
-
     public string WareId { get; set; }
 
     public Nullable<int> Amount { get; set; }
 
     public Nullable<decimal> SumJinE { get; set; }
 
+    public string Id { get; set; }
+
 
 
     public virtual Spl_Ware Spl_Ware { get; set; }
+
+    public virtual Spl_Ware Spl_Ware1 { get; set; }
 
 }
 

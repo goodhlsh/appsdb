@@ -35,7 +35,7 @@ namespace Apps.Web.Controllers
                 rows = (from model in list
                         select new SysPurchaseHistoryModel()
                         {
-                            id = model.id,
+                            Id = model.Id,
                             UserId = model.UserId,
                             Froms = model.Froms,
                             ShouRu = model.ShouRu,
@@ -63,20 +63,20 @@ namespace Apps.Web.Controllers
         [SupportFilter]
         public JsonResult Create(SysPurchaseHistoryModel model)
         {
-            model.id = ResultHelper.NewId;
+            model.Id = ResultHelper.NewId;
             model.CreateTime = ResultHelper.NowTime;
             if (model != null && ModelState.IsValid)
             {
 
                 if (m_BLL.Create(ref errors, model))
                 {
-                    LogHandler.WriteServiceLog(GetUserId(), "id" + model.id + ",UserId" + model.UserId, "成功", "创建", "SysPurchaseHistory");
+                    LogHandler.WriteServiceLog(GetUserId(), "Id" + model.Id + ",UserId" + model.UserId, "成功", "创建", "SysPurchaseHistory");
                     return Json(JsonHandler.CreateMessage(1, Resource.InsertSucceed));
                 }
                 else
                 {
                     string ErrorCol = errors.Error;
-                    LogHandler.WriteServiceLog(GetUserId(), "id" + model.id + ",UserId" + model.UserId + "," + ErrorCol, "失败", "创建", "SysPurchaseHistory");
+                    LogHandler.WriteServiceLog(GetUserId(), "Id" + model.Id + ",UserId" + model.UserId + "," + ErrorCol, "失败", "创建", "SysPurchaseHistory");
                     return Json(JsonHandler.CreateMessage(0, Resource.InsertFail + ErrorCol));
                 }
             }
@@ -105,13 +105,13 @@ namespace Apps.Web.Controllers
 
                 if (m_BLL.Edit(ref errors, model))
                 {
-                    LogHandler.WriteServiceLog(GetUserId(), "id" + model.id + ",UserId" + model.UserId, "成功", "修改", "SysPurchaseHistory");
+                    LogHandler.WriteServiceLog(GetUserId(), "Id" + model.Id + ",UserId" + model.UserId, "成功", "修改", "SysPurchaseHistory");
                     return Json(JsonHandler.CreateMessage(1, Resource.EditSucceed));
                 }
                 else
                 {
                     string ErrorCol = errors.Error;
-                    LogHandler.WriteServiceLog(GetUserId(), "id" + model.id + ",UserId" + model.UserId + "," + ErrorCol, "失败", "修改", "SysPurchaseHistory");
+                    LogHandler.WriteServiceLog(GetUserId(), "Id" + model.Id + ",UserId" + model.UserId + "," + ErrorCol, "失败", "修改", "SysPurchaseHistory");
                     return Json(JsonHandler.CreateMessage(0, Resource.EditFail + ErrorCol));
                 }
             }

@@ -975,6 +975,7 @@
     <Content Include="Views\SysWallet\Create.cshtml" />
     <Content Include="Views\SysWallet\Edit.cshtml" />
     <Content Include="Views\SysPurchaseHistory\index.cshtml" />
+    <Content Include="Views\SysWallet\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Apps.BLL\Apps.BLL.csproj">

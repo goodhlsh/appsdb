@@ -125,9 +125,9 @@ namespace Apps.WebApi.Areas.User.Controllers
         public bool SetAddress([FromBody]SysAddressModel info)
         {
             //编辑
-            if (ma_BLL.GetById(info.id) != null)
+            if (ma_BLL.GetById(info.Id) != null)
             {
-                SysAddressModel model = ma_BLL.GetById(info.id);
+                SysAddressModel model = ma_BLL.GetById(info.Id);
                 model.Name = info.Name;
                 model.Mobile = info.Mobile;
                 model.Province = info.Province;
@@ -145,7 +145,7 @@ namespace Apps.WebApi.Areas.User.Controllers
             else
             {
                 SysAddressModel model = new SysAddressModel();
-                model.id = ResultHelper.NewId;
+                model.Id = ResultHelper.NewId;
                 model.Name = info.Name;
                 model.Mobile = info.Mobile;
                 model.Province = info.Province;

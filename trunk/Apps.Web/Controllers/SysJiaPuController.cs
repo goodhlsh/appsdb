@@ -54,7 +54,7 @@ namespace Apps.Web.Controllers
         [SupportFilter]
         public JsonResult Create(SysJiaPuModel model)
         {
-            model.id = ResultHelper.NewId;
+            model.Id = ResultHelper.NewId;
             SysUserModel userModel = new SysUserModel();
             if (ms_BLL.GetById(model.UserId) != null)
             {
@@ -68,13 +68,13 @@ namespace Apps.Web.Controllers
 
                 if (ms_BLL.IntoSysJiaPu(model.UserId, model.TId, model.ParentId, model.ZMPA2, (decimal)model.FirstJinE) >= 0)
                 {
-                    LogHandler.WriteServiceLog(GetUserId(), "id" + model.id + ",UserId" + model.TrueName, "成功", "创建", "SysJiaPu");
+                    LogHandler.WriteServiceLog(GetUserId(), "Id" + model.Id + ",UserId" + model.TrueName, "成功", "创建", "SysJiaPu");
                     return Json(JsonHandler.CreateMessage(1, Resource.InsertSucceed));
                 }
                 else
                 {
                     string ErrorCol = errors.Error;
-                    LogHandler.WriteServiceLog(GetUserId(), "id" + model.id + ",UserId" + model.TrueName + "," + ErrorCol, "失败", "创建", "SysJiaPu");
+                    LogHandler.WriteServiceLog(GetUserId(), "Id" + model.Id + ",UserId" + model.TrueName + "," + ErrorCol, "失败", "创建", "SysJiaPu");
                     return Json(JsonHandler.CreateMessage(0, Resource.InsertFail + ErrorCol));
                 }
             }
@@ -103,13 +103,13 @@ namespace Apps.Web.Controllers
 
                 if (m_BLL.Edit(ref errors, model))
                 {
-                    LogHandler.WriteServiceLog(GetUserId(), "id" + model.id + ",UserId" + model.TrueName, "成功", "修改", "SysJiaPu");
+                    LogHandler.WriteServiceLog(GetUserId(), "Id" + model.Id + ",UserId" + model.TrueName, "成功", "修改", "SysJiaPu");
                     return Json(JsonHandler.CreateMessage(1, Resource.EditSucceed));
                 }
                 else
                 {
                     string ErrorCol = errors.Error;
-                    LogHandler.WriteServiceLog(GetUserId(), "id" + model.id + ",UserId" + model.TrueName + "," + ErrorCol, "失败", "修改", "SysJiaPu");
+                    LogHandler.WriteServiceLog(GetUserId(), "Id" + model.Id + ",UserId" + model.TrueName + "," + ErrorCol, "失败", "修改", "SysJiaPu");
                     return Json(JsonHandler.CreateMessage(0, Resource.EditFail + ErrorCol));
                 }
             }

@@ -22,7 +22,7 @@ namespace Apps.BLL
             if (sw == null || sw.Count() <= 0) return null;
             SysWallet s = sw.First<SysWallet>();
             SysWalletModel sm = new SysWalletModel();
-            sm.id = s.id;
+            sm.Id = s.Id;
             sm.Balance = s.Balance;
             sm.CreateTime = s.CreateTime;
             sm.Froms = s.Froms;

@@ -9,7 +9,8 @@ namespace Apps.Models.Sys
 {
     public partial class SysJiaPuModel
     {
-        public override string id { get; set; }
+        [Display(Name = "ID")]
+        public override string Id { get; set; }
 
         public override string UserId { get; set; }
         [Display(Name ="用户账号")]

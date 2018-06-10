@@ -7,9 +7,8 @@ using System.Threading.Tasks;
 
 namespace Apps.Spl.IBLL
 {
-    public partial interface ISpl_WareInfoBLL
+   public partial interface ISpl_WareInfoBLL
     {
-        Spl_Ware GetRefWare(string id);
-        
+       
     }
 }

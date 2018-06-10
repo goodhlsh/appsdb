@@ -18,8 +18,6 @@ using System;
 public partial class SysPurchaseHistory
 {
 
-    public string id { get; set; }
-
     public string UserId { get; set; }
 
     public Nullable<decimal> ShouRu { get; set; }
@@ -31,6 +29,8 @@ public partial class SysPurchaseHistory
     public string Note { get; set; }
 
     public Nullable<bool> IsShow { get; set; }
+
+    public string Id { get; set; }
 
 
 

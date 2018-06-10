@@ -20,3 +20,13 @@ C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Locale\obj\Debug\en-US\App
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Locale\obj\Debug\Apps.Locale.dll
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Locale\obj\Debug\Apps.Locale.pdb
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Locale\obj\Debug\Apps.Locale.csprojResolveAssemblyReference.cache
+D:\项目\trunk\trunk\Apps.Locale\bin\Debug\Apps.Locale.dll
+D:\项目\trunk\trunk\Apps.Locale\bin\Debug\Apps.Locale.pdb
+D:\项目\trunk\trunk\Apps.Locale\bin\Debug\en-US\Apps.Locale.resources.dll
+D:\项目\trunk\trunk\Apps.Locale\obj\Debug\Apps.Locale.Resource.resources
+D:\项目\trunk\trunk\Apps.Locale\obj\Debug\Apps.Locale.Resource.en-US.resources
+D:\项目\trunk\trunk\Apps.Locale\obj\Debug\Apps.Locale.csproj.GenerateResource.cache
+D:\项目\trunk\trunk\Apps.Locale\obj\Debug\Apps.Locale.csproj.CoreCompileInputs.cache
+D:\项目\trunk\trunk\Apps.Locale\obj\Debug\en-US\Apps.Locale.resources.dll
+D:\项目\trunk\trunk\Apps.Locale\obj\Debug\Apps.Locale.dll
+D:\项目\trunk\trunk\Apps.Locale\obj\Debug\Apps.Locale.pdb

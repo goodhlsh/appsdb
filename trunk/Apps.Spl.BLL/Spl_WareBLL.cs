@@ -19,6 +19,42 @@ namespace Apps.Spl.BLL
         [Dependency]
         public ISpl_ActivesRepository ma_Rep { get; set; }
 
+        public override Spl_WareModel GetById(string id)
+        {
+            Spl_WareModel model = new Spl_WareModel();
+            Spl_Ware entity = new Spl_Ware();
+            entity = m_Rep.GetById(id);
+            if (entity!=null)
+            {
+                model.Id = entity.Id;
+                model.Name = entity.Name;
+                model.Note = entity.Note;
+                model.BrandId = entity.BrandId;
+                model.CreateTime = entity.CreateTime;
+                model.Creator = entity.Creator;
+                model.Description = entity.Description;
+                model.Detail = entity.Description;
+                model.Editor = entity.Editor;
+                model.Price = entity.Price;
+                model.ProductCategoryId = entity.ProductCategoryId;
+                model.PromotionPrice = entity.PromotionPrice;
+                model.ShowType = entity.ShowType;
+                model.Stock = entity.Stock;
+                model.Thumbnail = entity.Thumbnail;
+                model.Unit = entity.Unit;
+                model.UpdateTime = entity.UpdateTime;
+                model.Picture0 = entity.Spl_WareInfo.FirstOrDefault()==null?"": entity.Spl_WareInfo.FirstOrDefault().Picture0;
+                model.Picture1 = entity.Spl_WareInfo.FirstOrDefault() == null ? "" : entity.Spl_WareInfo.FirstOrDefault().Picture1;
+                model.Picture2 = entity.Spl_WareInfo.FirstOrDefault() == null ? "" : entity.Spl_WareInfo.FirstOrDefault().Picture2;
+                model.Picture3 = entity.Spl_WareInfo.FirstOrDefault() == null ? "" : entity.Spl_WareInfo.FirstOrDefault().Picture3;
+                model.Picture4 = entity.Spl_WareInfo.FirstOrDefault() == null ? "" : entity.Spl_WareInfo.FirstOrDefault().Picture4;
+                model.Picture5 = entity.Spl_WareInfo.FirstOrDefault() == null ? "" : entity.Spl_WareInfo.FirstOrDefault().Picture5;
+                model.ToTop = entity.Spl_WareInfo.FirstOrDefault() == null ? false : (bool)entity.Spl_WareInfo.FirstOrDefault().ToTop;
+
+            }
+            return model;
+        }
+
         public List<Spl_WareShowModel> GetPage(string queryStr, int skip, int limit)
         {
             List<Spl_WareShowModel> wareShowModels = new List<Spl_WareShowModel>();
@@ -32,26 +68,25 @@ namespace Apps.Spl.BLL
             foreach (var item in query)
             {
                wareShowModels.Add(new Spl_WareShowModel() {
-                    id = item.id,
-                    ToTop = (bool)item.Spl_WareInfo.ToTop,
+                   Id = item.Id,
+                    ToTop = (bool)item.Spl_WareInfo.FirstOrDefault().ToTop,
                     Name = item.Name,
                     Description = item.Description,
-                    OriginPrice = item.OriginPrice,
                     Price = item.Price,
-                    Picture0 = item.Spl_WareInfo.Picture0,
-                    Picture1 = item.Spl_WareInfo.Picture1,
-                    Picture2 = item.Spl_WareInfo.Picture2,
-                    Picture3 = item.Spl_WareInfo.Picture3,
-                    Picture4 = item.Spl_WareInfo.Picture4,
-                    Picture5 = item.Spl_WareInfo.Picture5,
+                    PromotionPrice = item.PromotionPrice,
+                    Picture0 = item.Spl_WareInfo.FirstOrDefault().Picture0,
+                    Picture1 = item.Spl_WareInfo.FirstOrDefault().Picture1,
+                    Picture2 = item.Spl_WareInfo.FirstOrDefault().Picture2,
+                    Picture3 = item.Spl_WareInfo.FirstOrDefault().Picture3,
+                    Picture4 = item.Spl_WareInfo.FirstOrDefault().Picture4,
+                    Picture5 = item.Spl_WareInfo.FirstOrDefault().Picture5,
                     Thumbnail = item.Thumbnail,
                     ShowType = item.ShowType,
                     Stock = item.Stock,
-                    Detail = item.Spl_WareInfo.Detail,
+                    Detail = item.Spl_WareInfo.FirstOrDefault().Detail,
                     ProductCategoryId = item.ProductCategoryId,
                     Note = item.Note,
-                    Unit = item.Unit,
-                    WareInfoId = item.WareInfoId
+                    Unit = item.Unit                    
                 });
             }
             return wareShowModels;
@@ -82,26 +117,25 @@ namespace Apps.Spl.BLL
             {
                 wareShowModels.Add(new Spl_WareShowModel()
                 {
-                    id = item.id,
-                    ToTop = (bool)item.Spl_WareInfo.ToTop,
+                    Id = item.Id,
+                    ToTop = (bool)item.Spl_WareInfo.FirstOrDefault().ToTop,
                     Name = item.Name,
                     Description = item.Description,
-                    OriginPrice = item.OriginPrice,
+                    PromotionPrice = item.PromotionPrice,
                     Price = item.Price,
-                    Picture0 = item.Spl_WareInfo.Picture0,
-                    Picture1 = item.Spl_WareInfo.Picture1,
-                    Picture2 = item.Spl_WareInfo.Picture2,
-                    Picture3 = item.Spl_WareInfo.Picture3,
-                    Picture4 = item.Spl_WareInfo.Picture4,
-                    Picture5 = item.Spl_WareInfo.Picture5,
+                    Picture0 = item.Spl_WareInfo.FirstOrDefault().Picture0,
+                    Picture1 = item.Spl_WareInfo.FirstOrDefault().Picture1,
+                    Picture2 = item.Spl_WareInfo.FirstOrDefault().Picture2,
+                    Picture3 = item.Spl_WareInfo.FirstOrDefault().Picture3,
+                    Picture4 = item.Spl_WareInfo.FirstOrDefault().Picture4,
+                    Picture5 = item.Spl_WareInfo.FirstOrDefault().Picture5,
                     Thumbnail = item.Thumbnail,
                     ShowType = item.ShowType,
                     Stock = item.Stock,
-                    Detail = item.Spl_WareInfo.Detail,
+                    Detail = item.Spl_WareInfo.FirstOrDefault().Detail,
                     ProductCategoryId = item.ProductCategoryId,
                     Note = item.Note,
-                    Unit = item.Unit,
-                    WareInfoId = item.WareInfoId
+                    Unit = item.Unit
                 });
             }
             return wareShowModels;
@@ -112,6 +146,26 @@ namespace Apps.Spl.BLL
             IQueryable<Spl_Actives> list = ma_Rep.GetList();
             list = list.Where(a => a.IsShow == queryStr);
             query = list.OrderBy(c => c.UpdateTime).Skip(skip).Take(limit).ToList();
+            return query;
+        }
+        public List<Spl_Ware> GetProducts(string bid, string tid,int skip,int limit)
+        {
+            List<Spl_Ware> query = null;
+            IQueryable<Spl_Ware> list = m_Rep.GetList();
+            if (!string.IsNullOrWhiteSpace(bid)& !string.IsNullOrWhiteSpace(tid))
+            {
+                list = list.Where(a => a.BrandId == bid && a.ProductCategoryId == tid);
+            }
+            if (!string.IsNullOrWhiteSpace(bid) & string.IsNullOrWhiteSpace(tid))
+            {
+                list = list.Where(a => a.BrandId == bid );
+            }
+            if (string.IsNullOrWhiteSpace(bid) & !string.IsNullOrWhiteSpace(tid))
+            {
+                list = list.Where(a =>  a.ProductCategoryId == tid);
+            }
+
+            query = list.OrderBy(c => c.Name).Skip(skip).Take(limit).ToList();
             return query;
         }
     }

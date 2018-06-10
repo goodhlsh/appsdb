@@ -18,8 +18,6 @@ using System;
 public partial class SysJiaPuBefore
 {
 
-    public string id { get; set; }
-
     public string uid { get; set; }
 
     public string tid { get; set; }
@@ -29,6 +27,8 @@ public partial class SysJiaPuBefore
     public Nullable<bool> isdone { get; set; }
 
     public Nullable<System.DateTime> createTime { get; set; }
+
+    public string Id { get; set; }
 
 }
 

@@ -16,8 +16,6 @@ namespace Apps.Models.Sys
 	public class Virtual_SysAddressModel
 	{
 		
-	public virtual string id { get; set; }
-		
 	public virtual string UserId { get; set; }
 		
 	public virtual string Name { get; set; }
@@ -39,6 +37,8 @@ namespace Apps.Models.Sys
 	public virtual Nullable<System.DateTime> CreateTime { get; set; }
 		
 	public virtual Nullable<System.DateTime> UpdateTime { get; set; }
+		
+	public virtual string Id { get; set; }
 		
 }
 

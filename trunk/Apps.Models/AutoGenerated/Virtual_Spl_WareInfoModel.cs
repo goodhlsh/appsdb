@@ -16,8 +16,6 @@ namespace Apps.Models.Spl
 	public class Virtual_Spl_WareInfoModel
 	{
 		
-	public virtual string id { get; set; }
-		
 	public virtual string Picture0 { get; set; }
 		
 	public virtual string Picture1 { get; set; }
@@ -41,6 +39,10 @@ namespace Apps.Models.Spl
 	public virtual Nullable<System.DateTime> UpdateTime { get; set; }
 		
 	public virtual string Editor { get; set; }
+		
+	public virtual string WareId { get; set; }
+		
+	public virtual string Id { get; set; }
 		
 }
 

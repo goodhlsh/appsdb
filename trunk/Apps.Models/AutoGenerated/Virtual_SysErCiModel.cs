@@ -16,8 +16,6 @@ namespace Apps.Models.Sys
 	public class Virtual_SysErCiModel
 	{
 		
-	public virtual string id { get; set; }
-		
 	public virtual string UserId { get; set; }
 		
 	public virtual string OrderId { get; set; }
@@ -27,6 +25,8 @@ namespace Apps.Models.Sys
 	public virtual Nullable<System.DateTime> CreateTime { get; set; }
 		
 	public virtual string Note { get; set; }
+		
+	public virtual string Id { get; set; }
 		
 }
 

@@ -25,18 +25,16 @@ public partial class Spl_Ware
 
         this.Spl_Hotware = new HashSet<Spl_Hotware>();
 
+        this.Spl_WareInfo = new HashSet<Spl_WareInfo>();
+
     }
 
-
-    public string id { get; set; }
 
     public string Name { get; set; }
 
     public string ProductCategoryId { get; set; }
 
     public string Unit { get; set; }
-
-    public Nullable<decimal> OriginPrice { get; set; }
 
     public Nullable<decimal> Price { get; set; }
 
@@ -47,8 +45,6 @@ public partial class Spl_Ware
     public string Thumbnail { get; set; }
 
     public string ShowType { get; set; }
-
-    public string WareInfoId { get; set; }
 
     public Nullable<int> WareCount { get; set; }
 
@@ -64,6 +60,12 @@ public partial class Spl_Ware
 
     public string Description { get; set; }
 
+    public string BrandId { get; set; }
+
+    public Nullable<decimal> PromotionPrice { get; set; }
+
+    public string Id { get; set; }
+
 
 
     public virtual Spl_ProductCategory Spl_ProductCategory { get; set; }
@@ -72,7 +74,11 @@ public partial class Spl_Ware
 
     public virtual ICollection<Spl_Hotware> Spl_Hotware { get; set; }
 
-    public virtual Spl_WareInfo Spl_WareInfo { get; set; }
+    public virtual Spl_Brand Spl_Brand { get; set; }
+
+    public virtual Spl_ProductCategoryS Spl_ProductCategoryS { get; set; }
+
+    public virtual ICollection<Spl_WareInfo> Spl_WareInfo { get; set; }
 
 }
 

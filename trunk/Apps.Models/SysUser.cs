@@ -27,8 +27,6 @@ public partial class SysUser
 
         this.MIS_Article = new HashSet<MIS_Article>();
 
-        this.MIS_Article1 = new HashSet<MIS_Article>();
-
         this.MIS_Article_Comment = new HashSet<MIS_Article_Comment>();
 
         this.Flow_FormContent = new HashSet<Flow_FormContent>();
@@ -181,8 +179,6 @@ public partial class SysUser
     public virtual ICollection<SysRole> SysRole { get; set; }
 
     public virtual ICollection<MIS_Article> MIS_Article { get; set; }
-
-    public virtual ICollection<MIS_Article> MIS_Article1 { get; set; }
 
     public virtual ICollection<MIS_Article_Comment> MIS_Article_Comment { get; set; }
 

@@ -1,0 +1,48 @@
+﻿@model LShop.Models.NavViewModel
+
+<script type="text/javascript">
+    //导航效果
+    $(function () {
+        var $navli = $(".nav li");
+        $navli.hover(function () {
+            $(this).find(".jnNav").show();
+        }, function () {
+            $(this).find(".jnNav").hide();
+        });
+    })
+</script>
+
+<ul class="nav">
+    <li><a href="~/">首 页</a></li>
+    <li><a href="#">品 牌</a>
+        <div class="jnNav">
+            <div class="subitem">
+                <dl class="fore">
+                    <dd>
+                        @foreach (var b in Model.BrandList)
+                        {
+                            <em>@Html.ActionLink(b.Name, "GetProduct", new { bid = b.Id, tid = "" })</em>
+                        }
+                    </dd>
+                </dl>
+            </div>
+        </div>
+    </li>
+    @foreach (var pt in Model.ProductTypeList)
+    {
+        <li><a href="#">@pt.TypeName</a>
+            <div class="jnNav">
+                <div class="subitem">
+                    <dl class="fore">
+                        <dd>
+                            @foreach (var b in Model.BrandTypeList.Where(r => r.TypeID == pt.Id))
+                            {
+                                <em>@Html.ActionLink(b.BrandName, "GetProduct", new { bid = b.BrandID, tid = "" })</em>
+                            }
+                        </dd>
+                    </dl>
+                </div>
+            </div>
+        </li>
+    }
+</ul>

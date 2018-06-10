@@ -44,12 +44,12 @@
                 { field: 'TrueName', title: '姓名', width: 80, sortable: true },
                 { field: 'ShouRu', title: '账单金额', width: 80,sortable:true },
                 {
-                    field: 'Froms', title: '账单类型', width: 80, sortable: true, formatter: function (value) {
+                    field: 'Froms', title: '账单类型', width: 100, sortable: true, formatter: function (value) {
                         if (value =="平台分红A") {
-                            return "<span class='label label-success'>下级会员加入</span>";
+                            return "<span class='label label-success'>下级会员加入，推荐奖励</span>";
                         }
                         else if (value == "平台分红B") {
-                            return "<span class='label label-success'>下下级会员加入</span>";
+                            return "<span class='label label-success'>下下级会员加入，推荐奖励</span>";
                         }
                         else if (value == "平台分红C") {
                             return "<span class='label label-success'>平台分红收益</span>";
@@ -61,18 +61,18 @@
                             return "<span class='label label-error'>下下级四碰收益</span>";
                         }
                         else if (value == "平台分红F") {
-                            return "<span class='label label-info'>下级二次消费收益</span>";
+                            return "<span class='label label-info'>下级二次进货收益</span>";
                         }
                         else {
-                            return "<span class='label label-info'>下下级二次消费收益</span>";
+                            return "<span class='label label-info'>下下级二次进货收益</span>";
                         }
                     }
                 },
 
                 { field: 'CreateTime', title: '创建时间', width: 80,sortable:true },
-                { field: 'Note', title: '备注', width: 80,sortable:true },
+                { field: 'Note', title: '备注', width: 120,sortable:true },
                 //{ field: 'IsShow', title: '是否记录', width: 80, sortable: true }
-                { field: 'IsShow', title: '@Resource.TitleState', width: 80, align: 'center', formatter: function (value) { return EnableFormatter(value) } },
+                { field: 'IsShow', title: '@Resource.TitleState', width: 40, align: 'center', formatter: function (value) { return EnableFormatter(value) }, hidden: true  },
             ]]
         });
     });

@@ -11,7 +11,7 @@ namespace Apps.WebApi.Areas.Ware.Controllers
 {
     public class Spl_WareController : BaseApiController
     {
-        
+
         [Dependency]
         public ISpl_ProductCategoryBLL mty_BLL { get; set; }
 
@@ -26,9 +26,9 @@ namespace Apps.WebApi.Areas.Ware.Controllers
         [HttpGet]
         public object GetListByCategoryID(string filter)
         {
-           // var anonymous = new { queryStr = String.Empty, skip = new int(), limit = new int() };
-           // var opc = JsonHandler.DeserializeAnonymousType(filter, anonymous);
-           // List<Spl_Ware> list = m_BLL.GetPage(opc.queryStr, opc.skip, opc.limit);
+            // var anonymous = new { queryStr = String.Empty, skip = new int(), limit = new int() };
+            // var opc = JsonHandler.DeserializeAnonymousType(filter, anonymous);
+            // List<Spl_Ware> list = m_BLL.GetPage(opc.queryStr, opc.skip, opc.limit);
 
             JObject opc = JObject.Parse(filter);
             var queryStr = "";
@@ -45,7 +45,7 @@ namespace Apps.WebApi.Areas.Ware.Controllers
         [HttpGet]
         public object GetById(string filter)
         {
-            JObject opc = JObject.Parse(filter);            
+            JObject opc = JObject.Parse(filter);
             if (JObject.Parse(opc["where"].ToString())["ID"] == null)
             {
 
@@ -57,9 +57,9 @@ namespace Apps.WebApi.Areas.Ware.Controllers
             if (model != null)
             {
                 Spl_WareShowModel ware = new Spl_WareShowModel();
-                ware.id = model.id;
+                ware.Id = model.Id;
                 ware.Name = model.Name;
-                ware.OriginPrice = model.OriginPrice;
+                ware.PromotionPrice = model.PromotionPrice;
                 ware.Price = model.Price;
                 ware.Description = model.Description;
                 ware.ProductCategoryId = model.ProductCategoryId;
@@ -69,19 +69,14 @@ namespace Apps.WebApi.Areas.Ware.Controllers
                 ware.Unit = model.Unit;
                 //ware.WareCount = model.WareCount; //购物车辅助字段
                 //ware.WareState = model.WareState; //购物车辅助字段
-                Spl_WareInfoModel infoModel= mi_BLL.GetById(model.WareInfoId);
-                if (infoModel!=null)
-                {
-                    ware.Picture0 =  infoModel.Picture0;
-                    ware.Picture1 = infoModel.Picture1;
-                    ware.Picture2 = infoModel.Picture2;
-                    ware.Picture3 = infoModel.Picture3;
-                    ware.Picture4 = infoModel.Picture4;
-                    ware.Picture5 = infoModel.Picture5;
-                    ware.ToTop = (bool)infoModel.ToTop;                
-                    
-                }
-                
+                                
+                ware.Picture0 = model.Picture0;
+                ware.Picture1 = model.Picture1;
+                ware.Picture2 = model.Picture2;
+                ware.Picture3 = model.Picture3;
+                ware.Picture4 = model.Picture4;
+                ware.Picture5 = model.Picture5;
+                ware.ToTop = model.ToTop;
                 return Json(ware);
             }
             else
@@ -97,47 +92,48 @@ namespace Apps.WebApi.Areas.Ware.Controllers
             bool queryStr = false;
             if (JObject.Parse(opc["where"].ToString())["toTop"] != null)
             {
-                queryStr =bool.Parse(JObject.Parse(opc["where"].ToString())["toTop"].ToString());
+                queryStr = bool.Parse(JObject.Parse(opc["where"].ToString())["toTop"].ToString());
             }
-           
+            
+
             List<Spl_WareInfo> list = m_BLL.GetPageWareInfo(queryStr, int.Parse(opc["skip"].ToString()), int.Parse(opc["limit"].ToString()));
-            List<Spl_WareShowModel> wareShowModels= new List<Spl_WareShowModel>();
+            List<Spl_WareShowModel> wareShowModels = new List<Spl_WareShowModel>();
             foreach (var item in list)
             {
-                Spl_Ware wareInfo = mi_BLL.GetRefWare(item.id);
-                if (wareInfo!=null&&item.Picture0!=null)
+                Spl_WareModel ware = m_BLL.GetById(item.WareId);
+                if (ware != null && item.Picture0 != null)
                 {
                     wareShowModels.Add(new Spl_WareShowModel()
                     {
-                        id = wareInfo.id,
+                        Id = ware.Id,
                         ToTop = (bool)item.ToTop,
-                        Name=wareInfo.Name,
-                        Description=wareInfo.Description,
-                        OriginPrice=wareInfo.OriginPrice,
-                        Price=wareInfo.Price,
-                        Picture0=item.Picture0==null?"":item.Picture0,
-                        Picture1 = item.Picture1,
-                        Picture2 = item.Picture2,
-                        Picture3 = item.Picture3,
-                        Picture4 = item.Picture4,
-                        Picture5 = item.Picture5,
-                        Thumbnail=wareInfo.Thumbnail,
-                        ShowType=wareInfo.ShowType,
-                        Stock=wareInfo.Stock,
-                        Detail=item.Detail,
-                        ProductCategoryId=wareInfo.ProductCategoryId,
-                        Note=wareInfo.Note,
-                        Unit=wareInfo.Unit,
-                        WareInfoId=wareInfo.WareInfoId
+                        Name = ware.Name,
+                        Description = ware.Description,
+                        PromotionPrice = ware.PromotionPrice,
+                        Price = ware.Price,
+                        Picture0 = item.Picture0 == null ? "" : item.Picture0,
+                        Picture1 = item.Picture1 == null ? "" : item.Picture1,
+                        Picture2 = item.Picture2 == null ? "" : item.Picture2,
+                        Picture3 = item.Picture3 == null ? "" : item.Picture3,
+                        Picture4 = item.Picture4 == null ? "" : item.Picture4,
+                        Picture5 = item.Picture5 == null ? "" : item.Picture5,
+                        Thumbnail = ware.Thumbnail,
+                        ShowType = ware.ShowType,
+                        Stock = ware.Stock,
+                        Detail = item.Detail,
+                        ProductCategoryId = ware.ProductCategoryId,
+                        Note = ware.Note,
+                        Unit = ware.Unit
+                        
                     });
-                }                
+                }
             }
             return Json(wareShowModels);
-           
+
         }
-  
-    
-[HttpGet]
+
+
+        [HttpGet]
         public object GetAllLike(string filter)
         {
             JObject opc = JObject.Parse(filter);
@@ -170,27 +166,27 @@ namespace Apps.WebApi.Areas.Ware.Controllers
         public object GetAllByShopCart(string filter)
         {
             JObject opc = JObject.Parse(filter);
-            string[] opcid =  (JObject.Parse(opc["where"].ToString())["id"].ToString()).Replace("[","").Replace("\"","").Replace("]","").Split(',');
-            
-           
+            string[] opcid = (JObject.Parse(opc["where"].ToString())["id"].ToString()).Replace("[", "").Replace("\"", "").Replace("]", "").Split(',');
+
+
             List<Spl_WareShopCartModel> spl_WareShops = new List<Spl_WareShopCartModel>();
             Spl_WareModel _WareModel = new Spl_WareModel();
             for (int i = 0; i < opcid.Length; i++)
             {
-                if (m_BLL.GetById(opcid[i])!=null)
+                if (m_BLL.GetById(opcid[i]) != null)
                 {
                     _WareModel = m_BLL.GetById(opcid[i]);
                     spl_WareShops.Add(new Spl_WareShopCartModel()
                     {
-                        id= _WareModel.id,
-                        Name= _WareModel.Name,
-                        Price= _WareModel.Price,
-                        WareCount= _WareModel.WareCount,
-                        WareState=_WareModel.WareState,
-                        Thumbnail= _WareModel.Thumbnail
+                        Id = _WareModel.Id,
+                        Name = _WareModel.Name,
+                        Price = _WareModel.Price,
+                        WareCount = _WareModel.WareCount,
+                        WareState = _WareModel.WareState,
+                        Thumbnail = _WareModel.Thumbnail
                     });
-                    
-                }                
+
+                }
             }
             return Json(spl_WareShops);
         }

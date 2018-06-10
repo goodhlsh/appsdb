@@ -44,20 +44,20 @@ namespace Apps.Web.Areas.Spl.Controllers
         [SupportFilter]
         public JsonResult Create(Spl_WareModel model)
         {
-            model.id = ResultHelper.NewId;
+            model.Id = ResultHelper.NewId;
             model.CreateTime = ResultHelper.NowTime;
             if (model != null && ModelState.IsValid)
             {
 
                 if (m_BLL.Create(ref errors, model))
                 {
-                    LogHandler.WriteServiceLog(GetUserId(), "id" + model.id + ",Name" + model.Name, "成功", "创建", "Spl_Ware");
+                    LogHandler.WriteServiceLog(GetUserId(), "Id" + model.Id + ",Name" + model.Name, "成功", "创建", "Spl_Ware");
                     return Json(JsonHandler.CreateMessage(1, Resource.InsertSucceed));
                 }
                 else
                 {
                     string ErrorCol = errors.Error;
-                    LogHandler.WriteServiceLog(GetUserId(), "id" + model.id + ",Name" + model.Name + "," + ErrorCol, "失败", "创建", "Spl_Ware");
+                    LogHandler.WriteServiceLog(GetUserId(), "Id" + model.Id + ",Name" + model.Name + "," + ErrorCol, "失败", "创建", "Spl_Ware");
                     return Json(JsonHandler.CreateMessage(0, Resource.InsertFail + ErrorCol));
                 }
             }
@@ -86,13 +86,13 @@ namespace Apps.Web.Areas.Spl.Controllers
 
                 if (m_BLL.Edit(ref errors, model))
                 {
-                    LogHandler.WriteServiceLog(GetUserId(), "id" + model.id + ",Name" + model.Name, "成功", "修改", "Spl_Ware");
+                    LogHandler.WriteServiceLog(GetUserId(), "Id" + model.Id + ",Name" + model.Name, "成功", "修改", "Spl_Ware");
                     return Json(JsonHandler.CreateMessage(1, Resource.EditSucceed));
                 }
                 else
                 {
                     string ErrorCol = errors.Error;
-                    LogHandler.WriteServiceLog(GetUserId(), "id" + model.id + ",Name" + model.Name + "," + ErrorCol, "失败", "修改", "Spl_Ware");
+                    LogHandler.WriteServiceLog(GetUserId(), "Id" + model.Id + ",Name" + model.Name + "," + ErrorCol, "失败", "修改", "Spl_Ware");
                     return Json(JsonHandler.CreateMessage(0, Resource.EditFail + ErrorCol));
                 }
             }

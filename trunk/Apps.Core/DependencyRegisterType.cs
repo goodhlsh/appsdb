@@ -190,6 +190,8 @@ namespace Apps.Core
             container.RegisterType<ISpl_WareBLL, Spl_WareBLL>();//商品
             container.RegisterType<ISpl_WareRepository, Spl_WareRepository>();
 
+            container.RegisterType<ISpl_ProductCategorySBLL, Spl_ProductCategorySBLL>();//商品分类
+            container.RegisterType<ISpl_ProductCategorySRepository, Spl_ProductCategorySRepository>();
             container.RegisterType<ISpl_ProductCategoryBLL, Spl_ProductCategoryBLL>();//商品分类
             container.RegisterType<ISpl_ProductCategoryRepository, Spl_ProductCategoryRepository>();
 
@@ -204,6 +206,9 @@ namespace Apps.Core
             //活动
             container.RegisterType<ISpl_ActivesBLL, Spl_ActivesBLL>();
             container.RegisterType<ISpl_ActivesRepository, Spl_ActivesRepository>();
+
+            container.RegisterType<ISpl_BrandBLL, Spl_BrandBLL>();
+            container.RegisterType<ISpl_BrandRepository, Spl_BrandRepository>();
         }
 
 

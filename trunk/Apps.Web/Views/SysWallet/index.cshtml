@@ -1,11 +1,11 @@
 ﻿@using Apps.Web.Core;
-@using Apps.Web;
 @using Apps.Common;
 @using Apps.Models.Sys;
 @using Apps.Locale;
 @{
     ViewBag.Title = "主页";
     Layout = "~/Views/Shared/_Index_Layout.cshtml";
+
     List<permModel> perm = null;
 }
 <div class="mvctool">
@@ -38,19 +38,19 @@
             singleSelect: true,//单选模式
             //rownumbers: true,//行号
             columns: [[
-                { field: 'id', title: '编号', width: 80, sortable: true, hidden: true },
+                { field: 'Id', title: '@Resource.TitleID', width: 80, sortable: true },
                 { field: 'UserId', title: '用户编号', width: 80, sortable: true, hidden: true },
                 { field: 'UserName', title: '用户账号', width: 80, sortable: true },
                 { field: 'TrueName', title: '姓名', width: 80, sortable: true },
                 { field: 'Balance', title: '本次金额', width: 80,sortable:true },                
                 { field: 'JieYu', title: '当前余额', width: 80, sortable: true },
                 {
-                    field: 'Froms', title: '本次金额来源', width: 80, sortable: true, formatter: function (value) {
+                    field: 'Froms', title: '本次金额来源', width: 100, sortable: true, formatter: function (value) {
                         if (value == "平台分红A") {
-                            return "<span class='label label-success'>下级会员加入</span>";
+                            return "<span class='label label-success'>下级会员加入，推荐奖励</span>";
                         }
                         else if (value == "平台分红B") {
-                            return "<span class='label label-success'>下下级会员加入</span>";
+                            return "<span class='label label-success'>下下级会员加入，推荐奖励</span>";
                         }
                         else if (value == "平台分红C") {
                             return "<span class='label label-success'>平台分红收益</span>";
@@ -62,15 +62,15 @@
                             return "<span class='label label-success'>下下级四碰收益</span>";
                         }
                         else if (value == "平台分红F") {
-                            return "<span class='label label-info'>下级二次消费收益</span>";
+                            return "<span class='label label-info'>下级二次进货收益</span>";
                         }
                         else {
-                            return "<span class='label label-info'>下下级二次消费收益</span>";
+                            return "<span class='label label-info'>下下级二次进货收益</span>";
                         }
                     }
                 },
 
-                { field: 'Note', title: '备注', width: 80,sortable:true },
+                { field: 'Note', title: '备注', width: 120,sortable:true },
                 { field: 'CreateTime', title: '创建时间', width: 80,sortable:true },
                 { field: 'UpdateTime', title: '编辑时间', width: 80, sortable: true , hidden: true }
             ]]

@@ -16,15 +16,11 @@ namespace Apps.Models.Spl
 	public class Virtual_Spl_WareModel
 	{
 		
-	public virtual string id { get; set; }
-		
 	public virtual string Name { get; set; }
 		
 	public virtual string ProductCategoryId { get; set; }
 		
 	public virtual string Unit { get; set; }
-		
-	public virtual Nullable<decimal> OriginPrice { get; set; }
 		
 	public virtual Nullable<decimal> Price { get; set; }
 		
@@ -35,8 +31,6 @@ namespace Apps.Models.Spl
 	public virtual string Thumbnail { get; set; }
 		
 	public virtual string ShowType { get; set; }
-		
-	public virtual string WareInfoId { get; set; }
 		
 	public virtual Nullable<int> WareCount { get; set; }
 		
@@ -51,6 +45,12 @@ namespace Apps.Models.Spl
 	public virtual string Editor { get; set; }
 		
 	public virtual string Description { get; set; }
+		
+	public virtual string BrandId { get; set; }
+		
+	public virtual Nullable<decimal> PromotionPrice { get; set; }
+		
+	public virtual string Id { get; set; }
 		
 }
 

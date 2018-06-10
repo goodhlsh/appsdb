@@ -15,5 +15,7 @@ namespace Apps.Spl.IBLL
         List<Spl_WareInfo> GetPageWareInfo(bool queryStr, int skip, int limit);
         List<Spl_WareShowModel> GetPageLike(string queryStr, int skip, int limit);
         List<Spl_Actives> GetPageActive(bool queryStr, int skip, int limit);
+        List<Spl_Ware> GetProducts(string bid, string tid,int skip,int limit);
+  
     }
 }

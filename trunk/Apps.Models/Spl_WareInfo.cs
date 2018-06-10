@@ -18,16 +18,6 @@ using System;
 public partial class Spl_WareInfo
 {
 
-    public Spl_WareInfo()
-    {
-
-        this.Spl_Ware = new HashSet<Spl_Ware>();
-
-    }
-
-
-    public string id { get; set; }
-
     public string Picture0 { get; set; }
 
     public string Picture1 { get; set; }
@@ -52,9 +42,15 @@ public partial class Spl_WareInfo
 
     public string Editor { get; set; }
 
+    public string WareId { get; set; }
+
+    public string Id { get; set; }
 
 
-    public virtual ICollection<Spl_Ware> Spl_Ware { get; set; }
+
+    public virtual Spl_Ware Spl_Ware1 { get; set; }
+
+    public virtual Spl_Ware Spl_Ware { get; set; }
 
 }
 

@@ -21,7 +21,7 @@ namespace Apps.Spl.BLL
             IQueryable<Spl_ProductCategory> list = m_Rep.GetList();
             if (!string.IsNullOrWhiteSpace(queryStr))
             {
-                list = list.Where(a => a.Id==queryStr|| a.Name==queryStr);
+                list = list.Where(a => a.Id==queryStr|| a.TypeName==queryStr);
             }
             query = list.OrderBy(c => c.CreateBy).Skip(skip).Take(limit).ToList();
             List<Spl_ProductCategoryModel> productCategoryInfoList = new List<Spl_ProductCategoryModel>();
@@ -31,11 +31,22 @@ namespace Apps.Spl.BLL
                 Spl_ProductCategoryModel splproCate = new Spl_ProductCategoryModel
                 {
                     Id=productCategory.Id,
-                    Name = productCategory.Name
+                    TypeName = productCategory.TypeName
                 };
                 productCategoryInfoList.Add(splproCate);
             }
             return productCategoryInfoList;
+        }
+        public List<Spl_ProductCategory> GetListValue(string queryStr, int skip, int limit)
+        {
+            List<Spl_ProductCategory> query = null;
+            IQueryable<Spl_ProductCategory> list = m_Rep.GetList();
+            if (!string.IsNullOrWhiteSpace(queryStr))
+            {
+                list = list.Where(a => a.Id == queryStr || a.TypeName == queryStr);
+            }
+            query = list.OrderBy(c => c.CreateBy).Skip(skip).Take(limit).ToList();
+            return query;
         }
     }
 }

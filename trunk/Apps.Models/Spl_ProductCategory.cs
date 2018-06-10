@@ -23,20 +23,26 @@ public partial class Spl_ProductCategory
 
         this.Spl_Ware = new HashSet<Spl_Ware>();
 
+        this.Spl_ProductCategoryS = new HashSet<Spl_ProductCategoryS>();
+
     }
 
 
     public string Id { get; set; }
 
-    public string Name { get; set; }
-
     public Nullable<System.DateTime> CreateTime { get; set; }
 
     public string CreateBy { get; set; }
 
+    public string TypeName { get; set; }
+
+    public string Note { get; set; }
+
 
 
     public virtual ICollection<Spl_Ware> Spl_Ware { get; set; }
+
+    public virtual ICollection<Spl_ProductCategoryS> Spl_ProductCategoryS { get; set; }
 
 }
 

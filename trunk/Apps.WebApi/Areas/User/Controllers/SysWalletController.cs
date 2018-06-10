@@ -40,9 +40,9 @@ namespace Apps.WebApi.Areas.User.Controllers
         [HttpPost]
         public bool PostWallet([FromBody]SysWallet wallet)
         {
-            if (sysWBLL.GetById(wallet.id)!=null)
+            if (sysWBLL.GetById(wallet.Id) !=null)
             {
-                SysWalletModel walletmodel = sysWBLL.GetById(wallet.id);
+                SysWalletModel walletmodel = sysWBLL.GetById(wallet.Id);
                 walletmodel.UserId = wallet.UserId;
                 walletmodel.Balance = wallet.Balance;
                 walletmodel.Froms = wallet.Froms;
@@ -60,7 +60,7 @@ namespace Apps.WebApi.Areas.User.Controllers
             else
             {
                 SysWalletModel newmodel = new SysWalletModel();
-                newmodel.id = ResultHelper.NewId;
+                newmodel.Id = ResultHelper.NewId;
                 newmodel.UserId = wallet.UserId;
                 newmodel.Balance = wallet.Balance;
                 newmodel.Froms = wallet.Froms;

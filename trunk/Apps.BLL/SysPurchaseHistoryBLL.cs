@@ -17,7 +17,7 @@ namespace Apps.BLL
             if (!string.IsNullOrWhiteSpace(queryStr))
             {
                 queryData = m_Rep.GetList(
-                                a => a.id.Contains(queryStr)
+                                a => a.Id.Contains(queryStr)
                                 || a.UserId.Contains(queryStr)
                                 || a.SysUser.UserName.Contains(queryStr)
                                 || a.SysUser.TrueName.Contains(queryStr)
@@ -38,7 +38,7 @@ namespace Apps.BLL
             {
                 SysPurchaseHistoryModel sysPurchase = new SysPurchaseHistoryModel()
                 {
-                    id=model.id,
+                    Id = model.Id,
                     UserId=model.UserId,
                     Froms=model.Froms,
                     ShouRu=model.ShouRu,

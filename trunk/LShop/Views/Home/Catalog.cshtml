@@ -1,0 +1,54 @@
+﻿@model LShop.Models.CatalogViewModel
+<script type="text/javascript">
+    $(function () {
+        $(".jnCatainfo .promoted").append('<s class="hot"></s>');
+    })
+</script>
+<h2 title="商品分类">商品分类</h2>
+<div class="jnCatainfo">
+    <h3>推荐品牌</h3>
+    <ul>
+        @if (Model != null)
+        {
+            if (Model.BrandList != null)
+            {
+                foreach (var br in Model.BrandList)
+                {
+                    if (br.Promoted.HasValue && br.Promoted.Value)
+                    {
+            <li>@Html.ActionLink(br.Name, "GetProduct", new { bid = br.Id, tid = "" }, new { @class = "promoted" })</li>
+                    }
+                    else
+                    {
+            <li>@Html.ActionLink(br.Name, "GetProduct", new { bid = br.Id, tid = "" })</li>
+                    }
+                }
+            }
+        }
+    </ul>
+    <br class="clear" />
+    @if (Model != null)
+    {
+        if (Model.ProductTypeList != null)
+        {
+            foreach (var pf in Model.ProductTypeList)
+            {
+        <h3>@pf.TypeName</h3>
+        <ul>
+            @foreach (var ps in pf.Spl_ProductCategoryS)
+            {
+                if (ps.Promoted.HasValue && ps.Promoted.Value)
+                {
+                <li>@Html.ActionLink(ps.Name, "GetProduct", new { bid = "210A2825675248908A6DEAD8F2686EEEr", tsid = ps.Id }, new { @class = "promoted" })</li>
+                }
+                else
+                {
+                <li>@Html.ActionLink(ps.Name, "GetProduct", new { bid = "210A2825675248908A6DEAD8F2686EEEr", tsid = ps.Id })</li>
+                }
+            }
+        </ul>
+        <br class="clear" />
+            }
+        }
+    }
+</div>

@@ -18,11 +18,13 @@ namespace Apps.Models.Spl
 		
 	public virtual string Id { get; set; }
 		
-	public virtual string Name { get; set; }
-		
 	public virtual Nullable<System.DateTime> CreateTime { get; set; }
 		
 	public virtual string CreateBy { get; set; }
+		
+	public virtual string TypeName { get; set; }
+		
+	public virtual string Note { get; set; }
 		
 }
 

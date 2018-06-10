@@ -9,7 +9,8 @@ namespace Apps.Models.Sys
 {
     public partial class SysWalletModel
     {
-        public string id { get; set; }
+        [Display(Name = "ID")]
+        public string Id { get; set; }
 
         public string UserId { get; set; }
         [Display(Name ="用户账号")]

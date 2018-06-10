@@ -46,7 +46,7 @@ namespace Apps.Web.Controllers
                 rows = (from wallet in list
                         select new SysWalletModel()
                         {
-                            id = wallet.id,
+                           Id = wallet.Id,
                             UserId = wallet.UserId,
                             UserName = wallet.UserName,
                             TrueName = wallet.TrueName,
@@ -73,20 +73,20 @@ namespace Apps.Web.Controllers
         [SupportFilter]
         public JsonResult Create(SysWalletModel model)
         {
-            model.id = ResultHelper.NewId;
+            model.Id = ResultHelper.NewId;
             model.CreateTime = ResultHelper.NowTime;
             if (model != null && ModelState.IsValid)
             {
 
                 if (m_BLL.Create(ref errors, model))
                 {
-                    LogHandler.WriteServiceLog(GetUserId(), "id" + model.id + ",UserId" + model.Balance, "成功", "创建", "SysWallet");
+                    LogHandler.WriteServiceLog(GetUserId(), "Id" + model.Id + ",UserId" + model.Balance, "成功", "创建", "SysWallet");
                     return Json(JsonHandler.CreateMessage(1, Resource.InsertSucceed));
                 }
                 else
                 {
                     string ErrorCol = errors.Error;
-                    LogHandler.WriteServiceLog(GetUserId(), "id" + model.id + ",UserId" + model.Balance + "," + ErrorCol, "失败", "创建", "SysWallet");
+                    LogHandler.WriteServiceLog(GetUserId(), "Id" + model.Id + ",UserId" + model.Balance + "," + ErrorCol, "失败", "创建", "SysWallet");
                     return Json(JsonHandler.CreateMessage(0, Resource.InsertFail + ErrorCol));
                 }
             }
@@ -115,13 +115,13 @@ namespace Apps.Web.Controllers
 
                 if (m_BLL.Edit(ref errors, model))
                 {
-                    LogHandler.WriteServiceLog(GetUserId(), "id" + model.id + ",UserId" + model.Balance, "成功", "修改", "SysWallet");
+                    LogHandler.WriteServiceLog(GetUserId(), "Id" + model.Id + ",UserId" + model.Balance, "成功", "修改", "SysWallet");
                     return Json(JsonHandler.CreateMessage(1, Resource.EditSucceed));
                 }
                 else
                 {
                     string ErrorCol = errors.Error;
-                    LogHandler.WriteServiceLog(GetUserId(), "id" + model.id + ",UserId" + model.Balance + "," + ErrorCol, "失败", "修改", "SysWallet");
+                    LogHandler.WriteServiceLog(GetUserId(), "Id" + model.Id + ",UserId" + model.Balance + "," + ErrorCol, "失败", "修改", "SysWallet");
                     return Json(JsonHandler.CreateMessage(0, Resource.EditFail + ErrorCol));
                 }
             }
