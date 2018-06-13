@@ -41,11 +41,11 @@ $(function () {
     });
 
     $("#selExc").click(function () {
-        $("#modalwindow").html("<iframe width='100%' height='100%' scrolling='no' frameborder='0'' src='/SysHelper/UserLookUp'></iframe>");
+        $("#modalwindow").html("<iframe width='100%' height='100%' scrolling='no' frameborder='0'' src='/SysHelper/UserLookUp_JP'></iframe>");
         $("#modalwindow").window({ title: '选择人员', width: 620, height: 388, iconCls: 'fa fa-plus' }).window('open');
     });
     $("#selExc2").click(function () {
-        $("#modalwindow").html("<iframe width='100%' height='100%' scrolling='no' frameborder='0'' src='/SysHelper/UserLookUp2'></iframe>");
+        $("#modalwindow").html("<iframe width='100%' height='100%' scrolling='no' frameborder='0'' src='/SysHelper/UserLookUp2_JP'></iframe>");
         $("#modalwindow").window({ title: '选择人员', width: 620, height: 388, iconCls: 'fa fa-plus' }).window('open');
     });
     });
@@ -96,7 +96,7 @@ $(function () {
             <tbody>
                 <tr>
                     <th>
-                        @Html.HiddenFor(model => model.id)
+                        @Html.HiddenFor(model => model.Id)
 
                         @Html.LabelFor(model => model.TrueName):
                     </th>

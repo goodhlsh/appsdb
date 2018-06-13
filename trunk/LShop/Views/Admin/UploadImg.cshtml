@@ -1,0 +1,33 @@
+﻿@{
+    ViewBag.Title = "上传图片";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<script type="text/javascript" src="~/Scripts/jquery.easyui.min.js"></script>
+<script type="text/javascript">
+    function save() {
+        $('#fm').form('submit', {
+            url: url,
+            onSubmit: function () {
+                return $(this).form('validate');
+            },
+            success: function (result) {
+                if (result == "OK") {
+                    $('#dlg').dialog('close');
+                    $("#dg").datagrid("reload");
+                }
+                else {
+                    $.messager.alert("提示", result);
+                }
+            }
+        });
+    }
+</script>
+<form id="fm" method="post" enctype="multipart/form-data">
+    <div class="fitem">
+        <label for="img">图片：</label>
+        <input type="file" name="img" required="true" />
+    </div>
+    <div id="dlg-buttons">
+        <a href="javascript:void(0)" class="easyui-linkbutton" iconcls="icon-ok" onclick="save()">确定</a>
+    </div>
+</form>

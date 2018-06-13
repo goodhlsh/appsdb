@@ -13,6 +13,8 @@ namespace Apps.Web
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+           
+
             routes.MapRoute(
                 "Globalization", // 路由名称
                 "{lang}/{controller}/{action}/{id}", // 带有参数的 URL
@@ -25,6 +27,11 @@ namespace Apps.Web
                 "{controller}/{action}/{id}", // 带有参数的 URL
                 new { controller = "Home", action = "Index", id = UrlParameter.Optional } // 参数默认值
             );
+           // routes.MapRoute(
+           //    "GetUserList", // 路由名称
+           //    "{controller}/{action}/{id}/{queryStr}", // 带有参数的 URL
+           //    new { controller = "SysHelper", action = "GetUserListByDep", id = UrlParameter.Optional, queryStr = UrlParameter.Optional } // 参数默认值
+           //);
         }
     }
 }

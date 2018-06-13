@@ -24,7 +24,7 @@ namespace Apps.BLL
             pager.totalRows = list.Count();
             if (!string.IsNullOrWhiteSpace(queryStr))
             {
-                list = list.Where(a => a.UserId.Contains(queryStr));
+                list = list.Where(a => a.UserId.Contains(queryStr) || a.SysUser.TrueName.Contains(queryStr));
                 pager.totalRows = list.Count();
             }
             else
@@ -59,34 +59,75 @@ namespace Apps.BLL
             foreach (var user in dataList)
             {
                 SysUser sysUser = new SysUser();
-                if (user.ParentId!=null)
+                if (user.ParentId != null)
                 {
-sysUser = mu_Rep.GetById(user.ParentId);
+                    sysUser = mu_Rep.GetById(user.ParentId);
                 }
-                
+
 
                 SysJiaPuModel jiapuModel = new SysJiaPuModel()
                 {
-                   
-                
-                Id = user.Id,
-                    UserId=user.UserId,
-                    UserName = user.SysUser.UserName,                   
+                    Id = user.Id,
+                    UserId = user.UserId,
+                    UserName = user.SysUser.UserName,
                     TrueName = user.SysUser.TrueName,
-                    ParentId=user.ParentId,
-                    LevelId=user.LevelId,
-                    ParentName =sysUser==null?null:sysUser.TrueName,
+                    ParentId = user.ParentId,
+                    LevelId = user.LevelId,
+                    ParentName = sysUser == null ? null : sysUser.TrueName,
                     CreateTime = user.CreateTime,
                     FirstJinE = user.FirstJinE,
-                    ErZiShu=user.ErZiShu,
+                    ErZiShu = user.ErZiShu,
                     ZMPA2 = user.ZMPA2,
                     TId = user.TId,
-                    TName = user.SysUser.Recommendor  
+                    TName = user.SysUser.Recommendor
                 };
                 jiapuInfoList.Add(jiapuModel);
             }
 
             return jiapuInfoList;
+        }
+
+        public SysJiaPuRModel CreateTree(SysJiaPuRModel node, string id)
+        {
+            SysJiaPuRModel jiaPuRModel = new SysJiaPuRModel();
+            List<SysJiaPu> list = m_Rep.GetList().Where(a=>a.ParentId==id).ToList();
+        
+            List<SysJiaPuModel> list_m = new List<SysJiaPuModel>();
+            
+            foreach (var item in list)
+            {
+                SysJiaPuModel jiaPuModel = new SysJiaPuModel();
+                jiaPuModel.Id = item.Id;
+                jiaPuModel.LevelId = item.LevelId;
+                jiaPuModel.ParentId = item.ParentId;
+                jiaPuModel.PPId = item.PPId;
+                jiaPuModel.ShuZi = item.ShuZi;
+                jiaPuModel.TId = item.TId;
+                jiaPuModel.TopId = item.TopId;
+                jiaPuModel.TrueName = item.SysUser.TrueName;
+                jiaPuModel.UserId = item.UserId;
+                jiaPuModel.UserName = item.SysUser.Id;
+                jiaPuModel.Comment = item.Comment;
+                jiaPuModel.CreateTime = item.CreateTime;
+                jiaPuModel.ErZiShu = item.ErZiShu;
+                jiaPuModel.FirstJinE = item.FirstJinE;
+                jiaPuModel.ZiMu = item.ZiMu;
+                jiaPuModel.ZMP15 = item.ZMP15;
+                jiaPuModel.ZMPA2 = item.ZMPA2;
+                list_m.Add(jiaPuModel);
+            }
+
+
+            for (int i = 0; i < list_m.Count(); i++)
+            {
+                SysJiaPuRModel nd = new SysJiaPuRModel();
+                nd.ParentId = list_m[i].ParentId;
+                nd.TrueName = list_m[i].TrueName;
+                CreateTree(nd, list_m[i].ParentId);
+                jiaPuRModel.sjp.Add(nd);
+            }
+            return jiaPuRModel;
+
         }
     }
 }

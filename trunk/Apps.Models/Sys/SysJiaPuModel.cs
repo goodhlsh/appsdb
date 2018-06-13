@@ -31,4 +31,12 @@ namespace Apps.Models.Sys
         public override DateTime? CreateTime { get; set; }
 
     }
+    public class SysJiaPuRModel
+    {
+        public string UserId { get; set; }
+        public string TrueName { get; set; }
+        public string ParentId { get; set; }
+        //子集
+        public List<SysJiaPuRModel> sjp = new List<SysJiaPuRModel>();
+    }
 }

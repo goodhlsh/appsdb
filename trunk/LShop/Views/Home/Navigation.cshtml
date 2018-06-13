@@ -35,10 +35,10 @@
                 <div class="subitem">
                     <dl class="fore">
                         <dd>
-                            @foreach (var b in Model.BrandTypeList.Where(r => r.TypeID == pt.Id))
+                            @foreach (var ps in pt.Spl_ProductCategoryS)
                             {
-                                <em>@Html.ActionLink(b.BrandName, "GetProduct", new { bid = b.BrandID, tid = "" })</em>
-                            }
+                                <em>@Html.ActionLink(ps.Name, "GetProduct", new { bid = "210A2825675248908A6DEAD8F2686EEER", tsid = ps.Id })</em>
+                               }
                         </dd>
                     </dl>
                 </div>

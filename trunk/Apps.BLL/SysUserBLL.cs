@@ -206,9 +206,9 @@ namespace Apps.BLL
                 IQueryable<P_Sys_GetUserByDepId_Result> queryData = null;
                 if (!string.IsNullOrWhiteSpace(queryStr))
                 {
-                    queryData = m_Rep.GetUserByDepId(depId).Where(a => a.TrueName.Contains(queryStr));
+                    queryData = m_Rep.GetUserByDepId(depId).Where(a => a.TrueName.Contains(queryStr) );
                     pager.totalRows = queryData.Count();
-                    queryData = m_Rep.GetUserByDepId(depId).Where(a => a.TrueName.Contains(queryStr));
+                    queryData = m_Rep.GetUserByDepId(depId).Where(a => a.TrueName.Contains(queryStr) );
                 }
                 else
                 {
@@ -491,70 +491,77 @@ namespace Apps.BLL
         }
         public override SysUserModel GetById(string id)
         {
+            try
+            {
+                SysUser entity = m_Rep.GetById(id);
+                SysUserModel model = new SysUserModel();
+                model.Id = entity.Id;
+                model.UserName = entity.UserName;
+                //model.Password = entity.Password;
+                model.TrueName = entity.TrueName;
+                model.Card = entity.Card;
+                model.MobileNumber = entity.MobileNumber;
+                model.PhoneNumber = entity.PhoneNumber;
+                model.QQ = entity.QQ;
+                model.EmailAddress = entity.EmailAddress;
+                model.OtherContact = entity.OtherContact;
+                model.Province = entity.Province;
+                model.City = entity.City;
+                model.Village = entity.Village;
+                model.Address = entity.Address;
+                model.State = entity.State;
+                model.CreateTime = entity.CreateTime;
+                model.CreatePerson = entity.CreatePerson;
+                model.Sex = entity.Sex;
+                model.Birthday = entity.Birthday;
+                model.JoinDate = entity.JoinDate;
+                model.Marital = entity.Marital;
+                model.Political = entity.Political;
+                model.Nationality = entity.Nationality;
+                model.Native = entity.Native;
+                model.School = entity.School;
+                model.Professional = entity.Professional;
+                model.Degree = entity.Degree;
+                model.DepId = entity.DepId;
+                model.DepName = entity.SysStruct.Name;
+                model.PosId = entity.PosId;
+                model.PosName = entity.SysPosition.Name;
+                model.Expertise = entity.Expertise;
+                model.JobState = entity.JobState == null ? false : (bool)entity.JobState;
+                model.Photo = entity.Photo;
+                model.Attach = entity.Attach;
+                model.Lead = entity.Lead;
+                model.LeadName = entity.LeadName;
+                model.IsSelLead = entity.IsSelLead;
+                model.IsReportCalendar = entity.IsReportCalendar;
+                model.IsSecretary = entity.IsSecretary;
 
-            SysUser entity = m_Rep.GetById(id);
-            SysUserModel model = new SysUserModel();
-            model.Id = entity.Id;
-            model.UserName = entity.UserName;
-            //model.Password = entity.Password;
-            model.TrueName = entity.TrueName;
-            model.Card = entity.Card;
-            model.MobileNumber = entity.MobileNumber;
-            model.PhoneNumber = entity.PhoneNumber;
-            model.QQ = entity.QQ;
-            model.EmailAddress = entity.EmailAddress;
-            model.OtherContact = entity.OtherContact;
-            model.Province = entity.Province;
-            model.City = entity.City;
-            model.Village = entity.Village;
-            model.Address = entity.Address;
-            model.State = entity.State;
-            model.CreateTime = entity.CreateTime;
-            model.CreatePerson = entity.CreatePerson;
-            model.Sex = entity.Sex;
-            model.Birthday = entity.Birthday;
-            model.JoinDate = entity.JoinDate;
-            model.Marital = entity.Marital;
-            model.Political = entity.Political;
-            model.Nationality = entity.Nationality;
-            model.Native = entity.Native;
-            model.School = entity.School;
-            model.Professional = entity.Professional;
-            model.Degree = entity.Degree;
-            model.DepId = entity.DepId;
-            model.DepName = entity.SysStruct.Name;
-            model.PosId = entity.PosId;
-            model.PosName = entity.SysPosition.Name;
-            model.Expertise = entity.Expertise;
-            model.JobState = entity.JobState == null ? false : (bool)entity.JobState;
-            model.Photo = entity.Photo;
-            model.Attach = entity.Attach;
-            model.Lead = entity.Lead;
-            model.LeadName = entity.LeadName;
-            model.IsSelLead = entity.IsSelLead;
-            model.IsReportCalendar = entity.IsReportCalendar;
-            model.IsSecretary = entity.IsSecretary;
+                model.HomePhone = entity.HomePhone;
+                model.WXID = entity.WXID;
+                model.Signature = entity.Signature;
+                model.QRCode = entity.QRCode;
+                model.IdentityCardFile = entity.IdentityCardFile;
+                model.IdentityCardBackFile = entity.IdentityCardBackFile;
+                model.IsAuth = entity.IsAuth;
+                model.AuditStatus = entity.AuditStatus;
+                model.Note = entity.Note;
+                model.SortCode = entity.SortCode;
+                model.RecommendID = entity.RecommendID;
+                model.Recommendor = entity.Recommendor;
+                model.RecommendTime = entity.RecommendTime;
+                model.EditorID = entity.EditorID;
+                model.UpdateTime = entity.UpdateTime;
+                model.IsDeleted = entity.IsDeleted;
+                model.Questions = entity.Questions;
+                model.Answer = entity.Answer;
 
-            model.HomePhone = entity.HomePhone;
-            model.WXID = entity.WXID;
-            model.Signature = entity.Signature;
-            model.QRCode = entity.QRCode;
-            model.IdentityCardFile = entity.IdentityCardFile;
-            model.IdentityCardBackFile = entity.IdentityCardBackFile;
-            model.IsAuth = entity.IsAuth;
-            model.AuditStatus = entity.AuditStatus;
-            model.Note = entity.Note;
-            model.SortCode = entity.SortCode;
-            model.RecommendID = entity.RecommendID;
-            model.Recommendor = entity.Recommendor;
-            model.RecommendTime = entity.RecommendTime;
-            model.EditorID = entity.EditorID;
-            model.UpdateTime = entity.UpdateTime;
-            model.IsDeleted = entity.IsDeleted;
-            model.Questions = entity.Questions;
-            model.Answer = entity.Answer;
-
-            return model;
+                return model;
+            }
+            catch (Exception )
+            {
+                return null;
+            }
+            
 
         }
         public string GetNameById(string id)

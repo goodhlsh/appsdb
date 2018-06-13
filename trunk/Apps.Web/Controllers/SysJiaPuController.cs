@@ -8,6 +8,7 @@ using Apps.Common;
 using Apps.IBLL;
 using Apps.Models.Sys;
 using Microsoft.Practices.Unity;
+using Apps.Models.Common;
 
 namespace Apps.Web.Controllers
 {
@@ -29,11 +30,18 @@ namespace Apps.Web.Controllers
         public JsonResult GetList(GridPager pager, string queryStr)
         {
             List<SysJiaPuModel> list = m_BLL.GetList(ref pager, queryStr);
+       
             GridRows<SysJiaPuModel> grs = new GridRows<SysJiaPuModel>();
 
             grs.rows = list;
             grs.total = pager.totalRows;
             return Json(grs);
+        }
+        public JsonResult GetTree(SysJiaPuRModel node, string queryStr)
+        {
+            SysJiaPuRModel sysJiaPuRModel = new SysJiaPuRModel();
+            sysJiaPuRModel = m_BLL.CreateTree(node, queryStr);
+            return Json(sysJiaPuRModel);
         }
         #region 创建
         [SupportFilter]
@@ -63,7 +71,7 @@ namespace Apps.Web.Controllers
             }
 
             model.CreateTime = ResultHelper.NowTime;
-            if (model != null && ModelState.IsValid)
+            if (model.UserId != null&&model.ParentId!=null&&model.TId!=null&&model.ZMPA2!=null&&model.FirstJinE>=398 && ModelState.IsValid)
             {
 
                 if (ms_BLL.IntoSysJiaPu(model.UserId, model.TId, model.ParentId, model.ZMPA2, (decimal)model.FirstJinE) >= 0)
@@ -158,5 +166,64 @@ namespace Apps.Web.Controllers
 
         }
         #endregion
+        [HttpPost]
+        public JsonResult GetOptionByBarChart(GridPager pager, string queryStr)
+        {
+            List<SysJiaPuModel> list = m_BLL.GetList(ref pager, queryStr);
+            SysJiaPuRModel sysJiaPuRModel = new SysJiaPuRModel();
+            SysJiaPuRModel node = new SysJiaPuRModel();
+            node.ParentId = "0";
+         
+            sysJiaPuRModel = m_BLL.CreateTree(node, queryStr);
+            //List<decimal?> costPrice = new List<decimal?>();
+            //list.ForEach(a => costPrice.Add(a.UserId));
+            //List<decimal?> price = new List<decimal?>();
+            //list.ForEach(a => price.Add(a.Price));
+            //List<string> names = new List<string>();
+            //list.ForEach(a => names.Add(a.Name));
+            //List<ChartSeriesModel> seriesList = new List<ChartSeriesModel>();
+            //ChartSeriesModel series1 = new ChartSeriesModel()
+            //{
+            //    name = "成本价",
+            //    type = "bar",
+            //    data = costPrice
+            //};
+            //ChartSeriesModel series2 = new ChartSeriesModel()
+            //{
+            //    name = "零售价",
+            //    type = "bar",
+            //    data = price
+            //};
+            //seriesList.Add(series1);
+            //seriesList.Add(series2);
+            var option = new
+            {
+                title = new { text = "成本价零售价对照表" },
+                tooltip = new { trigger="item",triggerOn="mousemove"},
+                legend = new { data = "成本价零售价对照表" },               
+                series =   new   {
+                 type="tree",
+
+                data= Json(sysJiaPuRModel),
+
+                top="18%",
+                bottom="14%",
+
+                layout="radial",
+
+                symbol="emptyCircle",
+
+                symbolSize=7,
+
+                initialTreeDepth=3,
+
+                animationDurationUpdate=750
+
+            }
+        
+                
+            };
+            return Json(option);
+        }
     }
 }

@@ -103,6 +103,17 @@
         });
         $("#btnDelete").click(function () {
              dataDelete("@Url.Action("Delete")", "List");
-	        });
+        });
+        $("#txtQuery").keydown(function (e) {
+            var curkey = e.which;
+            if (curkey == 13) {
+                var queryStr = $("#txtQuery").val();
+                if (queryStr == null) {
+                    queryStr = "%";
+                }
+                $("#List").datagrid("load", { queryStr: encodeURI(queryStr) });
+                return false;
+            }
+        });
     });
 </script>

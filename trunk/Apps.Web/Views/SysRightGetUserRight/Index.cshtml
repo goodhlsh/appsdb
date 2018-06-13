@@ -106,6 +106,20 @@
             }).datagrid('getPager').pagination({ showPageList: true, showRefresh: false, displayMsg: '' });
             $('#rightList').datagrid('loadData', { total: 0, rows: []});
         });
+        $("#txtQuery").keydown(function (e) {
+            var curkey = e.which;
+            if (curkey == 13) {
+                var queryStr = $("#txtQuery").val();
+                if (queryStr == null) {
+                    queryStr = "%";
+                }
+                $('#userList').datagrid({
+                    url: '/SysRightGetUserRight/GetUserList?queryStr=' + encodeURI(queryStr)
+                }).datagrid('getPager').pagination({ showPageList: true, showRefresh: false, displayMsg: '' });
+                $('#rightList').datagrid('loadData', { total: 0, rows: [] });
+                return false;
+            }
+        });
         $(window).resize(function () {
             resizeLayout();
         });

@@ -31,19 +31,19 @@
     {
         if (Model.ProductTypeList != null)
         {
-            foreach (var pf in Model.ProductTypeList)
+            foreach (var pt in Model.ProductTypeList)
             {
-        <h3>@pf.TypeName</h3>
+        <h3>@pt.TypeName</h3>
         <ul>
-            @foreach (var ps in pf.Spl_ProductCategoryS)
+            @foreach (var ps in pt.Spl_ProductCategoryS)
             {
                 if (ps.Promoted.HasValue && ps.Promoted.Value)
                 {
-                <li>@Html.ActionLink(ps.Name, "GetProduct", new { bid = "210A2825675248908A6DEAD8F2686EEEr", tsid = ps.Id }, new { @class = "promoted" })</li>
+                <li>@Html.ActionLink(ps.Name, "GetProduct", new { bid = "210A2825675248908A6DEAD8F2686EEER", tsid = ps.Id }, new { @class = "promoted" })</li>
                 }
                 else
                 {
-                <li>@Html.ActionLink(ps.Name, "GetProduct", new { bid = "210A2825675248908A6DEAD8F2686EEEr", tsid = ps.Id })</li>
+                <li>@Html.ActionLink(ps.Name, "GetProduct", new { bid = "210A2825675248908A6DEAD8F2686EEER", tsid = ps.Id })</li>
                 }
             }
         </ul>

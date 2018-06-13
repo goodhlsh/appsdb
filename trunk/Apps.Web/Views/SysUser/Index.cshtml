@@ -147,5 +147,16 @@
                $("#modalwindow").window({ title: '@Resource.AssignRole', width: 720, height: 400, iconCls: 'fa fa-pencil' }).window('open');
            } else { $.messageBox5s('@Resource.Tip', '@Resource.PlaseChooseToOperatingRecords'); }
         });
+        $("#txtQuery").keydown(function (e) {
+            var curkey = e.which;
+            if (curkey == 13) {
+                var queryStr = $("#txtQuery").val();
+                if (queryStr == null) {
+                    queryStr = "%";
+                }
+                $("#List").datagrid("load", { queryStr: encodeURI(queryStr) });
+                return false;
+            }
+        });
     });
 </script>

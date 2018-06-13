@@ -58,7 +58,6 @@ C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.WC.IDAL\bin\Debug\zh-Hans\
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.WC.IDAL\bin\Debug\en-US\Apps.Locale.resources.dll
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.WC.IDAL\bin\Debug\zh-Hans\System.Web.WebPages.Deployment.resources.dll
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.WC.IDAL\obj\Debug\Apps.WC.IDAL.csproj.CopyComplete
-C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.WC.IDAL\obj\Debug\Apps.WC.IDAL.csprojResolveAssemblyReference.cache
 D:\项目\trunk\trunk\Apps.WC.IDAL\bin\Debug\Apps.WC.IDAL.dll
 D:\项目\trunk\trunk\Apps.WC.IDAL\bin\Debug\Apps.WC.IDAL.pdb
 D:\项目\trunk\trunk\Apps.WC.IDAL\bin\Debug\Apps.IDAL.dll
@@ -90,3 +89,4 @@ D:\项目\trunk\trunk\Apps.WC.IDAL\obj\Debug\Apps.WC.IDAL.csproj.CopyComplete
 D:\项目\trunk\trunk\Apps.WC.IDAL\obj\Debug\Apps.WC.IDAL.dll
 D:\项目\trunk\trunk\Apps.WC.IDAL\obj\Debug\Apps.WC.IDAL.pdb
 D:\项目\trunk\trunk\Apps.WC.IDAL\obj\Debug\Apps.WC.IDAL.csprojResolveAssemblyReference.cache
+C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.WC.IDAL\obj\Debug\Apps.WC.IDAL.csprojResolveAssemblyReference.cache

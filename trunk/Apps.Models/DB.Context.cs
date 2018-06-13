@@ -1199,7 +1199,7 @@ public partial class DBContainer : DbContext
     }
 
 
-    public virtual ObjectResult<P_Sys_GetUserByDepId1_Result> P_Sys_GetUserByDepId1(string depId)
+    public virtual int P_Sys_GetUserByDepId1(string depId)
     {
 
         var depIdParameter = depId != null ?
@@ -1207,7 +1207,7 @@ public partial class DBContainer : DbContext
             new ObjectParameter("DepId", typeof(string));
 
 
-        return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<P_Sys_GetUserByDepId1_Result>("P_Sys_GetUserByDepId1", depIdParameter);
+        return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("P_Sys_GetUserByDepId1", depIdParameter);
     }
 
 }

@@ -646,9 +646,6 @@
     <Compile Include="P_Sys_GetRoleByUserId_Result.cs">
       <DependentUpon>DB.tt</DependentUpon>
     </Compile>
-    <Compile Include="P_Sys_GetUserByDepId1_Result.cs">
-      <DependentUpon>DB.tt</DependentUpon>
-    </Compile>
     <Compile Include="P_Sys_GetUserByDepId_Result.cs">
       <DependentUpon>DB.tt</DependentUpon>
     </Compile>

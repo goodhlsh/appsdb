@@ -1,0 +1,101 @@
+﻿@{
+    ViewBag.Title = "品牌管理";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<script type="text/javascript" src="~/Scripts/jquery.easyui.min.js"></script>
+<script type="text/javascript">
+    var url;
+    function add() {
+        $('#dlg').dialog('open').dialog('setTitle', '新建');
+        $('#fm').form('clear');
+        url = 'AddBrand';
+    }
+    function edit() {
+        var row = $('#dg').datagrid('getSelected');
+        if (row) {
+            $('#dlg').dialog('open').dialog('setTitle', '编辑');
+            $('#fm').form('load', row);
+            url = 'UpdateBrand';
+        } else {
+            $.messager.alert("提示", "请先选择记录.");
+        }
+    }
+    function save() {
+        $('#fm').form('submit', {
+            url: url,
+            onSubmit: function () {
+                return $(this).form('validate');
+            },
+            success: function (result) {
+                if (result == "OK") {
+                    $('#dlg').dialog('close');
+                    $("#dg").datagrid("reload");
+                }
+                else {
+                    $.messager.alert("提示", result);
+                }
+            }
+        });
+    }
+    function destroy() {
+        var row = $('#dg').datagrid('getSelected');
+        if (row) {
+            var id = row.BrandId;
+            $.messager.confirm('提示', '确认删除该信息吗？', function (r) {
+                if (r) {
+                    $.post('DeleteBrand', { id: id }, function (result) {
+                        if (result == "OK") {
+                            $('#dg').datagrid('reload');    // reload the user data
+                        } else {
+                            $.messager.show({               // show error message
+                                title: '提示',
+                                msg: result
+                            });
+                        }
+                    });
+                }
+            });
+        } else {
+            $.messager.alert("提示", "请先选择记录.");
+        }
+    }
+</script>
+<div id="jnContext">
+    <table id="dg" title="品牌管理" class="easyui-datagrid"
+        url="GetBrandList"
+        toolbar="#toolbar" pagination="true" sortname="BrandName"
+        rownumbers="true" fitcolumns="true" singleselect="true">
+        <thead>
+            <tr>
+                <th field="BrandName">名称</th>
+                <th field="Promoted">推广</th>
+            </tr>
+        </thead>
+    </table>
+    <div id="toolbar">
+        <a href="javascript:void(0)" class="easyui-linkbutton" iconcls="icon-add" plain="true" onclick="add()">新建</a>
+        <a href="javascript:void(0)" class="easyui-linkbutton" iconcls="icon-edit" plain="true" onclick="edit()">编辑</a>
+        <a href="javascript:void(0)" class="easyui-linkbutton" iconcls="icon-remove" plain="true" onclick="destroy()">删除</a>
+    </div>
+</div>
+<div id="dlg" class="easyui-dialog" style="width: 400px; height: 280px; padding: 10px 20px"
+    closed="true" resizable="true" modal="true" buttons="#dlg-buttons" align="center">
+    <div class="ftitle">品牌信息</div>
+    <form id="fm" method="post" novalidate="novalidate">
+        <input class="easyui-validatebox" name="BrandId" style="display: none;" />
+        <div class="fitem">
+            <label for="BrandName">名称：</label>
+            <input class="easyui-validatebox" name="BrandName" required="true" />
+        </div>
+        <div class="fitem">
+            <label for="Promoted">
+                推广：</label>
+            <input class="easyui-validatebox" name="Promoted" required="true" />
+        </div>
+        <div id="dlg-buttons">
+            <a href="javascript:void(0)" class="easyui-linkbutton" iconcls="icon-ok" onclick="save()">确定</a>
+            <a href="javascript:void(0)" class="easyui-linkbutton" iconcls="icon-cancel"
+                onclick="javascript:$('#dlg').dialog('close'); ">关闭</a>
+        </div>
+    </form>
+</div>

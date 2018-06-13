@@ -64,7 +64,6 @@ C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.DEF.IDAL\obj\Debug\Apps.DE
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.DEF.IDAL\obj\Debug\Apps.DEF.IDAL.dll
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.DEF.IDAL\obj\Debug\Apps.DEF.IDAL.pdb
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.DEF.IDAL\obj\Debug\Apps.DEF.IDAL.csproj.CopyComplete
-C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.DEF.IDAL\obj\Debug\Apps.DEF.IDAL.csprojResolveAssemblyReference.cache
 D:\项目\trunk\trunk\Apps.DEF.IDAL\bin\Debug\Apps.DEF.IDAL.dll.config
 D:\项目\trunk\trunk\Apps.DEF.IDAL\bin\Debug\Apps.DEF.IDAL.dll
 D:\项目\trunk\trunk\Apps.DEF.IDAL\bin\Debug\Apps.DEF.IDAL.pdb

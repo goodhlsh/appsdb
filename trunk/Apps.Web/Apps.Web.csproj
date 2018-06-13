@@ -976,6 +976,9 @@
     <Content Include="Views\SysWallet\Edit.cshtml" />
     <Content Include="Views\SysPurchaseHistory\index.cshtml" />
     <Content Include="Views\SysWallet\Details.cshtml" />
+    <Content Include="Views\SysJiaPu\ShowTree.cshtml" />
+    <Content Include="Views\SysHelper\UserLookUp_JP.cshtml" />
+    <Content Include="Views\SysHelper\UserLookUp2_JP.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Apps.BLL\Apps.BLL.csproj">

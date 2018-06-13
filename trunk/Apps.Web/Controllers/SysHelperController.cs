@@ -87,7 +87,19 @@ namespace Apps.Web.Controllers
             ViewBag.StructTree = commonHelper.GetStructTree(true);
             return View();
         }
+        public ActionResult UserLookUp_JP()
+        {
+            CommonHelper commonHelper = new CommonHelper();
+            ViewBag.StructTree = commonHelper.GetStructTree(true);
+            return View();
+        }
         public ActionResult UserLookUp2()
+        {
+            CommonHelper commonHelper = new CommonHelper();
+            ViewBag.StructTree = commonHelper.GetStructTree(true);
+            return View();
+        }
+        public ActionResult UserLookUp2_JP()
         {
             CommonHelper commonHelper = new CommonHelper();
             ViewBag.StructTree = commonHelper.GetStructTree(true);
@@ -98,10 +110,10 @@ namespace Apps.Web.Controllers
             if (string.IsNullOrWhiteSpace(depId))
                 return Json(0);
             var userList = sysUserBLL.GetUserByDepId(ref pager, depId, queryStr);
-
+            
             var jsonData = new
             {
-                total = pager.totalRows,
+                total = userList.Count(),// pager.totalRows,
                 rows = (
                     from r in userList
                     select new SysUserModel()

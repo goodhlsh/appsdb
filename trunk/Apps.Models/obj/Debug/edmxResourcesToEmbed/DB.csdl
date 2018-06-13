@@ -525,7 +525,7 @@
       <Parameter Name="fje" Mode="In" Type="Decimal" />
     </FunctionImport>
     <FunctionImport Name="P_Sys_GetUserWallet" ReturnType="Collection(DB.P_Sys_GetUserWallet_Result)" />
-    <FunctionImport Name="P_Sys_GetUserByDepId1" ReturnType="Collection(DB.P_Sys_GetUserByDepId1_Result)">
+    <FunctionImport Name="P_Sys_GetUserByDepId1">
       <Parameter Name="DepId" Mode="In" Type="String" />
     </FunctionImport>
     <EntitySet Name="Spl_Brand" EntityType="DB.Spl_Brand" />
@@ -2778,7 +2778,6 @@
     <Property Name="Id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
   </EntityType>
   <ComplexType Name="P_Sys_GetUserWallet_Result">
-    <Property Type="String" Name="id" Nullable="false" MaxLength="50" />
     <Property Type="String" Name="UserId" Nullable="false" MaxLength="50" />
     <Property Type="Decimal" Name="Balance" Nullable="true" Precision="19" />
     <Property Type="String" Name="Froms" Nullable="true" MaxLength="50" />
@@ -2788,70 +2787,7 @@
     <Property Type="DateTime" Name="UpdateTime" Nullable="true" Precision="23" />
     <Property Type="String" Name="UserName" Nullable="false" MaxLength="200" />
     <Property Type="String" Name="TrueName" Nullable="true" MaxLength="200" />
-  </ComplexType>
-  <ComplexType Name="P_Sys_GetUserByDepId1_Result">
-    <Property Type="String" Name="Id" Nullable="true" MaxLength="50" />
-    <Property Type="String" Name="UserName" Nullable="true" MaxLength="200" />
-    <Property Type="String" Name="Password" Nullable="true" MaxLength="200" />
-    <Property Type="String" Name="TrueName" Nullable="true" MaxLength="200" />
-    <Property Type="String" Name="Card" Nullable="true" MaxLength="50" />
-    <Property Type="String" Name="MobileNumber" Nullable="true" MaxLength="20" />
-    <Property Type="String" Name="HomePhone" Nullable="true" MaxLength="20" />
-    <Property Type="String" Name="PhoneNumber" Nullable="true" MaxLength="20" />
-    <Property Type="String" Name="QQ" Nullable="true" MaxLength="50" />
-    <Property Type="String" Name="WXID" Nullable="true" MaxLength="50" />
-    <Property Type="String" Name="Signature" Nullable="true" MaxLength="200" />
-    <Property Type="String" Name="QRCode" Nullable="true" MaxLength="100" />
-    <Property Type="String" Name="EmailAddress" Nullable="true" MaxLength="200" />
-    <Property Type="String" Name="OtherContact" Nullable="true" MaxLength="200" />
-    <Property Type="String" Name="Province" Nullable="true" MaxLength="200" />
-    <Property Type="String" Name="City" Nullable="true" MaxLength="200" />
-    <Property Type="String" Name="Village" Nullable="true" MaxLength="200" />
-    <Property Type="String" Name="Address" Nullable="true" MaxLength="200" />
-    <Property Type="Boolean" Name="State" Nullable="true" />
-    <Property Type="DateTime" Name="CreateTime" Nullable="true" Precision="23" />
-    <Property Type="String" Name="CreatePerson" Nullable="true" MaxLength="200" />
-    <Property Type="String" Name="Sex" Nullable="true" MaxLength="10" />
-    <Property Type="DateTime" Name="Birthday" Nullable="true" Precision="23" />
-    <Property Type="DateTime" Name="JoinDate" Nullable="true" Precision="23" />
-    <Property Type="String" Name="Marital" Nullable="true" MaxLength="10" />
-    <Property Type="String" Name="Political" Nullable="true" MaxLength="50" />
-    <Property Type="String" Name="Nationality" Nullable="true" MaxLength="20" />
-    <Property Type="String" Name="Native" Nullable="true" MaxLength="20" />
-    <Property Type="String" Name="School" Nullable="true" MaxLength="50" />
-    <Property Type="String" Name="Professional" Nullable="true" MaxLength="100" />
-    <Property Type="String" Name="Degree" Nullable="true" MaxLength="20" />
-    <Property Type="String" Name="DepId" Nullable="true" MaxLength="50" />
-    <Property Type="String" Name="PosId" Nullable="true" MaxLength="50" />
-    <Property Type="String" Name="Expertise" Nullable="true" MaxLength="3000" />
-    <Property Type="Boolean" Name="JobState" Nullable="true" />
-    <Property Type="String" Name="Photo" Nullable="true" MaxLength="200" />
-    <Property Type="String" Name="IdentityCardFile" Nullable="true" MaxLength="200" />
-    <Property Type="String" Name="IdentityCardBackFile" Nullable="true" MaxLength="200" />
-    <Property Type="String" Name="Attach" Nullable="true" MaxLength="200" />
-    <Property Type="String" Name="Lead" Nullable="true" MaxLength="4000" />
-    <Property Type="String" Name="LeadName" Nullable="true" MaxLength="4000" />
-    <Property Type="Boolean" Name="IsSelLead" Nullable="true" />
-    <Property Type="Boolean" Name="IsReportCalendar" Nullable="true" />
-    <Property Type="Boolean" Name="IsSecretary" Nullable="true" />
-    <Property Type="Boolean" Name="IsAuth" Nullable="true" />
-    <Property Type="String" Name="AuditStatus" Nullable="true" MaxLength="50" />
-    <Property Type="String" Name="Note" Nullable="true" MaxLength="Max" />
-    <Property Type="String" Name="SortCode" Nullable="true" MaxLength="50" />
-    <Property Type="String" Name="RecommendID" Nullable="true" MaxLength="50" />
-    <Property Type="String" Name="Recommendor" Nullable="true" MaxLength="50" />
-    <Property Type="DateTime" Name="RecommendTime" Nullable="true" />
-    <Property Type="String" Name="EditorID" Nullable="true" MaxLength="50" />
-    <Property Type="DateTime" Name="UpdateTime" Nullable="true" />
-    <Property Type="Boolean" Name="IsDeleted" Nullable="true" />
-    <Property Type="String" Name="Questions" Nullable="true" MaxLength="100" />
-    <Property Type="String" Name="Answer" Nullable="true" MaxLength="100" />
-    <Property Type="String" Name="LastLoginIP" Nullable="true" MaxLength="50" />
-    <Property Type="DateTime" Name="LastLoginTime" Nullable="true" />
-    <Property Type="String" Name="CurrentLoginIP" Nullable="true" MaxLength="50" />
-    <Property Type="DateTime" Name="CurrentLoginTime" Nullable="true" />
-    <Property Type="DateTime" Name="LastPasswdTime" Nullable="true" />
-    <Property Type="Int32" Name="flag" Nullable="false" />
+    <Property Type="String" Name="Id" Nullable="false" />
   </ComplexType>
   <EntityType Name="Spl_Brand">
     <Key>

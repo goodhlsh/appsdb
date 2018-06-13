@@ -17,8 +17,6 @@ using System;
 public partial class P_Sys_GetUserWallet_Result
 {
 
-    public string Id { get; set; }
-
     public string UserId { get; set; }
 
     public Nullable<decimal> Balance { get; set; }
@@ -36,6 +34,8 @@ public partial class P_Sys_GetUserWallet_Result
     public string UserName { get; set; }
 
     public string TrueName { get; set; }
+
+    public string Id { get; set; }
 
 }
 

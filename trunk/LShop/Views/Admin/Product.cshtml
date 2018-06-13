@@ -1,0 +1,237 @@
+﻿@{
+    ViewBag.Title = "商品管理";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<script type="text/javascript" src="~/Scripts/jquery.easyui.min.js"></script>
+<script type="text/javascript">
+    var url;
+    function add() {
+        $('#dlg').dialog('open').dialog('setTitle', '新建');
+        $('#fm').form('clear');
+        url = 'AddProduct';
+    }
+
+    function edit() {
+        var row = $('#dg').datagrid('getSelected');
+        if (row) {
+            $('#dlg').dialog('open').dialog('setTitle', '编辑');
+            $('#fm').form('load', row);
+            url = 'UpdateProduct';
+        } else {
+            $.messager.alert("提示", "请先选择记录.");
+        }
+    }
+
+    function uploaddlg() {
+        var row = $('#dg').datagrid('getSelected');
+        if (row) {
+            $('#uploadimgdlg').dialog('open').dialog('setTitle', '上传图片');
+            $('#uploadimgfm').form('load', row);
+        } else {
+            $.messager.alert("提示", "请先选择记录.");
+        }
+    }
+
+    function upload() {
+        $('#uploadimgfm').form('submit', {
+            url: 'UploadProductImg',
+            onSubmit: function () {
+                return $(this).form('validate');
+            },
+            success: function (result) {
+                if (result == "OK") {
+                    $('#uploadimgdlg').dialog('close');
+                    $("#dg").datagrid("reload");
+                }
+                else {
+                    $.messager.alert("提示", result);
+                }
+            }
+        });
+    }
+
+    function GetImgs() {
+        var row = $('#dg').datagrid('getSelected');
+        if (row) {
+            var id = row.Id;
+            window.location.href = 'GetImgs?pid=' + id;
+        } else {
+            $.messager.alert("提示", "请先选择记录.");
+        }
+    }
+
+    function save() {
+        $('#fm').form('submit', {
+            url: url,
+            onSubmit: function () {
+                return $(this).form('validate');
+            },
+            success: function (result) {
+                if (result == "OK") {
+                    $('#dlg').dialog('close');
+                    $("#dg").datagrid("reload");
+                }
+                else {
+                    $.messager.alert("提示", result);
+                }
+            }
+        });
+    }
+
+    function destroy() {
+        var row = $('#dg').datagrid('getSelected');
+        if (row) {
+            var id = row.Id;
+            $.messager.confirm('提示', '确认删除该信息吗？', function (r) {
+                if (r) {
+                    $.post('DeleteProduct', { id: id }, function (result) {
+                        if (result == "OK") {
+                            $('#dg').datagrid('reload');    // reload the user data
+                        } else {
+                            $.messager.show({               // show error message
+                                title: '提示',
+                                msg: result
+                            });
+                        }
+                    });
+                }
+            });
+        } else {
+            $.messager.alert("提示", "请先选择记录.");
+        }
+    }
+
+    var cardview = $.extend({}, $.fn.datagrid.defaults.view, {
+        renderRow: function (target, fields, frozen, rowIndex, rowData) {
+            var cc = [];
+            cc.push('<td colspan=' + fields.length + ' style="padding:10px 5px;border:0;">');
+            if (!frozen) {
+                cc.push('<img src="GetProductImg/' + rowData.Id + '" style="width:150px;float:left">');
+                cc.push('<div style="float:left;margin-left:20px;">');
+                for (var i = 0; i < fields.length; i++) {
+                    var copts = $(target).datagrid('getColumnOption', fields[i]);
+                    cc.push('<p><span class="c-label">' + copts.title + ':</span> ' + rowData[fields[i]] + '</p>');
+                }
+                cc.push('</div>');
+            }
+            cc.push('</td>');
+            return cc.join('');
+        }
+    });
+
+    $(function () {
+        $('#dg').datagrid({
+            view: cardview
+        });
+    });
+
+</script>
+
+<style type="text/css">
+    .c-label
+    {
+        display: inline-block;
+        width: 100px;
+        font-weight: bold;
+    }
+</style>
+
+<div id="jnContext">
+    <table id="dg" title="商品管理" class="easyui-datagrid"
+        url="GetProductList" toolbar="#toolbar" pagination="true"
+        rownumbers="true" fitcolumns="true" singleselect="true">
+        <thead>
+            <tr>
+                <th field="ProName">商品名称</th>
+                <th field="TypeName">商品类型</th>
+                <th field="BrandName">品牌</th>
+                <th field="Price">价格</th>
+                <th field="Promotion">促销</th>
+            </tr>
+        </thead>
+    </table>
+    <div id="toolbar">
+        <a href="javascript:void(0)" class="easyui-linkbutton"
+            iconcls="icon-add" plain="true" onclick="add()">新建</a>
+        <a href="javascript:void(0)" class="easyui-linkbutton"
+            iconcls="icon-edit" plain="true" onclick="edit()">编辑</a>
+        <a href="javascript:void(0)" class="easyui-linkbutton"
+            iconcls="icon-edit" plain="true" onclick="uploaddlg()">上传图片</a>
+        <a href="javascript:void(0)" class="easyui-linkbutton"
+            iconcls="icon-edit" plain="true" onclick="GetImgs()">查看图片</a>
+        <a href="javascript:void(0)" class="easyui-linkbutton"
+            iconcls="icon-remove" plain="true" onclick="destroy()">删除</a>
+    </div>
+</div>
+<div id="dlg" class="easyui-dialog" style="width: 620px; height: 590px; padding: 10px 20px"
+    closed="true" resizable="true" modal="true" buttons="#dlg-buttons" align="center">
+    <div class="ftitle">商品信息</div>
+    <form id="fm" method="post" novalidate="novalidate">
+        <input class="easyui-validatebox" name="Id" style="display: none;" />
+        <div class="fitem">
+            <label for="ProName">商品名称：</label>
+            <input class="easyui-validatebox" name="ProName" required="true" style="width: 400px;" />
+        </div>
+        <div class="fitem">
+            <label for="TypeID">商品类型：</label>
+            <input class="easyui-combobox" name="TypeID" style="width: 400px;"
+                data-options="
+                        valueField:'TypeId',
+                        textField:'TypeName',
+                        groupField:'SupName',
+                        url:'GetTypeComboboxList',
+                        required:'true'" />
+        </div>
+        <div class="fitem">
+            <label for="BrandID">品牌：</label>
+            <input class="easyui-combobox" name="BrandID" style="width: 400px;"
+                data-options="
+                        valueField:'BrandId',
+                        textField:'BrandName',
+                        url:'GetBrandComboboxList',
+                        required:'true'" />
+        </div>
+        <div class="fitem">
+            <label for="Price">价格：</label>
+            <input class="easyui-numberbox" name="Price" required="true" style="width: 400px;" />
+        </div>
+        <div class="fitem">
+            <label for="Promotion">促销：</label>
+            <input class="easyui-numberbox" name="Promotion" required="true" style="width: 400px;" />
+        </div>
+        <div class="fitem">
+            <label for="Description">描述信息：</label>
+            <textarea style="height: 100px; width: 400px" name="Description"></textarea>
+        </div>
+        <div class="fitem">
+            <label for="Attribute">属性信息：</label>
+            <textarea style="height: 100px; width: 400px" name="Attribute"></textarea>
+        </div>
+        <div class="fitem">
+            <label for="Overview">产品介绍：</label>
+            <textarea style="height: 100px; width: 400px" name="Overview"></textarea>
+        </div>
+        <div id="dlg-buttons">
+            <a href="javascript:void(0)" class="easyui-linkbutton" iconcls="icon-ok" onclick="save()">确定</a>
+            <a href="javascript:void(0)" class="easyui-linkbutton" iconcls="icon-cancel"
+                onclick="javascript:$('#dlg').dialog('close'); ">关闭</a>
+        </div>
+    </form>
+</div>
+<div id="uploadimgdlg" class="easyui-dialog" style="width: 400px; height: 300px; padding: 10px 20px"
+    closed="true" resizable="true" modal="true" buttons="#uploadimgdlg-buttons" align="center">
+    <div class="ftitle">上传图片</div>
+    <form id="uploadimgfm" method="post" novalidate="novalidate" enctype="multipart/form-data">
+        <input class="easyui-validatebox" name="Id" style="display: none;" />
+        <div class="fitem">
+            <label for="img">商品名称：</label>
+            <input id="img" name="img" required="true" type="file" />
+        </div>
+        <div id="uploadimgdlg-buttons">
+            <a href="javascript:void(0)" class="easyui-linkbutton" iconcls="icon-ok" onclick="upload()">确定</a>
+            <a href="javascript:void(0)" class="easyui-linkbutton" iconcls="icon-cancel"
+                onclick="javascript:$('#uploadimgdlg').dialog('close'); ">关闭</a>
+        </div>
+    </form>
+</div>
+

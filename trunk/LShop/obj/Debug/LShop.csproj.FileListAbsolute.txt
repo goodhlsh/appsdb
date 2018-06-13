@@ -125,7 +125,6 @@ C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\LShop\bin\Apps.DAL.dll.config
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\LShop\bin\Apps.Locale.pdb
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\LShop\bin\EntityFramework.xml
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\LShop\bin\System.Web.Http.WebHost.xml
-C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\LShop\bin\System.Web.Http.xml
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\LShop\bin\Apps.MIS.IBLL.pdb
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\LShop\bin\Apps.MIS.BLL.pdb
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\LShop\bin\Apps.MIS.BLL.dll.config
@@ -167,7 +166,6 @@ C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\LShop\bin\zh-Hans\System.Web.We
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\LShop\bin\zh-Hans\System.Web.WebPages.Razor.resources.dll
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\LShop\bin\en-US\Apps.Locale.resources.dll
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\LShop\bin\zh-Hans\System.Web.Http.WebHost.resources.dll
-C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\LShop\bin\zh-Hans\System.Web.Http.resources.dll
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\LShop\bin\zh-Hans\System.Net.Http.Formatting.resources.dll
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\LShop\obj\Debug\LShop.csproj.CopyComplete
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\LShop\obj\Debug\LShop.dll
@@ -350,3 +348,5 @@ D:\项目\trunk\trunk\LShop\obj\Debug\LShop.csproj.CoreCompileInputs.cache
 D:\项目\trunk\trunk\LShop\obj\Debug\LShop.csproj.CopyComplete
 D:\项目\trunk\trunk\LShop\obj\Debug\LShop.dll
 D:\项目\trunk\trunk\LShop\obj\Debug\LShop.pdb
+C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\LShop\bin\System.Web.Http.xml
+C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\LShop\bin\zh-Hans\System.Web.Http.resources.dll

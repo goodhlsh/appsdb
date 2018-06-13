@@ -97,3 +97,4 @@ D:\项目\trunk\trunk\Apps.Flow.IDAL\obj\Debug\Apps.Flow.IDAL.csproj.CoreCompile
 D:\项目\trunk\trunk\Apps.Flow.IDAL\obj\Debug\Apps.Flow.IDAL.csproj.CopyComplete
 D:\项目\trunk\trunk\Apps.Flow.IDAL\obj\Debug\Apps.Flow.IDAL.dll
 D:\项目\trunk\trunk\Apps.Flow.IDAL\obj\Debug\Apps.Flow.IDAL.pdb
+C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Flow.IDAL\obj\Debug\Apps.Flow.IDAL.csprojResolveAssemblyReference.cache

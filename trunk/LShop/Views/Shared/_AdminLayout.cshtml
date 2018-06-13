@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <title>@ViewBag.Title - 我的 ASP.NET MVC 应用程序</title>
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width" />
+    @Styles.Render("~/Content/AdminCss")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+</head>
+<body>
+    <header>
+        <div class="contWidth">
+            <a class="logo" href="~/Home/Index">
+                <img src="@Url.Content("~/Content/images/logo.gif")" alt="JaneShop" /></a>
+            <div id="nav" class="mainNav">
+                <ul class="nav">
+                    <li>@Html.ActionLink("品牌管理", "Brand", "Admin")</li>
+                    <li>@Html.ActionLink("商品管理", "Product", "Admin")</li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <div id="content">
+        <div class="janeshop">
+            <div id="jnAdminNav">
+                <h2 title="基础信息">基础信息</h2>
+                <div class="jnAdminNav">
+                    @Html.ActionLink("品牌管理", "Brand", "Admin")
+                    <br class="clear" />
+                    @Html.ActionLink("商品大类", "ProductTypeF", "Admin")
+                    <br class="clear" />
+                    @Html.ActionLink("商品小类", "ProductTypeS", "Admin")
+                    <br class="clear" />
+                    @Html.ActionLink("商品管理", "Product", "Admin")
+                    <br class="clear" />
+                </div>
+                <h2 title="商品信息">商品信息</h2>
+                <div class="jnAdminNav">
+                    @Html.ActionLink("商品管理", "Product", "Admin")
+                    <br class="clear" />
+                </div>
+            </div>
+            <section>
+                @RenderBody()
+            </section>
+        </div>
+    </div>
+
+    <footer>
+        Copyright &copy; 2009 - 2012 JaneShop Inc.
+    </footer>
+</body>
+</html>

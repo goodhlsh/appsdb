@@ -1497,7 +1497,6 @@
     <FunctionImportMapping FunctionImportName="P_Sys_GetUserWallet" FunctionName="DB.Store.P_Sys_GetUserWallet">
       <ResultMapping>
         <ComplexTypeMapping TypeName="DB.P_Sys_GetUserWallet_Result">
-          <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="UserId" ColumnName="UserId" />
           <ScalarProperty Name="Balance" ColumnName="Balance" />
           <ScalarProperty Name="Froms" ColumnName="Froms" />
@@ -1510,74 +1509,7 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="P_Sys_GetUserByDepId1" FunctionName="DB.Store.P_Sys_GetUserByDepId">
-      <ResultMapping>
-        <ComplexTypeMapping TypeName="DB.P_Sys_GetUserByDepId1_Result">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="UserName" ColumnName="UserName" />
-          <ScalarProperty Name="Password" ColumnName="Password" />
-          <ScalarProperty Name="TrueName" ColumnName="TrueName" />
-          <ScalarProperty Name="Card" ColumnName="Card" />
-          <ScalarProperty Name="MobileNumber" ColumnName="MobileNumber" />
-          <ScalarProperty Name="HomePhone" ColumnName="HomePhone" />
-          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
-          <ScalarProperty Name="QQ" ColumnName="QQ" />
-          <ScalarProperty Name="WXID" ColumnName="WXID" />
-          <ScalarProperty Name="Signature" ColumnName="Signature" />
-          <ScalarProperty Name="QRCode" ColumnName="QRCode" />
-          <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
-          <ScalarProperty Name="OtherContact" ColumnName="OtherContact" />
-          <ScalarProperty Name="Province" ColumnName="Province" />
-          <ScalarProperty Name="City" ColumnName="City" />
-          <ScalarProperty Name="Village" ColumnName="Village" />
-          <ScalarProperty Name="Address" ColumnName="Address" />
-          <ScalarProperty Name="State" ColumnName="State" />
-          <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
-          <ScalarProperty Name="CreatePerson" ColumnName="CreatePerson" />
-          <ScalarProperty Name="Sex" ColumnName="Sex" />
-          <ScalarProperty Name="Birthday" ColumnName="Birthday" />
-          <ScalarProperty Name="JoinDate" ColumnName="JoinDate" />
-          <ScalarProperty Name="Marital" ColumnName="Marital" />
-          <ScalarProperty Name="Political" ColumnName="Political" />
-          <ScalarProperty Name="Nationality" ColumnName="Nationality" />
-          <ScalarProperty Name="Native" ColumnName="Native" />
-          <ScalarProperty Name="School" ColumnName="School" />
-          <ScalarProperty Name="Professional" ColumnName="Professional" />
-          <ScalarProperty Name="Degree" ColumnName="Degree" />
-          <ScalarProperty Name="DepId" ColumnName="DepId" />
-          <ScalarProperty Name="PosId" ColumnName="PosId" />
-          <ScalarProperty Name="Expertise" ColumnName="Expertise" />
-          <ScalarProperty Name="JobState" ColumnName="JobState" />
-          <ScalarProperty Name="Photo" ColumnName="Photo" />
-          <ScalarProperty Name="IdentityCardFile" ColumnName="IdentityCardFile" />
-          <ScalarProperty Name="IdentityCardBackFile" ColumnName="IdentityCardBackFile" />
-          <ScalarProperty Name="Attach" ColumnName="Attach" />
-          <ScalarProperty Name="Lead" ColumnName="Lead" />
-          <ScalarProperty Name="LeadName" ColumnName="LeadName" />
-          <ScalarProperty Name="IsSelLead" ColumnName="IsSelLead" />
-          <ScalarProperty Name="IsReportCalendar" ColumnName="IsReportCalendar" />
-          <ScalarProperty Name="IsSecretary" ColumnName="IsSecretary" />
-          <ScalarProperty Name="IsAuth" ColumnName="IsAuth" />
-          <ScalarProperty Name="AuditStatus" ColumnName="AuditStatus" />
-          <ScalarProperty Name="Note" ColumnName="Note" />
-          <ScalarProperty Name="SortCode" ColumnName="SortCode" />
-          <ScalarProperty Name="RecommendID" ColumnName="RecommendID" />
-          <ScalarProperty Name="Recommendor" ColumnName="Recommendor" />
-          <ScalarProperty Name="RecommendTime" ColumnName="RecommendTime" />
-          <ScalarProperty Name="EditorID" ColumnName="EditorID" />
-          <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
-          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
-          <ScalarProperty Name="Questions" ColumnName="Questions" />
-          <ScalarProperty Name="Answer" ColumnName="Answer" />
-          <ScalarProperty Name="LastLoginIP" ColumnName="LastLoginIP" />
-          <ScalarProperty Name="LastLoginTime" ColumnName="LastLoginTime" />
-          <ScalarProperty Name="CurrentLoginIP" ColumnName="CurrentLoginIP" />
-          <ScalarProperty Name="CurrentLoginTime" ColumnName="CurrentLoginTime" />
-          <ScalarProperty Name="LastPasswdTime" ColumnName="LastPasswdTime" />
-          <ScalarProperty Name="flag" ColumnName="flag" />
-        </ComplexTypeMapping>
-      </ResultMapping>
-    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="P_Sys_GetUserByDepId1" FunctionName="DB.Store.P_Sys_GetUserByDepId" />
     <FunctionImportMapping FunctionImportName="P_Sys_GetUserByDepId" FunctionName="DB.Store.P_Sys_GetUserByDepId">
       <ResultMapping>
         <ComplexTypeMapping TypeName="DB.P_Sys_GetUserByDepId_Result">
