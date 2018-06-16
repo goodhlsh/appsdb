@@ -16,6 +16,8 @@ namespace Apps.Models.Sys
 	public class Virtual_SysJiaPuModel
 	{
 		
+	public virtual string Id { get; set; }
+		
 	public virtual string UserId { get; set; }
 		
 	public virtual string ParentId { get; set; }
@@ -30,7 +32,7 @@ namespace Apps.Models.Sys
 		
 	public virtual Nullable<decimal> FirstJinE { get; set; }
 		
-	public virtual int LevelId { get; set; }
+	public virtual string LevelId { get; set; }
 		
 	public virtual string ZMP15 { get; set; }
 		
@@ -63,8 +65,6 @@ namespace Apps.Models.Sys
 	public virtual string TopId { get; set; }
 		
 	public virtual string TId { get; set; }
-		
-	public virtual string Id { get; set; }
 		
 }
 

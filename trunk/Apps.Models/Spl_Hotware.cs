@@ -18,13 +18,13 @@ using System;
 public partial class Spl_Hotware
 {
 
+    public string Id { get; set; }
+
     public string WareId { get; set; }
 
     public Nullable<int> Amount { get; set; }
 
     public Nullable<decimal> SumJinE { get; set; }
-
-    public string Id { get; set; }
 
 
 

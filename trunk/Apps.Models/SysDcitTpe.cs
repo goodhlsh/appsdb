@@ -26,6 +26,8 @@ public partial class SysDcitTpe
     }
 
 
+    public string Id { get; set; }
+
     public string Name { get; set; }
 
     public string Remarek { get; set; }
@@ -41,8 +43,6 @@ public partial class SysDcitTpe
     public Nullable<System.DateTime> EditTime { get; set; }
 
     public string Pid { get; set; }
-
-    public string Id { get; set; }
 
 
 

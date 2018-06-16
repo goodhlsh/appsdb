@@ -16,6 +16,8 @@ namespace Apps.Models.Sys
 	public class Virtual_SysJiaPuBeforeModel
 	{
 		
+	public virtual string Id { get; set; }
+		
 	public virtual string uid { get; set; }
 		
 	public virtual string tid { get; set; }
@@ -25,8 +27,6 @@ namespace Apps.Models.Sys
 	public virtual Nullable<bool> isdone { get; set; }
 		
 	public virtual Nullable<System.DateTime> createTime { get; set; }
-		
-	public virtual string Id { get; set; }
 		
 }
 

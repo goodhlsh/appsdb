@@ -18,6 +18,8 @@ using System;
 public partial class SysErCi
 {
 
+    public string Id { get; set; }
+
     public string UserId { get; set; }
 
     public string OrderId { get; set; }
@@ -27,8 +29,6 @@ public partial class SysErCi
     public Nullable<System.DateTime> CreateTime { get; set; }
 
     public string Note { get; set; }
-
-    public string Id { get; set; }
 
 
 

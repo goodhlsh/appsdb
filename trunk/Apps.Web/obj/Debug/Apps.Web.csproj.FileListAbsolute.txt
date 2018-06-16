@@ -221,8 +221,6 @@ C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Web\bin\Newtonsoft.Json.dl
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Web\bin\Owin.dll
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Web\bin\Quartz.dll
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Web\bin\Remotion.Data.Linq.dll
-C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Web\bin\Remotion.dll
-C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Web\bin\Remotion.Interfaces.dll
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Web\bin\Senparc.Weixin.dll
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Web\bin\Senparc.Weixin.MP.dll
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Web\bin\Senparc.Weixin.MP.MvcExtension.dll

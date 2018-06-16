@@ -16,6 +16,8 @@ namespace Apps.Models.Sys
 	public class Virtual_SysMessageModel
 	{
 		
+	public virtual string Id { get; set; }
+		
 	public virtual string Title { get; set; }
 		
 	public virtual string Cont { get; set; }
@@ -29,8 +31,6 @@ namespace Apps.Models.Sys
 	public virtual Nullable<System.DateTime> CreateTime { get; set; }
 		
 	public virtual Nullable<System.DateTime> UpdateTime { get; set; }
-		
-	public virtual string Id { get; set; }
 		
 }
 

@@ -16,6 +16,8 @@ namespace Apps.Models.Spl
 	public class Virtual_Spl_WareModel
 	{
 		
+	public virtual string Id { get; set; }
+		
 	public virtual string Name { get; set; }
 		
 	public virtual string ProductCategoryId { get; set; }
@@ -49,8 +51,6 @@ namespace Apps.Models.Spl
 	public virtual string BrandId { get; set; }
 		
 	public virtual Nullable<decimal> PromotionPrice { get; set; }
-		
-	public virtual string Id { get; set; }
 		
 }
 

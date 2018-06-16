@@ -36,7 +36,10 @@ namespace Apps.BLL
             {
                 queryData = m_Rep.GetList(
 				
-				a=>a.UserId.Contains(queryStr)
+				a=>a.Id.Contains(queryStr)
+				
+
+				|| a.UserId.Contains(queryStr)
 				
 
 				|| a.Name.Contains(queryStr)
@@ -69,9 +72,6 @@ namespace Apps.BLL
 				
 				
 
-				|| a.Id.Contains(queryStr)
-				
-
 				);
             }
             else
@@ -89,6 +89,8 @@ namespace Apps.BLL
             List<SysAddressModel> modelList = (from r in queryData
                                               select new SysAddressModel
                                               {
+
+													Id = r.Id,
 
 													UserId = r.UserId,
 
@@ -111,8 +113,6 @@ namespace Apps.BLL
 													CreateTime = r.CreateTime,
 
 													UpdateTime = r.UpdateTime,
-
-													Id = r.Id,
           
                                               }).ToList();
 
@@ -123,7 +123,7 @@ namespace Apps.BLL
         {
             try
             {
-                SysAddress entity = m_Rep.GetById(model.UserId);
+                SysAddress entity = m_Rep.GetById(model.Id);
                 if (entity != null)
                 {
                     errors.Add(Resource.PrimaryRepeat);
@@ -131,6 +131,8 @@ namespace Apps.BLL
                 }
                 entity = new SysAddress();
                
+				entity.Id = model.Id;
+
 				entity.UserId = model.UserId;
 
 				entity.Name = model.Name;
@@ -152,8 +154,6 @@ namespace Apps.BLL
 				entity.CreateTime = model.CreateTime;
 
 				entity.UpdateTime = model.UpdateTime;
-
-				entity.Id = model.Id;
   
 
                 if (m_Rep.Create(entity))
@@ -234,13 +234,15 @@ namespace Apps.BLL
         {
             try
             {
-                SysAddress entity = m_Rep.GetById(model.UserId);
+                SysAddress entity = m_Rep.GetById(model.Id);
                 if (entity == null)
                 {
                     errors.Add(Resource.Disable);
                     return false;
                 }
                               
+				entity.Id = model.Id;
+
 				entity.UserId = model.UserId;
 
 				entity.Name = model.Name;
@@ -262,8 +264,6 @@ namespace Apps.BLL
 				entity.CreateTime = model.CreateTime;
 
 				entity.UpdateTime = model.UpdateTime;
-
-				entity.Id = model.Id;
  
 
 
@@ -295,6 +295,8 @@ namespace Apps.BLL
                 SysAddress entity = m_Rep.GetById(id);
                 SysAddressModel model = new SysAddressModel();
                               
+				model.Id = entity.Id;
+
 				model.UserId = entity.UserId;
 
 				model.Name = entity.Name;
@@ -316,8 +318,6 @@ namespace Apps.BLL
 				model.CreateTime = entity.CreateTime;
 
 				model.UpdateTime = entity.UpdateTime;
-
-				model.Id = entity.Id;
  
                 return model;
             }

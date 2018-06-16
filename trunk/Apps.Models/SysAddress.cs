@@ -18,6 +18,8 @@ using System;
 public partial class SysAddress
 {
 
+    public string Id { get; set; }
+
     public string UserId { get; set; }
 
     public string Name { get; set; }
@@ -39,8 +41,6 @@ public partial class SysAddress
     public Nullable<System.DateTime> CreateTime { get; set; }
 
     public Nullable<System.DateTime> UpdateTime { get; set; }
-
-    public string Id { get; set; }
 
 
 

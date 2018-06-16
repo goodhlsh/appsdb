@@ -18,6 +18,8 @@ using System;
 public partial class Spl_WareInfo
 {
 
+    public string Id { get; set; }
+
     public string Picture0 { get; set; }
 
     public string Picture1 { get; set; }
@@ -43,8 +45,6 @@ public partial class Spl_WareInfo
     public string Editor { get; set; }
 
     public string WareId { get; set; }
-
-    public string Id { get; set; }
 
 
 

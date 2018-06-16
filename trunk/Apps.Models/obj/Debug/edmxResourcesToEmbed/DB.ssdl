@@ -708,7 +708,7 @@
     <Property Name="ShuZi" Type="varchar" MaxLength="150" />
     <Property Name="ErZiShu" Type="int" />
     <Property Name="FirstJinE" Type="money" />
-    <Property Name="LevelId" Type="int" Nullable="false" />
+    <Property Name="LevelId" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="ZMP15" Type="varchar" MaxLength="50" />
     <Property Name="ZMPA2" Type="varchar" MaxLength="150" />
     <Property Name="ZMPB2" Type="varchar" MaxLength="10" />
@@ -739,7 +739,7 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Id" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="Name" Type="varchar" MaxLength="20" />
     <Property Name="Code" Type="varchar" MaxLength="20" />
     <Property Name="FirstDiscout" Type="real" />
@@ -1019,6 +1019,7 @@
     <Property Name="Note" Type="text" />
     <Property Name="CreateTime" Type="datetime" />
     <Property Name="UpdateTime" Type="datetime" />
+    <Property Name="ShunXu" Type="bigint" Nullable="false" />
   </EntityType>
   <EntityType Name="WC_Group">
     <Key>
@@ -1544,18 +1545,6 @@
       </Principal>
       <Dependent Role="Spl_ProductCategoryS">
         <PropertyRef Name="SupID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Spl_Ware_Spl_Brand">
-    <End Role="Spl_Brand" Type="Self.Spl_Brand" Multiplicity="1" />
-    <End Role="Spl_Ware" Type="Self.Spl_Ware" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Spl_Brand">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Spl_Ware">
-        <PropertyRef Name="BrandId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -2363,10 +2352,6 @@
     <AssociationSet Name="FK_Spl_ProductCategoryS_Spl_ProductCategory" Association="Self.FK_Spl_ProductCategoryS_Spl_ProductCategory">
       <End Role="Spl_ProductCategory" EntitySet="Spl_ProductCategory" />
       <End Role="Spl_ProductCategoryS" EntitySet="Spl_ProductCategoryS" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Spl_Ware_Spl_Brand" Association="Self.FK_Spl_Ware_Spl_Brand">
-      <End Role="Spl_Brand" EntitySet="Spl_Brand" />
-      <End Role="Spl_Ware" EntitySet="Spl_Ware" />
     </AssociationSet>
     <AssociationSet Name="FK_Spl_Ware_Spl_ProductCategoryS" Association="Self.FK_Spl_Ware_Spl_ProductCategoryS">
       <End Role="Spl_ProductCategoryS" EntitySet="Spl_ProductCategoryS" />

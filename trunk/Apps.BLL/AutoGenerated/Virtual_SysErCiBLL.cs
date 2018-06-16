@@ -36,7 +36,10 @@ namespace Apps.BLL
             {
                 queryData = m_Rep.GetList(
 				
-				a=>a.UserId.Contains(queryStr)
+				a=>a.Id.Contains(queryStr)
+				
+
+				|| a.UserId.Contains(queryStr)
 				
 
 				|| a.OrderId.Contains(queryStr)
@@ -49,9 +52,6 @@ namespace Apps.BLL
 				
 
 				|| a.Note.Contains(queryStr)
-				
-
-				|| a.Id.Contains(queryStr)
 				
 
 				);
@@ -72,6 +72,8 @@ namespace Apps.BLL
                                               select new SysErCiModel
                                               {
 
+													Id = r.Id,
+
 													UserId = r.UserId,
 
 													OrderId = r.OrderId,
@@ -81,8 +83,6 @@ namespace Apps.BLL
 													CreateTime = r.CreateTime,
 
 													Note = r.Note,
-
-													Id = r.Id,
           
                                               }).ToList();
 
@@ -93,7 +93,7 @@ namespace Apps.BLL
         {
             try
             {
-                SysErCi entity = m_Rep.GetById(model.UserId);
+                SysErCi entity = m_Rep.GetById(model.Id);
                 if (entity != null)
                 {
                     errors.Add(Resource.PrimaryRepeat);
@@ -101,6 +101,8 @@ namespace Apps.BLL
                 }
                 entity = new SysErCi();
                
+				entity.Id = model.Id;
+
 				entity.UserId = model.UserId;
 
 				entity.OrderId = model.OrderId;
@@ -110,8 +112,6 @@ namespace Apps.BLL
 				entity.CreateTime = model.CreateTime;
 
 				entity.Note = model.Note;
-
-				entity.Id = model.Id;
   
 
                 if (m_Rep.Create(entity))
@@ -192,13 +192,15 @@ namespace Apps.BLL
         {
             try
             {
-                SysErCi entity = m_Rep.GetById(model.UserId);
+                SysErCi entity = m_Rep.GetById(model.Id);
                 if (entity == null)
                 {
                     errors.Add(Resource.Disable);
                     return false;
                 }
                               
+				entity.Id = model.Id;
+
 				entity.UserId = model.UserId;
 
 				entity.OrderId = model.OrderId;
@@ -208,8 +210,6 @@ namespace Apps.BLL
 				entity.CreateTime = model.CreateTime;
 
 				entity.Note = model.Note;
-
-				entity.Id = model.Id;
  
 
 
@@ -241,6 +241,8 @@ namespace Apps.BLL
                 SysErCi entity = m_Rep.GetById(id);
                 SysErCiModel model = new SysErCiModel();
                               
+				model.Id = entity.Id;
+
 				model.UserId = entity.UserId;
 
 				model.OrderId = entity.OrderId;
@@ -250,8 +252,6 @@ namespace Apps.BLL
 				model.CreateTime = entity.CreateTime;
 
 				model.Note = entity.Note;
-
-				model.Id = entity.Id;
  
                 return model;
             }

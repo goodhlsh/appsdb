@@ -36,7 +36,10 @@ namespace Apps.BLL
             {
                 queryData = m_Rep.GetList(
 				
-				a=>a.UserId.Contains(queryStr)
+				a=>a.Id.Contains(queryStr)
+				
+
+				|| a.UserId.Contains(queryStr)
 				
 
 				|| a.ParentId.Contains(queryStr)
@@ -57,7 +60,7 @@ namespace Apps.BLL
 				
 				
 
-				
+				|| a.LevelId.Contains(queryStr)
 				
 
 				|| a.ZMP15.Contains(queryStr)
@@ -108,9 +111,6 @@ namespace Apps.BLL
 				|| a.TId.Contains(queryStr)
 				
 
-				|| a.Id.Contains(queryStr)
-				
-
 				);
             }
             else
@@ -128,6 +128,8 @@ namespace Apps.BLL
             List<SysJiaPuModel> modelList = (from r in queryData
                                               select new SysJiaPuModel
                                               {
+
+													Id = r.Id,
 
 													UserId = r.UserId,
 
@@ -176,8 +178,6 @@ namespace Apps.BLL
 													TopId = r.TopId,
 
 													TId = r.TId,
-
-													Id = r.Id,
           
                                               }).ToList();
 
@@ -188,7 +188,7 @@ namespace Apps.BLL
         {
             try
             {
-                SysJiaPu entity = m_Rep.GetById(model.UserId);
+                SysJiaPu entity = m_Rep.GetById(model.Id);
                 if (entity != null)
                 {
                     errors.Add(Resource.PrimaryRepeat);
@@ -196,6 +196,8 @@ namespace Apps.BLL
                 }
                 entity = new SysJiaPu();
                
+				entity.Id = model.Id;
+
 				entity.UserId = model.UserId;
 
 				entity.ParentId = model.ParentId;
@@ -243,8 +245,6 @@ namespace Apps.BLL
 				entity.TopId = model.TopId;
 
 				entity.TId = model.TId;
-
-				entity.Id = model.Id;
   
 
                 if (m_Rep.Create(entity))
@@ -325,13 +325,15 @@ namespace Apps.BLL
         {
             try
             {
-                SysJiaPu entity = m_Rep.GetById(model.UserId);
+                SysJiaPu entity = m_Rep.GetById(model.Id);
                 if (entity == null)
                 {
                     errors.Add(Resource.Disable);
                     return false;
                 }
                               
+				entity.Id = model.Id;
+
 				entity.UserId = model.UserId;
 
 				entity.ParentId = model.ParentId;
@@ -379,8 +381,6 @@ namespace Apps.BLL
 				entity.TopId = model.TopId;
 
 				entity.TId = model.TId;
-
-				entity.Id = model.Id;
  
 
 
@@ -412,6 +412,8 @@ namespace Apps.BLL
                 SysJiaPu entity = m_Rep.GetById(id);
                 SysJiaPuModel model = new SysJiaPuModel();
                               
+				model.Id = entity.Id;
+
 				model.UserId = entity.UserId;
 
 				model.ParentId = entity.ParentId;
@@ -459,8 +461,6 @@ namespace Apps.BLL
 				model.TopId = entity.TopId;
 
 				model.TId = entity.TId;
-
-				model.Id = entity.Id;
  
                 return model;
             }

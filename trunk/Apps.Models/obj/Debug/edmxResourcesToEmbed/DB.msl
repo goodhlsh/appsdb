@@ -1421,6 +1421,7 @@
     <EntitySetMapping Name="SysWallet">
       <EntityTypeMapping TypeName="DB.SysWallet">
         <MappingFragment StoreEntitySet="SysWallet">
+          <ScalarProperty Name="ShunXu" ColumnName="ShunXu" />
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
           <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />

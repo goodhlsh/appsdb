@@ -36,7 +36,10 @@ namespace Apps.BLL
             {
                 queryData = m_Rep.GetList(
 				
-				a=>a.UserId.Contains(queryStr)
+				a=>a.Id.Contains(queryStr)
+				
+
+				|| a.UserId.Contains(queryStr)
 				
 
 				
@@ -52,9 +55,6 @@ namespace Apps.BLL
 				
 
 				
-				
-
-				|| a.Id.Contains(queryStr)
 				
 
 				);
@@ -75,6 +75,8 @@ namespace Apps.BLL
                                               select new SysPurchaseHistoryModel
                                               {
 
+													Id = r.Id,
+
 													UserId = r.UserId,
 
 													ShouRu = r.ShouRu,
@@ -86,8 +88,6 @@ namespace Apps.BLL
 													Note = r.Note,
 
 													IsShow = r.IsShow,
-
-													Id = r.Id,
           
                                               }).ToList();
 
@@ -98,7 +98,7 @@ namespace Apps.BLL
         {
             try
             {
-                SysPurchaseHistory entity = m_Rep.GetById(model.UserId);
+                SysPurchaseHistory entity = m_Rep.GetById(model.Id);
                 if (entity != null)
                 {
                     errors.Add(Resource.PrimaryRepeat);
@@ -106,6 +106,8 @@ namespace Apps.BLL
                 }
                 entity = new SysPurchaseHistory();
                
+				entity.Id = model.Id;
+
 				entity.UserId = model.UserId;
 
 				entity.ShouRu = model.ShouRu;
@@ -117,8 +119,6 @@ namespace Apps.BLL
 				entity.Note = model.Note;
 
 				entity.IsShow = model.IsShow;
-
-				entity.Id = model.Id;
   
 
                 if (m_Rep.Create(entity))
@@ -199,13 +199,15 @@ namespace Apps.BLL
         {
             try
             {
-                SysPurchaseHistory entity = m_Rep.GetById(model.UserId);
+                SysPurchaseHistory entity = m_Rep.GetById(model.Id);
                 if (entity == null)
                 {
                     errors.Add(Resource.Disable);
                     return false;
                 }
                               
+				entity.Id = model.Id;
+
 				entity.UserId = model.UserId;
 
 				entity.ShouRu = model.ShouRu;
@@ -217,8 +219,6 @@ namespace Apps.BLL
 				entity.Note = model.Note;
 
 				entity.IsShow = model.IsShow;
-
-				entity.Id = model.Id;
  
 
 
@@ -250,6 +250,8 @@ namespace Apps.BLL
                 SysPurchaseHistory entity = m_Rep.GetById(id);
                 SysPurchaseHistoryModel model = new SysPurchaseHistoryModel();
                               
+				model.Id = entity.Id;
+
 				model.UserId = entity.UserId;
 
 				model.ShouRu = entity.ShouRu;
@@ -261,8 +263,6 @@ namespace Apps.BLL
 				model.Note = entity.Note;
 
 				model.IsShow = entity.IsShow;
-
-				model.Id = entity.Id;
  
                 return model;
             }

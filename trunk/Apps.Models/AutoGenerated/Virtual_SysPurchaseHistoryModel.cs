@@ -16,6 +16,8 @@ namespace Apps.Models.Sys
 	public class Virtual_SysPurchaseHistoryModel
 	{
 		
+	public virtual string Id { get; set; }
+		
 	public virtual string UserId { get; set; }
 		
 	public virtual Nullable<decimal> ShouRu { get; set; }
@@ -27,8 +29,6 @@ namespace Apps.Models.Sys
 	public virtual string Note { get; set; }
 		
 	public virtual Nullable<bool> IsShow { get; set; }
-		
-	public virtual string Id { get; set; }
 		
 }
 

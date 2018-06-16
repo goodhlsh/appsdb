@@ -10,7 +10,7 @@ namespace LShop.Models
     public class NavViewModel
     {
         public List<Spl_Brand> BrandList;
-        public List<Spl_ProductCategory> ProductTypeList; 
+        public List<Spl_ProductCategoryS> ProductTypeList; 
         public List<BrandTypeModel> BrandTypeList;
     }
 }

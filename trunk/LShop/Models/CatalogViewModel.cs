@@ -12,6 +12,6 @@ namespace LShop.Models
     public class CatalogViewModel
     {
         public List<Spl_Brand> BrandList;
-        public List<Spl_ProductCategory> ProductTypeList;
+        public List<Spl_ProductCategoryS> ProductTypeList;
     }
 }

@@ -16,6 +16,8 @@ namespace Apps.Models.Sys
 	public class Virtual_SysLevelsModel
 	{
 		
+	public virtual string Id { get; set; }
+		
 	public virtual string Name { get; set; }
 		
 	public virtual string Code { get; set; }
@@ -31,8 +33,6 @@ namespace Apps.Models.Sys
 	public virtual Nullable<System.DateTime> CreateTime { get; set; }
 		
 	public virtual Nullable<System.DateTime> UpdateTime { get; set; }
-		
-	public virtual int Id { get; set; }
 		
 }
 

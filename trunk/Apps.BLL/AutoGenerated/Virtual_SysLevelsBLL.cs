@@ -36,7 +36,10 @@ namespace Apps.BLL
             {
                 queryData = m_Rep.GetList(
 				
-				a=>a.Name.Contains(queryStr)
+				a=>a.Id.Contains(queryStr)
+				
+
+				|| a.Name.Contains(queryStr)
 				
 
 				|| a.Code.Contains(queryStr)
@@ -52,9 +55,6 @@ namespace Apps.BLL
 				
 
 				|| a.Other.Contains(queryStr)
-				
-
-				
 				
 
 				
@@ -81,6 +81,8 @@ namespace Apps.BLL
                                               select new SysLevelsModel
                                               {
 
+													Id = r.Id,
+
 													Name = r.Name,
 
 													Code = r.Code,
@@ -96,8 +98,6 @@ namespace Apps.BLL
 													CreateTime = r.CreateTime,
 
 													UpdateTime = r.UpdateTime,
-
-													Id = r.Id,
           
                                               }).ToList();
 
@@ -108,7 +108,7 @@ namespace Apps.BLL
         {
             try
             {
-                SysLevels entity = m_Rep.GetById(model.Name);
+                SysLevels entity = m_Rep.GetById(model.Id);
                 if (entity != null)
                 {
                     errors.Add(Resource.PrimaryRepeat);
@@ -116,6 +116,8 @@ namespace Apps.BLL
                 }
                 entity = new SysLevels();
                
+				entity.Id = model.Id;
+
 				entity.Name = model.Name;
 
 				entity.Code = model.Code;
@@ -131,8 +133,6 @@ namespace Apps.BLL
 				entity.CreateTime = model.CreateTime;
 
 				entity.UpdateTime = model.UpdateTime;
-
-				entity.Id = model.Id;
   
 
                 if (m_Rep.Create(entity))
@@ -213,13 +213,15 @@ namespace Apps.BLL
         {
             try
             {
-                SysLevels entity = m_Rep.GetById(model.Name);
+                SysLevels entity = m_Rep.GetById(model.Id);
                 if (entity == null)
                 {
                     errors.Add(Resource.Disable);
                     return false;
                 }
                               
+				entity.Id = model.Id;
+
 				entity.Name = model.Name;
 
 				entity.Code = model.Code;
@@ -235,8 +237,6 @@ namespace Apps.BLL
 				entity.CreateTime = model.CreateTime;
 
 				entity.UpdateTime = model.UpdateTime;
-
-				entity.Id = model.Id;
  
 
 
@@ -268,6 +268,8 @@ namespace Apps.BLL
                 SysLevels entity = m_Rep.GetById(id);
                 SysLevelsModel model = new SysLevelsModel();
                               
+				model.Id = entity.Id;
+
 				model.Name = entity.Name;
 
 				model.Code = entity.Code;
@@ -283,8 +285,6 @@ namespace Apps.BLL
 				model.CreateTime = entity.CreateTime;
 
 				model.UpdateTime = entity.UpdateTime;
-
-				model.Id = entity.Id;
  
                 return model;
             }

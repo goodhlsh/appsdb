@@ -352,8 +352,21 @@
             <param name="value">Input string value</param>
             <returns>Trimmed string value</returns>
         </member>
+        <member name="M:LinqToExcel.ExcelQueryFactory.#ctor(LinqToExcel.Logging.ILogManagerFactory)">
+            <param name="logManagerFactory">
+            Factory that facilitates the creation of an external log manager (i.e. log4net) to 
+            allow internal methods of LinqToExcel to perform diagnostic logging.
+            </param>
+        </member>
         <member name="M:LinqToExcel.ExcelQueryFactory.#ctor(System.String)">
             <param name="fileName">Full path to the Excel spreadsheet</param>
+        </member>
+        <member name="M:LinqToExcel.ExcelQueryFactory.#ctor(System.String,LinqToExcel.Logging.ILogManagerFactory)">
+            <param name="fileName">Full path to the Excel spreadsheet</param>
+            <param name="logManagerFactory">
+            Factory that facilitates the creation of an external log manager (i.e. log4net) to 
+            allow internal methods of LinqToExcel to perform diagnostic logging.
+            </param>
         </member>
         <member name="M:LinqToExcel.ExcelQueryFactory.AddMapping``1(System.Linq.Expressions.Expression{System.Func{``0,System.Object}},System.String)">
             <summary>
@@ -609,7 +622,7 @@
             <param name="worksheetName">Name of the worksheet</param>
             <param name="namedRangeName">Name of the worksheet-scope named range</param>
         </member>
-        <member name="M:LinqToExcel.ExcelQueryFactory.Worksheet``1(System.String,System.String)">
+        <member name="M:LinqToExcel.ExcelQueryFactory.Worksheet``1(System.String,System.String,LinqToExcel.Logging.ILogManagerFactory)">
             <summary>
             Enables Linq queries against an Excel worksheet
             </summary>
@@ -617,7 +630,7 @@
             <param name="worksheetName">Name of the worksheet</param>
             <param name="fileName">Full path to the Excel spreadsheet</param>
         </member>
-        <member name="M:LinqToExcel.ExcelQueryFactory.Worksheet``1(System.Int32,System.String)">
+        <member name="M:LinqToExcel.ExcelQueryFactory.Worksheet``1(System.Int32,System.String,LinqToExcel.Logging.ILogManagerFactory)">
             <summary>
             Enables Linq queries against an Excel worksheet
             </summary>
@@ -625,21 +638,21 @@
             <param name="worksheetIndex">Worksheet index ordered by name, not position in the workbook</param>
             <param name="fileName">Full path to the Excel spreadsheet</param>
         </member>
-        <member name="M:LinqToExcel.ExcelQueryFactory.Worksheet(System.String,System.String)">
+        <member name="M:LinqToExcel.ExcelQueryFactory.Worksheet(System.String,System.String,LinqToExcel.Logging.ILogManagerFactory)">
             <summary>
             Enables Linq queries against an Excel worksheet
             </summary>
             <param name="worksheetName">Name of the worksheet</param>
             <param name="fileName">Full path to the Excel spreadsheet</param>
         </member>
-        <member name="M:LinqToExcel.ExcelQueryFactory.Worksheet(System.Int32,System.String)">
+        <member name="M:LinqToExcel.ExcelQueryFactory.Worksheet(System.Int32,System.String,LinqToExcel.Logging.ILogManagerFactory)">
             <summary>
             Enables Linq queries against an Excel worksheet
             </summary>
             <param name="worksheetIndex">Worksheet index ordered by name, not position in the workbook</param>
             <param name="fileName">Full path to the Excel spreadsheet</param>
         </member>
-        <member name="M:LinqToExcel.ExcelQueryFactory.Worksheet(System.String,System.String,System.Collections.Generic.Dictionary{System.String,System.String})">
+        <member name="M:LinqToExcel.ExcelQueryFactory.Worksheet(System.String,System.String,System.Collections.Generic.Dictionary{System.String,System.String},LinqToExcel.Logging.ILogManagerFactory)">
             <summary>
             Enables Linq queries against an Excel worksheet
             </summary>
@@ -647,7 +660,7 @@
             <param name="fileName">Full path to the Excel spreadsheet</param>
             <param name="columnMappings">Column to property mappings</param>
         </member>
-        <member name="M:LinqToExcel.ExcelQueryFactory.Worksheet(System.Int32,System.String,System.Collections.Generic.Dictionary{System.String,System.String})">
+        <member name="M:LinqToExcel.ExcelQueryFactory.Worksheet(System.Int32,System.String,System.Collections.Generic.Dictionary{System.String,System.String},LinqToExcel.Logging.ILogManagerFactory)">
             <summary>
             Enables Linq queries against an Excel worksheet
             </summary>
@@ -655,7 +668,7 @@
             <param name="fileName">Full path to the Excel spreadsheet</param>
             <param name="columnMappings">Column to property mappings</param>
         </member>
-        <member name="M:LinqToExcel.ExcelQueryFactory.Worksheet``1(System.String,System.String,System.Collections.Generic.Dictionary{System.String,System.String})">
+        <member name="M:LinqToExcel.ExcelQueryFactory.Worksheet``1(System.String,System.String,System.Collections.Generic.Dictionary{System.String,System.String},LinqToExcel.Logging.ILogManagerFactory)">
             <summary>
             Enables Linq queries against an Excel worksheet
             </summary>
@@ -664,7 +677,7 @@
             <param name="fileName">Full path to the Excel spreadsheet</param>
             <param name="columnMappings">Column to property mappings</param>
         </member>
-        <member name="M:LinqToExcel.ExcelQueryFactory.Worksheet``1(System.Int32,System.String,System.Collections.Generic.Dictionary{System.String,System.String})">
+        <member name="M:LinqToExcel.ExcelQueryFactory.Worksheet``1(System.Int32,System.String,System.Collections.Generic.Dictionary{System.String,System.String},LinqToExcel.Logging.ILogManagerFactory)">
             <summary>
             Enables Linq queries against an Excel worksheet
             </summary>

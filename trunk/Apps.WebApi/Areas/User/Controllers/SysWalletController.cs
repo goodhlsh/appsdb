@@ -18,7 +18,7 @@ namespace Apps.WebApi.Areas.User.Controllers
         [Dependency]
         public ISysWalletBLL sysWBLL { get; set; }
 
-        ValidationErrors errors =new ValidationErrors();
+        ValidationErrors errors = new ValidationErrors();
 
         [HttpGet]
         public SysWalletModel GetWallet(string filter)
@@ -30,45 +30,48 @@ namespace Apps.WebApi.Areas.User.Controllers
 
                 queryStr = JObject.Parse(opc["where"].ToString())["userid"].ToString();
             }
-            
-            return  GetWalletByUserID(queryStr);
+
+            return GetWalletByUserID(queryStr);
         }
         public SysWalletModel GetWalletByUserID(string userID)
         {
-           return sysWBLL.GetWallByUserID(userID);
+            return sysWBLL.GetWallByUserID(userID);
         }
+        /// <summary>
+        /// 购买或充值都可以调用此方法
+        /// </summary>
+        /// <param name="wallet">消费</param>
+        /// <param name="wallet">充值</param>
+        /// <returns></returns>
         [HttpPost]
-        public bool PostWallet([FromBody]SysWallet wallet)
+        public object PostWallet([FromBody]SysWallet wallet)
         {
-            if (sysWBLL.GetById(wallet.Id) !=null)
+            SysWalletModel newmodel = new SysWalletModel();
+            newmodel.Id = ResultHelper.NewId;
+            newmodel.UserId = wallet.UserId;
+            newmodel.Balance = wallet.Balance;
+            newmodel.Froms = wallet.Froms;
+            if (wallet.Froms == "消费")
             {
-                SysWalletModel walletmodel = sysWBLL.GetById(wallet.Id);
-                walletmodel.UserId = wallet.UserId;
-                walletmodel.Balance = wallet.Balance;
-                walletmodel.Froms = wallet.Froms;
-                if (wallet.Froms=="消费")
-                {
-                    walletmodel.JieYu = walletmodel.JieYu - wallet.Balance;
-                }
-                else
-                {
-                    walletmodel.JieYu = walletmodel.JieYu + wallet.Balance;
-                }
-                walletmodel.UpdateTime = DateTime.Now;
-                return sysWBLL.Edit(ref errors, walletmodel);                 
+                newmodel.JieYu = wallet.JieYu - wallet.Balance;
             }
             else
             {
-                SysWalletModel newmodel = new SysWalletModel();
-                newmodel.Id = ResultHelper.NewId;
-                newmodel.UserId = wallet.UserId;
-                newmodel.Balance = wallet.Balance;
-                newmodel.Froms = wallet.Froms;
-                newmodel.JieYu = newmodel.JieYu + wallet.Balance;
-                newmodel.CreateTime = DateTime.Now;
-                return sysWBLL.Create(ref errors, newmodel);
+                newmodel.JieYu = wallet.JieYu + wallet.Balance;
             }
-            
+            newmodel.Note = wallet.Note;
+            newmodel.CreateTime = DateTime.Now;
+            newmodel.ShunXu = wallet.ShunXu + 1;
+            bool ret = false;
+            ret=sysWBLL.Create(ref errors, newmodel);
+            if (ret)
+            {
+                return Json(newmodel);
+            }
+            else
+            {
+                return null;
+            }
         }
     }
 }

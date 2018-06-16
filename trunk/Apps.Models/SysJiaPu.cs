@@ -18,6 +18,8 @@ using System;
 public partial class SysJiaPu
 {
 
+    public string Id { get; set; }
+
     public string UserId { get; set; }
 
     public string ParentId { get; set; }
@@ -32,7 +34,7 @@ public partial class SysJiaPu
 
     public Nullable<decimal> FirstJinE { get; set; }
 
-    public int LevelId { get; set; }
+    public string LevelId { get; set; }
 
     public string ZMP15 { get; set; }
 
@@ -65,8 +67,6 @@ public partial class SysJiaPu
     public string TopId { get; set; }
 
     public string TId { get; set; }
-
-    public string Id { get; set; }
 
 
 

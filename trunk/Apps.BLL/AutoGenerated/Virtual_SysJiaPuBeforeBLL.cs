@@ -36,7 +36,10 @@ namespace Apps.BLL
             {
                 queryData = m_Rep.GetList(
 				
-				a=>a.uid.Contains(queryStr)
+				a=>a.Id.Contains(queryStr)
+				
+
+				|| a.uid.Contains(queryStr)
 				
 
 				|| a.tid.Contains(queryStr)
@@ -49,9 +52,6 @@ namespace Apps.BLL
 				
 
 				
-				
-
-				|| a.Id.Contains(queryStr)
 				
 
 				);
@@ -72,6 +72,8 @@ namespace Apps.BLL
                                               select new SysJiaPuBeforeModel
                                               {
 
+													Id = r.Id,
+
 													uid = r.uid,
 
 													tid = r.tid,
@@ -81,8 +83,6 @@ namespace Apps.BLL
 													isdone = r.isdone,
 
 													createTime = r.createTime,
-
-													Id = r.Id,
           
                                               }).ToList();
 
@@ -93,7 +93,7 @@ namespace Apps.BLL
         {
             try
             {
-                SysJiaPuBefore entity = m_Rep.GetById(model.uid);
+                SysJiaPuBefore entity = m_Rep.GetById(model.Id);
                 if (entity != null)
                 {
                     errors.Add(Resource.PrimaryRepeat);
@@ -101,6 +101,8 @@ namespace Apps.BLL
                 }
                 entity = new SysJiaPuBefore();
                
+				entity.Id = model.Id;
+
 				entity.uid = model.uid;
 
 				entity.tid = model.tid;
@@ -110,8 +112,6 @@ namespace Apps.BLL
 				entity.isdone = model.isdone;
 
 				entity.createTime = model.createTime;
-
-				entity.Id = model.Id;
   
 
                 if (m_Rep.Create(entity))
@@ -192,13 +192,15 @@ namespace Apps.BLL
         {
             try
             {
-                SysJiaPuBefore entity = m_Rep.GetById(model.uid);
+                SysJiaPuBefore entity = m_Rep.GetById(model.Id);
                 if (entity == null)
                 {
                     errors.Add(Resource.Disable);
                     return false;
                 }
                               
+				entity.Id = model.Id;
+
 				entity.uid = model.uid;
 
 				entity.tid = model.tid;
@@ -208,8 +210,6 @@ namespace Apps.BLL
 				entity.isdone = model.isdone;
 
 				entity.createTime = model.createTime;
-
-				entity.Id = model.Id;
  
 
 
@@ -241,6 +241,8 @@ namespace Apps.BLL
                 SysJiaPuBefore entity = m_Rep.GetById(id);
                 SysJiaPuBeforeModel model = new SysJiaPuBeforeModel();
                               
+				model.Id = entity.Id;
+
 				model.uid = entity.uid;
 
 				model.tid = entity.tid;
@@ -250,8 +252,6 @@ namespace Apps.BLL
 				model.isdone = entity.isdone;
 
 				model.createTime = entity.createTime;
-
-				model.Id = entity.Id;
  
                 return model;
             }

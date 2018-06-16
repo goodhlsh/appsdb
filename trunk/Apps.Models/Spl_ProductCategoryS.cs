@@ -26,6 +26,8 @@ public partial class Spl_ProductCategoryS
     }
 
 
+    public string Id { get; set; }
+
     public string Name { get; set; }
 
     public string SupID { get; set; }
@@ -33,8 +35,6 @@ public partial class Spl_ProductCategoryS
     public Nullable<bool> Promoted { get; set; }
 
     public string Note { get; set; }
-
-    public string Id { get; set; }
 
 
 

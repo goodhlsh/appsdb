@@ -57,39 +57,48 @@ namespace Apps.Spl.BLL
 
         public List<Spl_WareShowModel> GetPage(string queryStr, int skip, int limit)
         {
-            List<Spl_WareShowModel> wareShowModels = new List<Spl_WareShowModel>();
-            List<Spl_Ware> query = null;
-            IQueryable<Spl_Ware> list = m_Rep.GetList();
-            if (!string.IsNullOrWhiteSpace(queryStr))
+            try
             {
-                list = list.Where(a => a.ProductCategoryId == queryStr);
+                List<Spl_WareShowModel> wareShowModels = new List<Spl_WareShowModel>();
+                List<Spl_Ware> query = null;
+                IQueryable<Spl_Ware> list = m_Rep.GetList();
+                if (!string.IsNullOrWhiteSpace(queryStr))
+                {
+                    list = list.Where(a => a.ProductCategoryId == queryStr);
+                }
+                query = list.OrderBy(c => c.Name).Skip(skip).Take(limit).ToList();
+                foreach (var item in query)
+                {
+                    wareShowModels.Add(new Spl_WareShowModel()
+                    {
+                        Id = item.Id,
+                        ToTop = item.Spl_WareInfo.Count > 0 ? (bool)item.Spl_WareInfo.FirstOrDefault().ToTop : false,
+                        Name = item.Name,
+                        Description = item.Description,
+                        PromotionPrice = item.PromotionPrice,
+                        Price = item.Price,
+                        Picture0 = item.Spl_WareInfo.Count > 0 ? item.Spl_WareInfo.FirstOrDefault().Picture0 : null,
+                        Picture1 = item.Spl_WareInfo.Count > 0 ? item.Spl_WareInfo.FirstOrDefault().Picture1 : null,
+                        Picture2 = item.Spl_WareInfo.Count > 0 ? item.Spl_WareInfo.FirstOrDefault().Picture2 : null,
+                        Picture3 = item.Spl_WareInfo.Count > 0 ? item.Spl_WareInfo.FirstOrDefault().Picture3 : null,
+                        Picture4 = item.Spl_WareInfo.Count > 0 ? item.Spl_WareInfo.FirstOrDefault().Picture4 : null,
+                        Picture5 = item.Spl_WareInfo.Count > 0 ? item.Spl_WareInfo.FirstOrDefault().Picture5 : null,
+                        Thumbnail = item.Thumbnail,
+                        ShowType = item.ShowType,
+                        Stock = item.Stock,
+                        Detail = item.Spl_WareInfo.Count > 0 ? item.Spl_WareInfo.FirstOrDefault().Detail : null,
+                        ProductCategoryId = item.ProductCategoryId,
+                        Note = item.Note,
+                        Unit = item.Unit
+                    });
+                }
+                return wareShowModels;
             }
-            query = list.OrderBy(c => c.Name).Skip(skip).Take(limit).ToList();
-            foreach (var item in query)
+            catch (Exception ex)
             {
-               wareShowModels.Add(new Spl_WareShowModel() {
-                   Id = item.Id,
-                    ToTop = (bool)item.Spl_WareInfo.FirstOrDefault().ToTop,
-                    Name = item.Name,
-                    Description = item.Description,
-                    Price = item.Price,
-                    PromotionPrice = item.PromotionPrice,
-                    Picture0 = item.Spl_WareInfo.FirstOrDefault().Picture0,
-                    Picture1 = item.Spl_WareInfo.FirstOrDefault().Picture1,
-                    Picture2 = item.Spl_WareInfo.FirstOrDefault().Picture2,
-                    Picture3 = item.Spl_WareInfo.FirstOrDefault().Picture3,
-                    Picture4 = item.Spl_WareInfo.FirstOrDefault().Picture4,
-                    Picture5 = item.Spl_WareInfo.FirstOrDefault().Picture5,
-                    Thumbnail = item.Thumbnail,
-                    ShowType = item.ShowType,
-                    Stock = item.Stock,
-                    Detail = item.Spl_WareInfo.FirstOrDefault().Detail,
-                    ProductCategoryId = item.ProductCategoryId,
-                    Note = item.Note,
-                    Unit = item.Unit                    
-                });
+
+                return null;
             }
-            return wareShowModels;
         }
         public List<Spl_WareShowModel> GetPage(bool queryStr, int skip, int limit)
         {
@@ -105,40 +114,49 @@ namespace Apps.Spl.BLL
         }
         public List<Spl_WareShowModel> GetPageLike(string queryStr, int skip, int limit)
         {
-            List<Spl_WareShowModel> wareShowModels = new List<Spl_WareShowModel>();
-            List<Spl_Ware> query = null;
-            IQueryable<Spl_Ware> list = m_Rep.GetList();
-            if (!string.IsNullOrWhiteSpace(queryStr))
+            try
             {
-                list = list.Where(a => a.Name.Contains(queryStr));
-            }
-            query = list.OrderBy(c => c.Name).Skip(skip).Take(limit).ToList();
-            foreach (var item in query)
-            {
-                wareShowModels.Add(new Spl_WareShowModel()
+                List<Spl_WareShowModel> wareShowModels = new List<Spl_WareShowModel>();
+                List<Spl_Ware> query = null;
+                IQueryable<Spl_Ware> list = m_Rep.GetList();
+                if (!string.IsNullOrWhiteSpace(queryStr))
                 {
-                    Id = item.Id,
-                    ToTop = (bool)item.Spl_WareInfo.FirstOrDefault().ToTop,
-                    Name = item.Name,
-                    Description = item.Description,
-                    PromotionPrice = item.PromotionPrice,
-                    Price = item.Price,
-                    Picture0 = item.Spl_WareInfo.FirstOrDefault().Picture0,
-                    Picture1 = item.Spl_WareInfo.FirstOrDefault().Picture1,
-                    Picture2 = item.Spl_WareInfo.FirstOrDefault().Picture2,
-                    Picture3 = item.Spl_WareInfo.FirstOrDefault().Picture3,
-                    Picture4 = item.Spl_WareInfo.FirstOrDefault().Picture4,
-                    Picture5 = item.Spl_WareInfo.FirstOrDefault().Picture5,
-                    Thumbnail = item.Thumbnail,
-                    ShowType = item.ShowType,
-                    Stock = item.Stock,
-                    Detail = item.Spl_WareInfo.FirstOrDefault().Detail,
-                    ProductCategoryId = item.ProductCategoryId,
-                    Note = item.Note,
-                    Unit = item.Unit
-                });
+                    list = list.Where(a => a.Name.Contains(queryStr));
+                }
+                query = list.OrderBy(c => c.Name).Skip(skip).Take(limit).ToList();
+                foreach (var item in query)
+                {
+                    wareShowModels.Add(new Spl_WareShowModel()
+                    {
+                        Id = item.Id,
+                        ToTop = item.Spl_WareInfo.Count > 0 ? (bool)item.Spl_WareInfo.FirstOrDefault().ToTop:false,
+                        Name = item.Name,
+                        Description = item.Description,
+                        PromotionPrice = item.PromotionPrice,
+                        Price = item.Price,
+                        Picture0 = item.Spl_WareInfo.Count>0 ? item.Spl_WareInfo.FirstOrDefault().Picture0:null,
+                        Picture1 = item.Spl_WareInfo.Count > 0 ? item.Spl_WareInfo.FirstOrDefault().Picture1:null,
+                        Picture2 = item.Spl_WareInfo.Count > 0 ? item.Spl_WareInfo.FirstOrDefault().Picture2 : null,
+                        Picture3 = item.Spl_WareInfo.Count > 0 ? item.Spl_WareInfo.FirstOrDefault().Picture3 : null,
+                        Picture4 = item.Spl_WareInfo.Count > 0 ? item.Spl_WareInfo.FirstOrDefault().Picture4 : null,
+                        Picture5 = item.Spl_WareInfo.Count > 0 ? item.Spl_WareInfo.FirstOrDefault().Picture5:null,
+                        Thumbnail = item.Thumbnail,
+                        ShowType = item.ShowType,
+                        Stock = item.Stock,
+                        Detail = item.Spl_WareInfo.Count > 0 ? item.Spl_WareInfo.FirstOrDefault().Detail : null,
+                        ProductCategoryId = item.ProductCategoryId,
+                        Note = item.Note,
+                        Unit = item.Unit
+                    });
+                }
+                return wareShowModels;
             }
-            return wareShowModels;
+            catch (Exception ex)
+            {
+
+                return null;
+            }
+            
         }
         public List<Spl_Actives> GetPageActive(bool queryStr, int skip, int limit)
         {

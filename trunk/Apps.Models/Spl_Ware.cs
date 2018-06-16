@@ -30,6 +30,8 @@ public partial class Spl_Ware
     }
 
 
+    public string Id { get; set; }
+
     public string Name { get; set; }
 
     public string ProductCategoryId { get; set; }
@@ -63,8 +65,6 @@ public partial class Spl_Ware
     public string BrandId { get; set; }
 
     public Nullable<decimal> PromotionPrice { get; set; }
-
-    public string Id { get; set; }
 
 
 

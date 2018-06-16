@@ -18,6 +18,8 @@ using System;
 public partial class SysWallet
 {
 
+    public string Id { get; set; }
+
     public string UserId { get; set; }
 
     public Nullable<decimal> Balance { get; set; }
@@ -32,7 +34,7 @@ public partial class SysWallet
 
     public Nullable<System.DateTime> UpdateTime { get; set; }
 
-    public string Id { get; set; }
+    public int ShunXu { get; set; }
 
 
 

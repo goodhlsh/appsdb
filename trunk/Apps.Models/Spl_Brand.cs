@@ -26,11 +26,11 @@ public partial class Spl_Brand
     }
 
 
+    public string Id { get; set; }
+
     public string Name { get; set; }
 
     public Nullable<bool> Promoted { get; set; }
-
-    public string Id { get; set; }
 
 
 

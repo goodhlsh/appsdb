@@ -189,7 +189,6 @@ C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.WebApi\bin\Apps.WC.IBLL.dl
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.WebApi\bin\Apps.WC.BLL.dll
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.WebApi\bin\Apps.WC.IDAL.dll
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.WebApi\bin\Apps.WC.DAL.dll
-C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.WebApi\bin\LinqToExcel.dll
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.WebApi\bin\Remotion.Data.Linq.dll
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.WebApi\bin\Apps.BLL.pdb
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.WebApi\bin\Apps.BLL.dll.config
@@ -411,3 +410,6 @@ D:\项目\trunk\trunk\Apps.WebApi\obj\Debug\Apps.WebApi.csproj.CoreCompileInputs
 D:\项目\trunk\trunk\Apps.WebApi\obj\Debug\Apps.WebApi.csproj.CopyComplete
 D:\项目\trunk\trunk\Apps.WebApi\obj\Debug\Apps.WebApi.dll
 D:\项目\trunk\trunk\Apps.WebApi\obj\Debug\Apps.WebApi.pdb
+C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.WebApi\bin\LinqToExcel.dll
+C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.WebApi\bin\log4net.dll
+C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.WebApi\bin\log4net.xml

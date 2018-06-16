@@ -36,7 +36,10 @@ namespace Apps.BLL
             {
                 queryData = m_Rep.GetList(
 				
-				a=>a.Title.Contains(queryStr)
+				a=>a.Id.Contains(queryStr)
+				
+
+				|| a.Title.Contains(queryStr)
 				
 
 				|| a.Cont.Contains(queryStr)
@@ -49,9 +52,6 @@ namespace Apps.BLL
 				
 
 				
-				
-
-				|| a.Id.Contains(queryStr)
 				
 
 				);
@@ -72,6 +72,8 @@ namespace Apps.BLL
                                               select new SysHelpsModel
                                               {
 
+													Id = r.Id,
+
 													Title = r.Title,
 
 													Cont = r.Cont,
@@ -81,8 +83,6 @@ namespace Apps.BLL
 													CreateTime = r.CreateTime,
 
 													UpdateTime = r.UpdateTime,
-
-													Id = r.Id,
           
                                               }).ToList();
 
@@ -93,7 +93,7 @@ namespace Apps.BLL
         {
             try
             {
-                SysHelps entity = m_Rep.GetById(model.Title);
+                SysHelps entity = m_Rep.GetById(model.Id);
                 if (entity != null)
                 {
                     errors.Add(Resource.PrimaryRepeat);
@@ -101,6 +101,8 @@ namespace Apps.BLL
                 }
                 entity = new SysHelps();
                
+				entity.Id = model.Id;
+
 				entity.Title = model.Title;
 
 				entity.Cont = model.Cont;
@@ -110,8 +112,6 @@ namespace Apps.BLL
 				entity.CreateTime = model.CreateTime;
 
 				entity.UpdateTime = model.UpdateTime;
-
-				entity.Id = model.Id;
   
 
                 if (m_Rep.Create(entity))
@@ -192,13 +192,15 @@ namespace Apps.BLL
         {
             try
             {
-                SysHelps entity = m_Rep.GetById(model.Title);
+                SysHelps entity = m_Rep.GetById(model.Id);
                 if (entity == null)
                 {
                     errors.Add(Resource.Disable);
                     return false;
                 }
                               
+				entity.Id = model.Id;
+
 				entity.Title = model.Title;
 
 				entity.Cont = model.Cont;
@@ -208,8 +210,6 @@ namespace Apps.BLL
 				entity.CreateTime = model.CreateTime;
 
 				entity.UpdateTime = model.UpdateTime;
-
-				entity.Id = model.Id;
  
 
 
@@ -241,6 +241,8 @@ namespace Apps.BLL
                 SysHelps entity = m_Rep.GetById(id);
                 SysHelpsModel model = new SysHelpsModel();
                               
+				model.Id = entity.Id;
+
 				model.Title = entity.Title;
 
 				model.Cont = entity.Cont;
@@ -250,8 +252,6 @@ namespace Apps.BLL
 				model.CreateTime = entity.CreateTime;
 
 				model.UpdateTime = entity.UpdateTime;
-
-				model.Id = entity.Id;
  
                 return model;
             }

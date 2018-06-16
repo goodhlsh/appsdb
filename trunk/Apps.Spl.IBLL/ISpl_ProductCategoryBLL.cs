@@ -10,7 +10,7 @@ namespace Apps.Spl.IBLL
 {
   public partial interface ISpl_ProductCategoryBLL
     {
-        List<Spl_ProductCategoryModel> GetPage(string queryStr,int skip,int limit);
-        List<Spl_ProductCategory> GetListValue(string queryStr, int skip, int limit);
+        List<Spl_ProductCategorySModel> GetPage(string queryStr,int skip,int limit);
+        List<Spl_ProductCategoryS> GetListValue(string queryStr, int skip, int limit);
     }
 }

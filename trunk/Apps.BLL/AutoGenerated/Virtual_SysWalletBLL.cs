@@ -36,7 +36,10 @@ namespace Apps.BLL
             {
                 queryData = m_Rep.GetList(
 				
-				a=>a.UserId.Contains(queryStr)
+				a=>a.Id.Contains(queryStr)
+				
+
+				|| a.UserId.Contains(queryStr)
 				
 
 				
@@ -57,7 +60,7 @@ namespace Apps.BLL
 				
 				
 
-				|| a.Id.Contains(queryStr)
+				
 				
 
 				);
@@ -78,6 +81,8 @@ namespace Apps.BLL
                                               select new SysWalletModel
                                               {
 
+													Id = r.Id,
+
 													UserId = r.UserId,
 
 													Balance = r.Balance,
@@ -92,7 +97,7 @@ namespace Apps.BLL
 
 													UpdateTime = r.UpdateTime,
 
-													Id = r.Id,
+													ShunXu = r.ShunXu,
           
                                               }).ToList();
 
@@ -103,7 +108,7 @@ namespace Apps.BLL
         {
             try
             {
-                SysWallet entity = m_Rep.GetById(model.UserId);
+                SysWallet entity = m_Rep.GetById(model.Id);
                 if (entity != null)
                 {
                     errors.Add(Resource.PrimaryRepeat);
@@ -111,6 +116,8 @@ namespace Apps.BLL
                 }
                 entity = new SysWallet();
                
+				entity.Id = model.Id;
+
 				entity.UserId = model.UserId;
 
 				entity.Balance = model.Balance;
@@ -125,7 +132,7 @@ namespace Apps.BLL
 
 				entity.UpdateTime = model.UpdateTime;
 
-				entity.Id = model.Id;
+				entity.ShunXu = model.ShunXu;
   
 
                 if (m_Rep.Create(entity))
@@ -206,13 +213,15 @@ namespace Apps.BLL
         {
             try
             {
-                SysWallet entity = m_Rep.GetById(model.UserId);
+                SysWallet entity = m_Rep.GetById(model.Id);
                 if (entity == null)
                 {
                     errors.Add(Resource.Disable);
                     return false;
                 }
                               
+				entity.Id = model.Id;
+
 				entity.UserId = model.UserId;
 
 				entity.Balance = model.Balance;
@@ -227,7 +236,7 @@ namespace Apps.BLL
 
 				entity.UpdateTime = model.UpdateTime;
 
-				entity.Id = model.Id;
+				entity.ShunXu = model.ShunXu;
  
 
 
@@ -259,6 +268,8 @@ namespace Apps.BLL
                 SysWallet entity = m_Rep.GetById(id);
                 SysWalletModel model = new SysWalletModel();
                               
+				model.Id = entity.Id;
+
 				model.UserId = entity.UserId;
 
 				model.Balance = entity.Balance;
@@ -273,7 +284,7 @@ namespace Apps.BLL
 
 				model.UpdateTime = entity.UpdateTime;
 
-				model.Id = entity.Id;
+				model.ShunXu = entity.ShunXu;
  
                 return model;
             }

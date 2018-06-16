@@ -36,7 +36,10 @@ namespace Apps.BLL
             {
                 queryData = m_Rep.GetList(
 				
-				a=>a.DictType_Id.Contains(queryStr)
+				a=>a.Id.Contains(queryStr)
+				
+
+				|| a.DictType_Id.Contains(queryStr)
 				
 
 				|| a.Name.Contains(queryStr)
@@ -63,9 +66,6 @@ namespace Apps.BLL
 				
 				
 
-				|| a.Id.Contains(queryStr)
-				
-
 				);
             }
             else
@@ -84,6 +84,8 @@ namespace Apps.BLL
                                               select new SysDictDataModel
                                               {
 
+													Id = r.Id,
+
 													DictType_Id = r.DictType_Id,
 
 													Name = r.Name,
@@ -101,8 +103,6 @@ namespace Apps.BLL
 													Editor = r.Editor,
 
 													EditTime = r.EditTime,
-
-													Id = r.Id,
           
                                               }).ToList();
 
@@ -113,7 +113,7 @@ namespace Apps.BLL
         {
             try
             {
-                SysDictData entity = m_Rep.GetById(model.DictType_Id);
+                SysDictData entity = m_Rep.GetById(model.Id);
                 if (entity != null)
                 {
                     errors.Add(Resource.PrimaryRepeat);
@@ -121,6 +121,8 @@ namespace Apps.BLL
                 }
                 entity = new SysDictData();
                
+				entity.Id = model.Id;
+
 				entity.DictType_Id = model.DictType_Id;
 
 				entity.Name = model.Name;
@@ -138,8 +140,6 @@ namespace Apps.BLL
 				entity.Editor = model.Editor;
 
 				entity.EditTime = model.EditTime;
-
-				entity.Id = model.Id;
   
 
                 if (m_Rep.Create(entity))
@@ -220,13 +220,15 @@ namespace Apps.BLL
         {
             try
             {
-                SysDictData entity = m_Rep.GetById(model.DictType_Id);
+                SysDictData entity = m_Rep.GetById(model.Id);
                 if (entity == null)
                 {
                     errors.Add(Resource.Disable);
                     return false;
                 }
                               
+				entity.Id = model.Id;
+
 				entity.DictType_Id = model.DictType_Id;
 
 				entity.Name = model.Name;
@@ -244,8 +246,6 @@ namespace Apps.BLL
 				entity.Editor = model.Editor;
 
 				entity.EditTime = model.EditTime;
-
-				entity.Id = model.Id;
  
 
 
@@ -277,6 +277,8 @@ namespace Apps.BLL
                 SysDictData entity = m_Rep.GetById(id);
                 SysDictDataModel model = new SysDictDataModel();
                               
+				model.Id = entity.Id;
+
 				model.DictType_Id = entity.DictType_Id;
 
 				model.Name = entity.Name;
@@ -294,8 +296,6 @@ namespace Apps.BLL
 				model.Editor = entity.Editor;
 
 				model.EditTime = entity.EditTime;
-
-				model.Id = entity.Id;
  
                 return model;
             }

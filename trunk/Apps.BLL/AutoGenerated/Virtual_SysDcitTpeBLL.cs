@@ -36,7 +36,10 @@ namespace Apps.BLL
             {
                 queryData = m_Rep.GetList(
 				
-				a=>a.Name.Contains(queryStr)
+				a=>a.Id.Contains(queryStr)
+				
+
+				|| a.Name.Contains(queryStr)
 				
 
 				|| a.Remarek.Contains(queryStr)
@@ -60,9 +63,6 @@ namespace Apps.BLL
 				|| a.Pid.Contains(queryStr)
 				
 
-				|| a.Id.Contains(queryStr)
-				
-
 				);
             }
             else
@@ -81,6 +81,8 @@ namespace Apps.BLL
                                               select new SysDcitTpeModel
                                               {
 
+													Id = r.Id,
+
 													Name = r.Name,
 
 													Remarek = r.Remarek,
@@ -96,8 +98,6 @@ namespace Apps.BLL
 													EditTime = r.EditTime,
 
 													Pid = r.Pid,
-
-													Id = r.Id,
           
                                               }).ToList();
 
@@ -108,7 +108,7 @@ namespace Apps.BLL
         {
             try
             {
-                SysDcitTpe entity = m_Rep.GetById(model.Name);
+                SysDcitTpe entity = m_Rep.GetById(model.Id);
                 if (entity != null)
                 {
                     errors.Add(Resource.PrimaryRepeat);
@@ -116,6 +116,8 @@ namespace Apps.BLL
                 }
                 entity = new SysDcitTpe();
                
+				entity.Id = model.Id;
+
 				entity.Name = model.Name;
 
 				entity.Remarek = model.Remarek;
@@ -131,8 +133,6 @@ namespace Apps.BLL
 				entity.EditTime = model.EditTime;
 
 				entity.Pid = model.Pid;
-
-				entity.Id = model.Id;
   
 
                 if (m_Rep.Create(entity))
@@ -213,13 +213,15 @@ namespace Apps.BLL
         {
             try
             {
-                SysDcitTpe entity = m_Rep.GetById(model.Name);
+                SysDcitTpe entity = m_Rep.GetById(model.Id);
                 if (entity == null)
                 {
                     errors.Add(Resource.Disable);
                     return false;
                 }
                               
+				entity.Id = model.Id;
+
 				entity.Name = model.Name;
 
 				entity.Remarek = model.Remarek;
@@ -235,8 +237,6 @@ namespace Apps.BLL
 				entity.EditTime = model.EditTime;
 
 				entity.Pid = model.Pid;
-
-				entity.Id = model.Id;
  
 
 
@@ -268,6 +268,8 @@ namespace Apps.BLL
                 SysDcitTpe entity = m_Rep.GetById(id);
                 SysDcitTpeModel model = new SysDcitTpeModel();
                               
+				model.Id = entity.Id;
+
 				model.Name = entity.Name;
 
 				model.Remarek = entity.Remarek;
@@ -283,8 +285,6 @@ namespace Apps.BLL
 				model.EditTime = entity.EditTime;
 
 				model.Pid = entity.Pid;
-
-				model.Id = entity.Id;
  
                 return model;
             }

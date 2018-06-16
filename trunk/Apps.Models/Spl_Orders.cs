@@ -26,6 +26,8 @@ public partial class Spl_Orders
     }
 
 
+    public string Id { get; set; }
+
     public string UserId { get; set; }
 
     public string OrderNo { get; set; }
@@ -37,8 +39,6 @@ public partial class Spl_Orders
     public Nullable<System.DateTime> CreateTime { get; set; }
 
     public Nullable<System.DateTime> UpdateTime { get; set; }
-
-    public string Id { get; set; }
 
 
 

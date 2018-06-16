@@ -98,3 +98,4 @@ D:\项目\trunk\trunk\Apps.DEF.IDAL\obj\Debug\Apps.DEF.IDAL.csproj.CoreCompileIn
 D:\项目\trunk\trunk\Apps.DEF.IDAL\obj\Debug\Apps.DEF.IDAL.csproj.CopyComplete
 D:\项目\trunk\trunk\Apps.DEF.IDAL\obj\Debug\Apps.DEF.IDAL.dll
 D:\项目\trunk\trunk\Apps.DEF.IDAL\obj\Debug\Apps.DEF.IDAL.pdb
+C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.DEF.IDAL\obj\Debug\Apps.DEF.IDAL.csprojResolveAssemblyReference.cache

@@ -18,6 +18,8 @@ using System;
 public partial class SysMessage
 {
 
+    public string Id { get; set; }
+
     public string Title { get; set; }
 
     public string Cont { get; set; }
@@ -31,8 +33,6 @@ public partial class SysMessage
     public Nullable<System.DateTime> CreateTime { get; set; }
 
     public Nullable<System.DateTime> UpdateTime { get; set; }
-
-    public string Id { get; set; }
 
 }
 

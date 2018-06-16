@@ -16,11 +16,11 @@ namespace Apps.Models.Spl
 	public class Virtual_Spl_BrandModel
 	{
 		
+	public virtual string Id { get; set; }
+		
 	public virtual string Name { get; set; }
 		
 	public virtual Nullable<bool> Promoted { get; set; }
-		
-	public virtual string Id { get; set; }
 		
 }
 

@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="4347eebad5bc4aa1bb240674ec01dd92" Name="Diagram1" ZoomLevel="10" >
+      <Diagram DiagramId="4347eebad5bc4aa1bb240674ec01dd92" Name="Diagram1" ZoomLevel="82" >
         <EntityTypeShape EntityType="DB.DEF_CaseType" Width="1.5" PointX="2.75" PointY="2.75" />
         <EntityTypeShape EntityType="DB.DEF_Defect" Width="1.5" PointX="14" PointY="34.5" />
         <EntityTypeShape EntityType="DB.DEF_TestCase" Width="1.5" PointX="11.75" PointY="9" />
@@ -46,7 +46,7 @@
         <AssociationConnector Association="DB.FK_SysRight_SysRole" />
         <AssociationConnector Association="DB.FK_SysRightOperate_SysRight" />
         <AssociationConnector Association="DB.FK_SysStruct_SysStruct" />
-        <EntityTypeShape EntityType="DB.SysUser" Width="2.5" PointX="6" PointY="23.875" />
+        <EntityTypeShape EntityType="DB.SysUser" Width="2.5" PointX="5.375" PointY="23.25" />
         <AssociationConnector Association="DB.FK_SysUserConfig_SysUser" />
         <AssociationConnector Association="DB.SysRoleSysUser" />
         <EntityTypeShape EntityType="DB.MIS_Article" Width="1.5" PointX="8.25" PointY="29.125" />

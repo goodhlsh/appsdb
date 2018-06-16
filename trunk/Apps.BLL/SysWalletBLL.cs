@@ -30,6 +30,8 @@ namespace Apps.BLL
             sm.Note = s.Note;
             sm.UpdateTime = s.UpdateTime;
             sm.UserId = s.UserId;
+            sm.ShunXu = s.ShunXu;
+            sm.TrueName = s.SysUser.TrueName;
 
 
             return sm;

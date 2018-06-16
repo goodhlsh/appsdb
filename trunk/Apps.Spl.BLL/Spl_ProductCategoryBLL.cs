@@ -13,39 +13,42 @@ namespace Apps.Spl.BLL
     public partial class Spl_ProductCategoryBLL
     {
         [Dependency]
-        public ISpl_ProductCategoryRepository m_Rep { get; set; }
-        public List<Spl_ProductCategoryModel> GetPage(string queryStr, int skip, int limit)
+        public ISpl_ProductCategorySRepository m_Rep { get; set; }
+        public List<Spl_ProductCategorySModel> GetPage(string queryStr, int skip, int limit)
         {
 
-            List<Spl_ProductCategory> query = null;
-            IQueryable<Spl_ProductCategory> list = m_Rep.GetList();
+            List<Spl_ProductCategoryS> query = null;
+            IQueryable<Spl_ProductCategoryS> list = m_Rep.GetList();
             if (!string.IsNullOrWhiteSpace(queryStr))
             {
-                list = list.Where(a => a.Id==queryStr|| a.TypeName==queryStr);
+                list = list.Where(a => a.Id==queryStr|| a.Name==queryStr);
             }
-            query = list.OrderBy(c => c.CreateBy).Skip(skip).Take(limit).ToList();
-            List<Spl_ProductCategoryModel> productCategoryInfoList = new List<Spl_ProductCategoryModel>();
-            List<Spl_ProductCategory> dataList = query.ToList();
+            query = list.OrderBy(c => c.Name).Skip(skip).Take(limit).ToList();
+            List<Spl_ProductCategorySModel> productCategoryInfoList = new List<Spl_ProductCategorySModel>();
+            List<Spl_ProductCategoryS> dataList = query.ToList();
             foreach (var productCategory in dataList)
             {
-                Spl_ProductCategoryModel splproCate = new Spl_ProductCategoryModel
+                Spl_ProductCategorySModel splproCate = new Spl_ProductCategorySModel
                 {
                     Id=productCategory.Id,
-                    TypeName = productCategory.TypeName
+                    Name = productCategory.Name,
+                    SupID=productCategory.Spl_ProductCategory.Id,
+                    Promoted=productCategory.Promoted,
+                    Note=productCategory.Note
                 };
                 productCategoryInfoList.Add(splproCate);
             }
             return productCategoryInfoList;
         }
-        public List<Spl_ProductCategory> GetListValue(string queryStr, int skip, int limit)
+        public List<Spl_ProductCategoryS> GetListValue(string queryStr, int skip, int limit)
         {
-            List<Spl_ProductCategory> query = null;
-            IQueryable<Spl_ProductCategory> list = m_Rep.GetList();
+            List<Spl_ProductCategoryS> query = null;
+            IQueryable<Spl_ProductCategoryS> list = m_Rep.GetList();
             if (!string.IsNullOrWhiteSpace(queryStr))
             {
-                list = list.Where(a => a.Id == queryStr || a.TypeName == queryStr);
+                list = list.Where(a => a.Id == queryStr || a.Name == queryStr);
             }
-            query = list.OrderBy(c => c.CreateBy).Skip(skip).Take(limit).ToList();
+            query = list.OrderBy(c => c.Name).Skip(skip).Take(limit).ToList();
             return query;
         }
     }

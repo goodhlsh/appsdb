@@ -36,7 +36,7 @@ namespace Apps.WebApi.Areas.Ware.Controllers
                 queryStr = JObject.Parse(opc["where"].ToString())["ID"].ToString();
             }
                 
-            List<Spl_ProductCategoryModel> list = m_BLL.GetPage(queryStr, int.Parse(opc["skip"].ToString()), int.Parse(opc["limit"].ToString()));
+            List<Spl_ProductCategorySModel> list = m_BLL.GetPage(queryStr, int.Parse(opc["skip"].ToString()), int.Parse(opc["limit"].ToString()));
             return Json(list);
         }
     }

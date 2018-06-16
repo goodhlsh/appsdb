@@ -16,6 +16,8 @@ namespace Apps.Models.Sys
 	public class Virtual_SysDictDataModel
 	{
 		
+	public virtual string Id { get; set; }
+		
 	public virtual string DictType_Id { get; set; }
 		
 	public virtual string Name { get; set; }
@@ -33,8 +35,6 @@ namespace Apps.Models.Sys
 	public virtual string Editor { get; set; }
 		
 	public virtual Nullable<System.DateTime> EditTime { get; set; }
-		
-	public virtual string Id { get; set; }
 		
 }
 

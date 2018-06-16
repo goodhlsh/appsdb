@@ -16,13 +16,13 @@ namespace Apps.Models.Spl
 	public class Virtual_Spl_HotwareModel
 	{
 		
+	public virtual string Id { get; set; }
+		
 	public virtual string WareId { get; set; }
 		
 	public virtual Nullable<int> Amount { get; set; }
 		
 	public virtual Nullable<decimal> SumJinE { get; set; }
-		
-	public virtual string Id { get; set; }
 		
 }
 

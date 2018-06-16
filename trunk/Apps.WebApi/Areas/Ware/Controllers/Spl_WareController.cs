@@ -56,28 +56,8 @@ namespace Apps.WebApi.Areas.Ware.Controllers
             model = m_BLL.GetById(JObject.Parse(opc["where"].ToString())["ID"].ToString());
             if (model != null)
             {
-                Spl_WareShowModel ware = new Spl_WareShowModel();
-                ware.Id = model.Id;
-                ware.Name = model.Name;
-                ware.PromotionPrice = model.PromotionPrice;
-                ware.Price = model.Price;
-                ware.Description = model.Description;
-                ware.ProductCategoryId = model.ProductCategoryId;
-                ware.ShowType = model.ShowType;
-                ware.Stock = model.Stock;
-                ware.Thumbnail = model.Thumbnail;
-                ware.Unit = model.Unit;
-                //ware.WareCount = model.WareCount; //购物车辅助字段
-                //ware.WareState = model.WareState; //购物车辅助字段
-                                
-                ware.Picture0 = model.Picture0;
-                ware.Picture1 = model.Picture1;
-                ware.Picture2 = model.Picture2;
-                ware.Picture3 = model.Picture3;
-                ware.Picture4 = model.Picture4;
-                ware.Picture5 = model.Picture5;
-                ware.ToTop = model.ToTop;
-                return Json(ware);
+                
+                return Json(model);
             }
             else
             {
@@ -181,8 +161,8 @@ namespace Apps.WebApi.Areas.Ware.Controllers
                         Id = _WareModel.Id,
                         Name = _WareModel.Name,
                         Price = _WareModel.Price,
-                        WareCount = _WareModel.WareCount,
-                        WareState = _WareModel.WareState,
+                        WareCount = _WareModel.WareCount==null?0: _WareModel.WareCount,
+                        WareState = _WareModel.WareState==null?false: _WareModel.WareState,
                         Thumbnail = _WareModel.Thumbnail
                     });
 

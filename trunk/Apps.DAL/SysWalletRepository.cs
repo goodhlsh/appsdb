@@ -17,7 +17,7 @@ namespace Apps.DAL
                 return from m in Context.SysWallet    
                        
                        where m.UserId == userID
-                       orderby m.UpdateTime descending
+                       orderby m.ShunXu descending
                        select m;
             }
             return null;
