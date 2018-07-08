@@ -23,6 +23,7 @@ namespace Apps.BLL
         public ISysPositionRepository posRep { get; set; }
         [Dependency]
         public ISysJiaPuRepository jpRep { get; set; }
+        public ISysJiaPuBeforeRepository jpbRep { get; set; }
         public List<permModel> GetPermission(string accountid, string controller)
         {
             return sysRightRep.GetPermission(accountid, controller);
@@ -167,12 +168,12 @@ namespace Apps.BLL
             return null;
         }
         //获取指定用户的家谱前信息
-        public SysJiaPuBefore GetSysJiaPuBefore(string tid)
+        public List<SysJiaPuBefore> GetSysJiaPuBefore(string tid)
         {
             var jiapuList = m_Rep.GetSysJiaPuBefore(tid);
             if (jiapuList != null && jiapuList.Count() > 0)
             {
-                return jiapuList.First<SysJiaPuBefore>();
+                return jiapuList.ToList();
             }
             return null;
         }
@@ -612,9 +613,24 @@ namespace Apps.BLL
         {
            return  jpRep.IntoSysJiaPu(userId, tid, pid, erbiao, fJE);
         }
-        public void IntoSysJiaPuBefore(string uid, string tid, decimal fJE)
+        public int IntoSysJiaPuBefore(string uid, string tid, decimal fJE)
         {
-            jpRep.IntoSysJiaPuBefore(uid, tid, fJE);
+           return jpRep.IntoSysJiaPuBefore(uid, tid, fJE);
+        }
+        public List<SysAllChildUser> GetAllChildren(string uid)
+        {
+            IQueryable<P_GetRecursiveChildren_Result> queryData = jpRep.P_GetRecursiveChildren(uid);
+            List<SysAllChildUser> modelList = (from r in queryData
+                                               select new SysAllChildUser
+                                               {
+                                                   userId = r.UserId,
+                                                   trueName = r.TrueName,
+                                                   parentId = r.ParentId,
+                                                   levelName = r.LevelId=="3"?"8800会员": ((r.LevelId=="2"?"1314会员":(r.LevelId=="1"?"398会员":"普通会员"))),
+                                                   levelMan = (int)r.LevelMan  
+                                                   
+                                               }).ToList();
+            return modelList;
         }
     }
 }

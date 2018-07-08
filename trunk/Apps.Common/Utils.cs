@@ -876,7 +876,39 @@ namespace Apps.Common
 
             return result;
         }
+        public static string UploadImg(string UserName,string fn,string rootpath= "~/uploadfile/")
+        {
+            string result = "";
+            HttpFileCollection filelist = HttpContext.Current.Request.Files;
+            if (filelist != null && filelist.Count > 0)
+            {
+                for (int i = 0; i < filelist.Count; i++)
+                {
+                    HttpPostedFile file = filelist[i];
+                    String Tpath = DateTime.Now.ToString("yyyy-MM-dd");
+                    string filename = file.FileName;
+                    string FileName = UserName+fn;
+                    string FilePath = HttpContext.Current.Server.MapPath(rootpath) + Tpath + "\\";
+                    DirectoryInfo di = new DirectoryInfo(FilePath);
+                    if (!di.Exists) { di.Create(); }
+                    try
+                    {
+                        file.SaveAs(FilePath + FileName + filename);
+                        result = (FilePath + FileName + filename).Replace("\\", "/");
+                    }
+                    catch (Exception ex)
+                    {
+                        result = "上传操作有误！";// 上传文件写入失败：" + ex.Message;
+                    }
+                }
+            }
+            else
+            {
+                result = "没有上传的文件";// 上传的文件信息不存在！";
+            }
 
+            return result;
+        }
         #endregion
 
         #region 读取或写入cookie

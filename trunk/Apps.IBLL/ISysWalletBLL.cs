@@ -12,5 +12,6 @@ namespace Apps.IBLL
     {
        SysWalletModel GetWallByUserID(string userID);
        List<P_Sys_GetUserWallet_Result> GetUserWallet();
+       
     }
 }

@@ -35,16 +35,16 @@ namespace Apps.Spl.BLL
             {
                 queryData = m_Rep.GetList(
 				
-				a=>a.WareId.Contains(queryStr)
+				a=>a.Id.Contains(queryStr)
+				
+
+				|| a.WareId.Contains(queryStr)
 				
 
 				
 				
 
 				
-				
-
-				|| a.Id.Contains(queryStr)
 				
 
 				);
@@ -65,13 +65,13 @@ namespace Apps.Spl.BLL
                                               select new Spl_HotwareModel
                                               {
 
+													Id = r.Id,
+
 													WareId = r.WareId,
 
 													Amount = r.Amount,
 
 													SumJinE = r.SumJinE,
-
-													Id = r.Id,
           
                                               }).ToList();
 
@@ -82,7 +82,7 @@ namespace Apps.Spl.BLL
         {
             try
             {
-			    Spl_Hotware entity = m_Rep.GetById(model.WareId);
+			    Spl_Hotware entity = m_Rep.GetById(model.Id);
                 if (entity != null)
                 {
                     errors.Add(Resource.PrimaryRepeat);
@@ -90,13 +90,13 @@ namespace Apps.Spl.BLL
                 }
                 entity = new Spl_Hotware(); 
 
+				entity.Id = model.Id;
+
 				entity.WareId = model.WareId;
 
 				entity.Amount = model.Amount;
 
 				entity.SumJinE = model.SumJinE;
-
-				entity.Id = model.Id;
   
 
                 if (m_Rep.Create(entity))
@@ -177,20 +177,20 @@ namespace Apps.Spl.BLL
         {
             try
             {
-                Spl_Hotware entity = m_Rep.GetById(model.WareId);
+                Spl_Hotware entity = m_Rep.GetById(model.Id);
                 if (entity == null)
                 {
                     errors.Add(Resource.Disable);
                     return false;
                 }
                               
+				entity.Id = model.Id;
+
 				entity.WareId = model.WareId;
 
 				entity.Amount = model.Amount;
 
 				entity.SumJinE = model.SumJinE;
-
-				entity.Id = model.Id;
  
 
 
@@ -222,13 +222,13 @@ namespace Apps.Spl.BLL
                 Spl_Hotware entity = m_Rep.GetById(id);
                 Spl_HotwareModel model = new Spl_HotwareModel();
                               
+				model.Id = entity.Id;
+
 				model.WareId = entity.WareId;
 
 				model.Amount = entity.Amount;
 
 				model.SumJinE = entity.SumJinE;
-
-				model.Id = entity.Id;
  
                 return model;
             }

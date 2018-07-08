@@ -48,8 +48,6 @@ public partial class Spl_WareInfo
 
 
 
-    public virtual Spl_Ware Spl_Ware1 { get; set; }
-
     public virtual Spl_Ware Spl_Ware { get; set; }
 
 }

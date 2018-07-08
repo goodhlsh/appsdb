@@ -16,6 +16,10 @@ namespace Apps.Models.Spl
 	public class Virtual_Spl_Order_WareModel
 	{
 		
+	public virtual string Id { get; set; }
+		
+	public virtual string OrderID { get; set; }
+		
 	public virtual string WaresId { get; set; }
 		
 	public virtual string Name { get; set; }
@@ -23,8 +27,6 @@ namespace Apps.Models.Spl
 	public virtual Nullable<int> Amount { get; set; }
 		
 	public virtual Nullable<decimal> SumJinE { get; set; }
-		
-	public virtual string OrderID { get; set; }
 		
 }
 

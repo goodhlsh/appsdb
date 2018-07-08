@@ -35,7 +35,10 @@ namespace Apps.Spl.BLL
             {
                 queryData = m_Rep.GetList(
 				
-				a=>a.Title.Contains(queryStr)
+				a=>a.Id.Contains(queryStr)
+				
+
+				|| a.Title.Contains(queryStr)
 				
 
 				|| a.Cont.Contains(queryStr)
@@ -59,9 +62,6 @@ namespace Apps.Spl.BLL
 				
 				
 
-				|| a.Id.Contains(queryStr)
-				
-
 				);
             }
             else
@@ -80,6 +80,8 @@ namespace Apps.Spl.BLL
                                               select new Spl_ActivesModel
                                               {
 
+													Id = r.Id,
+
 													Title = r.Title,
 
 													Cont = r.Cont,
@@ -95,8 +97,6 @@ namespace Apps.Spl.BLL
 													CreateTime = r.CreateTime,
 
 													UpdateTime = r.UpdateTime,
-
-													Id = r.Id,
           
                                               }).ToList();
 
@@ -107,13 +107,15 @@ namespace Apps.Spl.BLL
         {
             try
             {
-			    Spl_Actives entity = m_Rep.GetById(model.Title);
+			    Spl_Actives entity = m_Rep.GetById(model.Id);
                 if (entity != null)
                 {
                     errors.Add(Resource.PrimaryRepeat);
                     return false;
                 }
                 entity = new Spl_Actives(); 
+
+				entity.Id = model.Id;
 
 				entity.Title = model.Title;
 
@@ -130,8 +132,6 @@ namespace Apps.Spl.BLL
 				entity.CreateTime = model.CreateTime;
 
 				entity.UpdateTime = model.UpdateTime;
-
-				entity.Id = model.Id;
   
 
                 if (m_Rep.Create(entity))
@@ -212,13 +212,15 @@ namespace Apps.Spl.BLL
         {
             try
             {
-                Spl_Actives entity = m_Rep.GetById(model.Title);
+                Spl_Actives entity = m_Rep.GetById(model.Id);
                 if (entity == null)
                 {
                     errors.Add(Resource.Disable);
                     return false;
                 }
                               
+				entity.Id = model.Id;
+
 				entity.Title = model.Title;
 
 				entity.Cont = model.Cont;
@@ -234,8 +236,6 @@ namespace Apps.Spl.BLL
 				entity.CreateTime = model.CreateTime;
 
 				entity.UpdateTime = model.UpdateTime;
-
-				entity.Id = model.Id;
  
 
 
@@ -267,6 +267,8 @@ namespace Apps.Spl.BLL
                 Spl_Actives entity = m_Rep.GetById(id);
                 Spl_ActivesModel model = new Spl_ActivesModel();
                               
+				model.Id = entity.Id;
+
 				model.Title = entity.Title;
 
 				model.Cont = entity.Cont;
@@ -282,8 +284,6 @@ namespace Apps.Spl.BLL
 				model.CreateTime = entity.CreateTime;
 
 				model.UpdateTime = entity.UpdateTime;
-
-				model.Id = entity.Id;
  
                 return model;
             }

@@ -82,6 +82,7 @@
       <DependentUpon>ICommonBLL.tt</DependentUpon>
     </Compile>
     <Compile Include="ISpl_BrandBLL.cs" />
+    <Compile Include="ISpl_OrdersBLL.cs" />
     <Compile Include="ISpl_PersonBLL.cs" />
     <Compile Include="ISpl_WareBLL.cs" />
     <Compile Include="ISpl_WareInfoBLL.cs" />

@@ -35,7 +35,13 @@ namespace Apps.Spl.BLL
             {
                 queryData = m_Rep.GetList(
 				
-				a=>a.WaresId.Contains(queryStr)
+				a=>a.Id.Contains(queryStr)
+				
+
+				|| a.OrderID.Contains(queryStr)
+				
+
+				|| a.WaresId.Contains(queryStr)
 				
 
 				|| a.Name.Contains(queryStr)
@@ -45,9 +51,6 @@ namespace Apps.Spl.BLL
 				
 
 				
-				
-
-				|| a.OrderID.Contains(queryStr)
 				
 
 				);
@@ -68,6 +71,10 @@ namespace Apps.Spl.BLL
                                               select new Spl_Order_WareModel
                                               {
 
+													Id = r.Id,
+
+													OrderID = r.OrderID,
+
 													WaresId = r.WaresId,
 
 													Name = r.Name,
@@ -75,8 +82,6 @@ namespace Apps.Spl.BLL
 													Amount = r.Amount,
 
 													SumJinE = r.SumJinE,
-
-													OrderID = r.OrderID,
           
                                               }).ToList();
 
@@ -87,13 +92,17 @@ namespace Apps.Spl.BLL
         {
             try
             {
-			    Spl_Order_Ware entity = m_Rep.GetById(model.WaresId);
+			    Spl_Order_Ware entity = m_Rep.GetById(model.Id);
                 if (entity != null)
                 {
                     errors.Add(Resource.PrimaryRepeat);
                     return false;
                 }
                 entity = new Spl_Order_Ware(); 
+
+				entity.Id = model.Id;
+
+				entity.OrderID = model.OrderID;
 
 				entity.WaresId = model.WaresId;
 
@@ -102,8 +111,6 @@ namespace Apps.Spl.BLL
 				entity.Amount = model.Amount;
 
 				entity.SumJinE = model.SumJinE;
-
-				entity.OrderID = model.OrderID;
   
 
                 if (m_Rep.Create(entity))
@@ -184,13 +191,17 @@ namespace Apps.Spl.BLL
         {
             try
             {
-                Spl_Order_Ware entity = m_Rep.GetById(model.WaresId);
+                Spl_Order_Ware entity = m_Rep.GetById(model.Id);
                 if (entity == null)
                 {
                     errors.Add(Resource.Disable);
                     return false;
                 }
                               
+				entity.Id = model.Id;
+
+				entity.OrderID = model.OrderID;
+
 				entity.WaresId = model.WaresId;
 
 				entity.Name = model.Name;
@@ -198,8 +209,6 @@ namespace Apps.Spl.BLL
 				entity.Amount = model.Amount;
 
 				entity.SumJinE = model.SumJinE;
-
-				entity.OrderID = model.OrderID;
  
 
 
@@ -231,6 +240,10 @@ namespace Apps.Spl.BLL
                 Spl_Order_Ware entity = m_Rep.GetById(id);
                 Spl_Order_WareModel model = new Spl_Order_WareModel();
                               
+				model.Id = entity.Id;
+
+				model.OrderID = entity.OrderID;
+
 				model.WaresId = entity.WaresId;
 
 				model.Name = entity.Name;
@@ -238,8 +251,6 @@ namespace Apps.Spl.BLL
 				model.Amount = entity.Amount;
 
 				model.SumJinE = entity.SumJinE;
-
-				model.OrderID = entity.OrderID;
  
                 return model;
             }

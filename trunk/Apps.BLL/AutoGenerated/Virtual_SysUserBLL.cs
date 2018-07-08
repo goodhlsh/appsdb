@@ -219,6 +219,15 @@ namespace Apps.BLL
 				|| a.Recommendor.Contains(queryStr)
 				
 
+				|| a.TuiCode.Contains(queryStr)
+				
+
+				
+				
+
+				
+				
+
 				);
             }
             else
@@ -358,6 +367,12 @@ namespace Apps.BLL
 													LastPasswdTime = r.LastPasswdTime,
 
 													Recommendor = r.Recommendor,
+
+													TuiCode = r.TuiCode,
+
+													TuiCount = r.TuiCount,
+
+													TuiDownloadCount = r.TuiDownloadCount,
           
                                               }).ToList();
 
@@ -497,6 +512,12 @@ namespace Apps.BLL
 				entity.LastPasswdTime = model.LastPasswdTime;
 
 				entity.Recommendor = model.Recommendor;
+
+				entity.TuiCode = model.TuiCode;
+
+				entity.TuiCount = model.TuiCount;
+
+				entity.TuiDownloadCount = model.TuiDownloadCount;
   
 
                 if (m_Rep.Create(entity))
@@ -705,6 +726,12 @@ namespace Apps.BLL
 				entity.LastPasswdTime = model.LastPasswdTime;
 
 				entity.Recommendor = model.Recommendor;
+
+				entity.TuiCode = model.TuiCode;
+
+				entity.TuiCount = model.TuiCount;
+
+				entity.TuiDownloadCount = model.TuiDownloadCount;
  
 
 
@@ -857,6 +884,12 @@ namespace Apps.BLL
 				model.LastPasswdTime = entity.LastPasswdTime;
 
 				model.Recommendor = entity.Recommendor;
+
+				model.TuiCode = entity.TuiCode;
+
+				model.TuiCount = entity.TuiCount;
+
+				model.TuiDownloadCount = entity.TuiDownloadCount;
  
                 return model;
             }

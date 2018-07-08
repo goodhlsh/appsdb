@@ -53,14 +53,14 @@ namespace Apps.WebApi.Controllers
             userInfo.UserName = user.UserName;
             userInfo.TrueName = user.TrueName;
             userInfo.Card = user.Card;
-            userInfo.shfzh = user.IdentityCardFile;
+            //userInfo.shfzh = user.IdentityCardFile;
             userInfo.MobileNumber = user.MobileNumber;
-            userInfo.Token = Token;
-            userInfo.State = user.State;
+            userInfo.Token = "";// Token;
+            //userInfo.State = user.State;
             userInfo.Photo = user.Photo;
             userInfo.QRCode = user.QRCode;
-            userInfo.IsAuth = (user.IsAuth != null) ? user.IsAuth : false;
-            userInfo.Recommendor = user.Recommendor;
+            userInfo.IsAuth = (user.IsAuth != null) ? user.IsAuth : false;            
+            userInfo.RecommendID = user.RecommendID;
             if (isuBLL.GetRefSysJiaPu(user.Id)!=null&&islBll.GetById(isuBLL.GetRefSysJiaPu(user.Id).LevelId.ToString())!=null)
             {
                 userInfo.Jibie = islBll.GetById(isuBLL.GetRefSysJiaPu(user.Id).LevelId.ToString()).Name;

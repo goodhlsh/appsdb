@@ -604,6 +604,9 @@
     <EntitySetMapping Name="SysUser">
       <EntityTypeMapping TypeName="DB.SysUser">
         <MappingFragment StoreEntitySet="SysUser">
+          <ScalarProperty Name="TuiDownloadCount" ColumnName="TuiDownloadCount" />
+          <ScalarProperty Name="TuiCount" ColumnName="TuiCount" />
+          <ScalarProperty Name="TuiCode" ColumnName="TuiCode" />
           <ScalarProperty Name="Recommendor" ColumnName="Recommendor" />
           <ScalarProperty Name="LastPasswdTime" ColumnName="LastPasswdTime" />
           <ScalarProperty Name="CurrentLoginTime" ColumnName="CurrentLoginTime" />
@@ -1201,6 +1204,7 @@
     <EntitySetMapping Name="Spl_Actives">
       <EntityTypeMapping TypeName="DB.Spl_Actives">
         <MappingFragment StoreEntitySet="Spl_Actives">
+          <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
           <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
           <ScalarProperty Name="IsShow" ColumnName="IsShow" />
@@ -1209,36 +1213,41 @@
           <ScalarProperty Name="Fors" ColumnName="Fors" />
           <ScalarProperty Name="Cont" ColumnName="Cont" />
           <ScalarProperty Name="Title" ColumnName="Title" />
-          <ScalarProperty Name="id" ColumnName="id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Spl_Hotware">
       <EntityTypeMapping TypeName="DB.Spl_Hotware">
         <MappingFragment StoreEntitySet="Spl_Hotware">
+          <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="SumJinE" ColumnName="SumJinE" />
           <ScalarProperty Name="Amount" ColumnName="Amount" />
           <ScalarProperty Name="WareId" ColumnName="WareId" />
-          <ScalarProperty Name="id" ColumnName="id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Spl_Orders">
       <EntityTypeMapping TypeName="DB.Spl_Orders">
         <MappingFragment StoreEntitySet="Spl_Orders">
+          <ScalarProperty Name="AddressName" ColumnName="AddressName" />
+          <ScalarProperty Name="TrueName" ColumnName="TrueName" />
+          <ScalarProperty Name="OrderWuliu" ColumnName="OrderWuliu" />
+          <ScalarProperty Name="DingDanKuan" ColumnName="DingDanKuan" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
           <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
           <ScalarProperty Name="AddressId" ColumnName="AddressId" />
           <ScalarProperty Name="Status" ColumnName="Status" />
           <ScalarProperty Name="OrderNo" ColumnName="OrderNo" />
           <ScalarProperty Name="UserId" ColumnName="UserId" />
-          <ScalarProperty Name="id" ColumnName="id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Spl_WareInfo">
       <EntityTypeMapping TypeName="DB.Spl_WareInfo">
         <MappingFragment StoreEntitySet="Spl_WareInfo">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="WareId" ColumnName="WareId" />
           <ScalarProperty Name="Editor" ColumnName="Editor" />
           <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
           <ScalarProperty Name="Creator" ColumnName="Creator" />
@@ -1251,13 +1260,13 @@
           <ScalarProperty Name="Picture2" ColumnName="Picture2" />
           <ScalarProperty Name="Picture1" ColumnName="Picture1" />
           <ScalarProperty Name="Picture0" ColumnName="Picture0" />
-          <ScalarProperty Name="id" ColumnName="id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="SysAddress">
       <EntityTypeMapping TypeName="DB.SysAddress">
         <MappingFragment StoreEntitySet="SysAddress">
+          <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
           <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
           <ScalarProperty Name="IsDefault" ColumnName="IsDefault" />
@@ -1269,13 +1278,13 @@
           <ScalarProperty Name="Mobile" ColumnName="Mobile" />
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="UserId" ColumnName="UserId" />
-          <ScalarProperty Name="id" ColumnName="id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="SysDcitTpe">
       <EntityTypeMapping TypeName="DB.SysDcitTpe">
         <MappingFragment StoreEntitySet="SysDcitTpe">
+          <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Pid" ColumnName="Pid" />
           <ScalarProperty Name="EditTime" ColumnName="EditTime" />
           <ScalarProperty Name="Editor" ColumnName="Editor" />
@@ -1284,13 +1293,13 @@
           <ScalarProperty Name="SortCode" ColumnName="SortCode" />
           <ScalarProperty Name="Remarek" ColumnName="Remarek" />
           <ScalarProperty Name="Name" ColumnName="Name" />
-          <ScalarProperty Name="id" ColumnName="id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="SysDictData">
       <EntityTypeMapping TypeName="DB.SysDictData">
         <MappingFragment StoreEntitySet="SysDictData">
+          <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="EditTime" ColumnName="EditTime" />
           <ScalarProperty Name="Editor" ColumnName="Editor" />
           <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
@@ -1300,37 +1309,37 @@
           <ScalarProperty Name="DicValue" ColumnName="DicValue" />
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="DictType_Id" ColumnName="DictType_Id" />
-          <ScalarProperty Name="id" ColumnName="id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="SysErCi">
       <EntityTypeMapping TypeName="DB.SysErCi">
         <MappingFragment StoreEntitySet="SysErCi">
+          <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Note" ColumnName="Note" />
           <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
           <ScalarProperty Name="JinE" ColumnName="JinE" />
           <ScalarProperty Name="OrderId" ColumnName="OrderId" />
           <ScalarProperty Name="UserId" ColumnName="UserId" />
-          <ScalarProperty Name="id" ColumnName="id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="SysHelps">
       <EntityTypeMapping TypeName="DB.SysHelps">
         <MappingFragment StoreEntitySet="SysHelps">
+          <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
           <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
           <ScalarProperty Name="Category" ColumnName="Category" />
           <ScalarProperty Name="Cont" ColumnName="Cont" />
           <ScalarProperty Name="Title" ColumnName="Title" />
-          <ScalarProperty Name="id" ColumnName="id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="SysJiaPu">
       <EntityTypeMapping TypeName="DB.SysJiaPu">
         <MappingFragment StoreEntitySet="SysJiaPu">
+          <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="TId" ColumnName="TId" />
           <ScalarProperty Name="TopId" ColumnName="TopId" />
           <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
@@ -1355,13 +1364,13 @@
           <ScalarProperty Name="PPId" ColumnName="PPId" />
           <ScalarProperty Name="ParentId" ColumnName="ParentId" />
           <ScalarProperty Name="UserId" ColumnName="UserId" />
-          <ScalarProperty Name="id" ColumnName="id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="SysLevels">
       <EntityTypeMapping TypeName="DB.SysLevels">
         <MappingFragment StoreEntitySet="SysLevels">
+          <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
           <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
           <ScalarProperty Name="Other" ColumnName="Other" />
@@ -1370,13 +1379,13 @@
           <ScalarProperty Name="FirstDiscout" ColumnName="FirstDiscout" />
           <ScalarProperty Name="Code" ColumnName="Code" />
           <ScalarProperty Name="Name" ColumnName="Name" />
-          <ScalarProperty Name="id" ColumnName="id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="SysMessage">
       <EntityTypeMapping TypeName="DB.SysMessage">
         <MappingFragment StoreEntitySet="SysMessage">
+          <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
           <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
           <ScalarProperty Name="ToWho" ColumnName="ToWho" />
@@ -1384,7 +1393,6 @@
           <ScalarProperty Name="Category" ColumnName="Category" />
           <ScalarProperty Name="Cont" ColumnName="Cont" />
           <ScalarProperty Name="Title" ColumnName="Title" />
-          <ScalarProperty Name="id" ColumnName="id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -1407,19 +1415,21 @@
     <EntitySetMapping Name="SysPurchaseHistory">
       <EntityTypeMapping TypeName="DB.SysPurchaseHistory">
         <MappingFragment StoreEntitySet="SysPurchaseHistory">
+          <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="IsShow" ColumnName="IsShow" />
           <ScalarProperty Name="Note" ColumnName="Note" />
           <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
           <ScalarProperty Name="Froms" ColumnName="Froms" />
           <ScalarProperty Name="ShouRu" ColumnName="ShouRu" />
           <ScalarProperty Name="UserId" ColumnName="UserId" />
-          <ScalarProperty Name="id" ColumnName="id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="SysWallet">
       <EntityTypeMapping TypeName="DB.SysWallet">
         <MappingFragment StoreEntitySet="SysWallet">
+          <ScalarProperty Name="ShunXu" ColumnName="ShunXu" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
           <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
           <ScalarProperty Name="Note" ColumnName="Note" />
@@ -1427,13 +1437,13 @@
           <ScalarProperty Name="Froms" ColumnName="Froms" />
           <ScalarProperty Name="Balance" ColumnName="Balance" />
           <ScalarProperty Name="UserId" ColumnName="UserId" />
-          <ScalarProperty Name="id" ColumnName="id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Spl_Order_Ware">
       <EntityTypeMapping TypeName="DB.Spl_Order_Ware">
         <MappingFragment StoreEntitySet="Spl_Order_Ware">
+          <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="OrderID" ColumnName="OrderID" />
           <ScalarProperty Name="SumJinE" ColumnName="SumJinE" />
           <ScalarProperty Name="Amount" ColumnName="Amount" />
@@ -1448,9 +1458,10 @@
     <EntitySetMapping Name="Spl_ProductCategory">
       <EntityTypeMapping TypeName="IsTypeOf(DB.Spl_ProductCategory)">
         <MappingFragment StoreEntitySet="Spl_ProductCategory">
+          <ScalarProperty Name="Note" ColumnName="Note" />
+          <ScalarProperty Name="TypeName" ColumnName="TypeName" />
           <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
           <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
@@ -1458,6 +1469,9 @@
     <EntitySetMapping Name="Spl_Ware">
       <EntityTypeMapping TypeName="IsTypeOf(DB.Spl_Ware)">
         <MappingFragment StoreEntitySet="Spl_Ware">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="PromotionPrice" ColumnName="PromotionPrice" />
+          <ScalarProperty Name="BrandId" ColumnName="BrandId" />
           <ScalarProperty Name="Description" ColumnName="Description" />
           <ScalarProperty Name="Editor" ColumnName="Editor" />
           <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
@@ -1465,29 +1479,26 @@
           <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
           <ScalarProperty Name="WareState" ColumnName="WareState" />
           <ScalarProperty Name="WareCount" ColumnName="WareCount" />
-          <ScalarProperty Name="WareInfoId" ColumnName="WareInfoId" />
           <ScalarProperty Name="ShowType" ColumnName="ShowType" />
           <ScalarProperty Name="Thumbnail" ColumnName="Thumbnail" />
           <ScalarProperty Name="Note" ColumnName="Note" />
           <ScalarProperty Name="Stock" ColumnName="Stock" />
           <ScalarProperty Name="Price" ColumnName="Price" />
-          <ScalarProperty Name="OriginPrice" ColumnName="OriginPrice" />
           <ScalarProperty Name="Unit" ColumnName="Unit" />
           <ScalarProperty Name="ProductCategoryId" ColumnName="ProductCategoryId" />
           <ScalarProperty Name="Name" ColumnName="Name" />
-          <ScalarProperty Name="id" ColumnName="id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="SysJiaPuBefore">
       <EntityTypeMapping TypeName="DB.SysJiaPuBefore">
         <MappingFragment StoreEntitySet="SysJiaPuBefore">
+          <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="createTime" ColumnName="createTime" />
           <ScalarProperty Name="isdone" ColumnName="isdone" />
           <ScalarProperty Name="fje" ColumnName="fje" />
           <ScalarProperty Name="tid" ColumnName="tid" />
           <ScalarProperty Name="uid" ColumnName="uid" />
-          <ScalarProperty Name="id" ColumnName="id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -1495,7 +1506,6 @@
     <FunctionImportMapping FunctionImportName="P_Sys_GetUserWallet" FunctionName="DB.Store.P_Sys_GetUserWallet">
       <ResultMapping>
         <ComplexTypeMapping TypeName="DB.P_Sys_GetUserWallet_Result">
-          <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="UserId" ColumnName="UserId" />
           <ScalarProperty Name="Balance" ColumnName="Balance" />
           <ScalarProperty Name="Froms" ColumnName="Froms" />
@@ -1508,74 +1518,7 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="P_Sys_GetUserByDepId1" FunctionName="DB.Store.P_Sys_GetUserByDepId">
-      <ResultMapping>
-        <ComplexTypeMapping TypeName="DB.P_Sys_GetUserByDepId1_Result">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="UserName" ColumnName="UserName" />
-          <ScalarProperty Name="Password" ColumnName="Password" />
-          <ScalarProperty Name="TrueName" ColumnName="TrueName" />
-          <ScalarProperty Name="Card" ColumnName="Card" />
-          <ScalarProperty Name="MobileNumber" ColumnName="MobileNumber" />
-          <ScalarProperty Name="HomePhone" ColumnName="HomePhone" />
-          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
-          <ScalarProperty Name="QQ" ColumnName="QQ" />
-          <ScalarProperty Name="WXID" ColumnName="WXID" />
-          <ScalarProperty Name="Signature" ColumnName="Signature" />
-          <ScalarProperty Name="QRCode" ColumnName="QRCode" />
-          <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
-          <ScalarProperty Name="OtherContact" ColumnName="OtherContact" />
-          <ScalarProperty Name="Province" ColumnName="Province" />
-          <ScalarProperty Name="City" ColumnName="City" />
-          <ScalarProperty Name="Village" ColumnName="Village" />
-          <ScalarProperty Name="Address" ColumnName="Address" />
-          <ScalarProperty Name="State" ColumnName="State" />
-          <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
-          <ScalarProperty Name="CreatePerson" ColumnName="CreatePerson" />
-          <ScalarProperty Name="Sex" ColumnName="Sex" />
-          <ScalarProperty Name="Birthday" ColumnName="Birthday" />
-          <ScalarProperty Name="JoinDate" ColumnName="JoinDate" />
-          <ScalarProperty Name="Marital" ColumnName="Marital" />
-          <ScalarProperty Name="Political" ColumnName="Political" />
-          <ScalarProperty Name="Nationality" ColumnName="Nationality" />
-          <ScalarProperty Name="Native" ColumnName="Native" />
-          <ScalarProperty Name="School" ColumnName="School" />
-          <ScalarProperty Name="Professional" ColumnName="Professional" />
-          <ScalarProperty Name="Degree" ColumnName="Degree" />
-          <ScalarProperty Name="DepId" ColumnName="DepId" />
-          <ScalarProperty Name="PosId" ColumnName="PosId" />
-          <ScalarProperty Name="Expertise" ColumnName="Expertise" />
-          <ScalarProperty Name="JobState" ColumnName="JobState" />
-          <ScalarProperty Name="Photo" ColumnName="Photo" />
-          <ScalarProperty Name="IdentityCardFile" ColumnName="IdentityCardFile" />
-          <ScalarProperty Name="IdentityCardBackFile" ColumnName="IdentityCardBackFile" />
-          <ScalarProperty Name="Attach" ColumnName="Attach" />
-          <ScalarProperty Name="Lead" ColumnName="Lead" />
-          <ScalarProperty Name="LeadName" ColumnName="LeadName" />
-          <ScalarProperty Name="IsSelLead" ColumnName="IsSelLead" />
-          <ScalarProperty Name="IsReportCalendar" ColumnName="IsReportCalendar" />
-          <ScalarProperty Name="IsSecretary" ColumnName="IsSecretary" />
-          <ScalarProperty Name="IsAuth" ColumnName="IsAuth" />
-          <ScalarProperty Name="AuditStatus" ColumnName="AuditStatus" />
-          <ScalarProperty Name="Note" ColumnName="Note" />
-          <ScalarProperty Name="SortCode" ColumnName="SortCode" />
-          <ScalarProperty Name="RecommendID" ColumnName="RecommendID" />
-          <ScalarProperty Name="Recommendor" ColumnName="Recommendor" />
-          <ScalarProperty Name="RecommendTime" ColumnName="RecommendTime" />
-          <ScalarProperty Name="EditorID" ColumnName="EditorID" />
-          <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
-          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
-          <ScalarProperty Name="Questions" ColumnName="Questions" />
-          <ScalarProperty Name="Answer" ColumnName="Answer" />
-          <ScalarProperty Name="LastLoginIP" ColumnName="LastLoginIP" />
-          <ScalarProperty Name="LastLoginTime" ColumnName="LastLoginTime" />
-          <ScalarProperty Name="CurrentLoginIP" ColumnName="CurrentLoginIP" />
-          <ScalarProperty Name="CurrentLoginTime" ColumnName="CurrentLoginTime" />
-          <ScalarProperty Name="LastPasswdTime" ColumnName="LastPasswdTime" />
-          <ScalarProperty Name="flag" ColumnName="flag" />
-        </ComplexTypeMapping>
-      </ResultMapping>
-    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="P_Sys_GetUserByDepId1" FunctionName="DB.Store.P_Sys_GetUserByDepId" />
     <FunctionImportMapping FunctionImportName="P_Sys_GetUserByDepId" FunctionName="DB.Store.P_Sys_GetUserByDepId">
       <ResultMapping>
         <ComplexTypeMapping TypeName="DB.P_Sys_GetUserByDepId_Result">
@@ -1641,6 +1584,56 @@
           <ScalarProperty Name="CurrentLoginIP" ColumnName="CurrentLoginIP" />
           <ScalarProperty Name="CurrentLoginTime" ColumnName="CurrentLoginTime" />
           <ScalarProperty Name="LastPasswdTime" ColumnName="LastPasswdTime" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="Spl_Brand">
+      <EntityTypeMapping TypeName="DB.Spl_Brand">
+        <MappingFragment StoreEntitySet="Spl_Brand">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Promoted" ColumnName="Promoted" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Spl_ProductCategoryS">
+      <EntityTypeMapping TypeName="DB.Spl_ProductCategoryS">
+        <MappingFragment StoreEntitySet="Spl_ProductCategoryS">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Note" ColumnName="Note" />
+          <ScalarProperty Name="Promoted" ColumnName="Promoted" />
+          <ScalarProperty Name="SupID" ColumnName="SupID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="F_GetChildID" FunctionName="DB.Store.F_GetChildID">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DB.F_GetChildID_Result">
+          <ScalarProperty Name="parentID" ColumnName="parentID" />
+          <ScalarProperty Name="userID" ColumnName="userID" />
+          <ScalarProperty Name="levelId" ColumnName="levelId" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="F_GetRecursiveChildren" FunctionName="DB.Store.F_GetRecursiveChildren">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DB.F_GetRecursiveChildren_Result">
+          <ScalarProperty Name="userId" ColumnName="userId" />
+          <ScalarProperty Name="ParentId" ColumnName="ParentId" />
+          <ScalarProperty Name="LevelId" ColumnName="LevelId" />
+          <ScalarProperty Name="LevelMan" ColumnName="LevelMan" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="P_GetRecursiveChildren" FunctionName="DB.Store.P_GetRecursiveChildren">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DB.P_GetRecursiveChildren_Result">
+          <ScalarProperty Name="TrueName" ColumnName="TrueName" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="ParentId" ColumnName="ParentId" />
+          <ScalarProperty Name="LevelId" ColumnName="LevelId" />
+          <ScalarProperty Name="LevelMan" ColumnName="LevelMan" />
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>

@@ -40,6 +40,14 @@ public partial class Spl_Orders
 
     public Nullable<System.DateTime> UpdateTime { get; set; }
 
+    public Nullable<decimal> DingDanKuan { get; set; }
+
+    public string OrderWuliu { get; set; }
+
+    public string TrueName { get; set; }
+
+    public string AddressName { get; set; }
+
 
 
     public virtual ICollection<Spl_Order_Ware> Spl_Order_Ware { get; set; }

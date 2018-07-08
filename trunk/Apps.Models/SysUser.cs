@@ -172,6 +172,12 @@ public partial class SysUser
 
     public string Recommendor { get; set; }
 
+    public string TuiCode { get; set; }
+
+    public Nullable<int> TuiCount { get; set; }
+
+    public Nullable<int> TuiDownloadCount { get; set; }
+
 
 
     public virtual ICollection<SysUserConfig> SysUserConfig { get; set; }

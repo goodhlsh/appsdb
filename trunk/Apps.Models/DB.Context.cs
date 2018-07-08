@@ -1210,6 +1210,44 @@ public partial class DBContainer : DbContext
         return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("P_Sys_GetUserByDepId1", depIdParameter);
     }
 
+
+    [DbFunction("DBContainer", "F_GetChildID")]
+    public virtual IQueryable<F_GetChildID_Result> F_GetChildID(string parentID)
+    {
+
+        var parentIDParameter = parentID != null ?
+            new ObjectParameter("ParentID", parentID) :
+            new ObjectParameter("ParentID", typeof(string));
+
+
+        return ((IObjectContextAdapter)this).ObjectContext.CreateQuery<F_GetChildID_Result>("[DBContainer].[F_GetChildID](@ParentID)", parentIDParameter);
+    }
+
+
+    [DbFunction("DBContainer", "F_GetRecursiveChildren")]
+    public virtual IQueryable<F_GetRecursiveChildren_Result> F_GetRecursiveChildren(string userId)
+    {
+
+        var userIdParameter = userId != null ?
+            new ObjectParameter("userId", userId) :
+            new ObjectParameter("userId", typeof(string));
+
+
+        return ((IObjectContextAdapter)this).ObjectContext.CreateQuery<F_GetRecursiveChildren_Result>("[DBContainer].[F_GetRecursiveChildren](@userId)", userIdParameter);
+    }
+
+
+    public virtual ObjectResult<P_GetRecursiveChildren_Result> P_GetRecursiveChildren(string userId)
+    {
+
+        var userIdParameter = userId != null ?
+            new ObjectParameter("userId", userId) :
+            new ObjectParameter("userId", typeof(string));
+
+
+        return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<P_GetRecursiveChildren_Result>("P_GetRecursiveChildren", userIdParameter);
+    }
+
 }
 
 }

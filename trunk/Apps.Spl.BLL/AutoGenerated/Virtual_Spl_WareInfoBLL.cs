@@ -35,7 +35,10 @@ namespace Apps.Spl.BLL
             {
                 queryData = m_Rep.GetList(
 				
-				a=>a.Picture0.Contains(queryStr)
+				a=>a.Id.Contains(queryStr)
+				
+
+				|| a.Picture0.Contains(queryStr)
 				
 
 				|| a.Picture1.Contains(queryStr)
@@ -74,9 +77,6 @@ namespace Apps.Spl.BLL
 				|| a.WareId.Contains(queryStr)
 				
 
-				|| a.Id.Contains(queryStr)
-				
-
 				);
             }
             else
@@ -94,6 +94,8 @@ namespace Apps.Spl.BLL
             List<Spl_WareInfoModel> modelList = (from r in queryData
                                               select new Spl_WareInfoModel
                                               {
+
+													Id = r.Id,
 
 													Picture0 = r.Picture0,
 
@@ -120,8 +122,6 @@ namespace Apps.Spl.BLL
 													Editor = r.Editor,
 
 													WareId = r.WareId,
-
-													Id = r.Id,
           
                                               }).ToList();
 
@@ -132,13 +132,15 @@ namespace Apps.Spl.BLL
         {
             try
             {
-			    Spl_WareInfo entity = m_Rep.GetById(model.Picture0);
+			    Spl_WareInfo entity = m_Rep.GetById(model.Id);
                 if (entity != null)
                 {
                     errors.Add(Resource.PrimaryRepeat);
                     return false;
                 }
                 entity = new Spl_WareInfo(); 
+
+				entity.Id = model.Id;
 
 				entity.Picture0 = model.Picture0;
 
@@ -165,8 +167,6 @@ namespace Apps.Spl.BLL
 				entity.Editor = model.Editor;
 
 				entity.WareId = model.WareId;
-
-				entity.Id = model.Id;
   
 
                 if (m_Rep.Create(entity))
@@ -247,13 +247,15 @@ namespace Apps.Spl.BLL
         {
             try
             {
-                Spl_WareInfo entity = m_Rep.GetById(model.Picture0);
+                Spl_WareInfo entity = m_Rep.GetById(model.Id);
                 if (entity == null)
                 {
                     errors.Add(Resource.Disable);
                     return false;
                 }
                               
+				entity.Id = model.Id;
+
 				entity.Picture0 = model.Picture0;
 
 				entity.Picture1 = model.Picture1;
@@ -279,8 +281,6 @@ namespace Apps.Spl.BLL
 				entity.Editor = model.Editor;
 
 				entity.WareId = model.WareId;
-
-				entity.Id = model.Id;
  
 
 
@@ -312,6 +312,8 @@ namespace Apps.Spl.BLL
                 Spl_WareInfo entity = m_Rep.GetById(id);
                 Spl_WareInfoModel model = new Spl_WareInfoModel();
                               
+				model.Id = entity.Id;
+
 				model.Picture0 = entity.Picture0;
 
 				model.Picture1 = entity.Picture1;
@@ -337,8 +339,6 @@ namespace Apps.Spl.BLL
 				model.Editor = entity.Editor;
 
 				model.WareId = entity.WareId;
-
-				model.Id = entity.Id;
  
                 return model;
             }

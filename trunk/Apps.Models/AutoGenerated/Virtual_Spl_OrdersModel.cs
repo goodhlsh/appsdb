@@ -30,6 +30,14 @@ namespace Apps.Models.Spl
 		
 	public virtual Nullable<System.DateTime> UpdateTime { get; set; }
 		
+	public virtual Nullable<decimal> DingDanKuan { get; set; }
+		
+	public virtual string OrderWuliu { get; set; }
+		
+	public virtual string TrueName { get; set; }
+		
+	public virtual string AddressName { get; set; }
+		
 }
 
 }

@@ -18,6 +18,10 @@ using System;
 public partial class Spl_Order_Ware
 {
 
+    public string Id { get; set; }
+
+    public string OrderID { get; set; }
+
     public string WaresId { get; set; }
 
     public string Name { get; set; }
@@ -25,8 +29,6 @@ public partial class Spl_Order_Ware
     public Nullable<int> Amount { get; set; }
 
     public Nullable<decimal> SumJinE { get; set; }
-
-    public string OrderID { get; set; }
 
 
 

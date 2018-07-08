@@ -35,7 +35,10 @@ namespace Apps.Spl.BLL
             {
                 queryData = m_Rep.GetList(
 				
-				a=>a.Name.Contains(queryStr)
+				a=>a.Id.Contains(queryStr)
+				
+
+				|| a.Name.Contains(queryStr)
 				
 
 				|| a.ProductCategoryId.Contains(queryStr)
@@ -86,9 +89,6 @@ namespace Apps.Spl.BLL
 				
 				
 
-				|| a.Id.Contains(queryStr)
-				
-
 				);
             }
             else
@@ -106,6 +106,8 @@ namespace Apps.Spl.BLL
             List<Spl_WareModel> modelList = (from r in queryData
                                               select new Spl_WareModel
                                               {
+
+													Id = r.Id,
 
 													Name = r.Name,
 
@@ -140,8 +142,6 @@ namespace Apps.Spl.BLL
 													BrandId = r.BrandId,
 
 													PromotionPrice = r.PromotionPrice,
-
-													Id = r.Id,
           
                                               }).ToList();
 
@@ -152,13 +152,15 @@ namespace Apps.Spl.BLL
         {
             try
             {
-			    Spl_Ware entity = m_Rep.GetById(model.Name);
+			    Spl_Ware entity = m_Rep.GetById(model.Id);
                 if (entity != null)
                 {
                     errors.Add(Resource.PrimaryRepeat);
                     return false;
                 }
                 entity = new Spl_Ware(); 
+
+				entity.Id = model.Id;
 
 				entity.Name = model.Name;
 
@@ -193,8 +195,6 @@ namespace Apps.Spl.BLL
 				entity.BrandId = model.BrandId;
 
 				entity.PromotionPrice = model.PromotionPrice;
-
-				entity.Id = model.Id;
   
 
                 if (m_Rep.Create(entity))
@@ -275,13 +275,15 @@ namespace Apps.Spl.BLL
         {
             try
             {
-                Spl_Ware entity = m_Rep.GetById(model.Name);
+                Spl_Ware entity = m_Rep.GetById(model.Id);
                 if (entity == null)
                 {
                     errors.Add(Resource.Disable);
                     return false;
                 }
                               
+				entity.Id = model.Id;
+
 				entity.Name = model.Name;
 
 				entity.ProductCategoryId = model.ProductCategoryId;
@@ -315,8 +317,6 @@ namespace Apps.Spl.BLL
 				entity.BrandId = model.BrandId;
 
 				entity.PromotionPrice = model.PromotionPrice;
-
-				entity.Id = model.Id;
  
 
 
@@ -348,6 +348,8 @@ namespace Apps.Spl.BLL
                 Spl_Ware entity = m_Rep.GetById(id);
                 Spl_WareModel model = new Spl_WareModel();
                               
+				model.Id = entity.Id;
+
 				model.Name = entity.Name;
 
 				model.ProductCategoryId = entity.ProductCategoryId;
@@ -381,8 +383,6 @@ namespace Apps.Spl.BLL
 				model.BrandId = entity.BrandId;
 
 				model.PromotionPrice = entity.PromotionPrice;
-
-				model.Id = entity.Id;
  
                 return model;
             }

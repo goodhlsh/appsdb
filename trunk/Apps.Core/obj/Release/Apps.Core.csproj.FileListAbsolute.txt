@@ -140,7 +140,6 @@ C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Core\bin\Release\Apps.Loca
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Core\bin\Release\EntityFramework.dll
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Core\bin\Release\LinqToExcel.dll
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Core\bin\Release\Remotion.Data.Linq.dll
-C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Core\bin\Release\Microsoft.Web.Infrastructure.dll
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Core\bin\Release\System.Web.WebPages.Deployment.dll
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Core\bin\Release\Apps.BLL.pdb
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Core\bin\Release\Apps.BLL.dll.config
@@ -198,7 +197,6 @@ C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Core\bin\Release\System.We
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Core\bin\Release\Apps.Locale.pdb
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Core\bin\Release\EntityFramework.xml
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Core\bin\Release\LinqToExcel.xml
-C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Core\bin\Release\Microsoft.Web.Infrastructure.xml
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Core\bin\Release\System.Web.WebPages.Deployment.xml
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Core\bin\Release\zh-Hans\System.Net.Http.Formatting.resources.dll
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Core\bin\Release\zh-Hans\System.Web.Http.resources.dll

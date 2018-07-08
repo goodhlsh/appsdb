@@ -505,6 +505,7 @@
     <Property Name="AddressId" Type="varchar" MaxLength="50" />
     <Property Name="CreateTime" Type="datetime" />
     <Property Name="UpdateTime" Type="datetime" />
+    <Property Name="DingDanKuan" Type="money" />
   </EntityType>
   <EntityType Name="Spl_Person">
     <Key>

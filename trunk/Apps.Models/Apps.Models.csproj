@@ -571,6 +571,12 @@
     <Compile Include="Flow_Type.cs">
       <DependentUpon>DB.tt</DependentUpon>
     </Compile>
+    <Compile Include="F_GetChildID_Result.cs">
+      <DependentUpon>DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="F_GetRecursiveChildren_Result.cs">
+      <DependentUpon>DB.tt</DependentUpon>
+    </Compile>
     <Compile Include="JOB_TASKJOBS.cs">
       <DependentUpon>DB.tt</DependentUpon>
     </Compile>
@@ -608,6 +614,9 @@
       <DependentUpon>DB.tt</DependentUpon>
     </Compile>
     <Compile Include="P_DEF_REP_DefectReport_Result.cs">
+      <DependentUpon>DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="P_GetRecursiveChildren_Result.cs">
       <DependentUpon>DB.tt</DependentUpon>
     </Compile>
     <Compile Include="P_JOB_GetUnTrackTask_Result.cs">
@@ -662,6 +671,7 @@
       <DependentUpon>DB.tt</DependentUpon>
     </Compile>
     <Compile Include="Spl\BrandTypeModel.cs" />
+    <Compile Include="Spl\Spl_OrdersModel.cs" />
     <Compile Include="Spl\Spl_ProductCategoryModel.cs" />
     <Compile Include="Spl\Spl_WareModel.cs" />
     <Compile Include="Spl_Actives.cs">
@@ -778,6 +788,7 @@
     <Compile Include="SysWallet.cs">
       <DependentUpon>DB.tt</DependentUpon>
     </Compile>
+    <Compile Include="Sys\SysAddressModel.cs" />
     <Compile Include="Sys\SysJiaPuModel.cs" />
     <Compile Include="Sys\SysPurchaseHistoryModel.cs" />
     <Compile Include="Sys\SysWalletModel.cs" />

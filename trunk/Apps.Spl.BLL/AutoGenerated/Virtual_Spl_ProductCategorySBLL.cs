@@ -35,7 +35,10 @@ namespace Apps.Spl.BLL
             {
                 queryData = m_Rep.GetList(
 				
-				a=>a.Name.Contains(queryStr)
+				a=>a.Id.Contains(queryStr)
+				
+
+				|| a.Name.Contains(queryStr)
 				
 
 				|| a.SupID.Contains(queryStr)
@@ -45,9 +48,6 @@ namespace Apps.Spl.BLL
 				
 
 				|| a.Note.Contains(queryStr)
-				
-
-				|| a.Id.Contains(queryStr)
 				
 
 				);
@@ -68,6 +68,8 @@ namespace Apps.Spl.BLL
                                               select new Spl_ProductCategorySModel
                                               {
 
+													Id = r.Id,
+
 													Name = r.Name,
 
 													SupID = r.SupID,
@@ -75,8 +77,6 @@ namespace Apps.Spl.BLL
 													Promoted = r.Promoted,
 
 													Note = r.Note,
-
-													Id = r.Id,
           
                                               }).ToList();
 
@@ -87,13 +87,15 @@ namespace Apps.Spl.BLL
         {
             try
             {
-			    Spl_ProductCategoryS entity = m_Rep.GetById(model.Name);
+			    Spl_ProductCategoryS entity = m_Rep.GetById(model.Id);
                 if (entity != null)
                 {
                     errors.Add(Resource.PrimaryRepeat);
                     return false;
                 }
                 entity = new Spl_ProductCategoryS(); 
+
+				entity.Id = model.Id;
 
 				entity.Name = model.Name;
 
@@ -102,8 +104,6 @@ namespace Apps.Spl.BLL
 				entity.Promoted = model.Promoted;
 
 				entity.Note = model.Note;
-
-				entity.Id = model.Id;
   
 
                 if (m_Rep.Create(entity))
@@ -184,13 +184,15 @@ namespace Apps.Spl.BLL
         {
             try
             {
-                Spl_ProductCategoryS entity = m_Rep.GetById(model.Name);
+                Spl_ProductCategoryS entity = m_Rep.GetById(model.Id);
                 if (entity == null)
                 {
                     errors.Add(Resource.Disable);
                     return false;
                 }
                               
+				entity.Id = model.Id;
+
 				entity.Name = model.Name;
 
 				entity.SupID = model.SupID;
@@ -198,8 +200,6 @@ namespace Apps.Spl.BLL
 				entity.Promoted = model.Promoted;
 
 				entity.Note = model.Note;
-
-				entity.Id = model.Id;
  
 
 
@@ -231,6 +231,8 @@ namespace Apps.Spl.BLL
                 Spl_ProductCategoryS entity = m_Rep.GetById(id);
                 Spl_ProductCategorySModel model = new Spl_ProductCategorySModel();
                               
+				model.Id = entity.Id;
+
 				model.Name = entity.Name;
 
 				model.SupID = entity.SupID;
@@ -238,8 +240,6 @@ namespace Apps.Spl.BLL
 				model.Promoted = entity.Promoted;
 
 				model.Note = entity.Note;
-
-				model.Id = entity.Id;
  
                 return model;
             }

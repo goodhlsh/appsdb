@@ -30,8 +30,6 @@ public partial class Spl_Hotware
 
     public virtual Spl_Ware Spl_Ware { get; set; }
 
-    public virtual Spl_Ware Spl_Ware1 { get; set; }
-
 }
 
 }

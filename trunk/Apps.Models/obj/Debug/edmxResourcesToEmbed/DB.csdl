@@ -2381,6 +2381,7 @@
     <Property Name="UpdateTime" Type="DateTime" Precision="3" />
     <NavigationProperty Name="Spl_Order_Ware" Relationship="DB.FK_Spl_Order_Ware_Spl_Orders" FromRole="Spl_Orders" ToRole="Spl_Order_Ware" />
     <NavigationProperty Name="SysUser" Relationship="DB.FK_Spl_Orders_SysUser" FromRole="Spl_Orders" ToRole="SysUser" />
+    <Property Name="DingDanKuan" Type="Decimal" Precision="19" Scale="4" />
   </EntityType>
   <EntityType Name="Spl_Ware">
     <Key>

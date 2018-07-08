@@ -42,14 +42,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Apps.Common.dll" size="70656">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Apps.Common.dll" size="71168">
       <assemblyIdentity name="Apps.Common" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>r/EzGxo9Y3MWOsSZNJn3FtULVigIuwa1wQCx10lkEt0=</dsig:DigestValue>
+        <dsig:DigestValue>VT4gE1O9cQbNxDNCRpC+KIJgSRrmwb1AAGLJgC6jHks=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -61,7 +61,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>UZRA4hZD2UnyeH+XtTJRF+xQeOVPHxLDY5pmLcdmEvM=</dsig:DigestValue>
+        <dsig:DigestValue>Pk5zxiu6XrAPprE9sNRWzrxC4N91KckJvh7wVXkqn0c=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

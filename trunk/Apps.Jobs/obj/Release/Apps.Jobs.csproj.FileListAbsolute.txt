@@ -100,7 +100,6 @@ C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Jobs\bin\Release\Newtonsof
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Jobs\bin\Release\System.Web.Mvc.dll
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Jobs\bin\Release\System.Web.WebPages.dll
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Jobs\bin\Release\Microsoft.Practices.ServiceLocation.dll
-C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Jobs\bin\Release\Microsoft.Web.Infrastructure.dll
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Jobs\bin\Release\System.Web.WebPages.Deployment.dll
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Jobs\bin\Release\Apps.BLL.pdb
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Jobs\bin\Release\Apps.BLL.dll.config
@@ -141,7 +140,6 @@ C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Jobs\bin\Release\System.We
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Jobs\bin\Release\System.Web.WebPages.xml
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Jobs\bin\Release\Microsoft.Practices.ServiceLocation.pdb
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Jobs\bin\Release\Microsoft.Practices.ServiceLocation.xml
-C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Jobs\bin\Release\Microsoft.Web.Infrastructure.xml
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Jobs\bin\Release\System.Web.WebPages.Deployment.xml
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Jobs\bin\Release\en-US\Apps.Locale.resources.dll
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Jobs\bin\Release\zh-Hans\System.Web.Mvc.resources.dll

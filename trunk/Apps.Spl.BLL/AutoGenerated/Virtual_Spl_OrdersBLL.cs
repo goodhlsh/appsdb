@@ -35,7 +35,10 @@ namespace Apps.Spl.BLL
             {
                 queryData = m_Rep.GetList(
 				
-				a=>a.UserId.Contains(queryStr)
+				a=>a.Id.Contains(queryStr)
+				
+
+				|| a.UserId.Contains(queryStr)
 				
 
 				|| a.OrderNo.Contains(queryStr)
@@ -53,7 +56,16 @@ namespace Apps.Spl.BLL
 				
 				
 
-				|| a.Id.Contains(queryStr)
+				
+				
+
+				|| a.OrderWuliu.Contains(queryStr)
+				
+
+				|| a.TrueName.Contains(queryStr)
+				
+
+				|| a.AddressName.Contains(queryStr)
 				
 
 				);
@@ -74,6 +86,8 @@ namespace Apps.Spl.BLL
                                               select new Spl_OrdersModel
                                               {
 
+													Id = r.Id,
+
 													UserId = r.UserId,
 
 													OrderNo = r.OrderNo,
@@ -86,7 +100,13 @@ namespace Apps.Spl.BLL
 
 													UpdateTime = r.UpdateTime,
 
-													Id = r.Id,
+													DingDanKuan = r.DingDanKuan,
+
+													OrderWuliu = r.OrderWuliu,
+
+													TrueName = r.TrueName,
+
+													AddressName = r.AddressName,
           
                                               }).ToList();
 
@@ -97,13 +117,15 @@ namespace Apps.Spl.BLL
         {
             try
             {
-			    Spl_Orders entity = m_Rep.GetById(model.UserId);
+			    Spl_Orders entity = m_Rep.GetById(model.Id);
                 if (entity != null)
                 {
                     errors.Add(Resource.PrimaryRepeat);
                     return false;
                 }
                 entity = new Spl_Orders(); 
+
+				entity.Id = model.Id;
 
 				entity.UserId = model.UserId;
 
@@ -117,7 +139,13 @@ namespace Apps.Spl.BLL
 
 				entity.UpdateTime = model.UpdateTime;
 
-				entity.Id = model.Id;
+				entity.DingDanKuan = model.DingDanKuan;
+
+				entity.OrderWuliu = model.OrderWuliu;
+
+				entity.TrueName = model.TrueName;
+
+				entity.AddressName = model.AddressName;
   
 
                 if (m_Rep.Create(entity))
@@ -198,13 +226,15 @@ namespace Apps.Spl.BLL
         {
             try
             {
-                Spl_Orders entity = m_Rep.GetById(model.UserId);
+                Spl_Orders entity = m_Rep.GetById(model.Id);
                 if (entity == null)
                 {
                     errors.Add(Resource.Disable);
                     return false;
                 }
                               
+				entity.Id = model.Id;
+
 				entity.UserId = model.UserId;
 
 				entity.OrderNo = model.OrderNo;
@@ -217,7 +247,13 @@ namespace Apps.Spl.BLL
 
 				entity.UpdateTime = model.UpdateTime;
 
-				entity.Id = model.Id;
+				entity.DingDanKuan = model.DingDanKuan;
+
+				entity.OrderWuliu = model.OrderWuliu;
+
+				entity.TrueName = model.TrueName;
+
+				entity.AddressName = model.AddressName;
  
 
 
@@ -249,6 +285,8 @@ namespace Apps.Spl.BLL
                 Spl_Orders entity = m_Rep.GetById(id);
                 Spl_OrdersModel model = new Spl_OrdersModel();
                               
+				model.Id = entity.Id;
+
 				model.UserId = entity.UserId;
 
 				model.OrderNo = entity.OrderNo;
@@ -261,7 +299,13 @@ namespace Apps.Spl.BLL
 
 				model.UpdateTime = entity.UpdateTime;
 
-				model.Id = entity.Id;
+				model.DingDanKuan = entity.DingDanKuan;
+
+				model.OrderWuliu = entity.OrderWuliu;
+
+				model.TrueName = entity.TrueName;
+
+				model.AddressName = entity.AddressName;
  
                 return model;
             }

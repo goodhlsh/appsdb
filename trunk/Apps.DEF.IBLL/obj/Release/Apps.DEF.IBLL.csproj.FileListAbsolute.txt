@@ -43,7 +43,6 @@ C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.DEF.IBLL\bin\Release\Apps.
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.DEF.IBLL\bin\Release\EntityFramework.dll
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.DEF.IBLL\bin\Release\System.Web.WebPages.dll
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.DEF.IBLL\bin\Release\Apps.Locale.dll
-C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.DEF.IBLL\bin\Release\Microsoft.Web.Infrastructure.dll
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.DEF.IBLL\bin\Release\System.Web.WebPages.Deployment.dll
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.DEF.IBLL\bin\Release\Apps.Common.pdb
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.DEF.IBLL\bin\Release\Apps.DEF.IDAL.pdb
@@ -58,7 +57,6 @@ C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.DEF.IBLL\bin\Release\Apps.
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.DEF.IBLL\bin\Release\EntityFramework.xml
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.DEF.IBLL\bin\Release\System.Web.WebPages.xml
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.DEF.IBLL\bin\Release\Apps.Locale.pdb
-C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.DEF.IBLL\bin\Release\Microsoft.Web.Infrastructure.xml
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.DEF.IBLL\bin\Release\System.Web.WebPages.Deployment.xml
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.DEF.IBLL\bin\Release\zh-Hans\System.Web.Mvc.resources.dll
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.DEF.IBLL\bin\Release\zh-Hans\System.Web.WebPages.resources.dll

@@ -22,14 +22,21 @@ namespace Apps.Models.Sys
         public string Photo { get; set; }
         public string QRCode { get; set; }
         public Nullable<bool> IsAuth { get; set; }
-        public string Recommendor { get; set; }
+        public string RecommendID { get; set; }
         public string Jibie { get; set; }
     }
+    public class SysUserChangePwd
+    {
+        public string UserId { get; set; }
+        public string OldPassword { get; set; }
+        public string NewPassword { get; set; }
 
+    }
     public class SysUserLogingData
     {
         public string UserName { get; set; }
         public string Password { get; set; }
+
     }
     public partial class SysUserModel
     {
@@ -271,7 +278,7 @@ namespace Apps.Models.Sys
         public  string Expertise { get; set; }
         [Display(Name = "是否在职")]
         public  bool JobState { get; set; }
-        [Display(Name = "照片")]
+        [Display(Name = "头像")]
         public  string Photo { get; set; }
         [Display(Name = "附件")]
         public  string Attach { get; set; }
@@ -368,5 +375,23 @@ namespace Apps.Models.Sys
         public int? Sort { get; set; }
         //职位名字
         public string PosName { get; set; }
+    }
+    public class SysUserForJiaPu
+    {
+        public string uid { get; set;}
+        public string tid { get; set; }
+        public string truename { get; set; }
+        public string username { get; set; }
+        public decimal fje { get; set; }
+        public string isdone { get; set; }
+    }
+    public class SysAllChildUser
+    {
+        public string userId { get; set; }
+        public string parentId { get; set; }
+        public string trueName { get; set; }
+        public string levelName { get; set; }
+        public int levelMan { get; set; }
+        public int levelMax { get; set; }
     }
 }

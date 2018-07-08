@@ -6,7 +6,7 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
-    <_PublishTargetUrl>C:\WebSite</_PublishTargetUrl>
+    <_PublishTargetUrl>D:\website2</_PublishTargetUrl>
   </PropertyGroup>
   <ItemGroup>
     <File Include="Areas/Def/Views/CaseType/Create.cshtml">
@@ -394,238 +394,238 @@
       <publishTime>05/22/2018 12:29:01</publishTime>
     </File>
     <File Include="bin/Apps.BLL.dll">
-      <publishTime>06/05/2018 18:55:18</publishTime>
+      <publishTime>06/22/2018 12:35:47</publishTime>
     </File>
     <File Include="bin/Apps.BLL.dll.config">
       <publishTime>05/22/2018 12:29:01</publishTime>
     </File>
     <File Include="bin/Apps.BLL.pdb">
-      <publishTime>06/05/2018 18:55:18</publishTime>
+      <publishTime>06/22/2018 12:35:47</publishTime>
     </File>
     <File Include="bin/Apps.Common.dll">
-      <publishTime>06/05/2018 18:55:13</publishTime>
+      <publishTime>06/22/2018 12:35:43</publishTime>
     </File>
     <File Include="bin/Apps.Common.pdb">
-      <publishTime>06/05/2018 18:55:13</publishTime>
+      <publishTime>06/22/2018 12:35:43</publishTime>
     </File>
     <File Include="bin/Apps.Core.dll">
-      <publishTime>06/05/2018 18:55:22</publishTime>
+      <publishTime>06/22/2018 12:35:50</publishTime>
     </File>
     <File Include="bin/Apps.Core.dll.config">
-      <publishTime>05/22/2018 12:29:01</publishTime>
+      <publishTime>06/14/2018 20:32:45</publishTime>
     </File>
     <File Include="bin/Apps.Core.pdb">
-      <publishTime>06/05/2018 18:55:22</publishTime>
+      <publishTime>06/22/2018 12:35:50</publishTime>
     </File>
     <File Include="bin/Apps.DAL.dll">
-      <publishTime>06/05/2018 18:55:17</publishTime>
+      <publishTime>06/22/2018 12:35:46</publishTime>
     </File>
     <File Include="bin/Apps.DAL.dll.config">
       <publishTime>05/22/2018 12:29:01</publishTime>
     </File>
     <File Include="bin/Apps.DAL.pdb">
-      <publishTime>06/05/2018 18:55:17</publishTime>
+      <publishTime>06/22/2018 12:35:46</publishTime>
     </File>
     <File Include="bin/Apps.DEF.BLL.dll">
-      <publishTime>06/05/2018 18:55:20</publishTime>
+      <publishTime>06/22/2018 12:35:50</publishTime>
     </File>
     <File Include="bin/Apps.DEF.BLL.dll.config">
       <publishTime>05/22/2018 12:29:01</publishTime>
     </File>
     <File Include="bin/Apps.DEF.BLL.pdb">
-      <publishTime>06/05/2018 18:55:20</publishTime>
+      <publishTime>06/22/2018 12:35:50</publishTime>
     </File>
     <File Include="bin/Apps.DEF.DAL.dll">
-      <publishTime>06/05/2018 18:55:19</publishTime>
+      <publishTime>06/22/2018 12:35:48</publishTime>
     </File>
     <File Include="bin/Apps.DEF.DAL.dll.config">
       <publishTime>05/22/2018 12:29:01</publishTime>
     </File>
     <File Include="bin/Apps.DEF.DAL.pdb">
-      <publishTime>06/05/2018 18:55:19</publishTime>
+      <publishTime>06/22/2018 12:35:48</publishTime>
     </File>
     <File Include="bin/Apps.DEF.IBLL.dll">
-      <publishTime>06/05/2018 18:55:18</publishTime>
+      <publishTime>06/22/2018 12:35:47</publishTime>
     </File>
     <File Include="bin/Apps.DEF.IBLL.pdb">
-      <publishTime>06/05/2018 18:55:18</publishTime>
+      <publishTime>06/22/2018 12:35:47</publishTime>
     </File>
     <File Include="bin/Apps.DEF.IDAL.dll">
-      <publishTime>06/05/2018 18:55:17</publishTime>
+      <publishTime>06/22/2018 12:35:47</publishTime>
     </File>
     <File Include="bin/Apps.DEF.IDAL.dll.config">
       <publishTime>05/22/2018 12:29:01</publishTime>
     </File>
     <File Include="bin/Apps.DEF.IDAL.pdb">
-      <publishTime>06/05/2018 18:55:17</publishTime>
+      <publishTime>06/22/2018 12:35:47</publishTime>
     </File>
     <File Include="bin/Apps.Flow.BLL.dll">
-      <publishTime>06/05/2018 18:55:20</publishTime>
+      <publishTime>06/22/2018 12:35:49</publishTime>
     </File>
     <File Include="bin/Apps.Flow.BLL.dll.config">
       <publishTime>05/22/2018 12:29:01</publishTime>
     </File>
     <File Include="bin/Apps.Flow.BLL.pdb">
-      <publishTime>06/05/2018 18:55:20</publishTime>
+      <publishTime>06/22/2018 12:35:49</publishTime>
     </File>
     <File Include="bin/Apps.Flow.DAL.dll">
-      <publishTime>06/05/2018 18:55:20</publishTime>
+      <publishTime>06/22/2018 12:35:48</publishTime>
     </File>
     <File Include="bin/Apps.Flow.DAL.dll.config">
       <publishTime>05/22/2018 12:29:01</publishTime>
     </File>
     <File Include="bin/Apps.Flow.DAL.pdb">
-      <publishTime>06/05/2018 18:55:20</publishTime>
+      <publishTime>06/22/2018 12:35:48</publishTime>
     </File>
     <File Include="bin/Apps.Flow.IBLL.dll">
-      <publishTime>06/05/2018 18:55:16</publishTime>
+      <publishTime>06/22/2018 12:35:47</publishTime>
     </File>
     <File Include="bin/Apps.Flow.IBLL.pdb">
-      <publishTime>06/05/2018 18:55:16</publishTime>
+      <publishTime>06/22/2018 12:35:47</publishTime>
     </File>
     <File Include="bin/Apps.Flow.IDAL.dll">
-      <publishTime>06/05/2018 18:55:17</publishTime>
+      <publishTime>06/22/2018 12:35:47</publishTime>
     </File>
     <File Include="bin/Apps.Flow.IDAL.dll.config">
       <publishTime>05/22/2018 12:29:01</publishTime>
     </File>
     <File Include="bin/Apps.Flow.IDAL.pdb">
-      <publishTime>06/05/2018 18:55:17</publishTime>
+      <publishTime>06/22/2018 12:35:47</publishTime>
     </File>
     <File Include="bin/Apps.IBLL.dll">
-      <publishTime>06/05/2018 18:55:15</publishTime>
+      <publishTime>06/22/2018 12:35:46</publishTime>
     </File>
     <File Include="bin/Apps.IBLL.pdb">
-      <publishTime>06/05/2018 18:55:15</publishTime>
+      <publishTime>06/22/2018 12:35:46</publishTime>
     </File>
     <File Include="bin/Apps.IDAL.dll">
-      <publishTime>06/05/2018 18:55:16</publishTime>
+      <publishTime>06/22/2018 12:35:45</publishTime>
     </File>
     <File Include="bin/Apps.IDAL.dll.config">
       <publishTime>05/22/2018 12:29:01</publishTime>
     </File>
     <File Include="bin/Apps.IDAL.pdb">
-      <publishTime>06/05/2018 18:55:16</publishTime>
+      <publishTime>06/22/2018 12:35:45</publishTime>
     </File>
     <File Include="bin/Apps.Jobs.dll">
-      <publishTime>06/05/2018 18:55:21</publishTime>
+      <publishTime>06/23/2018 11:22:07</publishTime>
     </File>
     <File Include="bin/Apps.Jobs.dll.config">
       <publishTime>05/22/2018 12:29:01</publishTime>
     </File>
     <File Include="bin/Apps.Jobs.pdb">
-      <publishTime>06/05/2018 18:55:21</publishTime>
+      <publishTime>06/23/2018 11:22:08</publishTime>
     </File>
     <File Include="bin/Apps.Locale.dll">
-      <publishTime>06/05/2018 18:55:13</publishTime>
+      <publishTime>06/18/2018 10:30:30</publishTime>
     </File>
     <File Include="bin/Apps.Locale.pdb">
-      <publishTime>06/05/2018 18:55:13</publishTime>
+      <publishTime>06/18/2018 10:30:30</publishTime>
     </File>
     <File Include="bin/Apps.MIS.BLL.dll">
-      <publishTime>06/05/2018 18:55:19</publishTime>
+      <publishTime>06/22/2018 12:35:49</publishTime>
     </File>
     <File Include="bin/Apps.MIS.BLL.dll.config">
       <publishTime>05/22/2018 12:29:01</publishTime>
     </File>
     <File Include="bin/Apps.MIS.BLL.pdb">
-      <publishTime>06/05/2018 18:55:19</publishTime>
+      <publishTime>06/22/2018 12:35:49</publishTime>
     </File>
     <File Include="bin/Apps.MIS.DAL.dll">
-      <publishTime>06/05/2018 18:55:17</publishTime>
+      <publishTime>06/22/2018 12:35:47</publishTime>
     </File>
     <File Include="bin/Apps.MIS.DAL.dll.config">
       <publishTime>05/22/2018 12:29:01</publishTime>
     </File>
     <File Include="bin/Apps.MIS.DAL.pdb">
-      <publishTime>06/05/2018 18:55:17</publishTime>
+      <publishTime>06/22/2018 12:35:47</publishTime>
     </File>
     <File Include="bin/Apps.MIS.IBLL.dll">
-      <publishTime>06/05/2018 18:55:18</publishTime>
+      <publishTime>06/22/2018 12:35:48</publishTime>
     </File>
     <File Include="bin/Apps.MIS.IBLL.pdb">
-      <publishTime>06/05/2018 18:55:18</publishTime>
+      <publishTime>06/22/2018 12:35:48</publishTime>
     </File>
     <File Include="bin/Apps.MIS.IDAL.dll">
-      <publishTime>06/05/2018 18:55:16</publishTime>
+      <publishTime>06/22/2018 12:35:47</publishTime>
     </File>
     <File Include="bin/Apps.MIS.IDAL.dll.config">
       <publishTime>05/22/2018 12:29:01</publishTime>
     </File>
     <File Include="bin/Apps.MIS.IDAL.pdb">
-      <publishTime>06/05/2018 18:55:16</publishTime>
+      <publishTime>06/22/2018 12:35:47</publishTime>
     </File>
     <File Include="bin/Apps.Models.dll">
-      <publishTime>06/05/2018 18:55:15</publishTime>
+      <publishTime>06/22/2018 12:35:45</publishTime>
     </File>
     <File Include="bin/Apps.Models.dll.config">
-      <publishTime>06/02/2018 22:53:21</publishTime>
+      <publishTime>06/15/2018 12:55:27</publishTime>
     </File>
     <File Include="bin/Apps.Models.pdb">
-      <publishTime>06/05/2018 18:55:15</publishTime>
+      <publishTime>06/22/2018 12:35:45</publishTime>
     </File>
     <File Include="bin/Apps.Spl.BLL.dll">
-      <publishTime>06/05/2018 18:55:20</publishTime>
+      <publishTime>06/22/2018 12:35:49</publishTime>
     </File>
     <File Include="bin/Apps.Spl.BLL.dll.config">
-      <publishTime>05/22/2018 12:29:01</publishTime>
+      <publishTime>06/14/2018 20:32:45</publishTime>
     </File>
     <File Include="bin/Apps.Spl.BLL.pdb">
-      <publishTime>06/05/2018 18:55:20</publishTime>
+      <publishTime>06/22/2018 12:35:49</publishTime>
     </File>
     <File Include="bin/Apps.Spl.DAL.dll">
-      <publishTime>06/05/2018 18:55:21</publishTime>
+      <publishTime>06/22/2018 12:35:49</publishTime>
     </File>
     <File Include="bin/Apps.Spl.DAL.dll.config">
       <publishTime>05/22/2018 12:29:01</publishTime>
     </File>
     <File Include="bin/Apps.Spl.DAL.pdb">
-      <publishTime>06/05/2018 18:55:21</publishTime>
+      <publishTime>06/22/2018 12:35:49</publishTime>
     </File>
     <File Include="bin/Apps.Spl.IBLL.dll">
-      <publishTime>06/05/2018 18:55:17</publishTime>
+      <publishTime>06/22/2018 12:35:47</publishTime>
     </File>
     <File Include="bin/Apps.Spl.IBLL.pdb">
-      <publishTime>06/05/2018 18:55:17</publishTime>
+      <publishTime>06/22/2018 12:35:47</publishTime>
     </File>
     <File Include="bin/Apps.Spl.IDAL.dll">
-      <publishTime>06/05/2018 18:55:19</publishTime>
+      <publishTime>06/22/2018 12:35:46</publishTime>
     </File>
     <File Include="bin/Apps.Spl.IDAL.pdb">
-      <publishTime>06/05/2018 18:55:19</publishTime>
+      <publishTime>06/22/2018 12:35:46</publishTime>
     </File>
     <File Include="bin/Apps.WC.BLL.dll">
-      <publishTime>06/05/2018 18:55:21</publishTime>
+      <publishTime>06/22/2018 12:35:49</publishTime>
     </File>
     <File Include="bin/Apps.WC.BLL.pdb">
-      <publishTime>06/05/2018 18:55:21</publishTime>
+      <publishTime>06/22/2018 12:35:49</publishTime>
     </File>
     <File Include="bin/Apps.WC.DAL.dll">
-      <publishTime>06/05/2018 18:55:20</publishTime>
+      <publishTime>06/22/2018 12:35:49</publishTime>
     </File>
     <File Include="bin/Apps.WC.DAL.dll.config">
       <publishTime>05/22/2018 12:29:01</publishTime>
     </File>
     <File Include="bin/Apps.WC.DAL.pdb">
-      <publishTime>06/05/2018 18:55:20</publishTime>
+      <publishTime>06/22/2018 12:35:49</publishTime>
     </File>
     <File Include="bin/Apps.WC.IBLL.dll">
-      <publishTime>06/05/2018 18:55:17</publishTime>
+      <publishTime>06/22/2018 12:35:48</publishTime>
     </File>
     <File Include="bin/Apps.WC.IBLL.pdb">
-      <publishTime>06/05/2018 18:55:17</publishTime>
+      <publishTime>06/22/2018 12:35:48</publishTime>
     </File>
     <File Include="bin/Apps.WC.IDAL.dll">
-      <publishTime>06/05/2018 18:55:19</publishTime>
+      <publishTime>06/22/2018 12:35:48</publishTime>
     </File>
     <File Include="bin/Apps.WC.IDAL.pdb">
-      <publishTime>06/05/2018 18:55:19</publishTime>
+      <publishTime>06/22/2018 12:35:48</publishTime>
     </File>
     <File Include="bin/Apps.Web.dll">
-      <publishTime>06/05/2018 20:13:07</publishTime>
+      <publishTime>06/23/2018 11:22:16</publishTime>
     </File>
     <File Include="bin/Apps.Web.pdb">
-      <publishTime>06/05/2018 20:13:07</publishTime>
+      <publishTime>06/23/2018 11:22:16</publishTime>
     </File>
     <File Include="bin/ClosedXML.dll">
       <publishTime>05/22/2018 12:29:01</publishTime>
@@ -646,7 +646,7 @@
       <publishTime>05/22/2018 12:29:01</publishTime>
     </File>
     <File Include="bin/en-US/Apps.Locale.resources.dll">
-      <publishTime>06/05/2018 18:55:13</publishTime>
+      <publishTime>06/18/2018 10:30:30</publishTime>
     </File>
     <File Include="bin/EntityFramework.dll">
       <publishTime>05/22/2018 12:29:01</publishTime>
@@ -655,13 +655,13 @@
       <publishTime>05/22/2018 12:29:01</publishTime>
     </File>
     <File Include="bin/LinqToExcel.dll">
-      <publishTime>05/22/2018 12:29:01</publishTime>
+      <publishTime>02/19/2017 13:03:52</publishTime>
     </File>
     <File Include="bin/LitJson.dll">
       <publishTime>05/22/2018 12:29:01</publishTime>
     </File>
     <File Include="bin/log4net.dll">
-      <publishTime>05/22/2018 12:29:01</publishTime>
+      <publishTime>03/08/2017 19:26:22</publishTime>
     </File>
     <File Include="bin/Microsoft.AspNet.SignalR.Core.dll">
       <publishTime>05/22/2018 12:29:01</publishTime>
@@ -1135,7 +1135,7 @@
       <publishTime>05/22/2018 12:29:01</publishTime>
     </File>
     <File Include="packages.config">
-      <publishTime>05/22/2018 12:29:01</publishTime>
+      <publishTime>06/14/2018 20:13:18</publishTime>
     </File>
     <File Include="Scripts/Account.js">
       <publishTime>05/22/2018 12:29:01</publishTime>
@@ -2233,7 +2233,7 @@
       <publishTime>05/22/2018 12:29:01</publishTime>
     </File>
     <File Include="Views/Account/Index.cshtml">
-      <publishTime>06/02/2018 23:19:31</publishTime>
+      <publishTime>06/13/2018 07:15:01</publishTime>
     </File>
     <File Include="Views/Account/ValidateCode.cshtml">
       <publishTime>05/22/2018 12:29:01</publishTime>
@@ -2331,20 +2331,29 @@
     <File Include="Views/SysHelper/UserLookUp2.cshtml">
       <publishTime>05/31/2018 21:29:59</publishTime>
     </File>
+    <File Include="Views/SysHelper/UserLookUp2_JP.cshtml">
+      <publishTime>06/13/2018 10:06:49</publishTime>
+    </File>
+    <File Include="Views/SysHelper/UserLookUp_JP.cshtml">
+      <publishTime>06/13/2018 10:06:59</publishTime>
+    </File>
     <File Include="Views/SysJiaPu/Create.cshtml">
-      <publishTime>05/31/2018 11:09:51</publishTime>
+      <publishTime>06/13/2018 09:27:25</publishTime>
     </File>
     <File Include="Views/SysJiaPu/Details.cshtml">
-      <publishTime>05/27/2018 08:43:12</publishTime>
+      <publishTime>06/13/2018 06:38:05</publishTime>
     </File>
     <File Include="Views/SysJiaPu/Edit.cshtml">
       <publishTime>05/27/2018 19:33:18</publishTime>
     </File>
     <File Include="Views/SysJiaPu/index.cshtml">
-      <publishTime>06/05/2018 17:40:55</publishTime>
+      <publishTime>06/13/2018 07:25:22</publishTime>
     </File>
     <File Include="Views/SysJiaPu/LookUp.cshtml">
       <publishTime>05/27/2018 22:07:59</publishTime>
+    </File>
+    <File Include="Views/SysJiaPu/ShowTree.cshtml">
+      <publishTime>06/12/2018 06:35:47</publishTime>
     </File>
     <File Include="Views/SysLog/Details.cshtml">
       <publishTime>05/22/2018 12:29:01</publishTime>
@@ -2380,7 +2389,7 @@
       <publishTime>05/22/2018 12:29:01</publishTime>
     </File>
     <File Include="Views/SysPurchaseHistory/index.cshtml">
-      <publishTime>06/02/2018 22:06:10</publishTime>
+      <publishTime>06/13/2018 07:29:42</publishTime>
     </File>
     <File Include="Views/SysRight/Index.cshtml">
       <publishTime>05/27/2018 11:07:53</publishTime>
@@ -2389,10 +2398,10 @@
       <publishTime>05/22/2018 12:29:01</publishTime>
     </File>
     <File Include="Views/SysRightGetRoleRight/Index.cshtml">
-      <publishTime>05/22/2018 12:29:01</publishTime>
+      <publishTime>06/13/2018 07:27:52</publishTime>
     </File>
     <File Include="Views/SysRightGetUserRight/Index.cshtml">
-      <publishTime>05/22/2018 12:29:01</publishTime>
+      <publishTime>06/13/2018 07:29:16</publishTime>
     </File>
     <File Include="Views/SysRole/Create.cshtml">
       <publishTime>05/22/2018 12:29:01</publishTime>
@@ -2446,7 +2455,7 @@
       <publishTime>05/22/2018 12:29:01</publishTime>
     </File>
     <File Include="Views/SysUser/Index.cshtml">
-      <publishTime>05/31/2018 21:39:35</publishTime>
+      <publishTime>06/13/2018 07:25:57</publishTime>
     </File>
     <File Include="Views/SysUser/LookUp.cshtml">
       <publishTime>05/22/2018 12:29:01</publishTime>
@@ -2454,11 +2463,14 @@
     <File Include="Views/SysWallet/Create.cshtml">
       <publishTime>06/01/2018 14:09:20</publishTime>
     </File>
+    <File Include="Views/SysWallet/Details.cshtml">
+      <publishTime>06/10/2018 09:25:28</publishTime>
+    </File>
     <File Include="Views/SysWallet/Edit.cshtml">
       <publishTime>06/01/2018 14:43:55</publishTime>
     </File>
     <File Include="Views/SysWallet/index.cshtml">
-      <publishTime>06/02/2018 14:55:07</publishTime>
+      <publishTime>06/13/2018 07:26:19</publishTime>
     </File>
     <File Include="Views/Web.config">
       <publishTime>05/22/2018 12:29:01</publishTime>
@@ -2467,7 +2479,7 @@
       <publishTime>05/22/2018 12:29:01</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>06/05/2018 20:13:08</publishTime>
+      <publishTime>06/23/2018 11:22:23</publishTime>
     </File>
   </ItemGroup>
 </Project>

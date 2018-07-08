@@ -114,6 +114,10 @@ namespace Apps.Common
     {
         public bool ret;
     }
+    public class RetInt
+    {
+        public int ret;
+    }
 
 } 
 

@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="4347eebad5bc4aa1bb240674ec01dd92" Name="Diagram1" ZoomLevel="82" >
+      <Diagram DiagramId="4347eebad5bc4aa1bb240674ec01dd92" Name="Diagram1" ZoomLevel="159" >
         <EntityTypeShape EntityType="DB.DEF_CaseType" Width="1.5" PointX="2.75" PointY="2.75" />
         <EntityTypeShape EntityType="DB.DEF_Defect" Width="1.5" PointX="14" PointY="34.5" />
         <EntityTypeShape EntityType="DB.DEF_TestCase" Width="1.5" PointX="11.75" PointY="9" />
@@ -119,7 +119,7 @@
         <EntityTypeShape EntityType="DB.SysProduct" Width="1.5" PointX="22.75" PointY="6.75" />
         <EntityTypeShape EntityType="DB.SysPurchaseHistory" Width="1.5" PointX="8.25" PointY="46.125" />
         <EntityTypeShape EntityType="DB.SysWallet" Width="1.5" PointX="8.25" PointY="49.25" />
-        <EntityTypeShape EntityType="DB.Spl_Order_Ware" Width="1.5" PointX="11.5" PointY="23" />
+        <EntityTypeShape EntityType="DB.Spl_Order_Ware" Width="1.5" PointX="10.5" PointY="23.375" />
         <AssociationConnector Association="DB.Spl_ProductCategorySpl_Ware" />
         <AssociationConnector Association="DB.SysUserSysPurchaseHistory" />
         <AssociationConnector Association="DB.SysUserSysWallet" />
@@ -139,13 +139,6 @@
         <AssociationConnector Association="DB.FK_Spl_ProductCategoryS_Spl_ProductCategory" />
         <AssociationConnector Association="DB.FK_Spl_Ware_Spl_ProductCategoryS" />
         <AssociationConnector Association="DB.FK_Spl_WareInfo_Spl_Ware" />
-        <AssociationConnector Association="DB.FK_Spl_Ware_Spl_Brand1" />
-        <AssociationConnector Association="DB.FK_Spl_Hotware_Spl_Ware1" />
-        <AssociationConnector Association="DB.FK_Spl_Order_Ware_Spl_Orders1" />
-        <AssociationConnector Association="DB.FK_Spl_Ware_Spl_ProductCategoryS1" />
-        <AssociationConnector Association="DB.FK_Spl_Order_Ware_Spl_Ware" />
-        <AssociationConnector Association="DB.FK_Spl_WareInfo_Spl_Ware1" />
-        <AssociationConnector Association="DB.FK_SysDictData_SysDcitTpe" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

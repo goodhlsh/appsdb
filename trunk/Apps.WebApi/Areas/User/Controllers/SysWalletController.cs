@@ -19,7 +19,35 @@ namespace Apps.WebApi.Areas.User.Controllers
         public ISysWalletBLL sysWBLL { get; set; }
 
         ValidationErrors errors = new ValidationErrors();
+        public object GetList(string filter)
+        {
+            JObject opc = JObject.Parse(filter);
+            var queryStr = "";
+            if (JObject.Parse(opc["where"].ToString())["userId"] != null)
+            {
+                queryStr = JObject.Parse(opc["where"].ToString())["userId"].ToString();
+            }
 
+            List<P_Sys_GetUserWallet_Result> datalist = new List<P_Sys_GetUserWallet_Result>();
+            
+            datalist = sysWBLL.GetUserWallet().Where(a => a.UserId==queryStr).ToList(); ;
+            datalist=datalist.OrderByDescending(a => a.CreateTime).Skip(int.Parse(opc["skip"].ToString())).Take(int.Parse(opc["limit"].ToString())).ToList();
+            List<SysWalletModel> sysWalletModels = new List<SysWalletModel>();
+
+            foreach (P_Sys_GetUserWallet_Result item in datalist)
+            {
+                sysWalletModels.Add(new SysWalletModel
+                {
+                    Id = item.Id,
+                    Balance=item.Balance,
+                    CreateTime=item.CreateTime,
+                    JieYu=item.JieYu,
+                    Froms=item.Froms 
+                });
+            }
+
+            return Json(sysWalletModels);
+        }
         [HttpGet]
         public SysWalletModel GetWallet(string filter)
         {
@@ -27,16 +55,12 @@ namespace Apps.WebApi.Areas.User.Controllers
             var queryStr = "";
             if (JObject.Parse(opc["where"].ToString())["userid"] != null)
             {
-
                 queryStr = JObject.Parse(opc["where"].ToString())["userid"].ToString();
             }
 
-            return GetWalletByUserID(queryStr);
+            return sysWBLL.GetWallByUserID(queryStr);
         }
-        public SysWalletModel GetWalletByUserID(string userID)
-        {
-            return sysWBLL.GetWallByUserID(userID);
-        }
+        
         /// <summary>
         /// 购买或充值都可以调用此方法
         /// </summary>

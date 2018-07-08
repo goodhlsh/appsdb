@@ -18,6 +18,8 @@ using System;
 public partial class Spl_Actives
 {
 
+    public string Id { get; set; }
+
     public string Title { get; set; }
 
     public string Cont { get; set; }
@@ -33,8 +35,6 @@ public partial class Spl_Actives
     public Nullable<System.DateTime> CreateTime { get; set; }
 
     public Nullable<System.DateTime> UpdateTime { get; set; }
-
-    public string Id { get; set; }
 
 }
 

@@ -206,9 +206,15 @@ namespace Apps.Core
             //活动
             container.RegisterType<ISpl_ActivesBLL, Spl_ActivesBLL>();
             container.RegisterType<ISpl_ActivesRepository, Spl_ActivesRepository>();
-
+            //品牌
             container.RegisterType<ISpl_BrandBLL, Spl_BrandBLL>();
             container.RegisterType<ISpl_BrandRepository, Spl_BrandRepository>();
+            //订单
+            container.RegisterType<ISpl_OrdersBLL, Spl_OrdersBLL>();
+            container.RegisterType<ISpl_OrdersRepository, Spl_OrdersRepository>();
+            container.RegisterType<ISpl_Order_WareBLL, Spl_Order_WareBLL>();
+            container.RegisterType<ISpl_Order_WareRepository, Spl_Order_WareRepository>();
+
         }
 
 

@@ -35,13 +35,13 @@ namespace Apps.Spl.BLL
             {
                 queryData = m_Rep.GetList(
 				
-				a=>a.Name.Contains(queryStr)
+				a=>a.Id.Contains(queryStr)
+				
+
+				|| a.Name.Contains(queryStr)
 				
 
 				
-				
-
-				|| a.Id.Contains(queryStr)
 				
 
 				);
@@ -62,11 +62,11 @@ namespace Apps.Spl.BLL
                                               select new Spl_BrandModel
                                               {
 
+													Id = r.Id,
+
 													Name = r.Name,
 
 													Promoted = r.Promoted,
-
-													Id = r.Id,
           
                                               }).ToList();
 
@@ -77,7 +77,7 @@ namespace Apps.Spl.BLL
         {
             try
             {
-			    Spl_Brand entity = m_Rep.GetById(model.Name);
+			    Spl_Brand entity = m_Rep.GetById(model.Id);
                 if (entity != null)
                 {
                     errors.Add(Resource.PrimaryRepeat);
@@ -85,11 +85,11 @@ namespace Apps.Spl.BLL
                 }
                 entity = new Spl_Brand(); 
 
+				entity.Id = model.Id;
+
 				entity.Name = model.Name;
 
 				entity.Promoted = model.Promoted;
-
-				entity.Id = model.Id;
   
 
                 if (m_Rep.Create(entity))
@@ -170,18 +170,18 @@ namespace Apps.Spl.BLL
         {
             try
             {
-                Spl_Brand entity = m_Rep.GetById(model.Name);
+                Spl_Brand entity = m_Rep.GetById(model.Id);
                 if (entity == null)
                 {
                     errors.Add(Resource.Disable);
                     return false;
                 }
                               
+				entity.Id = model.Id;
+
 				entity.Name = model.Name;
 
 				entity.Promoted = model.Promoted;
-
-				entity.Id = model.Id;
  
 
 
@@ -213,11 +213,11 @@ namespace Apps.Spl.BLL
                 Spl_Brand entity = m_Rep.GetById(id);
                 Spl_BrandModel model = new Spl_BrandModel();
                               
+				model.Id = entity.Id;
+
 				model.Name = entity.Name;
 
 				model.Promoted = entity.Promoted;
-
-				model.Id = entity.Id;
  
                 return model;
             }

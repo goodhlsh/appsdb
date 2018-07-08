@@ -12,7 +12,7 @@ namespace Apps.Spl.BLL
 {
     public partial class Spl_ProductCategoryBLL
     {
-        [Dependency]
+         
         public ISpl_ProductCategorySRepository m_Rep { get; set; }
         public List<Spl_ProductCategorySModel> GetPage(string queryStr, int skip, int limit)
         {

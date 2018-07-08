@@ -65,7 +65,6 @@ C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.WC.BLL\bin\Release\EntityF
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.WC.BLL\bin\Release\Newtonsoft.Json.dll
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.WC.BLL\bin\Release\System.Web.Mvc.dll
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.WC.BLL\bin\Release\System.Web.WebPages.dll
-C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.WC.BLL\bin\Release\Microsoft.Web.Infrastructure.dll
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.WC.BLL\bin\Release\System.Web.WebPages.Deployment.dll
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.WC.BLL\bin\Release\Apps.BLL.pdb
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.WC.BLL\bin\Release\Apps.BLL.dll.config
@@ -89,7 +88,6 @@ C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.WC.BLL\bin\Release\EntityF
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.WC.BLL\bin\Release\Newtonsoft.Json.xml
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.WC.BLL\bin\Release\System.Web.Mvc.xml
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.WC.BLL\bin\Release\System.Web.WebPages.xml
-C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.WC.BLL\bin\Release\Microsoft.Web.Infrastructure.xml
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.WC.BLL\bin\Release\System.Web.WebPages.Deployment.xml
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.WC.BLL\bin\Release\en-US\Apps.Locale.resources.dll
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.WC.BLL\bin\Release\zh-Hans\System.Web.Mvc.resources.dll

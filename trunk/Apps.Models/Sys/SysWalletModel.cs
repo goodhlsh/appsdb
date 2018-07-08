@@ -26,9 +26,7 @@ namespace Apps.Models.Sys
 
         public override string Note { get; set; }
         [Display(Name = "进账日期")]
-        public override Nullable<System.DateTime> CreateTime { get; set; }
-
-        public override Nullable<System.DateTime> UpdateTime { get; set; }
+        public override Nullable<System.DateTime> CreateTime { get; set; }       
 
         public override int ShunXu { get; set; }
 

@@ -255,3 +255,7 @@ C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.WebApi\obj\Release\Apps.We
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.WebApi\obj\Release\Apps.WebApi.csproj.CopyComplete
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.WebApi\obj\Release\Apps.WebApi.dll
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.WebApi\obj\Release\Apps.WebApi.pdb
+C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.WebApi\bin\log4net.dll
+C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.WebApi\bin\log4net.xml
+C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.WebApi\bin\AopSdk.dll
+C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.WebApi\bin\AopSdk.pdb

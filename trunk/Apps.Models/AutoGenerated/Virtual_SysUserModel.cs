@@ -138,6 +138,12 @@ namespace Apps.Models.Sys
 		
 	public virtual string Recommendor { get; set; }
 		
+	public virtual string TuiCode { get; set; }
+		
+	public virtual Nullable<int> TuiCount { get; set; }
+		
+	public virtual Nullable<int> TuiDownloadCount { get; set; }
+		
 }
 
 }

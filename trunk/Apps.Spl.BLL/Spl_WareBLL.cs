@@ -64,7 +64,7 @@ namespace Apps.Spl.BLL
                 IQueryable<Spl_Ware> list = m_Rep.GetList();
                 if (!string.IsNullOrWhiteSpace(queryStr))
                 {
-                    list = list.Where(a => a.ProductCategoryId == queryStr);
+                    list = list.Where(a => a.ProductCategoryId == queryStr||a.Name.Contains(queryStr));
                 }
                 query = list.OrderBy(c => c.Name).Skip(skip).Take(limit).ToList();
                 foreach (var item in query)

@@ -42,6 +42,26 @@ namespace Apps.WebApi.Areas.Ware.Controllers
 
             return Json(list);
         }
+
+        [HttpGet]
+        public object GetListByWareName(string filter)
+        {
+            // var anonymous = new { queryStr = String.Empty, skip = new int(), limit = new int() };
+            // var opc = JsonHandler.DeserializeAnonymousType(filter, anonymous);
+            // List<Spl_Ware> list = m_BLL.GetPage(opc.queryStr, opc.skip, opc.limit);
+
+            JObject opc = JObject.Parse(filter);
+            var queryStr = "";
+            if (JObject.Parse(opc["where"].ToString())["warename"] != null)
+            {
+
+                queryStr = JObject.Parse(opc["where"].ToString())["warename"].ToString();
+            }
+
+            List<Spl_WareShowModel> list = m_BLL.GetPage(queryStr, int.Parse(opc["skip"].ToString()), int.Parse(opc["limit"].ToString()));
+
+            return Json(list);
+        }
         [HttpGet]
         public object GetById(string filter)
         {
