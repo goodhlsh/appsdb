@@ -1,0 +1,1203 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>OSS.PaySdk.Ali</name>
+    </assembly>
+    <members>
+        <member name="T:OSS.PaySdk.Ali.ZPayBaseReq">
+            <summary>
+              支付请求基础实体
+            </summary>
+        </member>
+        <member name="P:OSS.PaySdk.Ali.ZPayBaseReq.app_auth_token">
+            <summary>
+              商户授权信息
+            </summary>
+        </member>
+        <member name="T:OSS.PaySdk.Ali.ZPayBaseResp">
+            <summary>
+            基础响应实体
+            </summary>
+        </member>
+        <member name="P:OSS.PaySdk.Ali.ZPayBaseResp.code">
+            <summary>   
+               String 必填 长度(-)  网关返回码,详见文档
+            </summary>  
+        </member>
+        <member name="P:OSS.PaySdk.Ali.ZPayBaseResp.sub_code">
+            <summary>   
+               String 可空 长度(-)  业务返回码,详见文档
+            </summary>  
+        </member>
+        <member name="P:OSS.PaySdk.Ali.ZPayBaseResp.sub_msg">
+            <summary>   
+               String 可空 长度(-)  业务返回码描述,详见文档
+            </summary>  
+        </member>
+        <member name="T:OSS.PaySdk.Ali.ZMerchTokenMo">
+            <summary>
+             商户授权信息实体
+            </summary>
+        </member>
+        <member name="P:OSS.PaySdk.Ali.ZMerchTokenMo.app_auth_token">
+            <summary>
+            应用授权 可空 token
+            </summary>
+        </member>
+        <member name="T:OSS.PaySdk.Ali.ZPayConfig">
+            <summary>
+             支付宝支付配置信息
+            </summary>
+        </member>
+        <member name="P:OSS.PaySdk.Ali.ZPayConfig.Format">
+            <summary>
+             格式化类型  只有json（默认） 
+            </summary>
+        </member>
+        <member name="P:OSS.PaySdk.Ali.ZPayConfig.Charset">
+            <summary>
+            请求和签名使用的字符编码格式，支持GBK和UTF-8（默认） 
+            </summary>
+        </member>
+        <member name="P:OSS.PaySdk.Ali.ZPayConfig.SignType">
+            <summary>
+              商户生成签名字符串所使用的签名算法类型，只提供 RSA2,不再支持RSA
+            </summary>
+        </member>
+        <member name="P:OSS.PaySdk.Ali.ZPayConfig.AppId">
+            <summary>
+              应用Id
+            </summary>
+        </member>
+        <member name="P:OSS.PaySdk.Ali.ZPayConfig.AppPrivateKey">
+            <summary>
+              开发者应用私钥，由开发者自己生成
+            </summary>
+        </member>
+        <member name="P:OSS.PaySdk.Ali.ZPayConfig.AppPublicKey">
+            <summary>
+            支付宝公钥，由支付宝生成
+            </summary>
+        </member>
+        <member name="P:OSS.PaySdk.Ali.ZPayConfig.Version">
+            <summary>   
+               String 必填 长度(3)  调用的接口版本，固定为：1.0
+            </summary>  
+        </member>
+        <member name="P:OSS.PaySdk.Ali.ZPayConfig.NotifyUrl">
+            <summary>
+             如果接口参数中没有传值，则默认使用此值
+            </summary>
+        </member>
+        <member name="T:OSS.PaySdk.Ali.Pay.Mos.ZAddWapTradeReq">
+            <summary>
+             wap页面发起的支付请求实体
+             return_url 和 notify_url 需要同时赋值
+            </summary>
+        </member>
+        <member name="P:OSS.PaySdk.Ali.Pay.Mos.ZAddWapTradeReq.return_url">
+            <summary>
+              回调通知地址
+            </summary>
+        </member>
+        <member name="P:OSS.PaySdk.Ali.Pay.Mos.ZAddWapTradeReq.auth_token">
+            <summary>   
+               String 可空 长度(40)  针对用户授权接口，获取用户相关数据时，用于标识用户授权关系
+            </summary>  
+        </member>
+        <member name="P:OSS.PaySdk.Ali.Pay.Mos.ZAddWapTradeReq.quit_url">
+            <summary>   
+               String 可空 长度(40)  添加该参数后在h5支付收银台会出现返回按钮，
+            可用于用户付款中途退出并返回到该参数指定的商户网站地址。
+            注：该参数对支付宝钱包标准收银台下的跳转不生效。
+            </summary>  
+        </member>
+        <member name="T:OSS.PaySdk.Ali.Pay.Mos.ZAddAppTradeReq">
+            <summary>
+            客户端发起支付请求实体
+            </summary>
+        </member>
+        <member name="P:OSS.PaySdk.Ali.Pay.Mos.ZAddAppTradeReq.product_code">
+            <summary>   
+               String 必填 长度(64)  销售产品码
+            App固定值：QUICK_MSECURITY_PAY
+            Wap 固定值：QUICK_WAP_WAY
+            商家和支付宝签约的产品码
+            </summary>  
+        </member>
+        <member name="P:OSS.PaySdk.Ali.Pay.Mos.ZAddAppTradeReq.goods_type">
+            <summary>   
+               String 可空 长度(2)  商品主类型：0—虚拟类商品，1—实物类商品，注：虚拟类商品不支持使用花呗渠道
+            </summary>  
+        </member>
+        <member name="P:OSS.PaySdk.Ali.Pay.Mos.ZAddAppTradeReq.promo_params">
+            <summary>   
+               String 可空 长度(512)  优惠参数，注：仅与支付宝协商后可用
+            </summary>  
+        </member>
+        <member name="P:OSS.PaySdk.Ali.Pay.Mos.ZAddAppTradeReq.extend_params">
+            <summary>   
+               String 可空 长度()  {"sys_service_provider_id":"2088511833207846"}
+            </summary>  
+        </member>
+        <member name="P:OSS.PaySdk.Ali.Pay.Mos.ZAddAppTradeReq.enable_pay_channels">
+            <summary>   
+               String 可空 长度(128)  可用渠道，用户只能在指定渠道范围内支付，当有多个渠道时用“,”分隔，注：与disable_pay_channels互斥
+            </summary>  
+        </member>
+        <!-- 对于成员“P:OSS.PaySdk.Ali.Pay.Mos.ZAddAppTradeReq.disable_pay_channels”忽略有格式错误的 XML 注释 -->
+        <member name="P:OSS.PaySdk.Ali.Pay.Mos.ZAddAppTradeReq.passback_params">
+            <summary>   
+               String 可空 长度(512)  公用回传参数【赋值时需要UrlEncode】，如果请求时传递了该参数，则返回给商户时会回传该参数,支付宝会在异步通知时将该参数原样返回。
+            本参数必须进行UrlEncode之后才可以发送给支付宝
+            </summary>  
+        </member>
+        <member name="T:OSS.PaySdk.Ali.Pay.Mos.ZClientTradeExtendParaMo">
+            <summary>
+            主动唤起支付时的扩展参数
+            </summary>
+        </member>
+        <member name="P:OSS.PaySdk.Ali.Pay.Mos.ZClientTradeExtendParaMo.sys_service_provider_id">
+            <summary>   
+               String 可空 长度(64)  系统商编号，该参数作为系统商返佣数据提取的依据，请填写系统商签约协议的PID
+            </summary>  
+        </member>
+        <member name="P:OSS.PaySdk.Ali.Pay.Mos.ZClientTradeExtendParaMo.needBuyerRealnamed">
+            <summary>   
+               String 可空 长度(1)  是否发起实名校验，T：发起，F：不发起
+            </summary>  
+        </member>
+        <member name="P:OSS.PaySdk.Ali.Pay.Mos.ZClientTradeExtendParaMo.TRANS_MEMO">
+            <summary>   
+               String 可空 长度(128)  账务备注，注：该字段显示在离线账单的账务备注中
+            </summary>  
+        </member>
+        <member name="P:OSS.PaySdk.Ali.Pay.Mos.ZClientTradeExtendParaMo.hb_fq_num">
+            <summary>   
+               String 可选 长度(5)  使用花呗分期要进行的分期数
+            </summary>  
+        </member>
+        <member name="P:OSS.PaySdk.Ali.Pay.Mos.ZClientTradeExtendParaMo.hb_fq_seller_percent">
+            <summary>   
+               String 可选 长度(3)  使用花呗分期需要卖家承担的手续费比例的百分值，传入100代表100%
+            </summary>  
+        </member>
+        <member name="T:OSS.PaySdk.Ali.Pay.Mos.ZAddPageTradeReq">
+            <summary>
+             PC网站跳转支付宝收银台的支付请求实体
+             return_url 和 notify_url 需要同时赋值
+            </summary>
+        </member>
+        <member name="M:OSS.PaySdk.Ali.Pay.Mos.ZAddPageTradeReq.#ctor">
+            <summary>
+            构造函数
+             return_url 和 notify_url 需要同时赋值
+            </summary>
+        </member>
+        <member name="P:OSS.PaySdk.Ali.Pay.Mos.ZAddPageTradeReq.return_url">
+            <summary>
+              回调通知地址
+            </summary>
+        </member>
+        <member name="P:OSS.PaySdk.Ali.Pay.Mos.ZAddPageTradeReq.product_code">
+            <summary>   
+               String 必填 长度(64)
+              销售产品码，固定值：FAST_INSTANT_TRADE_PAY 
+            </summary>  
+        </member>
+        <member name="P:OSS.PaySdk.Ali.Pay.Mos.ZAddPageTradeReq.goods_detail">
+            <summary>   
+               String 可选 长度(64) 绝对超时时间，格式为yyyy-MM-dd HH:mm。 注：1）以支付宝系统时间为准；2）如果和timeout_express参数同时传入，以time_expire为准
+            </summary>  
+        </member>
+        <member name="P:OSS.PaySdk.Ali.Pay.Mos.ZAddPageTradeReq.extend_params">
+            <summary>   
+               String 可选 长度(64)
+            </summary>  
+        </member>
+        <member name="P:OSS.PaySdk.Ali.Pay.Mos.ZAddPageTradeReq.goods_type">
+            <summary>   
+               int 可选 长度(64) 商品主类型：0—虚拟类商品，1—实物类商品
+            注：虚拟类商品不支持使用花呗渠道
+            </summary>  
+        </member>
+        <member name="P:OSS.PaySdk.Ali.Pay.Mos.ZAddPageTradeReq.enable_pay_channels">
+            <summary>   
+               String 可选 长度(64)可用渠道，用户只能在指定渠道范围内支付 当有多个渠道时用“,”分隔
+            pcredit,moneyFund,debitCardExpress
+            </summary>  
+        </member>
+        <member name="P:OSS.PaySdk.Ali.Pay.Mos.ZAddPageTradeReq.disable_pay_channels">
+            <summary>   
+               String 可选 长度(64)可用渠道，用户不可用指定渠道支付 当有多个渠道时用“,”分隔
+            pcredit,moneyFund,debitCardExpress
+            </summary>  
+        </member>
+        <member name="P:OSS.PaySdk.Ali.Pay.Mos.ZAddPageTradeReq.auth_token">
+            <summary>   
+               String 可选 长度(64)针对用户授权接口，获取用户相关数据时，用于标识用户授权关系 
+            注：若不属于支付宝业务经理提供签约服务的商户，暂不对外提供该功能，该参数使用无效
+            </summary>  
+        </member>
+        <member name="P:OSS.PaySdk.Ali.Pay.Mos.ZAddPageTradeReq.qr_pay_mode">
+            <summary>   
+              默认跳转方式  可选 长度(64) PC扫码支付的方式，支持前置模式和跳转模式。
+            前置模式是将二维码前置到商户的订单确认页的模式。需要商户在自己的页面中以iframe方式请求支付宝页面。具体分为以下几种：
+            0：订单码-简约前置模式，对应iframe宽度不能小于600px，高度不能小于300px；
+            1：订单码-前置模式，对应iframe宽度不能小于300px，高度不能小于600px；
+            3：订单码-迷你前置模式，对应iframe宽度不能小于75px，高度不能小于75px；
+            4：订单码-可定义宽度的嵌入式二维码，商户可根据需要设定二维码的大小。
+            
+            跳转模式下，用户的扫码界面是由支付宝生成的，不在商户的域名下。
+            2：订单码-跳转模式
+            </summary>  
+        </member>
+        <member name="P:OSS.PaySdk.Ali.Pay.Mos.ZAddPageTradeReq.qrcode_width">
+            <summary>   
+               String 可选 长度(64)商户自定义二维码宽度
+            注：qr_pay_mode=4时该参数生效
+            </summary>  
+        </member>
+        <member name="P:OSS.PaySdk.Ali.Pay.Mos.ZAddPageTradeReq.passback_params">
+            <summary>   
+               String 可空 长度(512)  公用回传参数【赋值时需要UrlEncode】，如果请求时传递了该参数，则返回给商户时会回传该参数,支付宝会在异步通知时将该参数原样返回。
+            本参数必须进行UrlEncode之后才可以发送给支付宝
+            </summary>  
+        </member>
+        <member name="T:OSS.PaySdk.Ali.Pay.Mos.ZAddPayTradeReq">
+            <summary>
+              统一下单交易支付接口实体（商户扫码收款 - 商家扫用户二维码、读取声波发起支付）
+            </summary>
+        </member>
+        <member name="P:OSS.PaySdk.Ali.Pay.Mos.ZAddPayTradeReq.scene">
+            <summary>
+               String 必须 长度(32)  支付场景 声波支付，取值：wave_code bar_code,wave_code
+            </summary>  
+        </member>
+        <member name="P:OSS.PaySdk.Ali.Pay.Mos.ZAddPayTradeReq.auth_code">
+            <summary>   
+               String 必须 长度(32)  支付授权码
+            </summary>  
+        </member>
+        <member name="P:OSS.PaySdk.Ali.Pay.Mos.ZAddPayTradeReq.product_code">
+            <summary>   
+               String 可选 长度(32)  销售产品码
+            </summary>  
+        </member>
+        <member name="P:OSS.PaySdk.Ali.Pay.Mos.ZAddPayTradeReq.buyer_id">
+            <summary>   
+               String 可选 长度(28)  买家的支付宝用户id，如果为空，会从传入了码值信息中获取买家ID
+            </summary>  
+        </member>
+        <member name="T:OSS.PaySdk.Ali.Pay.Mos.ZAddPayTradeResp">
+            <summary>
+              条码支付响应实体
+            </summary>
+        </member>
+        <member name="P:OSS.PaySdk.Ali.Pay.Mos.ZAddPayTradeResp.gmt_payment">
+            <summary>   
+               Date 必填 长度(32)  交易支付时间 15:45:57
+            </summary>  
+        </member>
+        <member name="P:OSS.PaySdk.Ali.Pay.Mos.ZAddPayTradeResp.card_balance">
+            <summary>   
+               Price 选填 长度(11)  支付宝卡余额
+            </summary>  
+        </member>
+        <member name="T:OSS.PaySdk.Ali.Pay.Mos.ZTradeInfoBaseResp">
+            <summary>
+              返回的交易信息基础类
+            </summary>
+        </member>
+        <member name="P:OSS.PaySdk.Ali.Pay.Mos.ZTradeInfoBaseResp.trade_no">
+            <summary>   
+               String 必填 长度(64)  支付宝交易号
+            </summary>  
+        </member>
+        <member name="P:OSS.PaySdk.Ali.Pay.Mos.ZTradeInfoBaseResp.out_trade_no">
+            <summary>   
+               String 必填 长度(64)  商户订单号
+            </summary>  
+        </member>
+        <member name="P:OSS.PaySdk.Ali.Pay.Mos.ZTradeInfoBaseResp.buyer_logon_id">
+            <summary>   
+               String 必填 长度(100)  买家支付宝账号
+            </summary>  
+        </member>
+        <member name="P:OSS.PaySdk.Ali.Pay.Mos.ZTradeInfoBaseResp.total_amount">
+            <summary>   
+               Price 必填 长度(11)  交易金额
+            </summary>  
+        </member>
+        <member name="P:OSS.PaySdk.Ali.Pay.Mos.ZTradeInfoBaseResp.receipt_amount">
+            <summary>   
+               String 必填 长度(11)  实收金额
+            </summary>  
+        </member>
+        <member name="P:OSS.PaySdk.Ali.Pay.Mos.ZTradeInfoBaseResp.buyer_pay_amount">
+            <summary>   
+               Price 选填 长度(11)  买家付款的金额
+            </summary>  
+        </member>
+        <member name="P:OSS.PaySdk.Ali.Pay.Mos.ZTradeInfoBaseResp.point_amount">
+            <summary>   
+               Price 选填 长度(11)  使用积分宝付款的金额
+            </summary>  
+        </member>
+        <member name="P:OSS.PaySdk.Ali.Pay.Mos.ZTradeInfoBaseResp.invoice_amount">
+            <summary>   
+               Price 选填 长度(11)  交易中可给用户开具发票的金额
+            </summary>  
+        </member>
+        <member name="P:OSS.PaySdk.Ali.Pay.Mos.ZTradeInfoBaseResp.fund_bill_list">
+            <summary>   
+               TradeFundBill[] 必填 长度(-)  交易支付使用的资金渠道
+            </summary>  
+        </member>
+        <member name="P:OSS.PaySdk.Ali.Pay.Mos.ZTradeInfoBaseResp.store_name">
+            <summary>   
+               String 选填 长度(512)  发生支付交易的商户门店名称
+            </summary>  
+        </member>
+        <member name="P:OSS.PaySdk.Ali.Pay.Mos.ZTradeInfoBaseResp.buyer_user_id">
+            <summary>   
+               String 必填 长度(28)  买家在支付宝的用户id
+            </summary>  
+        </member>
+        <member name="P:OSS.PaySdk.Ali.Pay.Mos.ZTradeInfoBaseResp.discount_goods_detail">
+            <summary>   
+               String 必填 长度(-)  本次交易支付所使用的单品券优惠的商品优惠信息
+            </summary>  
+        </member>
+        <member name="T:OSS.PaySdk.Ali.Pay.Mos.ZTradeFundBillMo">
+            <summary>
+            交易支付使用的资金渠道
+            </summary>
+        </member>
+        <member name="P:OSS.PaySdk.Ali.Pay.Mos.ZTradeFundBillMo.fund_channel">
+            <summary>   
+               String 必填 长度(32)  交易使用的资金渠道，详见 ALIPAYACCOUNT
+            </summary>  
+        </member>
+        <member name="P:OSS.PaySdk.Ali.Pay.Mos.ZTradeFundBillMo.amount">
+            <summary>   
+               Price 选填 长度(-)  该支付工具类型所使用的金额
+            </summary>  
+        </member>
+        <member name="P:OSS.PaySdk.Ali.Pay.Mos.ZTradeFundBillMo.real_amount">
+            <summary>   
+               Price 选填 长度(11)  渠道实际付款金额
+            </summary>  
+        </member>
+        <member name="T:OSS.PaySdk.Ali.Pay.Mos.ZPayCallBackResp">
+            <summary>
+             支付宝异步通知回调
+            </summary>
+        </member>
+        <member name="P:OSS.PaySdk.Ali.Pay.Mos.ZPayCallBackResp.notify_time">
+            <summary>   
+               通知时间 Date 长度(是)  通知的发送时间。格式为yyyy-MM-dd 2015-14-27 15:45:58
+            </summary>  
+        </member>
+        <member name="P:OSS.PaySdk.Ali.Pay.Mos.ZPayCallBackResp.notify_type">
+            <summary>   
+               通知类型 String(64) 长度(是)  通知的类型
+            </summary>  
+        </member>
+        <member name="P:OSS.PaySdk.Ali.Pay.Mos.ZPayCallBackResp.notify_id">
+            <summary>   
+               通知校验ID String(128) 长度(是)  通知校验ID
+            </summary>  
+        </member>
+        <member name="P:OSS.PaySdk.Ali.Pay.Mos.ZPayCallBackResp.sign_type">
+            <summary>   
+               签名类型 String(10) 长度(是)  商户生成签名字符串所使用的签名算法类型，目前支持RSA2和RSA，推荐使用RSA2
+            </summary>  
+        </member>
+        <member name="P:OSS.PaySdk.Ali.Pay.Mos.ZPayCallBackResp.sign">
+            <summary>   
+               签名 String(256) 长度(是)  请参考异步返回结果的验签
+            </summary>  
+        </member>
+        <member name="P:OSS.PaySdk.Ali.Pay.Mos.ZPayCallBackResp.trade_no">
+            <summary>   
+               支付宝交易号 String(64) 长度(是)  支付宝交易凭证号
+            </summary>  
+        </member>
+        <member name="P:OSS.PaySdk.Ali.Pay.Mos.ZPayCallBackResp.app_id">
+            <summary>   
+               开发者的app_id String(32) 长度(是)  支付宝分配给开发者的应用Id
+            </summary>  
+        </member>
+        <member name="P:OSS.PaySdk.Ali.Pay.Mos.ZPayCallBackResp.out_trade_no">
+            <summary>   
+               商户订单号 String(64) 长度(是)  原支付请求的商户订单号
+            </summary>  
+        </member>
+        <member name="P:OSS.PaySdk.Ali.Pay.Mos.ZPayCallBackResp.out_biz_no">
+            <summary>   
+               商户业务号 String(64) 长度(否)  商户业务ID，主要是退款通知中返回退款申请的流水号
+            </summary>  
+        </member>
+        <member name="P:OSS.PaySdk.Ali.Pay.Mos.ZPayCallBackResp.buyer_id">
+            <summary>   
+               买家支付宝用户号 String(16) 长度(否)  买家支付宝账号对应的支付宝唯一用户号。以2088开头的纯16位数字
+            </summary>  
+        </member>
+        <member name="P:OSS.PaySdk.Ali.Pay.Mos.ZPayCallBackResp.buyer_logon_id">
+            <summary>   
+               买家支付宝账号 String(100) 长度(否)  买家支付宝账号
+            </summary>  
+        </member>
+        <member name="P:OSS.PaySdk.Ali.Pay.Mos.ZPayCallBackResp.seller_id">
+            <summary>   
+               卖家支付宝用户号 String(30) 长度(否)  卖家支付宝用户号
+            </summary>  
+        </member>
+        <member name="P:OSS.PaySdk.Ali.Pay.Mos.ZPayCallBackResp.seller_email">
+            <summary>   
+               卖家支付宝账号 String(100) 长度(否)  卖家支付宝账号
+            </summary>  
+        </member>
+        <member name="P:OSS.PaySdk.Ali.Pay.Mos.ZPayCallBackResp.trade_status">
+            <summary>   
+               交易状态 String(32) 长度(否)  交易目前所处的状态
+            </summary>  
+        </member>
+        <member name="P:OSS.PaySdk.Ali.Pay.Mos.ZPayCallBackResp.total_amount">
+            <summary>   
+               订单金额 Number(9,2) 长度(否)  本次交易支付的订单金额，单位为人民币（元）
+            </summary>  
+        </member>
+        <member name="P:OSS.PaySdk.Ali.Pay.Mos.ZPayCallBackResp.receipt_amount">
+            <summary>   
+               实收金额 Number(9,2) 长度(否)  商家在交易中实际收到的款项，单位为元
+            </summary>  
+        </member>
+        <member name="P:OSS.PaySdk.Ali.Pay.Mos.ZPayCallBackResp.invoice_amount">
+            <summary>   
+               开票金额 Number(9,2) 长度(否)  用户在交易中支付的可开发票的金额
+            </summary>  
+        </member>
+        <member name="P:OSS.PaySdk.Ali.Pay.Mos.ZPayCallBackResp.buyer_pay_amount">
+            <summary>   
+               付款金额 Number(9,2) 长度(否)  用户在交易中支付的金额
+            </summary>  
+        </member>
+        <member name="P:OSS.PaySdk.Ali.Pay.Mos.ZPayCallBackResp.point_amount">
+            <summary>   
+               集分宝金额 Number(9,2) 长度(否)  使用集分宝支付的金额
+            </summary>  
+        </member>
+        <member name="P:OSS.PaySdk.Ali.Pay.Mos.ZPayCallBackResp.refund_fee">
+            <summary>   
+               总退款金额 Number(9,2) 长度(否)  退款通知中，返回总退款金额，单位为元，支持两位小数
+            </summary>  
+        </member>
+        <member name="P:OSS.PaySdk.Ali.Pay.Mos.ZPayCallBackResp.send_back_fee">
+            <summary>   
+               实际退款金额 Number(9,2) 长度(否)  商户实际退款给用户的金额，单位为元，支持两位小数
+            </summary>  
+        </member>
+        <member name="P:OSS.PaySdk.Ali.Pay.Mos.ZPayCallBackResp.subject">
+            <summary>   
+               订单标题 String(256) 长度(否)  商品的标题/交易标题/订单标题/订单关键字等，是请求时对应的参数，原样通知回来
+            </summary>  
+        </member>
+        <member name="P:OSS.PaySdk.Ali.Pay.Mos.ZPayCallBackResp.body">
+            <summary>   
+               商品描述 String(400) 长度(否)  该订单的备注、描述、明细等。对应请求时的body参数，原样通知回来
+            </summary>  
+        </member>
+        <member name="P:OSS.PaySdk.Ali.Pay.Mos.ZPayCallBackResp.gmt_create">
+            <summary>   
+               交易创建时间 Date 长度(否)  该笔交易创建的时间。格式为yyyy-MM-dd 2015-04-27 15:45:57
+            </summary>  
+        </member>
+        <member name="P:OSS.PaySdk.Ali.Pay.Mos.ZPayCallBackResp.gmt_payment">
+            <summary>   
+               交易付款时间 Date 长度(否)  该笔交易的买家付款时间。格式为yyyy-MM-dd 2015-04-27 15:45:57
+            </summary>  
+        </member>
+        <member name="P:OSS.PaySdk.Ali.Pay.Mos.ZPayCallBackResp.gmt_refund">
+            <summary>   
+               交易退款时间 Date 长度(否)  该笔交易的退款时间。格式为yyyy-MM-dd 2015-04-28 15:45:57.320
+            </summary>  
+        </member>
+        <member name="P:OSS.PaySdk.Ali.Pay.Mos.ZPayCallBackResp.gmt_close">
+            <summary>   
+               交易结束时间 Date 长度(否)  该笔交易结束时间。格式为yyyy-MM-dd 2015-04-29 15:45:57
+            </summary>  
+        </member>
+        <member name="P:OSS.PaySdk.Ali.Pay.Mos.ZPayCallBackResp.fund_bill_list">
+            <summary>   
+               支付金额信息 String(512) 长度(否)  支付成功的各个渠道金额信息，详见资金明细信息说明
+            </summary>  
+        </member>
+        <member name="P:OSS.PaySdk.Ali.Pay.Mos.ZPayCallBackResp.passback_params">
+            <summary>   
+               String 可空 长度(512)  如果请求时传递了该参数，则返回给商户时会回传该参数
+                 当面付没有此参数
+            本参数必须进行UrlEncode之后才可以发送给支付宝
+            </summary>  
+        </member>
+        <member name="T:OSS.PaySdk.Ali.Pay.Mos.ZAddOfficialTradeReq">
+            <summary>
+             预下单实体（支付宝内JS唤起支付）
+            </summary>
+        </member>
+        <member name="P:OSS.PaySdk.Ali.Pay.Mos.ZAddOfficialTradeReq.buyer_id">
+            <summary>   
+               String 特殊可选 长度(28) 买家的支付宝唯一用户号（2088开头的16位纯数字）
+            </summary>  
+        </member>
+        <member name="T:OSS.PaySdk.Ali.Pay.Mos.ZAddOfficialTradeResp">
+            <summary>
+            预下单响应实体
+            </summary>
+        </member>
+        <member name="P:OSS.PaySdk.Ali.Pay.Mos.ZAddOfficialTradeResp.out_trade_no">
+            <summary>   
+               String 必填 长度(64)  商户的订单号
+            </summary>  
+        </member>
+        <member name="P:OSS.PaySdk.Ali.Pay.Mos.ZAddOfficialTradeResp.trade_no">
+            <summary>   
+               String 必填 长度(64)  支付宝交易号
+            </summary>  
+        </member>
+        <member name="T:OSS.PaySdk.Ali.Pay.Mos.ZAddPreTradeReq">
+            <summary>
+             预下单，用户扫码付款
+            </summary>
+        </member>
+        <member name="P:OSS.PaySdk.Ali.Pay.Mos.ZAddPreTradeReq.discountable_amount">
+            <summary>   
+               Price 可选 长度(11)  参与优惠计算的金额，单位为元，精确到小数点后两位，取值范围[0.01,100000000]。 8.88
+            </summary>  
+        </member>
+        <member name="P:OSS.PaySdk.Ali.Pay.Mos.ZAddPreTradeReq.operator_id">
+            <summary>   
+               String 可选 长度(28)  商户操作员编号
+            </summary>  
+        </member>
+        <member name="P:OSS.PaySdk.Ali.Pay.Mos.ZAddPreTradeReq.terminal_id">
+            <summary>   
+               String 可选 长度(32)  商户机具终端编号
+            </summary>  
+        </member>
+        <member name="P:OSS.PaySdk.Ali.Pay.Mos.ZAddPreTradeReq.goods_detail">
+            <summary>   
+               订单包含的商品列表信息
+            </summary>  
+        </member>
+        <member name="P:OSS.PaySdk.Ali.Pay.Mos.ZAddPreTradeReq.extend_params">
+            <summary>   
+               ExtendParams 可选 长度(-)  业务扩展参数
+            </summary>  
+        </member>
+        <member name="T:OSS.PaySdk.Ali.Pay.Mos.ZAddPreTradeResp">
+            <summary>
+            预下单响应实体
+            </summary>
+        </member>
+        <member name="P:OSS.PaySdk.Ali.Pay.Mos.ZAddPreTradeResp.out_trade_no">
+            <summary>   
+               String 必填 长度(64)  商户的订单号
+            </summary>  
+        </member>
+        <member name="P:OSS.PaySdk.Ali.Pay.Mos.ZAddPreTradeResp.qr_code">
+            <summary>   
+               String 必填 长度(1024)  当前预下单请求生成的二维码码串，可以用二维码生成工具根据该码串值生成对应的二维码
+            </summary>  
+        </member>
+        <member name="T:OSS.PaySdk.Ali.Pay.Mos.ZTradeExtendParaMo">
+            <summary>
+             统一收单业务扩展参数
+            </summary>
+        </member>
+        <member name="P:OSS.PaySdk.Ali.Pay.Mos.ZTradeExtendParaMo.sys_service_provider_id">
+            <summary>   
+               String 可选 长度(64)  系统商编号 2088511833207846
+            </summary>  
+        </member>
+        <member name="T:OSS.PaySdk.Ali.Pay.Mos.ZAddPayTradeBaseReq">
+            <summary>
+             统一收单的基类
+            </summary>
+        </member>
+        <member name="P:OSS.PaySdk.Ali.Pay.Mos.ZAddPayTradeBaseReq.notify_url">
+            <summary>
+              回调通知地址
+            </summary>
+        </member>
+        <member name="P:OSS.PaySdk.Ali.Pay.Mos.ZAddPayTradeBaseReq.out_trade_no">
+            <summary>   
+               String 必填 长度(64)  商户网站唯一订单号
+            </summary>  
+        </member>
+        <member name="P:OSS.PaySdk.Ali.Pay.Mos.ZAddPayTradeBaseReq.body">
+            <summary>   
+               String 可空 长度(128)  对一笔交易的具体描述信息。如果是多种商品，请将商品描述字符串累加传给body。 16G
+            </summary>  
+        </member>
+        <member name="P:OSS.PaySdk.Ali.Pay.Mos.ZAddPayTradeBaseReq.subject">
+            <summary>   
+               String 必填 长度(256)  商品的标题/交易标题/订单标题/订单关键字等。
+            </summary>  
+        </member>
+        <member name="P:OSS.PaySdk.Ali.Pay.Mos.ZAddPayTradeBaseReq.seller_id">
+            <summary>   
+               String 可选 长度(28)  如果该值为空，则默认为商户签约账号对应的支付宝用户ID
+            </summary>  
+        </member>
+        <member name="P:OSS.PaySdk.Ali.Pay.Mos.ZAddPayTradeBaseReq.total_amount">
+            <summary>   
+               Price 必须 长度(11)  订单总金额，单位为元，精确到小数点后两位，取值范围[0.01,100000000]。 如果同时传入了【可打折金额】，【不可打折金额】，【订单总金额】三者，则必须满足如下条件：【订单总金额】=【可打折金额】+【不可打折金额】 88.88
+            </summary>  
+        </member>
+        <member name="P:OSS.PaySdk.Ali.Pay.Mos.ZAddPayTradeBaseReq.store_id">
+            <summary>   
+               String 可选 长度(32)  商户门店编号
+            </summary>  
+        </member>
+        <member name="P:OSS.PaySdk.Ali.Pay.Mos.ZAddPayTradeBaseReq.timeout_express">
+            <summary>   
+               String 可空 长度(6)  设置未付款支付宝交易的超时时间，一旦超时，该笔交易就会自动被关闭。
+                当用户进入支付宝收银台页面（不包括登录页面），会触发即刻创建支付宝交易，此时开始计时。
+                取值范围：1m～15d。m-分钟，h-小时，d-天，1c-当天（1c-当天的情况下，无论交易何时创建，都在0点关闭）。
+             如 1.5h，可转换为 90m。 90m
+            </summary>  
+        </member>
+        <member name="T:OSS.PaySdk.Ali.Pay.Mos.ZPayTradeGoodDetailMo">
+            <summary>
+             统一收单中的商品详情实体
+            </summary>
+        </member>
+        <member name="P:OSS.PaySdk.Ali.Pay.Mos.ZPayTradeGoodDetailMo.goods_id">
+            <summary>   
+               String 必填 长度(32)  商品的编号
+            </summary>  
+        </member>
+        <member name="P:OSS.PaySdk.Ali.Pay.Mos.ZPayTradeGoodDetailMo.goods_name">
+            <summary>   
+               String 必填 长度(256)  商品名称
+            </summary>  
+        </member>
+        <member name="P:OSS.PaySdk.Ali.Pay.Mos.ZPayTradeGoodDetailMo.quantity">
+            <summary>   
+               Number 必填 长度(10)  商品数量
+            </summary>  
+        </member>
+        <member name="P:OSS.PaySdk.Ali.Pay.Mos.ZPayTradeGoodDetailMo.price">
+            <summary>   
+               Price 必填 长度(9)  商品单价，单位为元
+            </summary>  
+        </member>
+        <member name="P:OSS.PaySdk.Ali.Pay.Mos.ZPayTradeGoodDetailMo.goods_category">
+            <summary>   
+               String 可选 长度(24)  商品类目
+            </summary>  
+        </member>
+        <member name="P:OSS.PaySdk.Ali.Pay.Mos.ZPayTradeGoodDetailMo.body">
+            <summary>   
+               String 可选 长度(1000)  商品描述信息
+            </summary>  
+        </member>
+        <member name="P:OSS.PaySdk.Ali.Pay.Mos.ZPayTradeGoodDetailMo.show_url">
+            <summary>   
+               String 可选 长度(400)  商品的展示地址
+            </summary>  
+        </member>
+        <member name="T:OSS.PaySdk.Ali.Pay.Mos.ZPayCancelReq">
+            <summary>
+             取消交易请求实体
+            </summary>
+        </member>
+        <member name="P:OSS.PaySdk.Ali.Pay.Mos.ZPayCancelReq.out_trade_no">
+            <summary>   
+               String 特殊可选 长度(64)  原支付请求的商户订单号,和支付宝交易号不能同时为空
+            </summary>  
+        </member>
+        <member name="P:OSS.PaySdk.Ali.Pay.Mos.ZPayCancelReq.trade_no">
+            <summary>   
+               String 特殊可选 长度(64)  支付宝交易号，和商户订单号不能同时为空
+            </summary>  
+        </member>
+        <member name="T:OSS.PaySdk.Ali.Pay.Mos.ZPayCancelResp">
+            <summary>
+            取消交易响应实体
+            </summary>
+        </member>
+        <member name="P:OSS.PaySdk.Ali.Pay.Mos.ZPayCancelResp.trade_no">
+            <summary>   
+               String 必填 长度(64)  支付宝交易号
+            </summary>  
+        </member>
+        <member name="P:OSS.PaySdk.Ali.Pay.Mos.ZPayCancelResp.out_trade_no">
+            <summary>   
+               String 必填 长度(64)  商户订单号
+            </summary>  
+        </member>
+        <member name="P:OSS.PaySdk.Ali.Pay.Mos.ZPayCancelResp.retry_flag">
+            <summary>   
+               String 必填 长度(1)  是否需要重试
+            </summary>  
+        </member>
+        <member name="P:OSS.PaySdk.Ali.Pay.Mos.ZPayCancelResp.action">
+            <summary>   
+               String 必填 长度(10)  本次撤销触发的交易动作 refund：产生了退款
+            </summary>  
+        </member>
+        <member name="T:OSS.PaySdk.Ali.Pay.Mos.ZPayRefundReq">
+            <summary>
+             退款请求实体
+            </summary>
+        </member>
+        <member name="P:OSS.PaySdk.Ali.Pay.Mos.ZPayRefundReq.out_trade_no">
+            <summary>   
+               String 特殊可选 长度(64)  订单支付时传入的商户订单号,不能和trade_no同时为空。
+            </summary>  
+        </member>
+        <member name="P:OSS.PaySdk.Ali.Pay.Mos.ZPayRefundReq.trade_no">
+            <summary>   
+               String 特殊可选 长度(64)  支付宝交易号，和商户订单号不能同时为空
+            </summary>  
+        </member>
+        <member name="P:OSS.PaySdk.Ali.Pay.Mos.ZPayRefundReq.refund_amount">
+            <summary>   
+               Price 必须 长度(9)  需要退款的金额，该金额不能大于订单金额,单位为元，支持两位小数
+            </summary>  
+        </member>
+        <member name="P:OSS.PaySdk.Ali.Pay.Mos.ZPayRefundReq.refund_reason">
+            <summary>   
+               String 可选 长度(256)  退款的原因说明
+            </summary>  
+        </member>
+        <member name="P:OSS.PaySdk.Ali.Pay.Mos.ZPayRefundReq.out_request_no">
+            <summary>   
+               String 可选 长度(64)  标识一次退款请求，同一笔交易多次退款需要保证唯一，如需部分退款，则此参数必传。
+            </summary>  
+        </member>
+        <member name="P:OSS.PaySdk.Ali.Pay.Mos.ZPayRefundReq.operator_id">
+            <summary>   
+               String 可选 长度(30)  商户的操作员编号
+            </summary>  
+        </member>
+        <member name="P:OSS.PaySdk.Ali.Pay.Mos.ZPayRefundReq.store_id">
+            <summary>   
+               String 可选 长度(32)  商户的门店编号
+            </summary>  
+        </member>
+        <member name="P:OSS.PaySdk.Ali.Pay.Mos.ZPayRefundReq.terminal_id">
+            <summary>   
+               String 可选 长度(32)  商户的终端编号
+            </summary>  
+        </member>
+        <member name="T:OSS.PaySdk.Ali.Pay.Mos.ZPayRefundResp">
+            <summary>
+            退款响应实体
+            </summary>
+        </member>
+        <member name="P:OSS.PaySdk.Ali.Pay.Mos.ZPayRefundResp.trade_no">
+            <summary>   
+               String 必填 长度(64)  支付宝交易号 2013112011001004330000121536
+            </summary>  
+        </member>
+        <member name="P:OSS.PaySdk.Ali.Pay.Mos.ZPayRefundResp.out_trade_no">
+            <summary>   
+               String 必填 长度(64)  商户订单号
+            </summary>  
+        </member>
+        <member name="P:OSS.PaySdk.Ali.Pay.Mos.ZPayRefundResp.buyer_logon_id">
+            <summary>   
+               String 必填 长度(100)  用户的登录id
+            </summary>  
+        </member>
+        <member name="P:OSS.PaySdk.Ali.Pay.Mos.ZPayRefundResp.fund_change">
+            <summary>   
+               String 必填 长度(1)  本次退款是否发生了资金变化
+            </summary>  
+        </member>
+        <member name="P:OSS.PaySdk.Ali.Pay.Mos.ZPayRefundResp.refund_fee">
+            <summary>   
+               Price 必填 长度(11)  退款总金额
+            </summary>  
+        </member>
+        <member name="P:OSS.PaySdk.Ali.Pay.Mos.ZPayRefundResp.gmt_refund_pay">
+            <summary>   
+               Date 必填 长度(32)  退款支付时间 15:45:57
+            </summary>  
+        </member>
+        <member name="P:OSS.PaySdk.Ali.Pay.Mos.ZPayRefundResp.refund_detail_item_list">
+            <summary>   
+               TradeFundBill [] 长度(选填)  退款使用的资金渠道
+            </summary>  
+        </member>
+        <member name="P:OSS.PaySdk.Ali.Pay.Mos.ZPayRefundResp.store_name">
+            <summary>   
+               String 选填 长度(512)  交易在支付时候的门店名称
+            </summary>  
+        </member>
+        <member name="P:OSS.PaySdk.Ali.Pay.Mos.ZPayRefundResp.buyer_user_id">
+            <summary>   
+               String 必填 长度(28)  买家在支付宝的用户id
+            </summary>  
+        </member>
+        <member name="T:OSS.PaySdk.Ali.Pay.Mos.ZPayRefundItemMo">
+            <summary>
+              退款使用渠道信息
+            </summary>
+        </member>
+        <member name="P:OSS.PaySdk.Ali.Pay.Mos.ZPayRefundItemMo.fund_channel">
+            <summary>   
+               String 必填 长度(32)  交易使用的资金渠道，详见 ALIPAYACCOUNT
+            </summary>  
+        </member>
+        <member name="P:OSS.PaySdk.Ali.Pay.Mos.ZPayRefundItemMo.amount">
+            <summary>   
+               Price 选填 长度(-)  该支付工具类型所使用的金额
+            </summary>  
+        </member>
+        <member name="P:OSS.PaySdk.Ali.Pay.Mos.ZPayRefundItemMo.real_amount">
+            <summary>   
+               Price 选填 长度(11)  渠道实际付款金额
+            </summary>  
+        </member>
+        <member name="T:OSS.PaySdk.Ali.Pay.Mos.ZGetDownloadUrlReq">
+            <summary>
+             获取对账单下载地址请求实体
+            </summary>
+        </member>
+        <member name="P:OSS.PaySdk.Ali.Pay.Mos.ZGetDownloadUrlReq.bill_type">
+            <summary>   
+               String 必须 长度(10)  账单类型，商户通过接口或商户经开放平台授权后其所属服务商通过接口可以获取以下账单类型：trade、signcustomer；trade指商户基于支付宝交易收单的业务账单；signcustomer是指基于商户支付宝余额收入及支出等资金变动的帐务账单；
+            </summary>  
+        </member>
+        <member name="P:OSS.PaySdk.Ali.Pay.Mos.ZGetDownloadUrlReq.bill_date">
+            <summary>   
+               String 必须 长度(15)  账单时间：日账单格式为yyyy-MM-dd，月账单格式为yyyy-MM。
+            </summary>  
+        </member>
+        <member name="T:OSS.PaySdk.Ali.Pay.Mos.ZGetDownloadUrlResp">
+            <summary>
+            获取对账单下载地址响应实体
+            </summary>
+        </member>
+        <member name="P:OSS.PaySdk.Ali.Pay.Mos.ZGetDownloadUrlResp.bill_download_url">
+            <summary>   
+               String 必填 长度(2048)  账单下载地址链接，获取连接后30秒后未下载，链接地址失效。
+            </summary>  
+        </member>
+        <member name="T:OSS.PaySdk.Ali.Pay.Mos.ZQueryTradeReq">
+            <summary>
+            线下交易查询请求实体
+            </summary>
+        </member>
+        <member name="P:OSS.PaySdk.Ali.Pay.Mos.ZQueryTradeReq.out_trade_no">
+            <summary>   
+               String 特殊可选 长度(64)  订单支付时传入的商户订单号,和支付宝交易号不能同时为空,trade_no,out_trade_no如果同时存在优先取trade_no	
+            </summary>  
+        </member>
+        <member name="P:OSS.PaySdk.Ali.Pay.Mos.ZQueryTradeReq.trade_no">
+            <summary>   
+               String 特殊可选 长度(64)  支付宝交易号，和商户订单号不能同时为空 
+            </summary>  
+        </member>
+        <member name="T:OSS.PaySdk.Ali.Pay.Mos.ZQueryTradeResp">
+            <summary>
+            线下交易查询响应实体
+            </summary>
+        </member>
+        <member name="P:OSS.PaySdk.Ali.Pay.Mos.ZQueryTradeResp.trade_status">
+            <summary>   
+               String 必填 长度(32)  交易状态：WAIT_BUYER_PAY（交易创建，等待买家付款）、TRADE_CLOSED（未付款交易超时关闭，或支付完成后全额退款）、TRADE_SUCCESS（交易支付成功）、TRADE_FINISHED（交易结束，不可退款）
+            </summary>  
+        </member>
+        <member name="P:OSS.PaySdk.Ali.Pay.Mos.ZQueryTradeResp.send_pay_date">
+            <summary>   
+               Date 必填 长度(32)  本次交易打款给卖家的时间 15:45:57
+            </summary>  
+        </member>
+        <member name="P:OSS.PaySdk.Ali.Pay.Mos.ZQueryTradeResp.alipay_store_id">
+            <summary>   
+               String 选填 长度(64)  支付宝店铺编号
+            </summary>  
+        </member>
+        <member name="P:OSS.PaySdk.Ali.Pay.Mos.ZQueryTradeResp.store_id">
+            <summary>   
+               String 选填 长度(32)  商户门店编号
+            </summary>  
+        </member>
+        <member name="P:OSS.PaySdk.Ali.Pay.Mos.ZQueryTradeResp.terminal_id">
+            <summary>   
+               String 选填 长度(32)  商户机具终端编号
+            </summary>  
+        </member>
+        <member name="P:OSS.PaySdk.Ali.Pay.Mos.ZQueryTradeResp.industry_sepc_detail">
+            <summary>   
+               String 选填 长度(4096)  行业特殊信息（例如在医保卡支付业务中，向用户返回医疗信息）。
+            </summary>  
+        </member>
+        <member name="P:OSS.PaySdk.Ali.Pay.Mos.ZQueryTradeResp.voucher_detail_list">
+            <summary>   
+               VoucherDetail[] 本交易支付时使用的所有优惠券信息
+            </summary>  
+        </member>
+        <member name="T:OSS.PaySdk.Ali.Pay.Mos.ZTradeVoucherDetailMo">
+            <summary>
+            交易信息中的优惠券信息
+            </summary>
+        </member>
+        <member name="P:OSS.PaySdk.Ali.Pay.Mos.ZTradeVoucherDetailMo.id">
+            <summary>   
+               String 必填 长度(32)  券id
+            </summary>  
+        </member>
+        <member name="P:OSS.PaySdk.Ali.Pay.Mos.ZTradeVoucherDetailMo.name">
+            <summary>   
+               String 必填 长度(64)  券名称
+            </summary>  
+        </member>
+        <member name="P:OSS.PaySdk.Ali.Pay.Mos.ZTradeVoucherDetailMo.type">
+            <summary>   
+               String 必填 长度(32)  当前有三种类型： - 全场代金券 ALIPAY_DISCOUNT_VOUCHER - 折扣券 ALIPAY_ITEM_VOUCHER - 单品优惠 注：不排除将来新增其他类型的可能，商家接入时注意兼容性避免硬编码 ALIPAY_FIX_VOUCHER
+            </summary>  
+        </member>
+        <member name="P:OSS.PaySdk.Ali.Pay.Mos.ZTradeVoucherDetailMo.amount">
+            <summary>   
+               Price 必填 长度(8)  优惠券面额，它应该会等于商家出资加上其他出资方出资
+            </summary>  
+        </member>
+        <member name="P:OSS.PaySdk.Ali.Pay.Mos.ZTradeVoucherDetailMo.merchant_contribute">
+            <summary>   
+               Price 选填 长度(8)  商家出资（特指发起交易的商家出资金额）
+            </summary>  
+        </member>
+        <member name="P:OSS.PaySdk.Ali.Pay.Mos.ZTradeVoucherDetailMo.other_contribute">
+            <summary>   
+               Price 选填 长度(8)  其他出资方出资金额，可能是支付宝，可能是品牌商，或者其他方，也可能是他们的一起出资
+            </summary>  
+        </member>
+        <member name="P:OSS.PaySdk.Ali.Pay.Mos.ZTradeVoucherDetailMo.memo">
+            <summary>   
+               String 选填 长度(256)  优惠券备注信息
+            </summary>  
+        </member>
+        <member name="T:OSS.PaySdk.Ali.Pay.ZPayRefundApi">
+            <summary>
+             退款接口
+            </summary>
+        </member>
+        <member name="M:OSS.PaySdk.Ali.Pay.ZPayRefundApi.#ctor(OSS.PaySdk.Ali.ZPayConfig)">
+            <summary>
+             构造函数
+            </summary>
+            <param name="config"></param>
+        </member>
+        <member name="M:OSS.PaySdk.Ali.Pay.ZPayRefundApi.RefunPayAsync(OSS.PaySdk.Ali.Pay.Mos.ZPayRefundReq)">
+            <summary>
+            统一预下单（收单）（扫码支付   -  用户扫商家二维码）
+            </summary>
+            <param name="refundReq"></param>
+        </member>
+        <member name="T:OSS.PaySdk.Ali.Pay.ZPayTradeApi">
+            <summary>
+             支付相关接口
+            </summary>
+        </member>
+        <member name="M:OSS.PaySdk.Ali.Pay.ZPayTradeApi.#ctor(OSS.PaySdk.Ali.ZPayConfig)">
+            <inheritdoc />
+        </member>
+        <member name="M:OSS.PaySdk.Ali.Pay.ZPayTradeApi.AddPrePayTradeAsync(OSS.PaySdk.Ali.Pay.Mos.ZAddPreTradeReq)">
+            <summary>
+            预下单（用户扫码付款 - 用户扫商家二维码）
+            </summary>
+            <param name="payReq"></param>
+        </member>
+        <member name="M:OSS.PaySdk.Ali.Pay.ZPayTradeApi.AddPayTradeAsync(OSS.PaySdk.Ali.Pay.Mos.ZAddPayTradeReq)">
+            <summary>
+              下单（商家扫码收款 - 商家扫用户二维码、读取声波发起支付）
+            </summary>
+            <param name="payReq"></param>
+        </member>
+        <member name="M:OSS.PaySdk.Ali.Pay.ZPayTradeApi.GetOfficialTradeAsync(OSS.PaySdk.Ali.Pay.Mos.ZAddOfficialTradeReq)">
+            <summary>
+            下单（支付宝内部JS唤起支付
+            </summary>
+            <param name="payReq"></param>
+        </member>
+        <member name="M:OSS.PaySdk.Ali.Pay.ZPayTradeApi.GetAppTradeContent(OSS.PaySdk.Ali.Pay.Mos.ZAddAppTradeReq)">
+            <summary>
+            获取客户端App唤起支付请求内容
+            </summary>
+            <param name="req"></param>
+        </member>
+        <member name="M:OSS.PaySdk.Ali.Pay.ZPayTradeApi.GetPageTradeContent(OSS.PaySdk.Ali.Pay.Mos.ZAddPageTradeReq)">
+            <summary>
+            获取PC端转到支付宝收银台请求内容
+            </summary>
+            <param name="req"></param>
+        </member>
+        <member name="M:OSS.PaySdk.Ali.Pay.ZPayTradeApi.GetWapTradeContent(OSS.PaySdk.Ali.Pay.Mos.ZAddWapTradeReq)">
+            <summary>
+            获取客户端Wap唤起支付请求内容
+            </summary>
+            <param name="req"></param>
+        </member>
+        <member name="M:OSS.PaySdk.Ali.Pay.ZPayTradeApi.QueryTradeAsync(OSS.PaySdk.Ali.Pay.Mos.ZQueryTradeReq)">
+            <summary>
+              统一收单线下交易查询
+            </summary>
+            <param name="queryReq"></param>
+        </member>
+        <member name="M:OSS.PaySdk.Ali.Pay.ZPayTradeApi.CancelTradeAsync(OSS.PaySdk.Ali.Pay.Mos.ZPayCancelReq)">
+            <summary>
+             撤销交易接口
+            </summary>
+            <param name="req"></param>
+        </member>
+        <member name="M:OSS.PaySdk.Ali.Pay.ZPayTradeApi.GetDownloadUrlAsync(OSS.PaySdk.Ali.Pay.Mos.ZGetDownloadUrlReq)">
+            <summary>
+             获取对账单下载地址
+            </summary>
+            <param name="req"></param>
+        </member>
+        <member name="M:OSS.PaySdk.Ali.Pay.ZPayTradeApi.CheckCallBackSign(System.Collections.Generic.IDictionary{System.String,System.String})">
+            <summary>
+             验证回调接口签名
+            </summary>
+            <param name="formDics">表单的字典值</param>
+            <returns></returns>
+        </member>
+        <member name="T:OSS.PaySdk.Ali.SysTools.ZPayRsaAssist">
+            <summary>
+              rsa加密
+            </summary>
+        </member>
+        <member name="M:OSS.PaySdk.Ali.SysTools.ZPayRsaAssist.#ctor(System.String,System.String,System.String)">
+            <summary>
+             构造函数
+            </summary>
+            <param name="privateKeyPem"></param>
+            <param name="publicKeyPem"></param>
+            <param name="charset"></param>
+        </member>
+        <member name="M:OSS.PaySdk.Ali.SysTools.ZPayRsaAssist.CheckSign(System.String,System.String)">
+            <summary>
+             验签操作
+            </summary>
+            <param name="signContent"></param>
+            <param name="sign"></param>
+            <returns></returns>
+        </member>
+        <member name="M:OSS.PaySdk.Ali.SysTools.ZPayRsaAssist.GenerateSign(System.String)">
+            <summary>
+            生成签名
+            </summary>
+            <param name="data"></param>
+            <returns></returns>
+        </member>
+        <member name="T:OSS.PaySdk.Ali.ZPayBaseApi">
+             <summary>
+            支付宝接口SDK基类
+             </summary>
+        </member>
+        <member name="M:OSS.PaySdk.Ali.ZPayBaseApi.#ctor(OSS.PaySdk.Ali.ZPayConfig)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="config"></param>
+        </member>
+        <member name="M:OSS.PaySdk.Ali.ZPayBaseApi.GenerateRsaAssist(OSS.PaySdk.Ali.ZPayConfig)">
+            <summary>
+             加密对象提供者
+                为了同时满足多租户多线程上下文配置， 所以这里静态线程变量赋值，如果不存在则创建
+            </summary>
+            <param name="config"></param>
+            <returns></returns>
+        </member>
+        <member name="F:OSS.PaySdk.Ali.ZPayBaseApi.m_ApiUrl">
+            <summary>
+            支付宝api接口地址
+            </summary>
+        </member>
+        <member name="M:OSS.PaySdk.Ali.ZPayBaseApi.RestCommonAsync``1(OSS.Http.Mos.OsHttpRequest,System.String,System.Func{System.Net.Http.HttpResponseMessage,System.Threading.Tasks.Task{``0}})">
+            <summary>
+            处理远程请求方法，并返回需要的实体
+            </summary>
+            <typeparam name="T">需要返回的实体类型</typeparam>
+            <param name="request">远程请求组件的request基本信息</param>
+            <param name="respColumnName">响应实体中的内容列表</param>
+            <param name="funcFormat">获取实体格式化方法</param>
+            <returns>实体类型</returns>
+        </member>
+        <member name="M:OSS.PaySdk.Ali.ZPayBaseApi.PostApiAsync``2(System.String,System.String,``0)">
+            <summary>
+              发起post请求
+            </summary>
+            <typeparam name="TReq"></typeparam>
+            <typeparam name="TResp"></typeparam>
+            <param name="apiMethod"></param>
+            <param name="respColumnName"></param>
+            <param name="req"></param>
+            <returns></returns>
+        </member>
+        <member name="M:OSS.PaySdk.Ali.ZPayBaseApi.CheckSign``1(System.String,System.String,``0)">
+            <summary>
+             返回结果验签
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="signContent"></param>
+            <param name="sign"></param>
+            <param name="t"></param>
+        </member>
+        <member name="M:OSS.PaySdk.Ali.ZPayBaseApi.GetCehckSignContent(System.String,System.String)">
+            <summary>
+             获取需要验签的内容部分
+            </summary>
+            <param name="respColumnName"></param>
+            <param name="contentStr"></param>
+            <returns></returns>
+        </member>
+        <member name="M:OSS.PaySdk.Ali.ZPayBaseApi.GetReqBodyDics``1(System.String,``0)">
+            <summary>
+            补充默认属性并返回请求内容
+            </summary>
+            <param name="method">接口方法名</param>
+            <param name="req">请求实体</param>
+            <returns>返回最终的内容</returns>
+        </member>
+        <member name="M:OSS.PaySdk.Ali.ZPayBaseApi.ConvertDicToEncodeReqBody(System.Collections.Generic.IDictionary{System.String,System.String})">
+            <summary>
+             转化生成签名后的请求内容
+            </summary>
+            <param name="dics"></param>
+            <returns></returns>
+        </member>
+        <member name="M:OSS.PaySdk.Ali.ZPayBaseApi.GetDefaultConfig">
+            <inheritdoc />
+        </member>
+        <member name="T:OSS.PaySdk.Ali.ZPayConfigProvider">
+            <summary>
+            支付宝支付的相关配置
+            </summary>
+        </member>
+        <member name="P:OSS.PaySdk.Ali.ZPayConfigProvider.ModuleName">
+            <summary>
+             模块名称
+            </summary>
+        </member>
+        <member name="P:OSS.PaySdk.Ali.ZPayConfigProvider.DefaultConfig">
+            <summary>
+             默认的Key配置信息
+            </summary>
+        </member>
+        <member name="M:OSS.PaySdk.Ali.ZPayConfigProvider.SetContextConfig(OSS.PaySdk.Ali.ZPayConfig)">
+            <summary>
+            设置上下文配置信息
+            </summary>
+            <param name="config"></param>
+        </member>
+    </members>
+</doc>
