@@ -57,3 +57,4 @@ C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Spl.IDAL\obj\Release\Apps.
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Spl.IDAL\obj\Release\Apps.Spl.IDAL.csproj.CopyComplete
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Spl.IDAL\obj\Release\Apps.Spl.IDAL.dll
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Spl.IDAL\obj\Release\Apps.Spl.IDAL.pdb
+C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Spl.IDAL\obj\Release\Apps.Spl.IDAL.csprojResolveAssemblyReference.cache

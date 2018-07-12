@@ -87,8 +87,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Apps.Module", "Apps.Module"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LShop", "LShop\LShop.csproj", "{4FFF452E-B2AE-47C9-BB14-C5431CEB5EBD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AopSdk", "alipay-sdk-NET-3.0.2\AopSdk.csproj", "{9C11CAE5-5188-4E71-825B-68FC3135728A}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -231,10 +229,6 @@ Global
 		{4FFF452E-B2AE-47C9-BB14-C5431CEB5EBD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4FFF452E-B2AE-47C9-BB14-C5431CEB5EBD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4FFF452E-B2AE-47C9-BB14-C5431CEB5EBD}.Release|Any CPU.Build.0 = Release|Any CPU
-		{9C11CAE5-5188-4E71-825B-68FC3135728A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9C11CAE5-5188-4E71-825B-68FC3135728A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9C11CAE5-5188-4E71-825B-68FC3135728A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9C11CAE5-5188-4E71-825B-68FC3135728A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -274,8 +268,8 @@ Global
 		{3A1E7107-5333-4030-B0D1-2C35F4524736} = {697A56F6-CDB7-44FC-9927-C884447B3393}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {AFFB26FA-21D2-43D7-A598-46691FFA1898}
 		VisualSVNWorkingCopyRoot = .
+		SolutionGuid = {AFFB26FA-21D2-43D7-A598-46691FFA1898}
 	EndGlobalSection
 	GlobalSection(SubversionScc) = preSolution
 		Svn-Managed = True

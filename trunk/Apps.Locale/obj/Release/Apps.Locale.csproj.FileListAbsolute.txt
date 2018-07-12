@@ -18,3 +18,4 @@ C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Locale\obj\Release\Apps.Lo
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Locale\obj\Release\en-US\Apps.Locale.resources.dll
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Locale\obj\Release\Apps.Locale.dll
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Locale\obj\Release\Apps.Locale.pdb
+C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Locale\obj\Release\Apps.Locale.csprojResolveAssemblyReference.cache

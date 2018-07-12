@@ -2348,7 +2348,7 @@
     <Property Name="Id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="WareId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="Amount" Type="Int32" />
-    <Property Name="SumJinE" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="SumJinE" Type="Decimal" Precision="18" Scale="2" />
     <NavigationProperty Name="Spl_Ware" Relationship="DB.FK_Spl_Hotware_Spl_Ware" FromRole="Spl_Hotware" ToRole="Spl_Ware" />
   </EntityType>
   <EntityType Name="Spl_Orders">
@@ -2364,7 +2364,7 @@
     <Property Name="UpdateTime" Type="DateTime" Precision="3" />
     <NavigationProperty Name="Spl_Order_Ware" Relationship="DB.FK_Spl_Order_Ware_Spl_Orders" FromRole="Spl_Orders" ToRole="Spl_Order_Ware" />
     <NavigationProperty Name="SysUser" Relationship="DB.FK_Spl_Orders_SysUser" FromRole="Spl_Orders" ToRole="SysUser" />
-    <Property Name="DingDanKuan" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="DingDanKuan" Type="Decimal" Precision="18" Scale="2" />
     <Property Name="OrderWuliu" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
     <Property Name="TrueName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="AddressName" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
@@ -2377,7 +2377,7 @@
     <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="ProductCategoryId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="Unit" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-    <Property Name="Price" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Price" Type="Decimal" Precision="18" Scale="2" />
     <Property Name="Stock" Type="Int32" />
     <Property Name="Note" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
     <Property Name="Thumbnail" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
@@ -2393,7 +2393,7 @@
     <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="Spl_Hotware" Relationship="DB.FK_Spl_Hotware_Spl_Ware" FromRole="Spl_Ware" ToRole="Spl_Hotware" />
     <Property Name="BrandId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="PromotionPrice" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="PromotionPrice" Type="Decimal" Precision="18" Scale="2" />
     <NavigationProperty Name="Spl_Brand" Relationship="DB.FK_Spl_Ware_Spl_Brand" FromRole="Spl_Ware" ToRole="Spl_Brand" />
     <NavigationProperty Name="Spl_ProductCategoryS" Relationship="DB.FK_Spl_Ware_Spl_ProductCategoryS" FromRole="Spl_Ware" ToRole="Spl_ProductCategoryS" />
     <NavigationProperty Name="Spl_WareInfo" Relationship="DB.FK_Spl_WareInfo_Spl_Ware" FromRole="Spl_Ware" ToRole="Spl_WareInfo" />
@@ -2474,7 +2474,7 @@
     <Property Name="Id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="UserId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="OrderId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="JinE" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="JinE" Type="Decimal" Precision="18" Scale="2" />
     <Property Name="CreateTime" Type="DateTime" Precision="3" />
     <Property Name="Note" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="SysUser" Relationship="DB.SysUserSysErCi" FromRole="SysErCi" ToRole="SysUser" />
@@ -2501,7 +2501,7 @@
     <Property Name="ZiMu" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
     <Property Name="ShuZi" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
     <Property Name="ErZiShu" Type="Int32" />
-    <Property Name="FirstJinE" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="FirstJinE" Type="Decimal" Precision="18" Scale="2" />
     <Property Name="LevelId" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
     <Property Name="ZMP15" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="ZMPA2" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
@@ -2574,7 +2574,7 @@
     </Key>
     <Property Name="Id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="UserId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="ShouRu" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="ShouRu" Type="Decimal" Precision="18" Scale="2" />
     <Property Name="Froms" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
     <Property Name="CreateTime" Type="DateTime" Precision="3" />
     <Property Name="Note" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
@@ -2587,9 +2587,9 @@
     </Key>
     <Property Name="Id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="UserId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="Balance" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Balance" Type="Decimal" Precision="18" Scale="2" />
     <Property Name="Froms" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="JieYu" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="JieYu" Type="Decimal" Precision="18" Scale="2" />
     <Property Name="Note" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
     <Property Name="CreateTime" Type="DateTime" Precision="3" />
     <Property Name="UpdateTime" Type="DateTime" Precision="3" />
@@ -2605,7 +2605,7 @@
     <Property Name="WaresId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
     <Property Name="Amount" Type="Int32" />
-    <Property Name="SumJinE" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="SumJinE" Type="Decimal" Precision="18" Scale="2" />
     <NavigationProperty Name="Spl_Ware" Relationship="DB.Spl_WareSpl_Order_Ware" FromRole="Spl_Order_Ware" ToRole="Spl_Ware" />
     <NavigationProperty Name="Spl_Orders" Relationship="DB.FK_Spl_Order_Ware_Spl_Orders" FromRole="Spl_Order_Ware" ToRole="Spl_Orders" />
   </EntityType>
@@ -2760,7 +2760,7 @@
     <Property Name="Id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="uid" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="tid" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="fje" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+    <Property Name="fje" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
     <Property Name="isdone" Type="Boolean" />
     <Property Name="createTime" Type="DateTime" Precision="0" />
   </EntityType>

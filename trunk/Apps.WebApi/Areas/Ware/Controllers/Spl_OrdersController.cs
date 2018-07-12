@@ -36,7 +36,7 @@ namespace Apps.WebApi.Areas.Ware.Controllers
             newmodel.DingDanKuan = spl_Orders.DingDanKuan;
             newmodel.AddressId = spl_Orders.AddressId;
             newmodel.CreateTime = DateTime.Now;
-            newmodel.OrderNo = DateTime.Now.ToString("yyyyMMddHHmmssfff") + spl_Orders.UserId;
+            newmodel.OrderNo = DateTime.Now.ToString("yyyyMMddHHmmssfff");
             newmodel.UserId = spl_Orders.UserId;
             newmodel.TrueName = SysUserBLL.GetById(spl_Orders.UserId).TrueName;
 

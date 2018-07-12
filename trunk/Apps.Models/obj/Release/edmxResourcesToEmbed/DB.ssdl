@@ -479,7 +479,7 @@
     <Property Name="Id" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="WareId" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="Amount" Type="int" />
-    <Property Name="SumJinE" Type="money" />
+    <Property Name="SumJinE" Type="decimal" Precision="18" Scale="2" />
   </EntityType>
   <EntityType Name="Spl_Order_Ware">
     <Key>
@@ -490,7 +490,7 @@
     <Property Name="WaresId" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="Name" Type="varchar" MaxLength="255" />
     <Property Name="Amount" Type="int" />
-    <Property Name="SumJinE" Type="money" />
+    <Property Name="SumJinE" Type="decimal" Precision="18" Scale="2" />
   </EntityType>
   <EntityType Name="Spl_Orders">
     <Key>
@@ -505,7 +505,7 @@
     <Property Name="AddressName" Type="varchar" MaxLength="500" />
     <Property Name="CreateTime" Type="datetime" />
     <Property Name="UpdateTime" Type="datetime" />
-    <Property Name="DingDanKuan" Type="money" />
+    <Property Name="DingDanKuan" Type="decimal" Precision="18" Scale="2" />
     <Property Name="OrderWuliu" Type="varchar" MaxLength="100" />
   </EntityType>
   <EntityType Name="Spl_Person">
@@ -568,8 +568,8 @@
     <Property Name="ProductCategoryId" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="BrandId" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="Unit" Type="varchar" MaxLength="10" />
-    <Property Name="Price" Type="money" />
-    <Property Name="PromotionPrice" Type="money" />
+    <Property Name="Price" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="PromotionPrice" Type="decimal" Precision="18" Scale="2" />
     <Property Name="Stock" Type="int" />
     <Property Name="Description" Type="nvarchar" MaxLength="50" />
     <Property Name="Note" Type="nvarchar" MaxLength="100" />
@@ -668,7 +668,7 @@
     <Property Name="Id" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="UserId" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="OrderId" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="JinE" Type="money" />
+    <Property Name="JinE" Type="decimal" Precision="18" Scale="2" />
     <Property Name="CreateTime" Type="datetime" />
     <Property Name="Note" Type="text" />
   </EntityType>
@@ -709,7 +709,7 @@
     <Property Name="ZiMu" Type="varchar" MaxLength="150" />
     <Property Name="ShuZi" Type="varchar" MaxLength="150" />
     <Property Name="ErZiShu" Type="int" />
-    <Property Name="FirstJinE" Type="money" />
+    <Property Name="FirstJinE" Type="decimal" Precision="18" Scale="2" />
     <Property Name="LevelId" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="ZMP15" Type="varchar" MaxLength="50" />
     <Property Name="ZMPA2" Type="varchar" MaxLength="150" />
@@ -733,7 +733,7 @@
     <Property Name="Id" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="uid" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="tid" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="fje" Type="money" Nullable="false" />
+    <Property Name="fje" Type="decimal" Precision="18" Scale="2" Nullable="false" />
     <Property Name="isdone" Type="bit" />
     <Property Name="createTime" Type="date" />
   </EntityType>
@@ -855,7 +855,7 @@
     </Key>
     <Property Name="Id" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="UserId" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="ShouRu" Type="money" />
+    <Property Name="ShouRu" Type="decimal" Precision="18" Scale="2" />
     <Property Name="Froms" Type="varchar" MaxLength="20" />
     <Property Name="CreateTime" Type="datetime" />
     <Property Name="Note" Type="text" />
@@ -1018,9 +1018,9 @@
     </Key>
     <Property Name="Id" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="UserId" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="Balance" Type="money" />
+    <Property Name="Balance" Type="decimal" Precision="18" Scale="2" />
     <Property Name="Froms" Type="varchar" MaxLength="50" />
-    <Property Name="JieYu" Type="money" />
+    <Property Name="JieYu" Type="decimal" Precision="18" Scale="2" />
     <Property Name="Note" Type="text" />
     <Property Name="CreateTime" Type="datetime" />
     <Property Name="UpdateTime" Type="datetime" />
