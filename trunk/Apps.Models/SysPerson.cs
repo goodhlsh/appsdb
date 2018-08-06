@@ -40,6 +40,12 @@ public partial class SysPerson
 
     public string Category { get; set; }
 
+    public string UserId { get; set; }
+
+
+
+    public virtual SysUser SysUser { get; set; }
+
 }
 
 }

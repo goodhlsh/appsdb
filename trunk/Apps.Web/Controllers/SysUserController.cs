@@ -28,7 +28,6 @@ namespace Apps.Web.Controllers
         [SupportFilter]
         public ActionResult Index()
         {
-
             return View();
         }
         [SupportFilter(ActionName = "Index")]
@@ -173,23 +172,24 @@ namespace Apps.Web.Controllers
         [SupportFilter]
         public ActionResult Create()
         {
-
-            ViewBag.Struct = new SelectList(structBLL.GetList("0"), "Id", "Name");
             ViewBag.Areas = new SelectList(areasBLL.GetList("0"), "Id", "Name");
             SysUserModel model = new SysUserModel()
             {
                 Password = "123456",
                 JoinDate = ResultHelper.NowTime
-
             };
             return View(model);
-
         }
 
         [HttpPost]
         [SupportFilter]
         public JsonResult Create(SysUserModel model)
         {
+            if (m_BLL.GetBySelUserName(model.UserName) != null)
+            {
+                return null;
+            }
+
             model.Id = ResultHelper.NewId;
             model.CreateTime = ResultHelper.NowTime;
             model.Password = ValueConvert.MD5(model.Password);
@@ -200,8 +200,9 @@ namespace Apps.Web.Controllers
             model.IsSecretary = false;
             model.IsSelLead = false;
             model.City=model.City=="--未选择--"? "":model.City;
-
-             if (model != null && model.DepId!=null&&model.PosId!=null)
+            model.DepId = "20140724111955028255487bb419149";
+            model.PosId = "201408071548164259039f26de27e49";
+             if (model != null)
             //if (model != null&&ModelState.IsValid)
             {
                 if (m_BLL.Create(ref errors, model))
@@ -229,7 +230,11 @@ JsonRequestBehavior.AllowGet);
         [HttpPost]
         public JsonResult JudgeUserName(string userName)
         {
-            return Json("用户名已经存在！", JsonRequestBehavior.AllowGet);
+            if (m_BLL.GetBySelUserName(userName) != null)
+            {
+                return Json("用户名已经存在！", JsonRequestBehavior.AllowGet);
+            }
+            return null;
         }
         #endregion
 

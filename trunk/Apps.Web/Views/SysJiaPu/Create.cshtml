@@ -11,46 +11,51 @@
     List<permModel> perm = null;
 }
 
-<script type="text/javascript">
-$(function () {
-    $("#btnSave").click(function () {
-        if ($("form").valid()) {
-            $.ajax({
-                url: "@Url.Action("Create")",
-                type: "Post",
-                data: $("form").serialize(),
-                dataType: "json",
-                success: function (data) {
-                    if (data.type == 1) {
+<script type="text/javascript">    
+    $(function () {
+        $("#btnSave").click(function () {
+            if ($("form").valid()) {
+                $.ajax({
+                    url: "@Url.Action("Create")",
+                    type: "Post",
+                    data: $("form").serialize(),
+                    dataType: "json",
+                    success: function (data) {
+                        if (data.type == 1) {
                         window.parent.frameReturnByMes(data.message);
                         window.parent.frameReturnByReload(true);
                         window.parent.frameReturnByClose()
-                    }
-                    else {
+                        }
+                        else {
                         window.parent.frameReturnByMes(data.message);
+                        }
                     }
-                }
-            });
-        }
-        return false;
-    });
+                });
+            }
+            return false;
+        });
 
+      
+       
+        $("#btnReturn").click(function () {
+            window.parent.frameReturnByClose();
+        });
 
-    $("#btnReturn").click(function () {
-         window.parent.frameReturnByClose();
-    });
-
-    $("#selExc").click(function () {
-        $("#modalwindow").html("<iframe width='100%' height='100%' scrolling='no' frameborder='0'' src='/SysHelper/UserLookUp_JP'></iframe>");
-        $("#modalwindow").window({ title: '选择人员', width: 620, height: 388, iconCls: 'fa fa-plus' }).window('open');
-    });
-    $("#selExc2").click(function () {
-        $("#modalwindow").html("<iframe width='100%' height='100%' scrolling='no' frameborder='0'' src='/SysHelper/UserLookUp2_JP'></iframe>");
-        $("#modalwindow").window({ title: '选择人员', width: 620, height: 388, iconCls: 'fa fa-plus' }).window('open');
-    });
+        $("#selExc").click(function () {
+            //$.messageBox5s('hello', 'you');
+            $("#modalwindow").html("<iframe width='100%' height='100%' scrolling='no' frameborder='0' src='/SysHelper/UserLookUp_JP'></iframe>");
+            $("#modalwindow").window({ title: '选择人员', width: 620, height: 388, iconCls: 'fa fa-plus' }).window('open');
+        });
+        $("#selExc2").click(function () {
+            $("#modalwindow").html("<iframe width='100%' height='100%' scrolling='no' frameborder='0' src='/SysHelper/UserLookUp2_JP'></iframe>");
+            $("#modalwindow").window({ title: '选择人员', width: 620, height: 388, iconCls: 'fa fa-plus' }).window('open');
+        });
+        $("#selExc3").click(function () {
+            $("#modalwindow").html("<iframe width='100%' height='100%' scrolling='no' frameborder='0' src='/SysHelper/UserLookUp3_JP'></iframe>");
+            $("#modalwindow").window({ title: '选择人员', width: 620, height: 388, iconCls: 'fa fa-plus' }).window('open');
+        });
     });
     function SetSelResult(result, resultName) {
-
         $("#UserId").val(result);
         $("#TrueName").val(resultName);
     }
@@ -61,7 +66,6 @@ $(function () {
         return arrayObj;
     }
     function SetSelResult2(result, resultName) {
-
         $("#ParentId").val(result);
         $("#LeadName").val(resultName);
     }
@@ -69,6 +73,16 @@ $(function () {
         var arrayObj = new Array()
         arrayObj[0] = $("#ParentId").val();
         arrayObj[1] = $("#LeadName").val();
+        return arrayObj;
+    }
+    function SetSelResult3(result, resultName) {
+        $("#TId").val(result);
+        $("#TName").val(resultName);
+    }
+    function GetSelResult3() {
+        var arrayObj = new Array()
+        arrayObj[0] = $("#TId").val();
+        arrayObj[1] = $("#TName").val();
         return arrayObj;
     }
     //ifram 返回
@@ -80,7 +94,7 @@ $(function () {
     @Html.ToolButton("btnSave", "fa fa-save", Resource.Save, ref perm, "Save", true)
     @Html.ToolButton("btnReturn", "fa fa-reply", Resource.Reply, false)
 </div>
-<div id="modalwindow" class="easyui-window" data-options="modal:true,closed:true,minimizable:false,shadow:false"></div> 
+<div id="modalwindow" class="easyui-window" data-options="modal:true,closed:true,minimizable:false,shadow:false"></div>
 @using (Html.BeginForm())
 {
     <div id="ErrMesList">
@@ -91,14 +105,12 @@ $(function () {
 
     <div class="easyui-panel" title="账号信息" style="width:100%;height:100%;">
         <input id="CreateTime" type="hidden" name="CreateTime" value="2000-1-1" />
-
         <table class="formtable">
             <tbody>
                 <tr>
                     <th>
                         @Html.HiddenFor(model => model.Id)
-
-                        @Html.LabelFor(model => model.TrueName):
+                        @Html.LabelFor(model => model.TrueName)：
                     </th>
                     <td>
                         @Html.HiddenFor(model => model.UserId)
@@ -117,27 +129,38 @@ $(function () {
                         <a class="fa fa-plus-square color-gray fa-lg" id="selExc2" href="javascript:void(0)"></a>
                     </td>
                 </tr>
-                <tr>                
+                <tr>
+                    <th>
+                        @Html.LabelFor(model => model.TName)：
+                    </th>
+                    <td>
+                        @Html.HiddenFor(model => model.TId)
+                        <input id="TName" name="TName" readonly="readonly" type="text" style="width: 90px; display: inline; background: #dedede; ">
+                        <a class="fa fa-plus-square color-gray fa-lg" id="selExc3" href="javascript:void(0)"></a>
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        安排位置：
+                    </th>
+                    <td>
+                        @Html.HiddenFor(model => model.ParentId)
+                        <input id="SonLoc" name="SonLoc" readonly="readonly" type="text" style="width: 90px; display: inline; background: #dedede; ">
+                        <a class="fa fa-plus-square color-gray fa-lg" id="selExc4" href="javascript:void(0)"></a>
+                    </td>
+                </tr>
+                <tr>
                     <th>
                         @Html.LabelFor(model => model.FirstJinE)：
                     </th>
                     <td>
-                        @Html.EditorFor(model => model.FirstJinE)
+                        <select id="IsType" name="IsType">
+                            <option value="398">398会员</option>
+                            <option value="1314">1314会员</option>
+                            <option value="8800">8800会员</option>
+                        </select>
                     </td>
-                    <td>@Html.ValidationMessageFor(model => model.FirstJinE)</td>
                 </tr>
-
-
-                <tr>
-                    <th>
-                        @Html.LabelFor(model => model.ZMPA2)：
-                    </th>
-                    <td>
-                        @Html.EditorFor(model => model.ZMPA2)
-                    </td>
-                    <td>@Html.ValidationMessageFor(model => model.ZMPA2)</td>
-                </tr>
-
                 <tr>
                     <th>
                         @Html.LabelFor(model => model.CreateTime)：
@@ -145,7 +168,6 @@ $(function () {
                     <td>
                         @Html.TextBoxFor(model => model.CreateTime, new { @onClick = "WdatePicker()", Value = String.Format("{0:yyyy-MM-dd}", Model.CreateTime), @style = "width:105px" })
                     </td>
-
                 </tr>
             </tbody>
         </table>

@@ -1,16 +1,14 @@
 ﻿using Apps.Models;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Apps.IDAL
 {
     public partial interface ISysJiaPuRepository
     {
+        SysJiaPu GetRefSysJiaPu(string userId);
+        
         int IntoSysJiaPu(string userId, string tid, string pid, string erbiao, decimal fJE);
-        int IntoSysJiaPuBefore(string uid, string tid, decimal? fJE);
         IQueryable<P_GetRecursiveChildren_Result> P_GetRecursiveChildren(string uid);
+        IQueryable<P_GetAllSons_Result> GetAllSons(string queryStr);
     }
 }

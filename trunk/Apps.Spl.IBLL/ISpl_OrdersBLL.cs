@@ -6,7 +6,6 @@ namespace Apps.Spl.IBLL
 {
     public partial interface ISpl_OrdersBLL
     {
-        List<Spl_OrdersModel> GetListWithStatus(string queryStr, int skip, int limit);
-            
+        List<Spl_OrdersModel> GetListWithStatus(string queryStr,string userId, int skip, int limit);            
     }
 }

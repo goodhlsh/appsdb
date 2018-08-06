@@ -33,6 +33,8 @@ namespace Apps.Models.Spl
         public override Nullable<decimal> DingDanKuan { get; set; }
         [Display(Name ="快递编号")]
         public override string OrderWuliu { get; set; }
+        [Display(Name ="订单描述")]
+        public string Description { get; set; }
     }
 
     public class Spl_OrderEditModel

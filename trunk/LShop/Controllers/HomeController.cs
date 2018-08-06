@@ -13,7 +13,7 @@ namespace LShop.Controllers
         [Dependency]
         public ISpl_BrandBLL mb_BLL { get; set; }
         [Dependency]
-        public ISpl_ProductCategoryBLL mpc_BLL { get; set; }
+        public ISpl_ProductCategorySBLL mpc_BLL { get; set; }
         ValidationErrors errors = new ValidationErrors();
 
         public ActionResult Index()

@@ -13,7 +13,7 @@ namespace Apps.WebApi.Areas.Ware.Controllers
     {
 
         [Dependency]
-        public ISpl_ProductCategoryBLL mty_BLL { get; set; }
+        public ISpl_ProductCategorySBLL mty_BLL { get; set; }
 
         [Dependency]
         public ISpl_WareBLL m_BLL { get; set; }

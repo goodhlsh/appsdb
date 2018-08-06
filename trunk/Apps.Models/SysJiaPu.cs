@@ -32,7 +32,7 @@ public partial class SysJiaPu
 
     public Nullable<int> ErZiShu { get; set; }
 
-    public Nullable<decimal> FirstJinE { get; set; }
+    public decimal FirstJinE { get; set; }
 
     public string LevelId { get; set; }
 

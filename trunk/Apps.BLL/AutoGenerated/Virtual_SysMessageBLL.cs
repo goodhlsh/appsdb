@@ -60,6 +60,9 @@ namespace Apps.BLL
 				
 				
 
+				
+				
+
 				);
             }
             else
@@ -93,6 +96,8 @@ namespace Apps.BLL
 													CreateTime = r.CreateTime,
 
 													UpdateTime = r.UpdateTime,
+
+													IsRead = r.IsRead,
           
                                               }).ToList();
 
@@ -126,6 +131,8 @@ namespace Apps.BLL
 				entity.CreateTime = model.CreateTime;
 
 				entity.UpdateTime = model.UpdateTime;
+
+				entity.IsRead = model.IsRead;
   
 
                 if (m_Rep.Create(entity))
@@ -228,6 +235,8 @@ namespace Apps.BLL
 				entity.CreateTime = model.CreateTime;
 
 				entity.UpdateTime = model.UpdateTime;
+
+				entity.IsRead = model.IsRead;
  
 
 
@@ -274,6 +283,8 @@ namespace Apps.BLL
 				model.CreateTime = entity.CreateTime;
 
 				model.UpdateTime = entity.UpdateTime;
+
+				model.IsRead = entity.IsRead;
  
                 return model;
             }

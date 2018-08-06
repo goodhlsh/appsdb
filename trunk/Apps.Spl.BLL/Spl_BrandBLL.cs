@@ -16,9 +16,9 @@ namespace Apps.Spl.BLL
             IQueryable<Spl_Brand> list = m_Rep.GetList();
             if (!string.IsNullOrWhiteSpace(queryStr))
             {
-                list = list.Where(a => a.Id == queryStr || a.Name == queryStr);
+                list = list.Where(a => a.Id == queryStr || a.BrandName == queryStr);
             }
-            query = list.OrderBy(c => c.Name).Skip(skip).Take(limit).ToList();
+            query = list.OrderBy(c => c.BrandName).Skip(skip).Take(limit).ToList();
             return query;
         }
         public List<BrandTypeModel> GetListByProduct()

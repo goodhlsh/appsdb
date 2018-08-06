@@ -39,9 +39,13 @@ namespace Apps.WebApi.Areas.Ware.Controllers
             newmodel.OrderNo = DateTime.Now.ToString("yyyyMMddHHmmssfff");
             newmodel.UserId = spl_Orders.UserId;
             newmodel.TrueName = SysUserBLL.GetById(spl_Orders.UserId).TrueName;
+            newmodel.Description = spl_Orders.Description;
 
             SysAddressModel sysAddress = new SysAddressModel();
-            sysAddress = SysAddressBLL.GetById(spl_Orders.AddressId);
+            if (spl_Orders.AddressId!=null)
+            {
+                sysAddress = SysAddressBLL.GetById(spl_Orders.AddressId);
+            }            
             if (sysAddress != null)
             {
                 newmodel.AddressName = sysAddress.Province + "省" + sysAddress.City + "市" + sysAddress.Street + '-' + sysAddress.House;
@@ -53,23 +57,30 @@ namespace Apps.WebApi.Areas.Ware.Controllers
             // newmodel.spl_Wares = spl_Orders.Spl_Order_Ware.Where(a=>a.OrderID== newmodel.Id).ToList();
             bool ret = false;
             ret = SplOdersBLL.Create(ref errors, newmodel);
-            if (ret)
+            if (ret)//充值和提现的均为空
             {
-                //写入order-ware表
-                List<Spl_Ware> wares = spl_Orders.spl_Wares;
-                foreach (Spl_Ware item in wares)
+                if (spl_Orders.spl_Wares != null)
                 {
-                    Spl_Order_WareModel order_Ware = new Spl_Order_WareModel();
-                    order_Ware.Id = ResultHelper.NewId;
-                    order_Ware.OrderID = newmodel.Id;
-                    order_Ware.WaresId = item.Id;
-                    order_Ware.Name = "订单:" + newmodel.OrderNo;
-                    order_Ware.Amount = item.WareCount;
-                    order_Ware.SumJinE = item.WareCount * item.Price;
-                    order_WareBLL.Create(ref errors, order_Ware);
+                    //写入order-ware表
+                    List<Spl_Ware> wares = spl_Orders.spl_Wares;
+                    foreach (Spl_Ware item in wares)
+                    {
+                        Spl_Order_WareModel order_Ware = new Spl_Order_WareModel();
+                        order_Ware.Id = ResultHelper.NewId;
+                        order_Ware.OrderID = newmodel.Id;
+                        order_Ware.WaresId = item.Id;
+                        order_Ware.Name = item.Name;// "订单:" + newmodel.OrderNo;
+                        order_Ware.Amount = item.WareCount;
+                        order_Ware.SumJinE = item.WareCount * item.Price;
+                        order_WareBLL.Create(ref errors, order_Ware);
 
+                    }
+                    return Json(newmodel);
                 }
-                return Json(newmodel);
+                else
+                {
+                    return Json(newmodel);
+                }
             }
             else
             {
@@ -102,6 +113,11 @@ namespace Apps.WebApi.Areas.Ware.Controllers
             {
                 queryStr = JObject.Parse(opc["where"].ToString())["status"].ToString();
             }
+            var userId = "";
+            if (JObject.Parse(opc["where"].ToString())["userId"] != null)
+            {
+                userId = JObject.Parse(opc["where"].ToString())["userId"].ToString();
+            }
             if (queryStr == "0")
             {
                 queryStr = "待付款";
@@ -114,10 +130,54 @@ namespace Apps.WebApi.Areas.Ware.Controllers
             {
                 queryStr = "已完成";
             }
-            spl_s = SplOdersBLL.GetListWithStatus(queryStr, int.Parse(opc["skip"].ToString()), int.Parse(opc["limit"].ToString()));
+            spl_s = SplOdersBLL.GetListWithStatus(queryStr, userId, int.Parse(opc["skip"].ToString()), int.Parse(opc["limit"].ToString()));
+            if (spl_s!=null)
+            {
+                return Json(spl_s);
+            }
+            else
+            {
+                return null;
+            }
 
-            return Json(spl_s);
-
-        }       
+        }
+        [HttpGet]
+        public object GetOrderById(string filter)
+        {            
+            JObject opc = JObject.Parse(filter);
+            var queryStr = "";
+            if (JObject.Parse(opc["where"].ToString())["orderId"] != null)
+            {
+                queryStr = JObject.Parse(opc["where"].ToString())["orderId"].ToString();
+            }
+            Spl_OrdersModel model = SplOdersBLL.GetById(queryStr);
+            if (model!=null)
+            {
+                return Json(model);
+            }
+            else
+            {
+                return null;
+            }
+        }
+        [HttpGet]
+        public object GetOrderWaresById(string filter)
+        {
+            JObject opc = JObject.Parse(filter);
+            var queryStr = "";
+            if (JObject.Parse(opc["where"].ToString())["orderId"] != null)
+            {
+                queryStr = JObject.Parse(opc["where"].ToString())["orderId"].ToString();
+            }
+            List<Spl_Order_WareModel> spl_Order_Wares = order_WareBLL.GetSpl_Order_WareModelsByOrderId(queryStr, int.Parse(opc["skip"].ToString()), int.Parse(opc["limit"].ToString()));
+            if (spl_Order_Wares!=null)
+            {
+                return Json(spl_Order_Wares);
+            }
+            else
+            {
+                return null;
+            }
+        }
     }
 }

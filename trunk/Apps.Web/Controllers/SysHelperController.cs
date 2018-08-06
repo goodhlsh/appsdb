@@ -9,6 +9,7 @@ using Microsoft.Practices.Unity;
 using Apps.IBLL;
 using Apps.Models.Sys;
 using Apps.Web.Core;
+using Apps.Models;
 
 namespace Apps.Web.Controllers
 {
@@ -21,6 +22,8 @@ namespace Apps.Web.Controllers
         [Dependency]
         public ISysUserBLL sysUserBLL { get; set; }
         [Dependency]
+        public ISysJiaPuBLL sysJiaPuBLL { get; set; }
+        [Dependency]
         public ISysPositionBLL sysPosBLL { get; set; }
 
         public ActionResult Index()
@@ -29,7 +32,7 @@ namespace Apps.Web.Controllers
         }
         #region 上传图片
         //上传图片
-        public ActionResult UpLoadImg(string id="1")
+        public ActionResult UpLoadImg(string id = "1")
         {
             ViewBag.Dif = id;
             return View();
@@ -53,7 +56,7 @@ namespace Apps.Web.Controllers
 
                     fileData.SaveAs(filePath + saveName);
 
-                    return Json(new { Success = true, FileName = fileName, SaveName = saveName, FilePath = "/Uploads/"+saveName }, JsonRequestBehavior.AllowGet);
+                    return Json(new { Success = true, FileName = fileName, SaveName = saveName, FilePath = "/Uploads/" + saveName }, JsonRequestBehavior.AllowGet);
                 }
                 catch (Exception ex)
                 {
@@ -89,8 +92,8 @@ namespace Apps.Web.Controllers
         }
         public ActionResult UserLookUp_JP()
         {
-            CommonHelper commonHelper = new CommonHelper();
-            ViewBag.StructTree = commonHelper.GetStructTree(true);
+           // CommonHelper commonHelper = new CommonHelper();
+           // ViewBag.StructTree = commonHelper.GetStructTree(true);
             return View();
         }
         public ActionResult UserLookUp2()
@@ -101,30 +104,38 @@ namespace Apps.Web.Controllers
         }
         public ActionResult UserLookUp2_JP()
         {
-            CommonHelper commonHelper = new CommonHelper();
-            ViewBag.StructTree = commonHelper.GetStructTree(true);
+            //CommonHelper commonHelper = new CommonHelper();
+            //ViewBag.StructTree = commonHelper.GetStructTree(true);
             return View();
         }
+        public ActionResult UserLookUp3_JP(string id)
+        {            
+            return View();
+        }
+        
         public JsonResult GetUserListByDep(GridPager pager, string depId, string queryStr)
         {
             if (string.IsNullOrWhiteSpace(depId))
                 return Json(0);
             var userList = sysUserBLL.GetUserByDepId(ref pager, depId, queryStr);
-            
+
             var jsonData = new
             {
-                total = userList.Count(),// pager.totalRows,
+                total = pager.totalRows,
                 rows = (
                     from r in userList
                     select new SysUserModel()
                     {
                         Id = r.Id,
+                        //UserName = "<span onclick='SetValue(\"" + r.Id + "\",\"" + r.TrueName + "\")'>" + r.UserName + "</span>",
                         UserName = r.UserName,
                         TrueName = r.TrueName,
-                        LeadName=r.LeadName,
-                        Recommendor=r.Recommendor,
+                        //"<span onclick='SetValue(\"" + r.Id + "\",\"" + r.TrueName + "\")'>" + r.TrueName + "</span>",
+                        LeadName = r.LeadName,
+                        //"<span onclick='SetValue(\"" + r.Id + "\",\"" + r.TrueName + "\")'>" + r.LeadName + "</span>",
+                        Recommendor = r.Recommendor,
                         DepName = structBLL.GetById(r.DepId).Name,
-                        PosName =sysPosBLL.GetById(r.PosId).Name,
+                        PosName = sysPosBLL.GetById(r.PosId).Name,
                         Flag = "<input type='radio' id='cb_" + r.Id + "' name='myselect'  onclick='SetValue(\"" + r.Id + "\",\"" + r.TrueName + "\")'>",
                     }
                 ).ToArray()
@@ -132,7 +143,7 @@ namespace Apps.Web.Controllers
             return Json(jsonData);
         }
         #endregion
-
+        
         #region 获取部门选择表多选
         public ActionResult DepMulLookUp()
         {
@@ -187,7 +198,7 @@ namespace Apps.Web.Controllers
             ViewBag.StructTree = commonHelper.GetStructTree(false);
             return View();
         }
-     
+
         #endregion
     }
 }

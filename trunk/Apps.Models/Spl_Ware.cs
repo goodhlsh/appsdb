@@ -27,6 +27,8 @@ public partial class Spl_Ware
 
         this.Spl_WareInfo = new HashSet<Spl_WareInfo>();
 
+        this.Spl_Ware_YouHui = new HashSet<Spl_Ware_YouHui>();
+
     }
 
 
@@ -79,6 +81,8 @@ public partial class Spl_Ware
     public virtual Spl_ProductCategoryS Spl_ProductCategoryS { get; set; }
 
     public virtual ICollection<Spl_WareInfo> Spl_WareInfo { get; set; }
+
+    public virtual ICollection<Spl_Ware_YouHui> Spl_Ware_YouHui { get; set; }
 
 }
 

@@ -32,24 +32,30 @@ namespace Apps.DAL
 
         public virtual bool Edit(T model)
         {
-            if (db.Entry<T>(model).State == EntityState.Modified)
+            try
             {
-                return db.SaveChanges() > 0;
+                if (db.Entry<T>(model).State == EntityState.Modified)
+                {
+                    return db.SaveChanges() > 0;
+                }
+                else if (db.Entry<T>(model).State == EntityState.Detached)
+                {
+                    try
+                    {
+                        db.Set<T>().Attach(model);
+                        db.Entry<T>(model).State = EntityState.Modified;
+                    }
+                    catch (InvalidOperationException)
+                    {
+                        //T old = Find(model._ID);
+                        //db.Entry<old>.CurrentValues.SetValues(model);
+                        return false;
+                    }
+                    return db.SaveChanges() > 0;
+                }
             }
-            else if (db.Entry<T>(model).State == EntityState.Detached)
-            {
-                try
-                {
-                    db.Set<T>().Attach(model);
-                    db.Entry<T>(model).State = EntityState.Modified;
-                }
-                catch (InvalidOperationException)
-                {
-                    //T old = Find(model._ID);
-                    //db.Entry<old>.CurrentValues.SetValues(model);
-                    return false;
-                }
-                return db.SaveChanges()>0;
+            catch(System.Data.Entity.Validation.DbEntityValidationException ex) {
+                if (ex.Message != null) return true; ;
             }
             return false;
         }

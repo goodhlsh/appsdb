@@ -21,9 +21,8 @@ namespace Apps.BLL
         public ISysStructRepository structRep { get; set; }
         [Dependency]
         public ISysPositionRepository posRep { get; set; }
-        [Dependency]
-        public ISysJiaPuRepository jpRep { get; set; }
-        public ISysJiaPuBeforeRepository jpbRep { get; set; }
+        
+        
         public List<permModel> GetPermission(string accountid, string controller)
         {
             return sysRightRep.GetPermission(accountid, controller);
@@ -157,26 +156,8 @@ namespace Apps.BLL
                                             }).ToList();
             return modelList;
         }
-        //获取指定用户的家谱信息
-        public SysJiaPu GetRefSysJiaPu(string userId)
-        {
-            var jiapuList = m_Rep.GetRefSysJiaPu(userId);
-            if (jiapuList != null && jiapuList.Count() > 0)
-            {
-                return jiapuList.First<SysJiaPu>();
-            }
-            return null;
-        }
-        //获取指定用户的家谱前信息
-        public List<SysJiaPuBefore> GetSysJiaPuBefore(string tid)
-        {
-            var jiapuList = m_Rep.GetSysJiaPuBefore(tid);
-            if (jiapuList != null && jiapuList.Count() > 0)
-            {
-                return jiapuList.ToList();
-            }
-            return null;
-        }
+        
+        
         public string GetRefSysRole(string userId)
         {
             string RoleName = "";
@@ -351,7 +332,9 @@ namespace Apps.BLL
                 entity.IsDeleted = model.IsDeleted;
                 entity.RecommendID = model.RecommendID;
                 entity.Recommendor = model.Recommendor;
-
+                entity.TuiCode = model.TuiCode;
+                entity.TuiCount = model.TuiCount;
+                entity.TuiDownloadCount = model.TuiDownloadCount;
 
 
                 if (m_Rep.Create(entity))
@@ -417,7 +400,7 @@ namespace Apps.BLL
                 entity.IsSelLead = model.IsSelLead;
                 entity.IsReportCalendar = model.IsReportCalendar;
                 entity.IsSecretary = model.IsSecretary;
-
+                entity.TuiCount = model.TuiCount;
 
 
                 entity.HomePhone = model.HomePhone;
@@ -555,7 +538,7 @@ namespace Apps.BLL
                 model.IsDeleted = entity.IsDeleted;
                 model.Questions = entity.Questions;
                 model.Answer = entity.Answer;
-
+                model.TuiCount = entity.TuiCount;
                 return model;
             }
             catch (Exception )
@@ -573,6 +556,17 @@ namespace Apps.BLL
         public List<SysUser> GetListBySelName(string name)
         {
             return m_Rep.GetList(a => a.TrueName.Contains(name)).ToList();
+        }
+        public SysUser GetBySelUserName(string username)
+        {
+            if (m_Rep.GetList(a => a.UserName == username) != null)
+            {
+                return m_Rep.GetList(a => a.UserName == username).ToList().First();
+            }
+            else
+            {
+                return null;
+            }
         }
         public List<SysUser> GetListByDepId(string id)
         {
@@ -603,34 +597,8 @@ namespace Apps.BLL
                                                   }).ToList();
             return modelList;
         }
-        /// <summary>
-        /// jiapu
-        /// </summary>
-        /// <param name="userId"></param>
-        /// <param name="pId"></param>
-        /// <param name="fJE"></param>
-        public int IntoSysJiaPu(string userId, string tid, string pid, string erbiao, decimal fJE)
-        {
-           return  jpRep.IntoSysJiaPu(userId, tid, pid, erbiao, fJE);
-        }
-        public int IntoSysJiaPuBefore(string uid, string tid, decimal fJE)
-        {
-           return jpRep.IntoSysJiaPuBefore(uid, tid, fJE);
-        }
-        public List<SysAllChildUser> GetAllChildren(string uid)
-        {
-            IQueryable<P_GetRecursiveChildren_Result> queryData = jpRep.P_GetRecursiveChildren(uid);
-            List<SysAllChildUser> modelList = (from r in queryData
-                                               select new SysAllChildUser
-                                               {
-                                                   userId = r.UserId,
-                                                   trueName = r.TrueName,
-                                                   parentId = r.ParentId,
-                                                   levelName = r.LevelId=="3"?"8800会员": ((r.LevelId=="2"?"1314会员":(r.LevelId=="1"?"398会员":"普通会员"))),
-                                                   levelMan = (int)r.LevelMan  
-                                                   
-                                               }).ToList();
-            return modelList;
-        }
+        
+        
+        
     }
 }

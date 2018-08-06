@@ -32,6 +32,8 @@ namespace Apps.Models.Sys
 		
 	public virtual Nullable<System.DateTime> UpdateTime { get; set; }
 		
+	public virtual Nullable<bool> IsRead { get; set; }
+		
 }
 
 }

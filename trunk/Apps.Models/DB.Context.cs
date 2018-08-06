@@ -185,6 +185,16 @@ public partial class DBContainer : DbContext
 
     public virtual DbSet<Spl_ProductCategoryS> Spl_ProductCategoryS { get; set; }
 
+    public virtual DbSet<Spl_YouHui> Spl_YouHui { get; set; }
+
+    public virtual DbSet<SysFirst> SysFirst { get; set; }
+
+    public virtual DbSet<Spl_Ware_YouHui> Spl_Ware_YouHui { get; set; }
+
+    public virtual DbSet<SysTuiUser> SysTuiUser { get; set; }
+
+    public virtual DbSet<Spl_Franchisee> Spl_Franchisee { get; set; }
+
 
     public virtual int P_DEF_CreateTestJobs(string vercode)
     {
@@ -1246,6 +1256,94 @@ public partial class DBContainer : DbContext
 
 
         return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<P_GetRecursiveChildren_Result>("P_GetRecursiveChildren", userIdParameter);
+    }
+
+
+    public virtual int P_Sys_PutZi1(string uid, string tid, string pid, string erzibiao, Nullable<decimal> fJE)
+    {
+
+        var uidParameter = uid != null ?
+            new ObjectParameter("uid", uid) :
+            new ObjectParameter("uid", typeof(string));
+
+
+        var tidParameter = tid != null ?
+            new ObjectParameter("tid", tid) :
+            new ObjectParameter("tid", typeof(string));
+
+
+        var pidParameter = pid != null ?
+            new ObjectParameter("pid", pid) :
+            new ObjectParameter("pid", typeof(string));
+
+
+        var erzibiaoParameter = erzibiao != null ?
+            new ObjectParameter("erzibiao", erzibiao) :
+            new ObjectParameter("erzibiao", typeof(string));
+
+
+        var fJEParameter = fJE.HasValue ?
+            new ObjectParameter("fJE", fJE) :
+            new ObjectParameter("fJE", typeof(decimal));
+
+
+        return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("P_Sys_PutZi1", uidParameter, tidParameter, pidParameter, erzibiaoParameter, fJEParameter);
+    }
+
+
+    public virtual int P_Sys_PutSon(string uid, string tid, string pid, string erzibiao, Nullable<decimal> fJE)
+    {
+
+        var uidParameter = uid != null ?
+            new ObjectParameter("uid", uid) :
+            new ObjectParameter("uid", typeof(string));
+
+
+        var tidParameter = tid != null ?
+            new ObjectParameter("tid", tid) :
+            new ObjectParameter("tid", typeof(string));
+
+
+        var pidParameter = pid != null ?
+            new ObjectParameter("pid", pid) :
+            new ObjectParameter("pid", typeof(string));
+
+
+        var erzibiaoParameter = erzibiao != null ?
+            new ObjectParameter("erzibiao", erzibiao) :
+            new ObjectParameter("erzibiao", typeof(string));
+
+
+        var fJEParameter = fJE.HasValue ?
+            new ObjectParameter("fJE", fJE) :
+            new ObjectParameter("fJE", typeof(decimal));
+
+
+        return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("P_Sys_PutSon", uidParameter, tidParameter, pidParameter, erzibiaoParameter, fJEParameter);
+    }
+
+
+    public virtual int P_GetSons(string parentId)
+    {
+
+        var parentIdParameter = parentId != null ?
+            new ObjectParameter("parentId", parentId) :
+            new ObjectParameter("parentId", typeof(string));
+
+
+        return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("P_GetSons", parentIdParameter);
+    }
+
+
+    public virtual ObjectResult<P_GetAllSons_Result> P_GetAllSons(string parentId)
+    {
+
+        var parentIdParameter = parentId != null ?
+            new ObjectParameter("parentId", parentId) :
+            new ObjectParameter("parentId", typeof(string));
+
+
+        return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<P_GetAllSons_Result>("P_GetAllSons", parentIdParameter);
     }
 
 }

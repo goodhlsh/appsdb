@@ -28,6 +28,8 @@ namespace Apps.Models.Sys
 		
 	public virtual Nullable<System.DateTime> createTime { get; set; }
 		
+	public virtual string zmp15 { get; set; }
+		
 }
 
 }

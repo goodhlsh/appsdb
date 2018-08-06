@@ -22,7 +22,8 @@ namespace Apps.Web.Core
             {
                 IQueryable<SysStruct> queryData = structRep.GetList();
                 IQueryable<SysStruct> query = queryData.Where(a => a.ParentId == "0").OrderBy(a => a.Sort);
-                sb.Append("<ul id=\"StructMulTree\" class=\"easyui-tree\"  data-options=\"checkbox:true\">");
+
+                sb.Append("<ul id=\"StructMulTree\" class=\"easyui-tree\"  data-options=\"checkbox:false\">");
                 foreach (var l in query)
                 {
                     sb.Append("<li data-options=\"attributes:{'id':'" + l.Id + "'}\">");
@@ -101,5 +102,7 @@ namespace Apps.Web.Core
             }
             return sb.ToString();
         }
+
+       
     }
 }

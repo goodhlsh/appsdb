@@ -26,6 +26,8 @@ namespace Apps.Models.Spl
 		
 	public virtual string Note { get; set; }
 		
+	public virtual string PicShow { get; set; }
+		
 }
 
 }

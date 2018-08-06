@@ -22,16 +22,12 @@ using Apps.Locale;
 namespace Apps.BLL
 {
     public partial class SysAreasBLL 
-    {
-
-       
+    {       
         public List<SysAreasModel> GetList(string parentId)
         {
             IQueryable<SysAreas> queryData = null;
             queryData = m_Rep.GetList(a => a.ParentId == parentId).OrderBy(a => a.Sort);
             return CreateModelList(ref queryData);
-        }
-      
-
+        } 
     }
 }

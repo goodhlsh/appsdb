@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="4347eebad5bc4aa1bb240674ec01dd92" Name="Diagram1" ZoomLevel="159" >
+      <Diagram DiagramId="4347eebad5bc4aa1bb240674ec01dd92" Name="Diagram1" ZoomLevel="67" >
         <EntityTypeShape EntityType="DB.DEF_CaseType" Width="1.5" PointX="2.75" PointY="2.75" />
         <EntityTypeShape EntityType="DB.DEF_Defect" Width="1.5" PointX="14" PointY="34.5" />
         <EntityTypeShape EntityType="DB.DEF_TestCase" Width="1.5" PointX="11.75" PointY="9" />
@@ -60,8 +60,6 @@
         <AssociationConnector Association="DB.FK_MIS_Article_Albums_MIS_Article" />
         <AssociationConnector Association="DB.FK_MIS_Article_Comment_MIS_Article" />
         <AssociationConnector Association="DB.FK_MIS_Article_MIS_Article_Category" />
-        <AssociationConnector Association="DB.FK_MIS_Article_SysUser" />
-        <AssociationConnector Association="DB.FK_MIS_Article_SysUser1" />
         <AssociationConnector Association="DB.FK_MIS_Article_Category_MIS_Article_Category" />
         <AssociationConnector Association="DB.FK_MIS_Article_Comment_SysUser" />
         <AssociationConnector Association="DB.FK_MIS_MESS_REFERENCE_MIS_MESS" />
@@ -131,7 +129,6 @@
         <AssociationConnector Association="DB.FK_Spl_Hotware_Spl_Ware" />
         <AssociationConnector Association="DB.FK_Spl_Orders_SysUser" />
         <AssociationConnector Association="DB.FK_SysJiaPu_SysLevels" />
-        <AssociationConnector Association="DB.FK_SysJiaPu_SysUser" />
         <EntityTypeShape EntityType="DB.SysJiaPuBefore" Width="1.5" PointX="21.375" PointY="0.75" />
         <EntityTypeShape EntityType="DB.Spl_Brand" Width="1.5" PointX="6" PointY="1.25" />
         <EntityTypeShape EntityType="DB.Spl_ProductCategoryS" Width="1.5" PointX="8.25" PointY="0.75" />
@@ -139,6 +136,20 @@
         <AssociationConnector Association="DB.FK_Spl_ProductCategoryS_Spl_ProductCategory" />
         <AssociationConnector Association="DB.FK_Spl_Ware_Spl_ProductCategoryS" />
         <AssociationConnector Association="DB.FK_Spl_WareInfo_Spl_Ware" />
+        <AssociationConnector Association="DB.FK_SysPerson_SysUser" />
+        <AssociationConnector Association="DB.FK_MIS_Article_SysUser" />
+        <AssociationConnector Association="DB.FK_MIS_Article_SysUser1" />
+        <AssociationConnector Association="DB.FK_SysJiaPu_SysUser" />
+        <EntityTypeShape EntityType="DB.Spl_YouHui" Width="1.5" PointX="21.375" PointY="3.75" />
+        <EntityTypeShape EntityType="DB.SysFirst" Width="1.5" PointX="8.625" PointY="65.875" />
+        <EntityTypeShape EntityType="DB.Spl_Ware_YouHui" Width="1.5" PointX="16.5" PointY="6.5" />
+        <AssociationConnector Association="DB.FK_SysFirst_SysUser" />
+        <AssociationConnector Association="DB.Spl_WareSpl_Ware_YouHui" />
+        <AssociationConnector Association="DB.FK_Spl_Ware_YouHui_Spl_YouHui" />
+        <EntityTypeShape EntityType="DB.SysTuiUser" Width="1.5" PointX="8.625" PointY="70.375" />
+        <AssociationConnector Association="DB.FK_SysTuiUser_SysUser" />
+        <AssociationConnector Association="DB.FK_SysTuiUser_SysUser1" />
+        <EntityTypeShape EntityType="DB.Spl_Franchisee" Width="1.5" PointX="23.375" PointY="0.75" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

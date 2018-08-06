@@ -19,8 +19,7 @@ namespace Apps.Web.Areas.Spl.Controllers
 
         [SupportFilter]
         public ActionResult Index()
-        {
-            
+        {            
             return View();
         }
         [HttpPost]

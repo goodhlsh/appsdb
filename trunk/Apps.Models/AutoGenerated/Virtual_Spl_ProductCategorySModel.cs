@@ -18,13 +18,17 @@ namespace Apps.Models.Spl
 		
 	public virtual string Id { get; set; }
 		
-	public virtual string Name { get; set; }
+	public virtual string SonTypeName { get; set; }
 		
 	public virtual string SupID { get; set; }
 		
 	public virtual Nullable<bool> Promoted { get; set; }
 		
 	public virtual string Note { get; set; }
+		
+	public virtual string PicShow { get; set; }
+		
+	public virtual Nullable<System.DateTime> CreateTime { get; set; }
 		
 }
 

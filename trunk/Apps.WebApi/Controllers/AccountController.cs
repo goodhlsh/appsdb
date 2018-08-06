@@ -22,7 +22,7 @@ namespace Apps.WebApi.Controllers
         [Dependency]
         public ISysLogBLL logBLL { get; set; }
         [Dependency]
-        public ISysUserBLL isuBLL { get; set; }
+        public ISysJiaPuBLL mj_BLL { get; set; }
         [Dependency]
         public ISysLevelsBLL islBll { get; set; }
         [HttpGet]
@@ -53,22 +53,27 @@ namespace Apps.WebApi.Controllers
             userInfo.UserName = user.UserName;
             userInfo.TrueName = user.TrueName;
             userInfo.Card = user.Card;
-            //userInfo.shfzh = user.IdentityCardFile;
+            userInfo.shfzh = user.IdentityCardFile;
             userInfo.MobileNumber = user.MobileNumber;
             userInfo.Token = "";// Token;
-            //userInfo.State = user.State;
-            userInfo.Photo = user.Photo;
-            userInfo.QRCode = user.QRCode;
-            userInfo.IsAuth = (user.IsAuth != null) ? user.IsAuth : false;            
-            userInfo.RecommendID = user.RecommendID;
-            if (isuBLL.GetRefSysJiaPu(user.Id)!=null&&islBll.GetById(isuBLL.GetRefSysJiaPu(user.Id).LevelId.ToString())!=null)
+            userInfo.State = user.State;            
+            userInfo.IsAuth = (user.IsAuth != null) ? user.IsAuth : false;
+            if (mj_BLL.GetRefSysJiaPu(user.Id) != null)
             {
-                userInfo.Jibie = islBll.GetById(isuBLL.GetRefSysJiaPu(user.Id).LevelId.ToString()).Name;
+                userInfo.TId = mj_BLL.GetRefSysJiaPu(user.Id).TId;
+                userInfo.TName = mj_BLL.GetRefSysJiaPu(user.Id).TName;
+                userInfo.PId = mj_BLL.GetRefSysJiaPu(user.Id).ParentId;
+                userInfo.PName = mj_BLL.GetRefSysJiaPu(user.Id).ParentName;
+            }            
+            if (mj_BLL.GetRefSysJiaPu(user.Id)!=null&&islBll.GetById(mj_BLL.GetRefSysJiaPu(user.Id).LevelId.ToString())!=null)
+            {
+                userInfo.Jibie = islBll.GetById(mj_BLL.GetRefSysJiaPu(user.Id).LevelId.ToString()).Name;
             }
             else
             {
                 userInfo.Jibie = "普通会员";
             }
+            userInfo.TuiCount = user.TuiCount;
             return Json(userInfo);
         }
 

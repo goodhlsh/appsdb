@@ -25,8 +25,6 @@ public partial class SysUser
 
         this.SysRole = new HashSet<SysRole>();
 
-        this.MIS_Article = new HashSet<MIS_Article>();
-
         this.MIS_Article_Comment = new HashSet<MIS_Article_Comment>();
 
         this.Flow_FormContent = new HashSet<Flow_FormContent>();
@@ -45,7 +43,19 @@ public partial class SysUser
 
         this.Spl_Orders = new HashSet<Spl_Orders>();
 
+        this.SysPerson = new HashSet<SysPerson>();
+
+        this.MIS_Article = new HashSet<MIS_Article>();
+
+        this.MIS_Article1 = new HashSet<MIS_Article>();
+
         this.SysJiaPu = new HashSet<SysJiaPu>();
+
+        this.SysFirst = new HashSet<SysFirst>();
+
+        this.SysTuiUser = new HashSet<SysTuiUser>();
+
+        this.SysTuiUser1 = new HashSet<SysTuiUser>();
 
     }
 
@@ -184,8 +194,6 @@ public partial class SysUser
 
     public virtual ICollection<SysRole> SysRole { get; set; }
 
-    public virtual ICollection<MIS_Article> MIS_Article { get; set; }
-
     public virtual ICollection<MIS_Article_Comment> MIS_Article_Comment { get; set; }
 
     public virtual ICollection<Flow_FormContent> Flow_FormContent { get; set; }
@@ -208,7 +216,19 @@ public partial class SysUser
 
     public virtual ICollection<Spl_Orders> Spl_Orders { get; set; }
 
+    public virtual ICollection<SysPerson> SysPerson { get; set; }
+
+    public virtual ICollection<MIS_Article> MIS_Article { get; set; }
+
+    public virtual ICollection<MIS_Article> MIS_Article1 { get; set; }
+
     public virtual ICollection<SysJiaPu> SysJiaPu { get; set; }
+
+    public virtual ICollection<SysFirst> SysFirst { get; set; }
+
+    public virtual ICollection<SysTuiUser> SysTuiUser { get; set; }
+
+    public virtual ICollection<SysTuiUser> SysTuiUser1 { get; set; }
 
 }
 

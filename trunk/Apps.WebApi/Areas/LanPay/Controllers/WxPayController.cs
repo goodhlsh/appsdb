@@ -19,35 +19,41 @@ namespace Apps.WebApi.Areas.LanPay.Controllers
         {
             AppId = "wxbf083887994f7d4d",
             MchId = "1509392701",
-            Key = "f479f43fb848b0a3d13284fbd1fec6e4",
+            Key = "Lanjiyoupin18102161781lanjiyoupi",
             //AppSecret = "51c56b886b5be869567dd389b3e5d1d6",
 
-            CertPassword = "1233410002",
-            CertPath = "cert/apiclient_cert.p12"
+            CertPassword = "1509392701",
+            CertPath = @"C:\cert\apiclient_cert.p12"
         };
+        
         private static readonly string _callBackDomain = "http://154.8.159.50:1693";
         //  调用示例
         private static readonly WxPayTradeApi m_Api = new WxPayTradeApi(config);
         [HttpPost]
-        public async Task<object>  GetUniorder(WxAddPayUniOrderReq orderReq)
+        public async Task<object> GetAppPayInfo([FromBody]WxAddPayUniOrderReq orderReq)
         {
-            WxAddPayUniOrderReq wxAdd=  new WxAddPayUniOrderReq
+            var order = GetUniorder(orderReq.out_trade_no,orderReq.body,orderReq.total_fee);
+            
+            var orderRes = await m_Api.AddUniOrderAsync(order);
+            if (!orderRes.IsSuccess()) return Json(orderRes);
+            else return null;
+            //var appPara = m_Api.GetAppClientParaResp(orderRes.prepay_id);
+            //return Json(appPara);
+        }
+        public static WxAddPayUniOrderReq GetUniorder(string out_trade_no, string body,int total_fee)
+        {
+            return new WxAddPayUniOrderReq
             {
                 notify_url = string.Concat(_callBackDomain, "/api/WxPay/WxCallBack"),
-                body = "OSSPay-测试商品",
+                body = body,
                 device_info = "WEB",
-                openid = "oldRAw-Wu4eOD5CVPWeWVDOvhRbo",
-                out_trade_no = orderReq.out_trade_no,
+                openid = "",
+                out_trade_no = out_trade_no,
 
-                spbill_create_ip = "114.242.25.208",
-                total_fee = 1,
-                trade_type = orderReq.trade_type
-            };
-            var orderRes = await m_Api.AddUniOrderAsync(wxAdd);
-            if (!orderRes.IsSuccess()) return Json(orderRes);
-
-            var jsPara = m_Api.GetAppClientParaResp(orderRes.prepay_id);
-            return Json(jsPara);
+                spbill_create_ip = "192.168.1.1",
+                total_fee = total_fee,
+                trade_type = "APP"
+            };            
         }
         /// <summary>
         /// 支付后回调

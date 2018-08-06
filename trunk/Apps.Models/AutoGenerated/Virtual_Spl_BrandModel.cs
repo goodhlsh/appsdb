@@ -18,9 +18,11 @@ namespace Apps.Models.Spl
 		
 	public virtual string Id { get; set; }
 		
-	public virtual string Name { get; set; }
+	public virtual string BrandName { get; set; }
 		
 	public virtual Nullable<bool> Promoted { get; set; }
+		
+	public virtual string PicShow { get; set; }
 		
 }
 

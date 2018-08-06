@@ -69,6 +69,9 @@ namespace Apps.BLL
 				|| a.Category.Contains(queryStr)
 				
 
+				|| a.UserId.Contains(queryStr)
+				
+
 				);
             }
             else
@@ -108,6 +111,8 @@ namespace Apps.BLL
 													Region = r.Region,
 
 													Category = r.Category,
+
+													UserId = r.UserId,
           
                                               }).ToList();
 
@@ -147,6 +152,8 @@ namespace Apps.BLL
 				entity.Region = model.Region;
 
 				entity.Category = model.Category;
+
+				entity.UserId = model.UserId;
   
 
                 if (m_Rep.Create(entity))
@@ -255,6 +262,8 @@ namespace Apps.BLL
 				entity.Region = model.Region;
 
 				entity.Category = model.Category;
+
+				entity.UserId = model.UserId;
  
 
 
@@ -307,6 +316,8 @@ namespace Apps.BLL
 				model.Region = entity.Region;
 
 				model.Category = entity.Category;
+
+				model.UserId = entity.UserId;
  
                 return model;
             }

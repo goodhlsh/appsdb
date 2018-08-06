@@ -50,6 +50,9 @@ namespace Apps.Spl.BLL
 				|| a.Note.Contains(queryStr)
 				
 
+				|| a.PicShow.Contains(queryStr)
+				
+
 				);
             }
             else
@@ -77,6 +80,8 @@ namespace Apps.Spl.BLL
 													TypeName = r.TypeName,
 
 													Note = r.Note,
+
+													PicShow = r.PicShow,
           
                                               }).ToList();
 
@@ -104,6 +109,8 @@ namespace Apps.Spl.BLL
 				entity.TypeName = model.TypeName;
 
 				entity.Note = model.Note;
+
+				entity.PicShow = model.PicShow;
   
 
                 if (m_Rep.Create(entity))
@@ -200,6 +207,8 @@ namespace Apps.Spl.BLL
 				entity.TypeName = model.TypeName;
 
 				entity.Note = model.Note;
+
+				entity.PicShow = model.PicShow;
  
 
 
@@ -240,6 +249,8 @@ namespace Apps.Spl.BLL
 				model.TypeName = entity.TypeName;
 
 				model.Note = entity.Note;
+
+				model.PicShow = entity.PicShow;
  
                 return model;
             }

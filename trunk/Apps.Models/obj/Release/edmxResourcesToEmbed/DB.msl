@@ -1187,6 +1187,7 @@
     <EntitySetMapping Name="SysPerson">
       <EntityTypeMapping TypeName="DB.SysPerson">
         <MappingFragment StoreEntitySet="SysPerson">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
           <ScalarProperty Name="Category" ColumnName="Category" />
           <ScalarProperty Name="Region" ColumnName="Region" />
           <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
@@ -1229,6 +1230,7 @@
     <EntitySetMapping Name="Spl_Orders">
       <EntityTypeMapping TypeName="DB.Spl_Orders">
         <MappingFragment StoreEntitySet="Spl_Orders">
+          <ScalarProperty Name="WuliuLink" ColumnName="WuliuLink" />
           <ScalarProperty Name="AddressName" ColumnName="AddressName" />
           <ScalarProperty Name="TrueName" ColumnName="TrueName" />
           <ScalarProperty Name="OrderWuliu" ColumnName="OrderWuliu" />
@@ -1385,6 +1387,7 @@
     <EntitySetMapping Name="SysMessage">
       <EntityTypeMapping TypeName="DB.SysMessage">
         <MappingFragment StoreEntitySet="SysMessage">
+          <ScalarProperty Name="IsRead" ColumnName="IsRead" />
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
           <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
@@ -1452,12 +1455,11 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <FunctionImportMapping FunctionImportName="P_Sys_EveryMonth" FunctionName="DB.Store.P_Sys_EveryMonth" />
     <FunctionImportMapping FunctionImportName="P_Sys_PutErCi" FunctionName="DB.Store.P_Sys_PutErCi" />
-    <FunctionImportMapping FunctionImportName="P_Sys_PutZi" FunctionName="DB.Store.P_Sys_PutZi" />
     <EntitySetMapping Name="Spl_ProductCategory">
       <EntityTypeMapping TypeName="IsTypeOf(DB.Spl_ProductCategory)">
         <MappingFragment StoreEntitySet="Spl_ProductCategory">
+          <ScalarProperty Name="PicShow" ColumnName="PicShow" />
           <ScalarProperty Name="Note" ColumnName="Note" />
           <ScalarProperty Name="TypeName" ColumnName="TypeName" />
           <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
@@ -1493,6 +1495,7 @@
     <EntitySetMapping Name="SysJiaPuBefore">
       <EntityTypeMapping TypeName="DB.SysJiaPuBefore">
         <MappingFragment StoreEntitySet="SysJiaPuBefore">
+          <ScalarProperty Name="zmp15" ColumnName="zmp15" />
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="createTime" ColumnName="createTime" />
           <ScalarProperty Name="isdone" ColumnName="isdone" />
@@ -1502,7 +1505,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <FunctionImportMapping FunctionImportName="P_Sys_PutZiBefore" FunctionName="DB.Store.P_Sys_PutZiBefore" />
     <FunctionImportMapping FunctionImportName="P_Sys_GetUserWallet" FunctionName="DB.Store.P_Sys_GetUserWallet">
       <ResultMapping>
         <ComplexTypeMapping TypeName="DB.P_Sys_GetUserWallet_Result">
@@ -1590,20 +1592,23 @@
     <EntitySetMapping Name="Spl_Brand">
       <EntityTypeMapping TypeName="DB.Spl_Brand">
         <MappingFragment StoreEntitySet="Spl_Brand">
+          <ScalarProperty Name="BrandName" ColumnName="BrandName" />
+          <ScalarProperty Name="PicShow" ColumnName="PicShow" />
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Promoted" ColumnName="Promoted" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Spl_ProductCategoryS">
       <EntityTypeMapping TypeName="DB.Spl_ProductCategoryS">
         <MappingFragment StoreEntitySet="Spl_ProductCategoryS">
+          <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+          <ScalarProperty Name="SonTypeName" ColumnName="SonTypeName" />
+          <ScalarProperty Name="PicShow" ColumnName="PicShow" />
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Note" ColumnName="Note" />
           <ScalarProperty Name="Promoted" ColumnName="Promoted" />
           <ScalarProperty Name="SupID" ColumnName="SupID" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -1637,5 +1642,83 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
+    <EntitySetMapping Name="Spl_YouHui">
+      <EntityTypeMapping TypeName="DB.Spl_YouHui">
+        <MappingFragment StoreEntitySet="Spl_YouHui">
+          <ScalarProperty Name="ShuE" ColumnName="ShuE" />
+          <ScalarProperty Name="Expiry" ColumnName="Expiry" />
+          <ScalarProperty Name="YContent" ColumnName="YContent" />
+          <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+          <ScalarProperty Name="TypeName" ColumnName="TypeName" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SysFirst">
+      <EntityTypeMapping TypeName="DB.SysFirst">
+        <MappingFragment StoreEntitySet="SysFirst">
+          <ScalarProperty Name="ShunXu" ColumnName="ShunXu" />
+          <ScalarProperty Name="Note" ColumnName="Note" />
+          <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+          <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+          <ScalarProperty Name="CurrentFirst" ColumnName="CurrentFirst" />
+          <ScalarProperty Name="JinE" ColumnName="JinE" />
+          <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Spl_Ware_YouHui">
+      <EntityTypeMapping TypeName="DB.Spl_Ware_YouHui">
+        <MappingFragment StoreEntitySet="Spl_Ware_YouHui">
+          <ScalarProperty Name="IsVoid" ColumnName="IsVoid" />
+          <ScalarProperty Name="Expiry" ColumnName="Expiry" />
+          <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+          <ScalarProperty Name="IsUse" ColumnName="IsUse" />
+          <ScalarProperty Name="YouHuiId" ColumnName="YouHuiId" />
+          <ScalarProperty Name="WareId" ColumnName="WareId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SysTuiUser">
+      <EntityTypeMapping TypeName="DB.SysTuiUser">
+        <MappingFragment StoreEntitySet="SysTuiUser">
+          <ScalarProperty Name="note" ColumnName="note" />
+          <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+          <ScalarProperty Name="TuiId" ColumnName="TuiId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="P_Sys_PutZi1" FunctionName="DB.Store.P_Sys_PutZi" />
+    <FunctionImportMapping FunctionImportName="P_Sys_PutSon" FunctionName="DB.Store.P_Sys_PutSon" />
+    <FunctionImportMapping FunctionImportName="P_GetAllSons" FunctionName="DB.Store.P_GetAllSons">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DB.P_GetAllSons_Result">
+          <ScalarProperty Name="userid" ColumnName="userid" />
+          <ScalarProperty Name="TrueName" ColumnName="TrueName" />
+          <ScalarProperty Name="ZiMu" ColumnName="ZiMu" />
+          <ScalarProperty Name="ShuZi" ColumnName="ShuZi" />
+          <ScalarProperty Name="LevelId" ColumnName="LevelId" />
+          <ScalarProperty Name="jiapuid" ColumnName="jiapuid" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="Spl_Franchisee">
+      <EntityTypeMapping TypeName="DB.Spl_Franchisee">
+        <MappingFragment StoreEntitySet="Spl_Franchisee">
+          <ScalarProperty Name="Note" ColumnName="Note" />
+          <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+          <ScalarProperty Name="Area" ColumnName="Area" />
+          <ScalarProperty Name="Addr" ColumnName="Addr" />
+          <ScalarProperty Name="Tel" ColumnName="Tel" />
+          <ScalarProperty Name="FranchiseeType" ColumnName="FranchiseeType" />
+          <ScalarProperty Name="FranchiseeName" ColumnName="FranchiseeName" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

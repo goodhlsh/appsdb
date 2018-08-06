@@ -38,6 +38,8 @@ public partial class Spl_ProductCategory
 
     public string Note { get; set; }
 
+    public string PicShow { get; set; }
+
 
 
     public virtual ICollection<Spl_Ware> Spl_Ware { get; set; }

@@ -1,0 +1,149 @@
+﻿@using Apps.Web.Core;
+@using Apps.Common;
+@using Apps.Models.Sys;
+@using Apps.Locale;
+@{
+    ViewBag.Title = "设置推荐人用户";
+    Layout = "~/Views/Shared/_Index_LayoutEdit.cshtml";
+
+    List<permModel> perm = null;
+}
+<div class="mvctool bgb">
+    <input id="txtQuery" type="text" class="searchText" />
+    @Html.ToolButton("btnQuery", "fa fa-search", Resource.Query, true)
+    @Html.ToolButton("btnClear", "fa fa-trash", Resource.Clear, false)
+    @Html.ToolButton("btnReturn", "fa fa-reply", Resource.Reply, false)  
+    <span style="line-height:26px;float:right;margin-right:5px;" id="selCount"></span>
+</div>
+<table>
+    <tr>        
+        <td style="padding: 3px;">
+            <table id="UserList"></table>
+        </td>
+    </tr>
+</table>
+<script type="text/javascript">
+   
+    $(function () {
+        $("#btnQuery").click(function () {
+            var queryStr = $("#txtQuery").val();
+            if (queryStr == null) {
+                queryStr = "%";
+            }
+            $("#UserList").datagrid("load", { queryStr: queryStr });
+        });
+
+        $("#btnClear").click(function () {
+            $("input[type='checkbox']").prop("checked", false);
+            window.parent.SetSelResult("", "")
+            $("#selCount").html("");
+        });
+        $('#UserList').datagrid({
+            url: '/SysJiaPu/GetList',
+            width: SetGridWidthSub(10),
+            method: 'post',
+            height: SetGridHeightSub(46),
+            fitColumns: true,
+            sortName: 'CreateTime',
+            sortOrder: 'desc',
+            idField: 'Id',
+            pageSize: 12,
+            pageList: [12, 20, 30, 40, 50],
+            pagination: true,
+            striped: true, //奇偶行是否区分
+            singleSelect: true,//单选模式
+            rownumbers:true,//显示行号
+            //toolbar: [{
+            //    iconCls: 'icon-edit',
+            //    handler: function () { alert('edit') }
+            //}, '-', {
+            //    iconCls: 'icon-help',
+            //    handler: function () { alert('help') }
+            //}],//工具栏
+
+            columns: [[
+                { field: 'Id', title: '@Resource.TitleID', width: 80, hidden: true },
+                { field: 'UserName', title: '用户名', width: 120 },
+                { field: 'TrueName', title: '姓名', width: 80, sortable: true},
+                { field: 'ParentName', title: '上级', width: 80, sortable: true },
+                { field: 'TName', title: '推荐人', width: 80, sortable: true },
+                { field: 'LevelId', title: '级别', width: 80},                
+                { field: 'Flag', title: '是否选择', width: 80, hidden: true }
+            ]],
+            onLoadSuccess: function () {
+                var rows = $("#UserList").datagrid("getRows");
+                for (var i = 0; i < rows.length; i++) {
+                    //获取每一行的数据
+                    $('#UserList').datagrid('beginEdit', i);
+                }
+                var arrVal = window.parent.GetSelResult();//获得已经选择的值
+                if (arrVal[0]!="")
+                {
+                    var arr = new Array();
+                    arr = arrVal[0].split(',');
+                    $("#selCount").html("您选择了 " + arrVal[1] +" ");
+                }
+            },
+            onClickRow: function (rowIndex, rowData) {
+                SetValue(rowData.Id, rowData.TrueName)
+                //$.messageBox5s('@Resource.Tip', rowData.TrueName );
+            }
+        });
+        $("#btnReturn").click(function () {
+            window.parent.frameReturnByClose();
+        });
+    });
+</script>
+@*operation*@
+<script type="text/javascript">
+    function SetValue(id, name) {
+             window.parent.SetSelResult3(id, name)
+       $("#selCount").html("您选择了 " + name);
+    }
+    function SetValue2(id, name) {
+        var b = false;
+        var arrVal = window.parent.GetSelResult();//获得已经选择的值
+        if (arrVal[0] != "") {
+            var arr = new Array();
+            var arrName = new Array();
+            arr = arrVal[0].split(',');
+            arrName = arrVal[1].split(',');
+            for (var i = 0; i < arr.length; i++) {
+                if (id == arr[i]) {
+                    if (!$("#cb_" + id).prop("checked"))//如果不是选择就是撤销
+                    {
+                        arr.splice(i, 1);
+                        arrName.splice(i, 1);
+                        b = true;
+                    }
+                }
+            }
+            if (!b) {
+                arr.push(id);
+                arrName.push(name);
+            }
+            var data = arr.join(',');
+            var dataName = arrName.join(',');
+            window.parent.SetSelResult(data, dataName)
+            $("#selCount").html("已经选择了 " + arr.length + " 人");
+        }
+        else {
+
+            window.parent.SetSelResult(id, name)
+            $("#selCount").html("您选择了 " + name);
+        }
+    }
+</script>
+@* 在上级页面必须加入这2个方法才能调用 
+    function SetSelResult(result,resultName)
+    {
+        $("#Execution").val(result);
+        $("#ExecutionName").val(resultName);
+    }
+    function GetSelResult()
+    {
+        var arrayObj = new Array()
+        arrayObj[0]= $("#Execution").val();
+        arrayObj[1]= $("#ExecutionName").val();
+        return arrayObj;
+    }*@

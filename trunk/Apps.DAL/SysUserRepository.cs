@@ -14,28 +14,7 @@ namespace Apps.DAL
         {
             return Context.P_Sys_GetUserCountByDepId(depId).Cast<int>().First();
         }
-        //获取家谱信息
-        public IQueryable<SysJiaPu> GetRefSysJiaPu(string userId)
-        {
-            if (!string.IsNullOrEmpty(userId))
-            {
-                return from m in Context.SysUser
-                       from f in m.SysJiaPu
-                       where m.Id == userId
-                       select f;
-            }
-            return null;
-        }
-        public IQueryable<SysJiaPuBefore> GetSysJiaPuBefore(string tid)
-        {
-            if (!string.IsNullOrEmpty(tid))
-            {
-                return from m in Context.SysJiaPuBefore                       
-                       where m.tid == tid & m.isdone==false
-                       select m;
-            }
-            return null;
-        }
+        
         public IQueryable<SysRole> GetRefSysRole(string id)
         {
             if (!string.IsNullOrEmpty(id))
@@ -95,6 +74,6 @@ namespace Apps.DAL
             }
             return "";
         }
-
+        
     }
 }

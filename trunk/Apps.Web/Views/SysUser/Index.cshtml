@@ -30,8 +30,8 @@
             methord: 'post',
             height: SetGridHeightSub(45),
             fitColumns: true,
-            sortName: 'Id',
-            sortOrder: 'desc',
+            sortName: 'CreateTime',
+            sortOrder: '',
             idField: 'Id',
             pageSize: 15,
             pageList: [15, 20, 30, 40, 50],
@@ -41,7 +41,7 @@
             columns: [[
                         { field: 'Id', title: '@Resource.TitleID', width: 25, hidden: true },
                         { field: 'UserName', title: '用户名', width: 55 },
-                        { field: 'TrueName', title: '真实名称', width: 55 },
+                        { field: 'TrueName', title: '真实姓名', width: 55 },
                         { field: 'DepName', hidden: true, title: '部门', width: 55 },
                         { field: 'MobileNumber', title: '手机号码', width: 55 },
                         { field: 'PhoneNumber', hidden: true, title: '电话号码', width: 55 },
@@ -52,11 +52,12 @@
                         { field: 'City', hidden: true, title: '城市', width: 55 },
                         { field: 'Village', hidden: true, title: '地区', width: 55 },
                         { field: 'Address', hidden: true, title: '详细地址', width: 55 },
-                        { field: 'LeadName', title: '上级', width: 55 },
-                        { field: 'Recommendor',  title: '推荐人', width: 55 },
+                        { field: 'LeadName', hidden: true,title: '上级', width: 55 },
+                        { field: 'Recommendor', hidden: true, title: '推荐人', width: 55 },
                         { field: 'CreatePerson', hidden: true, title: '@Resource.TitleCreatePerson', width: 55 },
                         { field: 'CreateTime', title: '@Resource.TitleCreateTime', width: 75 },
-                        { field: 'State', title: '@Resource.TitleEnable', width: 35,align:'center', formatter: function (value) {return EnableFormatter(value)}},
+                        { field: 'State', title: '@Resource.TitleEnable', width: 35, align: 'center', formatter: function (value) { return EnableFormatter(value) } },
+                        { field: 'IsAuth', title: '@Resource.TitleEnable', width: 35,align:'center', formatter: function (value) {return EnableFormatter(value)}},
                         { field: 'RoleName', hidden: true, title: '拥有角色', width: 255 }
             ]]
         });

@@ -1,14 +1,13 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using Apps.Web.Core;
 using Apps.IBLL;
 using Apps.Locale;
 using System.Web.Mvc;
 using Apps.Common;
-using Apps.IBLL;
 using Apps.Models.Sys;
 using Microsoft.Practices.Unity;
-using Apps.Models.Common;
+using Apps.Models;
+using System.Text;
 
 namespace Apps.Web.Controllers
 {
@@ -66,15 +65,14 @@ namespace Apps.Web.Controllers
             SysUserModel userModel = new SysUserModel();
             if (ms_BLL.GetById(model.UserId) != null)
             {
-                userModel = ms_BLL.GetById(model.UserId);
-                model.TId = userModel.RecommendID;
+                userModel = ms_BLL.GetById(model.UserId);//获取用户信息
+                model.TId = userModel.RecommendID;//推荐人
             }
-
+            
             model.CreateTime = ResultHelper.NowTime;
-            if (model.UserId != null&&model.ParentId!=null&&model.TId!=null&&model.ZMPA2!=null&&model.FirstJinE>=398 && ModelState.IsValid)
+            if (model.UserId != null&&model.FirstJinE>=398 && ModelState.IsValid)
             {
-
-                if (ms_BLL.IntoSysJiaPu(model.UserId, model.TId, model.ParentId, model.ZMPA2, (decimal)model.FirstJinE) >= 0)
+                if (m_BLL.IntoSysJiaPu(model.UserId, model.TId, model.ParentId, model.ZMPA2, (decimal)model.FirstJinE) >= 0)
                 {
                     LogHandler.WriteServiceLog(GetUserId(), "Id" + model.Id + ",UserId" + model.TrueName, "成功", "创建", "SysJiaPu");
                     return Json(JsonHandler.CreateMessage(1, Resource.InsertSucceed));
@@ -92,7 +90,15 @@ namespace Apps.Web.Controllers
             }
         }
         #endregion
-
+        #region  获取用户的儿子位置真实情况
+        [HttpPost]
+        public List<string> GetRealSons(string userID)
+        {
+            List<string> sons = new List<string>();
+            sons = m_BLL.GetRealSon(userID);            
+            return sons;
+        }
+        #endregion
         #region 修改
         [SupportFilter]
         public ActionResult Edit(string id)

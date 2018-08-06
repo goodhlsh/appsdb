@@ -30,6 +30,8 @@ public partial class SysJiaPuBefore
 
     public Nullable<System.DateTime> createTime { get; set; }
 
+    public string zmp15 { get; set; }
+
 }
 
 }

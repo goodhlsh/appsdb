@@ -38,7 +38,7 @@ namespace Apps.Spl.BLL
 				a=>a.Id.Contains(queryStr)
 				
 
-				|| a.Name.Contains(queryStr)
+				|| a.SonTypeName.Contains(queryStr)
 				
 
 				|| a.SupID.Contains(queryStr)
@@ -48,6 +48,12 @@ namespace Apps.Spl.BLL
 				
 
 				|| a.Note.Contains(queryStr)
+				
+
+				|| a.PicShow.Contains(queryStr)
+				
+
+				
 				
 
 				);
@@ -70,13 +76,17 @@ namespace Apps.Spl.BLL
 
 													Id = r.Id,
 
-													Name = r.Name,
+													SonTypeName = r.SonTypeName,
 
 													SupID = r.SupID,
 
 													Promoted = r.Promoted,
 
 													Note = r.Note,
+
+													PicShow = r.PicShow,
+
+													CreateTime = r.CreateTime,
           
                                               }).ToList();
 
@@ -97,13 +107,17 @@ namespace Apps.Spl.BLL
 
 				entity.Id = model.Id;
 
-				entity.Name = model.Name;
+				entity.SonTypeName = model.SonTypeName;
 
 				entity.SupID = model.SupID;
 
 				entity.Promoted = model.Promoted;
 
 				entity.Note = model.Note;
+
+				entity.PicShow = model.PicShow;
+
+				entity.CreateTime = model.CreateTime;
   
 
                 if (m_Rep.Create(entity))
@@ -193,13 +207,17 @@ namespace Apps.Spl.BLL
                               
 				entity.Id = model.Id;
 
-				entity.Name = model.Name;
+				entity.SonTypeName = model.SonTypeName;
 
 				entity.SupID = model.SupID;
 
 				entity.Promoted = model.Promoted;
 
 				entity.Note = model.Note;
+
+				entity.PicShow = model.PicShow;
+
+				entity.CreateTime = model.CreateTime;
  
 
 
@@ -233,13 +251,17 @@ namespace Apps.Spl.BLL
                               
 				model.Id = entity.Id;
 
-				model.Name = entity.Name;
+				model.SonTypeName = entity.SonTypeName;
 
 				model.SupID = entity.SupID;
 
 				model.Promoted = entity.Promoted;
 
 				model.Note = entity.Note;
+
+				model.PicShow = entity.PicShow;
+
+				model.CreateTime = entity.CreateTime;
  
                 return model;
             }

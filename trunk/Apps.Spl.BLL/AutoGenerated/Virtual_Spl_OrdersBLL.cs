@@ -68,6 +68,9 @@ namespace Apps.Spl.BLL
 				|| a.AddressName.Contains(queryStr)
 				
 
+				|| a.WuliuLink.Contains(queryStr)
+				
+
 				);
             }
             else
@@ -107,6 +110,8 @@ namespace Apps.Spl.BLL
 													TrueName = r.TrueName,
 
 													AddressName = r.AddressName,
+
+													WuliuLink = r.WuliuLink,
           
                                               }).ToList();
 
@@ -146,6 +151,8 @@ namespace Apps.Spl.BLL
 				entity.TrueName = model.TrueName;
 
 				entity.AddressName = model.AddressName;
+
+				entity.WuliuLink = model.WuliuLink;
   
 
                 if (m_Rep.Create(entity))
@@ -254,6 +261,8 @@ namespace Apps.Spl.BLL
 				entity.TrueName = model.TrueName;
 
 				entity.AddressName = model.AddressName;
+
+				entity.WuliuLink = model.WuliuLink;
  
 
 
@@ -306,6 +315,8 @@ namespace Apps.Spl.BLL
 				model.TrueName = entity.TrueName;
 
 				model.AddressName = entity.AddressName;
+
+				model.WuliuLink = entity.WuliuLink;
  
                 return model;
             }

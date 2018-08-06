@@ -38,10 +38,13 @@ namespace Apps.Spl.BLL
 				a=>a.Id.Contains(queryStr)
 				
 
-				|| a.Name.Contains(queryStr)
+				|| a.BrandName.Contains(queryStr)
 				
 
 				
+				
+
+				|| a.PicShow.Contains(queryStr)
 				
 
 				);
@@ -64,9 +67,11 @@ namespace Apps.Spl.BLL
 
 													Id = r.Id,
 
-													Name = r.Name,
+													BrandName = r.BrandName,
 
 													Promoted = r.Promoted,
+
+													PicShow = r.PicShow,
           
                                               }).ToList();
 
@@ -87,9 +92,11 @@ namespace Apps.Spl.BLL
 
 				entity.Id = model.Id;
 
-				entity.Name = model.Name;
+				entity.BrandName = model.BrandName;
 
 				entity.Promoted = model.Promoted;
+
+				entity.PicShow = model.PicShow;
   
 
                 if (m_Rep.Create(entity))
@@ -179,9 +186,11 @@ namespace Apps.Spl.BLL
                               
 				entity.Id = model.Id;
 
-				entity.Name = model.Name;
+				entity.BrandName = model.BrandName;
 
 				entity.Promoted = model.Promoted;
+
+				entity.PicShow = model.PicShow;
  
 
 
@@ -215,9 +224,11 @@ namespace Apps.Spl.BLL
                               
 				model.Id = entity.Id;
 
-				model.Name = entity.Name;
+				model.BrandName = entity.BrandName;
 
 				model.Promoted = entity.Promoted;
+
+				model.PicShow = entity.PicShow;
  
                 return model;
             }

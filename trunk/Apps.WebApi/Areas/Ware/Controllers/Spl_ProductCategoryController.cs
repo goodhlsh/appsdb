@@ -19,7 +19,7 @@ namespace Apps.WebApi.Areas.Ware.Controllers
         //[Dependency]
         //public Spl.IBLL.ISpl_WareBLL m2_BLL { get; set; }
         [Dependency]
-        public Spl.IBLL.ISpl_ProductCategoryBLL m_BLL { get; set; }
+        public Spl.IBLL.ISpl_ProductCategorySBLL m_BLL { get; set; }
         Common.ValidationErrors errors = new Common.ValidationErrors();
 
         //[SupportFilter]

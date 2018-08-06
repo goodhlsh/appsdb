@@ -19,16 +19,18 @@ namespace Apps.Spl.DAL
                        select new
                        {
                            b.Id,
-                           b.Name,
+                           b.BrandName,
                            ps.SupID,
-                           pf.TypeName
+                           ps.SonTypeName,
+                           ps.PicShow                           
                        };
             return list.Select(r => new BrandTypeModel
             {
                 BrandID = r.Id,
-                BrandName = r.Name,
+                BrandName=r.BrandName,
                 TypeID = r.SupID,
-                TypeName = r.TypeName
+                TypeName = r.SonTypeName,
+                PicShow=r.PicShow
             }).ToList();
         }
     }

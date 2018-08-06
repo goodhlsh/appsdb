@@ -54,6 +54,9 @@ namespace Apps.BLL
 				
 				
 
+				|| a.zmp15.Contains(queryStr)
+				
+
 				);
             }
             else
@@ -83,6 +86,8 @@ namespace Apps.BLL
 													isdone = r.isdone,
 
 													createTime = r.createTime,
+
+													zmp15 = r.zmp15,
           
                                               }).ToList();
 
@@ -112,6 +117,8 @@ namespace Apps.BLL
 				entity.isdone = model.isdone;
 
 				entity.createTime = model.createTime;
+
+				entity.zmp15 = model.zmp15;
   
 
                 if (m_Rep.Create(entity))
@@ -210,6 +217,8 @@ namespace Apps.BLL
 				entity.isdone = model.isdone;
 
 				entity.createTime = model.createTime;
+
+				entity.zmp15 = model.zmp15;
  
 
 
@@ -252,6 +261,8 @@ namespace Apps.BLL
 				model.isdone = entity.isdone;
 
 				model.createTime = entity.createTime;
+
+				model.zmp15 = entity.zmp15;
  
                 return model;
             }

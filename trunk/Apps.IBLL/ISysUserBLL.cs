@@ -13,8 +13,7 @@ namespace Apps.IBLL
 
         List<permModel> GetPermission(string accountid, string controller);
         List<SysUserModel> GetListByPosId(string posId);
-        SysJiaPu GetRefSysJiaPu(string userID);
-        List<SysJiaPuBefore> GetSysJiaPuBefore(string tid);
+        
         string GetRefSysRole(string userId);
         IQueryable<P_Sys_GetRoleByUserId_Result> GetRoleByUserId(ref GridPager pager, string roleId);
         List<SysUserModel> GetUserByDepId(ref GridPager pager, string depId, string queryStr);
@@ -35,16 +34,13 @@ namespace Apps.IBLL
         string GetNameById(string id);
         List<SysUser> GetListBySelName(string name);
         List<SysUser> GetListByDepId(string id);
-
-       /// <summary>
-       /// 获取二级架构下的用户
-       /// </summary>
-       /// <returns></returns>
+        SysUser GetBySelUserName(string username);
+        /// <summary>
+        /// 获取二级架构下的用户
+        /// </summary>
+        /// <returns></returns>
         List<SysOnlineUserModel> GetAllUsers();
 
-        //家谱
-        int IntoSysJiaPu(string userId, string tid, string pid, string erbiao, decimal fJE);
-        int IntoSysJiaPuBefore(string uid, string tid, decimal fje);
-        List<SysAllChildUser> GetAllChildren(string uid);
+        
     }
 }

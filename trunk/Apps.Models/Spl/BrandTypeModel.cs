@@ -13,6 +13,6 @@ namespace Apps.Models.Spl
         public string TypeID { get; set; }
         public string BrandName { get; set; }
         public string TypeName { get; set; }
-
+        public string PicShow { get; set; }
     }
 }

@@ -153,10 +153,6 @@ D:\ymnets.AdminSystem\trunk\Apps.Web\obj\Release\Apps.Web.dll
 D:\ymnets.AdminSystem\trunk\Apps.Web\obj\Release\Apps.Web.pdb
 D:\ymnets.AdminSystem\trunk\Apps.Web\bin\System.Net.Http.Formatting.dll
 D:\ymnets.AdminSystem\trunk\Apps.Web\bin\zh-Hans\System.Net.Http.Formatting.resources.dll
-C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Web\obj\Release\Apps.Web.csprojResolveAssemblyReference.cache
-C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Web\obj\Release\Apps.Web.csproj.CoreCompileInputs.cache
-C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Web\obj\Release\Apps.Web.dll
-C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Web\obj\Release\Apps.Web.pdb
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Web\bin\Apps.Web.dll.config
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Web\bin\Apps.Web.dll
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Web\bin\Apps.Web.pdb
@@ -189,7 +185,6 @@ C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Web\bin\Common.Logging.dll
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Web\bin\DocumentFormat.OpenXml.dll
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Web\bin\EntityFramework.dll
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Web\bin\EntityFramework.SqlServer.dll
-C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Web\bin\LinqToExcel.dll
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Web\bin\LitJson.dll
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Web\bin\log4net.dll
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Web\bin\Microsoft.AspNet.SignalR.Core.dll
@@ -205,7 +200,6 @@ C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Web\bin\Microsoft.Web.Infr
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Web\bin\Newtonsoft.Json.dll
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Web\bin\Owin.dll
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Web\bin\Quartz.dll
-C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Web\bin\Remotion.Data.Linq.dll
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Web\bin\Senparc.Weixin.dll
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Web\bin\Senparc.Weixin.MP.dll
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Web\bin\Senparc.Weixin.MP.MvcExtension.dll
@@ -227,6 +221,8 @@ C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Web\bin\Apps.Flow.DAL.dll
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Web\bin\Apps.Spl.BLL.dll
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Web\bin\Apps.Spl.IDAL.dll
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Web\bin\Apps.Spl.DAL.dll
+C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Web\bin\LinqToExcel.dll
+C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Web\bin\Remotion.Data.Linq.dll
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Web\bin\Apps.BLL.pdb
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Web\bin\Apps.BLL.dll.config
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Web\bin\Apps.Common.pdb
@@ -268,7 +264,6 @@ C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Web\bin\Common.Logging.Cor
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Web\bin\Common.Logging.Core.xml
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Web\bin\EntityFramework.xml
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Web\bin\EntityFramework.SqlServer.xml
-C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Web\bin\LinqToExcel.xml
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Web\bin\log4net.xml
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Web\bin\Microsoft.AspNet.SignalR.Core.xml
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Web\bin\Microsoft.AspNet.SignalR.SystemWeb.xml
@@ -309,6 +304,7 @@ C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Web\bin\Apps.Spl.BLL.dll.c
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Web\bin\Apps.Spl.IDAL.pdb
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Web\bin\Apps.Spl.DAL.pdb
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Web\bin\Apps.Spl.DAL.dll.config
+C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Web\bin\LinqToExcel.xml
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Web\bin\en-US\Apps.Locale.resources.dll
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Web\bin\zh-Hans\Microsoft.AspNet.SignalR.Core.resources.dll
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Web\bin\zh-Hans\Microsoft.Owin.resources.dll
@@ -323,4 +319,8 @@ C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Web\bin\zh-Hans\System.Web
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Web\bin\zh-Hans\System.Web.WebPages.resources.dll
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Web\bin\zh-Hans\System.Web.WebPages.Deployment.resources.dll
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Web\bin\zh-Hans\System.Web.WebPages.Razor.resources.dll
+C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Web\obj\Release\Apps.Web.csprojResolveAssemblyReference.cache
+C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Web\obj\Release\Apps.Web.csproj.CoreCompileInputs.cache
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Web\obj\Release\Apps.Web.csproj.CopyComplete
+C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Web\obj\Release\Apps.Web.dll
+C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Web\obj\Release\Apps.Web.pdb

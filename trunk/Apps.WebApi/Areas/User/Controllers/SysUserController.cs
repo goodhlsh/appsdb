@@ -20,8 +20,7 @@ namespace Apps.WebApi.Areas.User.Controllers
     {
         [Dependency]
         public ISysUserBLL m_BLL { get; set; }
-        [Dependency]
-        public ISysJiaPuBLL mj_BLL { get; set; }
+
         [Dependency]
         public ISysJiaPuBeforeBLL mjb_BLL { get; set; }
         [Dependency]
@@ -29,14 +28,17 @@ namespace Apps.WebApi.Areas.User.Controllers
         [Dependency]
         public ISysLevelsBLL islBll { get; set; }
         [Dependency]
-        public ISysUserBLL isuBLL { get; set; }
+        public ISysTuiUserBLL m_tuBLL { get; set; }
+        [Dependency]
+        public ISysJiaPuBLL mj_BLL { get; set; }
+
         ValidationErrors errors = new ValidationErrors();
         [HttpPost]
         public object PostPasswd([FromBody]SysUserChangePwd sysUser)
         {
             SysUserModel userModel = new SysUserModel();
             userModel = m_BLL.GetById(sysUser.UserId);
-            if (userModel != null && userModel.Password == sysUser.OldPassword)
+            if (userModel != null)
             {
                 SysUserEditModel model = new SysUserEditModel();
                 model.Id = sysUser.UserId;
@@ -63,14 +65,20 @@ namespace Apps.WebApi.Areas.User.Controllers
 
         }
         [HttpPost]
-        public object PostCreateOne([FromBody]SysUserLogingData json)
+        public object PostCreateOne([FromBody]SysUserLogingData user)
         {
+            SysUser sysUser = new SysUser();
+            sysUser = m_BLL.GetBySelUserName(user.UserName);
+            if (sysUser != null)
+            {
+                return null;
+            }
             SysUserModel model = new SysUserModel();
             model.Id = ResultHelper.NewId;
             model.CreateTime = ResultHelper.NowTime;
-            model.UserName = json.UserName;
-            model.Password = ValueConvert.MD5(json.Password);
-            model.MobileNumber = json.UserName;
+            model.UserName = user.UserName;
+            model.Password = ValueConvert.MD5(user.Password);
+            model.MobileNumber = user.UserName;
             //model.CreatePerson = GetUserTrueName();
             model.State = true;
             model.DepId = "20140724111955028255487bb419149";
@@ -100,37 +108,101 @@ namespace Apps.WebApi.Areas.User.Controllers
         [HttpPut]
         public object ChangePhoto([FromBody]SysUserModel model)
         {
+            SysUserModel user = new SysUserModel();
+            user = GetById(model.Id);
             if (m_BLL.Edit(ref errors, new SysUserEditModel()
             {
                 Id = model.Id,
-                Photo = model.Photo
+                //截取沙箱路径picture
+
+                Photo = model.Photo.Substring(model.Photo.IndexOf("/pic")),
+                TrueName = user.TrueName,
+                Card = user.Card,
+                MobileNumber = user.MobileNumber,
+                PhoneNumber = user.PhoneNumber,
+                QQ = user.QQ,
+                EmailAddress = user.EmailAddress,
+                OtherContact = user.OtherContact,
+                Province = user.Province,
+                City = user.City,
+                Village = user.Village,
+                Address = user.Address,
+                State = user.State,
+                CreateTime = user.CreateTime,
+                CreatePerson = user.CreatePerson,
+                Sex = user.Sex,
+                Birthday = user.Birthday.ToString(),
+                JoinDate = user.JoinDate.ToString(),
+                Marital = user.Marital,
+                Political = user.Political,
+                Nationality = user.Nationality,
+                Native = user.Native,
+                School = user.School,
+                Professional = user.Professional,
+                Degree = user.Degree,
+                DepId = user.DepId == null ? "20140724111955028255487bb419149" : user.DepId,
+                PosId = user.PosId == null ? "201408071548164259039f26de27e49" : user.PosId,
+                Expertise = user.Expertise,
+                JobState = (bool)user.JobState,
+                Attach = user.Attach,
+                Lead = user.Lead,
+                LeadName = user.LeadName,
+                IsSelLead = user.IsSelLead,
+                IsReportCalendar = user.IsReportCalendar,
+                IsSecretary = user.IsSecretary,
+
+
+                HomePhone = user.HomePhone,
+                WXID = user.WXID,
+                Signature = user.Signature,
+                QRCode = user.QRCode,
+                IdentityCardFile = user.IdentityCardFile,
+                IdentityCardBackFile = user.IdentityCardBackFile,
+                IsAuth = (bool)user.IsAuth,
+                AuditStatus = user.AuditStatus,
+                Note = user.Note,
+                SortCode = user.SortCode,
+                RecommendID = user.RecommendID,
+                Recommendor = user.Recommendor,
+                RecommendTime = user.RecommendTime,
+                EditorID = user.EditorID,
+                UpdateTime = DateTime.Now,
+                IsDeleted = (bool)user.IsDeleted,
+                Questions = user.Questions,
+                Answer = user.Answer,
+                TuiCount = user.TuiCount
             }))
             {
                 //LogHandler.WriteServiceLog(model.UserName, "Id:" + model.Id + ",Name:" + model.UserName, "成功", "修改头像", "用户设置");
                 // return JsonHandler.CreateMessage(1, Resource.InsertSucceed);
-                SysUserModel user = new SysUserModel();
+
                 SysUserInfo userInfo = new SysUserInfo();
                 user = GetById(model.Id);
                 userInfo.Id = user.Id;
                 userInfo.UserName = user.UserName;
                 userInfo.TrueName = user.TrueName;
-                userInfo.Card = user.Card;
-                //userInfo.shfzh = user.IdentityCardFile;
                 userInfo.MobileNumber = user.MobileNumber;
                 userInfo.Token = "";// Token;
-                //userInfo.State = user.State;
-                userInfo.Photo = user.Photo;
-                userInfo.QRCode = user.QRCode;
+                userInfo.Card = user.Card;
+                userInfo.shfzh = user.IdentityCardFile;
+                userInfo.State = user.State;
                 userInfo.IsAuth = (user.IsAuth != null) ? user.IsAuth : false;
-                userInfo.RecommendID = user.RecommendID;
-                if (isuBLL.GetRefSysJiaPu(user.Id) != null && islBll.GetById(isuBLL.GetRefSysJiaPu(user.Id).LevelId.ToString()) != null)
+                if (mj_BLL.GetRefSysJiaPu(user.Id) != null)
                 {
-                    userInfo.Jibie = islBll.GetById(isuBLL.GetRefSysJiaPu(user.Id).LevelId.ToString()).Name;
+                    userInfo.TId = mj_BLL.GetRefSysJiaPu(user.Id).TId;
+                    userInfo.TName = mj_BLL.GetRefSysJiaPu(user.Id).TName;
+                    userInfo.PId = mj_BLL.GetRefSysJiaPu(user.Id).ParentId;
+                    userInfo.PName = mj_BLL.GetRefSysJiaPu(user.Id).ParentName;
+                }
+                if (mj_BLL.GetRefSysJiaPu(user.Id) != null && islBll.GetById(mj_BLL.GetRefSysJiaPu(user.Id).LevelId.ToString()) != null)
+                {
+                    userInfo.Jibie = islBll.GetById(mj_BLL.GetRefSysJiaPu(user.Id).LevelId.ToString()).Name;
                 }
                 else
                 {
                     userInfo.Jibie = "普通会员";
                 }
+                userInfo.TuiCount = user.TuiCount;
                 return Json(userInfo);
             }
             else
@@ -162,7 +234,71 @@ namespace Apps.WebApi.Areas.User.Controllers
             }
 
         }
+        /// <summary>
+        /// 获取一前台用用户信息
+        /// 参数id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>        
+        [HttpGet]
+        public object GetUserInfoById(string filter)
+        {
+            JObject opc = JObject.Parse(filter);
+            var id = "";
+            if (JObject.Parse(opc["where"].ToString())["Id"] != null)
+            {
+                id = JObject.Parse(opc["where"].ToString())["Id"].ToString();
+            }
+            SysUserModel model = new SysUserModel();
+            model = m_BLL.GetById(id);
+            if (model != null)
+            {
+                SysUserInfo userInfo = new SysUserInfo();
+                userInfo.Id = model.Id;
+                userInfo.UserName = model.UserName;
+                userInfo.TrueName = model.TrueName;
+                userInfo.MobileNumber = model.MobileNumber;
+                userInfo.Token = "";// Token;
+                userInfo.Card = model.Card;
+                userInfo.shfzh = model.IdentityCardFile;
+                userInfo.State = model.State;
+                userInfo.IsAuth = (model.IsAuth != null) ? model.IsAuth : false;
+                if (mj_BLL.GetRefSysJiaPu(model.Id) != null)
+                {
+                    userInfo.TId = mj_BLL.GetRefSysJiaPu(model.Id).TId;
+                    userInfo.TName = mj_BLL.GetRefSysJiaPu(model.Id).TName;
+                    userInfo.PId = mj_BLL.GetRefSysJiaPu(model.Id).ParentId;
+                    userInfo.PName = mj_BLL.GetRefSysJiaPu(model.Id).ParentName;
+                }
+                if (mj_BLL.GetRefSysJiaPu(model.Id) != null && islBll.GetById(mj_BLL.GetRefSysJiaPu(model.Id).LevelId.ToString()) != null)
+                {
+                    userInfo.Jibie = islBll.GetById(mj_BLL.GetRefSysJiaPu(model.Id).LevelId.ToString()).Name;
+                }
+                else
+                {
+                    userInfo.Jibie = "普通会员";
+                }
+                userInfo.TuiCount = model.TuiCount;
+                return Json(userInfo);
+            }
+            else
+            {
+                return null;
+            }
 
+        }
+        [HttpPost]
+        public object DeletAddress([FromBody]SysAddressModel model)
+        {
+            bool result = false;
+            RetBool rt = new RetBool();
+            if (!string.IsNullOrEmpty(model.Id))
+            {
+                result = ma_BLL.Delete(ref errors, model.Id);
+            }
+            rt.ret = result;
+            return Json(rt);
+        }
         /// <summary>
         /// 添加收货人地址
         /// 参数：
@@ -182,7 +318,7 @@ namespace Apps.WebApi.Areas.User.Controllers
         public object SetAddress([FromBody]SysAddressModel info)
         {
             //编辑
-            if (ma_BLL.GetById(info.Id) != null)
+            if (!string.IsNullOrEmpty(info.Id) && ma_BLL.GetById(info.Id) != null)
             {
                 SysAddressModel model = ma_BLL.GetById(info.Id);
                 model.Name = info.Name;
@@ -206,7 +342,7 @@ namespace Apps.WebApi.Areas.User.Controllers
                     rt.ret = result;
                     return Json(rt);
                 }
-                
+
             }
             //新增
             else
@@ -246,13 +382,13 @@ namespace Apps.WebApi.Areas.User.Controllers
         {
             JObject opc = JObject.Parse(filter);
             var queryStr = "";
-            if (JObject.Parse(opc["where"].ToString())["ID"] != null)
+            if (JObject.Parse(opc["where"].ToString())["userId"] != null)
             {
 
-                queryStr = JObject.Parse(opc["where"].ToString())["ID"].ToString();
+                queryStr = JObject.Parse(opc["where"].ToString())["userId"].ToString();
             }
 
-            List<SysAddress> list = ma_BLL.GetPage(queryStr, int.Parse(opc["skip"].ToString()), int.Parse(opc["limit"].ToString()));
+            List<SysAddressModel> list = ma_BLL.GetPage(queryStr, int.Parse(opc["skip"].ToString()), int.Parse(opc["limit"].ToString()));
 
             return Json(list);
         }
@@ -271,8 +407,8 @@ namespace Apps.WebApi.Areas.User.Controllers
             {
                 queryStr = JObject.Parse(opc["where"].ToString())["userId"].ToString();
             }
-
-            List<SysAddress> list = ma_BLL.GetPage(queryStr, int.Parse(opc["skip"].ToString()), int.Parse(opc["limit"].ToString()), true);
+            string id = JObject.Parse(opc["where"].ToString())["Id"].ToString();
+            List<SysAddressModel> list = ma_BLL.GetPage(queryStr, id, int.Parse(opc["skip"].ToString()), int.Parse(opc["limit"].ToString()), true);
             SysAddressModel AddressModel = new SysAddressModel();
             AddressModel.Id = list[0].Id;
             AddressModel.City = list[0].City;
@@ -286,7 +422,7 @@ namespace Apps.WebApi.Areas.User.Controllers
             AddressModel.Typs = list[0].Typs;
             AddressModel.UpdateTime = list[0].UpdateTime;
             AddressModel.UserId = list[0].UserId;
-            AddressModel.TrueName = list[0].SysUser.TrueName;
+            AddressModel.TrueName = list[0].TrueName;
 
             return Json(AddressModel);
         }
@@ -301,23 +437,89 @@ namespace Apps.WebApi.Areas.User.Controllers
         [HttpPost]
         public object PutJiaPuBefore([FromBody]SysJiaPuBefore sysJiaPu)
         {
-            
-            if (sysJiaPu.uid.Length == 31 && sysJiaPu.tid.Length == 31 && sysJiaPu.fje > 0)
-              result   = m_BLL.IntoSysJiaPuBefore(sysJiaPu.uid, sysJiaPu.tid, sysJiaPu.fje);
-            RetInt ri = new RetInt();
-            ri.ret = result;
-            return Json(ri);
+            if (!string.IsNullOrEmpty(sysJiaPu.uid))
+            {
+                List<SysJiaPuBefore> before = new List<SysJiaPuBefore>();
+                before = mjb_BLL.IsInSysJiaPuBefore(sysJiaPu.uid);
+                if (before != null)
+                {
+                    return null;
+                }
+
+                if (sysJiaPu.tid.Length > 28 && sysJiaPu.fje > 0)
+                {
+                    SysJiaPuBeforeModel model = new SysJiaPuBeforeModel()
+                    {
+                        Id = ResultHelper.NewId,
+                        uid = sysJiaPu.uid,
+                        tid = sysJiaPu.tid,
+                        fje = sysJiaPu.fje,
+                        zmp15 = sysJiaPu.zmp15,
+                        createTime = DateTime.Now,
+                        isdone = false
+                    };
+
+                    result_bool = mjb_BLL.Create(ref errors, model);
+                }
+                RetBool ri = new RetBool();
+                ri.ret = result_bool;
+                return Json(ri);
+            }
+            else
+            {
+                return null;
+            }
         }
         [HttpPost]
         public object UpdateJiaPuBefore([FromBody]SysJiaPuBeforeModel sysJiaPu)
         {
 
-            if (sysJiaPu.uid.Length == 31 && sysJiaPu.tid.Length == 31 && sysJiaPu.fje > 0)
-                result_bool = mjb_BLL.Edit(ref errors,sysJiaPu);
+            if (!string.IsNullOrEmpty(sysJiaPu.uid) && sysJiaPu.tid.Length > 28 && sysJiaPu.fje > 0)
+                result_bool = mjb_BLL.Edit(ref errors, sysJiaPu);
             RetBool ri = new RetBool();
             ri.ret = result_bool;
             return Json(ri);
         }
+        [HttpPost]
+        public object EditJiaPu([FromBody]SysJiaPu model)
+        {
+            SysJiaPuModel newmodel = new SysJiaPuModel();
+            SysJiaPuModel sysJia = new SysJiaPuModel();
+            sysJia = mj_BLL.GetRefSysJiaPu(model.UserId);
+            if (sysJia != null)
+            {
+                newmodel.FirstJinE = model.FirstJinE;
+                newmodel.UpdateTime = DateTime.Now;
+                newmodel.LevelId = model.LevelId;
+                newmodel.Id = sysJia.Id;
+                newmodel.ParentId = sysJia.ParentId;
+                newmodel.PPId = sysJia.PPId;
+                newmodel.TopId = sysJia.TopId;
+                newmodel.ShuZi = sysJia.ShuZi;
+                newmodel.ZiMu = sysJia.ZiMu;
+                newmodel.ErZiShu = sysJia.ErZiShu;
+                newmodel.Comment = sysJia.Comment;
+                newmodel.CreateTime = sysJia.CreateTime;
+                newmodel.UserId = sysJia.UserId;
+                newmodel.ZMP15 = sysJia.ZMP15;
+                newmodel.ZMPA2 = sysJia.ZMPA2;
+                bool ret;
+                ret = mj_BLL.Edit(ref errors, newmodel);
+                if (ret)
+                {
+                    return Json(model);
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            else
+            {
+                return null;
+            }
+        }
+
         /// <summary>
         /// 调用存储过程
         /// 参数：userid 用户id，pid 推荐人id，fje选择级别费
@@ -327,185 +529,257 @@ namespace Apps.WebApi.Areas.User.Controllers
         [HttpPost]
         public object PutJiapu([FromBody]SysJiaPuBefore sysJiaPu_)
         {
-            if (m_BLL.GetRefSysJiaPu(sysJiaPu_.uid)!=null)
-            {
-                return null;
-            }
-            string ZMPB2 = "";
             RetInt ri = new RetInt();
-            SysJiaPu sysJiaPu = new SysJiaPu();
-            sysJiaPu = m_BLL.GetRefSysJiaPu(sysJiaPu_.tid);
-            if (sysJiaPu==null)
+
+            string ZMP15 = sysJiaPu_.zmp15 == null ? "Y2" : sysJiaPu_.zmp15;
+            SysJiaPuModel sysJiaPu = new SysJiaPuModel();
+            if (string.IsNullOrEmpty(sysJiaPu_.uid))
             {
                 return null;
             }
-            Regex r = new Regex("0");
-            Match m = r.Match(sysJiaPu.ZMP15);
-            if (m.Success)
+            sysJiaPu = mj_BLL.GetRefSysJiaPu(sysJiaPu_.uid);
+            if (sysJiaPu != null)
             {
-                switch (m.Index)
+                return null;
+            }
+            if (sysJiaPu_.tid != null)
+            {
+                sysJiaPu = mj_BLL.GetRefSysJiaPu(sysJiaPu_.tid);
+                int loc;
+                char[] z = ZMP15.ToCharArray();
+                if (z[1] == '2')
                 {
-                    case 1:
-                        ZMPB2 = "A0";
-                        break;
-                    case 2:
-                        ZMPB2 = "A1";
-                        break;
-                    case 3:
-                        ZMPB2 = "B0";
-                        break;
-                    case 4:
-                        ZMPB2 = "B1";
-                        break;
-                    case 5:
-                        ZMPB2 = "C0";
-                        break;
-                    case 6:
-                        ZMPB2 = "C1";
-                        break;
-                    case 7:
-                        ZMPB2 = "D0";
-                        break;
-                    case 8:
-                        ZMPB2 = "D1";
-                        break;
-                    case 9:
-                        ZMPB2 = "E0";
-                        break;
-                    case 10:
-                        ZMPB2 = "E1";
-                        break;
-                    case 11:
-                        ZMPB2 = "F0";
-                        break;
-                    case 12:
-                        ZMPB2 = "F1";
-                        break;
-                    case 13:
-                        ZMPB2 = "G0";
-                        break;
-                    case 14:
-                        ZMPB2 = "G1";
-                        break;
-                    case 15:
-                        ZMPB2 = "H0";
-                        break;
-                    case 16:
-                        ZMPB2 = "H1";
-                        break;
-                    case 17:
-                        ZMPB2 = "I0";
-                        break;
-                    case 18:
-                        ZMPB2 = "I1";
-                        break;
-                    case 19:
-                        ZMPB2 = "J0";
-                        break;
-                    case 20:
-                        ZMPB2 = "J1";
-                        break;
-                    case 21:
-                        ZMPB2 = "K0";
-                        break;
-                    case 22:
-                        ZMPB2 = "K1";
-                        break;
-                    case 23:
-                        ZMPB2 = "L0";
-                        break;
-                    case 24:
-                        ZMPB2 = "L1";
-                        break;
-                    case 25:
-                        ZMPB2 = "M0";
-                        break;
-                    case 26:
-                        ZMPB2 = "M1";
-                        break;
-                    case 27:
-                        ZMPB2 = "N0";
-                        break;
-                    case 28:
-                        ZMPB2 = "N1";
-                        break;
-                    case 29:
-                        ZMPB2 = "O0";
-                        break;
-                    case 30:
-                        ZMPB2 = "O1";
-                        break;
-                    case 31:
-                        ZMPB2 = "P0";
-                        break;
-                    case 32:
-                        ZMPB2 = "P1";
-                        break;
-                    case 33:
-                        ZMPB2 = "Q0";
-                        break;
-                    case 34:
-                        ZMPB2 = "Q1";
-                        break;
-                    case 35:
-                        ZMPB2 = "R0";
-                        break;
-                    case 36:
-                        ZMPB2 = "R1";
-                        break;
-                    case 37:
-                        ZMPB2 = "S0";
-                        break;
-                    case 38:
-                        ZMPB2 = "S1";
-                        break;
-                    case 39:
-                        ZMPB2 = "T0";
-                        break;
-                    case 40:
-                        ZMPB2 = "T1";
-                        break;
-                    case 41:
-                        ZMPB2 = "U0";
-                        break;
-                    case 42:
-                        ZMPB2 = "U1";
-                        break;
-                    case 43:
-                        ZMPB2 = "V0";
-                        break;
-                    case 44:
-                        ZMPB2 = "V1";
-                        break;
-                    case 45:
-                        ZMPB2 = "W0";
-                        break;
-                    case 46:
-                        ZMPB2 = "W1";
-                        break;
-                    case 47:
-                        ZMPB2 = "X0";
-                        break;
-                    case 48:
-                        ZMPB2 = "X1";
-                        break;
-                    case 49:
-                        ZMPB2 = "Y0";
-                        break;
-                    case 50:
-                        ZMPB2 = "Y1";
-                        break;
-                    default:
-                        break;
+                    return null;
                 }
+                loc = z[0] - 'A';
+                char[] ZM = sysJiaPu.ZMP15.Substring(loc, 2).ToCharArray();
+
+                if (z[1] == '0')
+                {
+                    if (ZM[0] == '1')
+                    {
+                        return null;
+                    }
+                }
+                if (z[1] == '1')
+                {
+                    if (ZM[1] == '1')
+                    {
+                        return null;
+                    }
+                }
+                #region 自动匹配位置
+                /*
+                                if (sysJiaPu.ZMP15 != null)
+                                {
+                                    Regex r = new Regex("0");
+                                    Match m = r.Match(sysJiaPu.ZMP15);
+                                    if (m.Success)
+                                    {
+                                        switch (m.Index)
+                                        {
+                                            case 0:
+                                                ZMP15 = "A0";
+                                                break;
+                                            case 1:
+                                                ZMP15 = "A1";
+                                                break;
+                                            case 3:
+                                                ZMP15 = "B0";
+                                                break;
+                                            case 4:
+                                                ZMP15 = "B1";
+                                                break;
+                                            case 5:
+                                                ZMP15 = "C0";
+                                                break;
+                                            case 6:
+                                                ZMP15 = "C1";
+                                                break;
+                                            case 7:
+                                                ZMP15 = "D0";
+                                                break;
+                                            case 8:
+                                                ZMP15 = "D1";
+                                                break;
+                                            case 9:
+                                                ZMP15 = "E0";
+                                                break;
+                                            case 10:
+                                                ZMP15 = "E1";
+                                                break;
+                                            case 11:
+                                                ZMP15 = "F0";
+                                                break;
+                                            case 12:
+                                                ZMP15 = "F1";
+                                                break;
+                                            case 13:
+                                                ZMP15 = "G0";
+                                                break;
+                                            case 14:
+                                                ZMP15 = "G1";
+                                                break;
+                                            case 15:
+                                                ZMP15 = "H0";
+                                                break;
+                                            case 16:
+                                                ZMP15 = "H1";
+                                                break;
+                                            case 17:
+                                                ZMP15 = "I0";
+                                                break;
+                                            case 18:
+                                                ZMP15 = "I1";
+                                                break;
+                                            case 19:
+                                                ZMP15 = "J0";
+                                                break;
+                                            case 20:
+                                                ZMP15 = "J1";
+                                                break;
+                                            case 21:
+                                                ZMP15 = "K0";
+                                                break;
+                                            case 22:
+                                                ZMP15 = "K1";
+                                                break;
+                                            case 23:
+                                                ZMP15 = "L0";
+                                                break;
+                                            case 24:
+                                                ZMP15 = "L1";
+                                                break;
+                                            case 25:
+                                                ZMP15 = "M0";
+                                                break;
+                                            case 26:
+                                                ZMP15 = "M1";
+                                                break;
+                                            case 27:
+                                                ZMP15 = "N0";
+                                                break;
+                                            case 28:
+                                                ZMP15 = "N1";
+                                                break;
+                                            case 29:
+                                                ZMP15 = "O0";
+                                                break;
+                                            case 30:
+                                                ZMP15 = "O1";
+                                                break;
+                                            case 31:
+                                                ZMP15 = "P0";
+                                                break;
+                                            case 32:
+                                                ZMP15 = "P1";
+                                                break;
+                                            case 33:
+                                                ZMP15 = "Q0";
+                                                break;
+                                            case 34:
+                                                ZMP15 = "Q1";
+                                                break;
+                                            case 35:
+                                                ZMP15 = "R0";
+                                                break;
+                                            case 36:
+                                                ZMP15 = "R1";
+                                                break;
+                                            case 37:
+                                                ZMP15 = "S0";
+                                                break;
+                                            case 38:
+                                                ZMP15 = "S1";
+                                                break;
+                                            case 39:
+                                                ZMP15 = "T0";
+                                                break;
+                                            case 40:
+                                                ZMP15 = "T1";
+                                                break;
+                                            case 41:
+                                                ZMP15 = "U0";
+                                                break;
+                                            case 42:
+                                                ZMP15 = "U1";
+                                                break;
+                                            case 43:
+                                                ZMP15 = "V0";
+                                                break;
+                                            case 44:
+                                                ZMP15 = "V1";
+                                                break;
+                                            case 45:
+                                                ZMP15 = "W0";
+                                                break;
+                                            case 46:
+                                                ZMP15 = "W1";
+                                                break;
+                                            case 47:
+                                                ZMP15 = "X0";
+                                                break;
+                                            case 48:
+                                                ZMP15 = "X1";
+                                                break;
+                                            case 49:
+                                                ZMP15 = "Y0";
+                                                break;
+                                            case 50:
+                                                ZMP15 = "Y1";
+                                                break;
+                                            default:
+                                                break;
+                                        }
+                                    }
+                                    else
+                                    {
+                                        ZMP15 = "A0";
+                                    }
+                                }
+                                */
+                #endregion
+
+                if (!string.IsNullOrEmpty(sysJiaPu_.uid) && sysJiaPu_.tid.Length > 28)
+                    ri.ret = mj_BLL.IntoSysJiaPu(sysJiaPu_.uid, sysJiaPu_.tid, sysJiaPu_.tid, ZMP15, sysJiaPu_.fje);
+                //更新jiapubefore表
+                if (ri.ret == 0)
+                {
+                    if (sysJiaPu.Id != null)
+                    {
+                        //UpdateJiaPuBefore()
+                        SysJiaPuBeforeModel sysJiaPuBefore = new SysJiaPuBeforeModel();
+                        sysJiaPuBefore.Id = sysJiaPu.Id;
+                        //sysJiaPuBefore.uid = sysJiaPu.UserId;
+                        //sysJiaPuBefore.tid = sysJiaPu.TId;
+                        sysJiaPuBefore.isdone = true;
+
+                        bool res = mjb_BLL.Edit(ref errors, sysJiaPuBefore);
+                        if (res)
+                        {
+
+                        }
+                    }
+                    return Json(ri);
+                }
+                else
+                {
+                    return null;
+                }
+
             }
             else
             {
-                ZMPB2 = "A0";
+                ri.ret = mj_BLL.IntoSysJiaPu(sysJiaPu_.uid, null, null, ZMP15, sysJiaPu_.fje);
+                if (ri.ret == 0)
+                {
+                    return Json(ri);
+                }
+                else
+                {
+                    return null;
+                }
             }
-            if (sysJiaPu_.uid.Length == 31 && sysJiaPu_.tid.Length == 31 && m_BLL.GetRefSysJiaPu(sysJiaPu_.uid) == null)
-                ri.ret = m_BLL.IntoSysJiaPu(sysJiaPu_.uid, sysJiaPu_.tid, sysJiaPu_.tid, ZMPB2, (decimal)sysJiaPu_.fje);
-            return Json(ri);
         }
         [HttpGet]
         public object GetByIdFromJiaPu(string filter)
@@ -514,18 +788,16 @@ namespace Apps.WebApi.Areas.User.Controllers
             var queryStr = "";
             if (JObject.Parse(opc["where"].ToString())["userId"] != null)
             {
-
                 queryStr = JObject.Parse(opc["where"].ToString())["userId"].ToString();
             }
-            if (mj_BLL.GetById(queryStr) != null)
+            if (mj_BLL.GetRefSysJiaPu(queryStr) != null)
             {
-                return Json(mj_BLL.GetById(queryStr));
+                return Json(mj_BLL.GetRefSysJiaPu(queryStr));
             }
             else
             {
                 return null;
             }
-
         }
         [HttpGet]
         /// <summary>
@@ -539,22 +811,22 @@ namespace Apps.WebApi.Areas.User.Controllers
             var queryStr = "";
             if (JObject.Parse(opc["where"].ToString())["tid"] != null)
             {
-
                 queryStr = JObject.Parse(opc["where"].ToString())["tid"].ToString();
             }
             List<SysUserForJiaPu> ujp = new List<SysUserForJiaPu>();
             List<SysJiaPuBefore> jpb = new List<SysJiaPuBefore>();
-            jpb = m_BLL.GetSysJiaPuBefore(filter);
-            if (jpb!= null&&jpb.Count>0)
+            jpb = mjb_BLL.GetSysJiaPuBefore(queryStr);
+            if (jpb != null && jpb.Count > 0)
             {
                 foreach (SysJiaPuBefore item in jpb)
                 {
                     SysUserForJiaPu u = new SysUserForJiaPu();
+                    u.Id = item.Id;
                     u.uid = item.uid;
                     u.tid = item.tid;
                     SysUserModel user = new SysUserModel();
                     user = m_BLL.GetById(item.uid);
-                    if (user!=null)
+                    if (user != null)
                     {
                         u.truename = user.TrueName;
                         u.username = user.UserName;
@@ -573,10 +845,34 @@ namespace Apps.WebApi.Areas.User.Controllers
                     {
                         u.isdone = "未通过";
                     }
-                    
+
                     ujp.Add(u);
                 }
                 return Json(ujp);
+            }
+            else
+            {
+                return null;
+            }
+        }
+        [HttpGet]
+        public object GetSons(string filter)
+        {
+            JObject opc = JObject.Parse(filter);
+            var queryStr = "";
+            if (JObject.Parse(opc["where"].ToString())["Id"] != null)
+            {
+
+                queryStr = JObject.Parse(opc["where"].ToString())["Id"].ToString();
+            }
+            int skip, limit;
+            skip = int.Parse(opc["skip"].ToString());
+            limit = int.Parse(opc["limit"].ToString());
+            List<SysSons> sonUsers = new List<SysSons>();
+            sonUsers = mj_BLL.GetAllSon(queryStr, skip, limit);
+            if (sonUsers != null)
+            {
+                return Json(sonUsers);
             }
             else
             {
@@ -594,8 +890,8 @@ namespace Apps.WebApi.Areas.User.Controllers
                 queryStr = JObject.Parse(opc["where"].ToString())["uid"].ToString();
             }
             List<SysAllChildUser> childUsers = new List<SysAllChildUser>();
-            childUsers = m_BLL.GetAllChildren(queryStr);
-            if (childUsers!=null)
+            childUsers = mj_BLL.GetAllChildren(queryStr);
+            if (childUsers != null)
             {
                 return Json(childUsers);
             }
@@ -604,7 +900,38 @@ namespace Apps.WebApi.Areas.User.Controllers
                 return null;
             }
         }
+        [HttpPost]
+        public object PostTuiGuang([FromBody]SysUserForTui user)
+        {
+            SysTuiUserModel model = new SysTuiUserModel();
+            model.Id = ResultHelper.NewId;
+            model.UserId = user.uid;
+            model.TuiId = user.tid;
+            model.CreateTime = DateTime.Now;
+            if (m_tuBLL.Create(ref errors, model))
+            {
+                //用户表TuiCount+1
+                SysUserModel sysUser = new SysUserModel();
+                sysUser = m_BLL.GetById(user.uid);
+                if (sysUser != null)
+                {
+                    SysUserEditModel emodel = new SysUserEditModel();
+                    emodel.Id = sysUser.Id;
+                    emodel.UserName = sysUser.UserName;
+                    emodel.TuiCount = sysUser.TuiCount + 1;
+                    if (m_BLL.Edit(ref errors, emodel))
+                    {
 
+                    }
+                }
+
+                return Json(model);
+            }
+            else
+            {
+                return null;
+            }
+        }
         [HttpPost]
         public object PostUserAuth([FromBody]SysUserEditModel user)
         {

@@ -68,8 +68,8 @@ C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.WC.DAL\bin\Release\zh-Hans
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.WC.DAL\bin\Release\zh-Hans\System.Web.WebPages.resources.dll
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.WC.DAL\bin\Release\en-US\Apps.Locale.resources.dll
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.WC.DAL\bin\Release\zh-Hans\System.Web.WebPages.Deployment.resources.dll
-C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.WC.DAL\obj\Release\Apps.WC.DAL.csprojResolveAssemblyReference.cache
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.WC.DAL\obj\Release\Apps.WC.DAL.csproj.CoreCompileInputs.cache
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.WC.DAL\obj\Release\Apps.WC.DAL.csproj.CopyComplete
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.WC.DAL\obj\Release\Apps.WC.DAL.dll
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.WC.DAL\obj\Release\Apps.WC.DAL.pdb
+C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.WC.DAL\obj\Release\Apps.WC.DAL.csprojResolveAssemblyReference.cache

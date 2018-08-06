@@ -91,7 +91,21 @@ namespace Apps.Core
             //业绩注入
             container.RegisterType<ISysPurchaseHistoryRepository, SysPurchaseHistoryRepository>();
             container.RegisterType<ISysPurchaseHistoryBLL, SysPurchaseHistoryBLL>();
-
+            //消息注入 ISysMessageBLL
+            container.RegisterType<ISysMessageRepository, SysMessageRepository>();
+            container.RegisterType<ISysMessageBLL, SysMessageBLL>();
+            //入会订单
+            container.RegisterType<ISysFirstRepository, SysFirstRepository>();
+            container.RegisterType<ISysFirstBLL, SysFirstBLL>();
+            //二次进货
+            container.RegisterType<ISysErCiRepository, SysErCiRepository>();
+            container.RegisterType<ISysErCiBLL, SysErCiBLL>();
+            //帮助
+            container.RegisterType<ISysHelpsRepository, SysHelpsRepository>();
+            container.RegisterType<ISysHelpsBLL, SysHelpsBLL>();
+            //推广
+            container.RegisterType<ISysTuiUserRepository, SysTuiUserRepository>();
+            container.RegisterType<ISysTuiUserBLL, SysTuiUserBLL>();
         }
 
 
@@ -192,7 +206,7 @@ namespace Apps.Core
 
             container.RegisterType<ISpl_ProductCategorySBLL, Spl_ProductCategorySBLL>();//商品分类
             container.RegisterType<ISpl_ProductCategorySRepository, Spl_ProductCategorySRepository>();
-            container.RegisterType<ISpl_ProductCategoryBLL, Spl_ProductCategoryBLL>();//商品分类
+            container.RegisterType<ISpl_ProductCategorySBLL, Spl_ProductCategorySBLL>();//商品分类
             container.RegisterType<ISpl_ProductCategoryRepository, Spl_ProductCategoryRepository>();
 
             container.RegisterType<ISpl_ProductBLL, Spl_ProductBLL>();
@@ -214,7 +228,14 @@ namespace Apps.Core
             container.RegisterType<ISpl_OrdersRepository, Spl_OrdersRepository>();
             container.RegisterType<ISpl_Order_WareBLL, Spl_Order_WareBLL>();
             container.RegisterType<ISpl_Order_WareRepository, Spl_Order_WareRepository>();
-
+            //优惠
+            container.RegisterType<ISpl_YouHuiBLL, Spl_YouHuiBLL>();
+            container.RegisterType<ISpl_YouHuiRepository, Spl_YouHuiRepository>();
+            container.RegisterType<ISpl_Ware_YouHuiBLL, Spl_Ware_YouHuiBLL>();
+            container.RegisterType<ISpl_Ware_YouHuiRepository, Spl_Ware_YouHuiRepository>();
+            //加盟店
+            container.RegisterType<ISpl_FranchiseeBLL, Spl_FranchiseeBLL>();
+            container.RegisterType<ISpl_FranchiseeRepository, Spl_FranchiseeRepository>();
         }
 
 

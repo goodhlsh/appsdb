@@ -30,7 +30,7 @@ namespace Apps.Models.Sys
 		
 	public virtual Nullable<int> ErZiShu { get; set; }
 		
-	public virtual Nullable<decimal> FirstJinE { get; set; }
+	public virtual decimal FirstJinE { get; set; }
 		
 	public virtual string LevelId { get; set; }
 		

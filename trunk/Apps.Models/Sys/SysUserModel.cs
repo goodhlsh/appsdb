@@ -13,22 +13,23 @@ namespace Apps.Models.Sys
     {
         public string Id { get; set; }
         public string UserName { get; set; }
-        public string TrueName { get; set; }
-        public string Card { get; set; }
-        public string shfzh { get; set; }
+        public string TrueName { get; set; }        
         public string MobileNumber { get; set; }
         public string Token { get; set; }
+        public string Card { get; set; }
+        public string shfzh { get; set; }
         public bool State { get; set; }
-        public string Photo { get; set; }
-        public string QRCode { get; set; }
         public Nullable<bool> IsAuth { get; set; }
-        public string RecommendID { get; set; }
+        public string TId { get; set; }
+        public string TName { get; set; }
+        public string PId { get; set; }
+        public string PName { get; set; }
         public string Jibie { get; set; }
+        public int? TuiCount { get; set; }
     }
     public class SysUserChangePwd
     {
-        public string UserId { get; set; }
-        public string OldPassword { get; set; }
+        public string UserId { get; set; }        
         public string NewPassword { get; set; }
 
     }
@@ -54,7 +55,7 @@ namespace Apps.Models.Sys
         [Display(Name = "确认密码")]
         public string ComparePassword { get; set; }
         [NotNullExpression]
-        [Display(Name = "真实名称")]
+        [Display(Name = "姓名")]
         public override string TrueName { get; set; }
         [Display(Name = "身份证")]
         public override string Card { get; set; }
@@ -344,6 +345,7 @@ namespace Apps.Models.Sys
         [Display(Name = "上次密码修改时间")]
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:yyyy-MM-dd}")]
         public  string LastPasswdTime { get; set; }
+        public int? TuiCount { get; set; }
     }
 
     public class UserGroupModel
@@ -378,6 +380,7 @@ namespace Apps.Models.Sys
     }
     public class SysUserForJiaPu
     {
+        public string Id { get; set; }
         public string uid { get; set;}
         public string tid { get; set; }
         public string truename { get; set; }
@@ -393,5 +396,16 @@ namespace Apps.Models.Sys
         public string levelName { get; set; }
         public int levelMan { get; set; }
         public int levelMax { get; set; }
+    }
+    public class SysSons
+    {
+        public string zuname { get; set; }
+        public string leftTrueName { get; set; }        
+        public string rightTrueName { get; set; }
+    }
+    public class SysUserForTui
+    {
+        public string uid { get; set; }
+        public string tid { get; set; }
     }
 }

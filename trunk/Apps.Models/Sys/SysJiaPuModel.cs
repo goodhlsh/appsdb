@@ -21,9 +21,11 @@ namespace Apps.Models.Sys
         [Display(Name ="上级领导")]
         public string ParentName { get; set; }
         [Display(Name ="入会金额")]
-        public override decimal? FirstJinE { get; set; }
+        public override decimal FirstJinE { get; set; }
+        [Display(Name ="级别")]
+        public override string LevelId { get; set; }
         [Display(Name ="指定位置")]
-        public override string ZMPA2 { get; set; }
+        public override string ZMP15 { get; set; }
         public override string TId { get; set; }
         [Display(Name = "推荐人")]
         public string TName { get; set; }

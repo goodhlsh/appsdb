@@ -48,6 +48,8 @@ public partial class Spl_Orders
 
     public string AddressName { get; set; }
 
+    public string WuliuLink { get; set; }
+
 
 
     public virtual ICollection<Spl_Order_Ware> Spl_Order_Ware { get; set; }

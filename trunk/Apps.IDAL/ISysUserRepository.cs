@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Apps.Models;
 using System.Linq;
-using System.Text;
-using Apps.Models;
 
 namespace Apps.IDAL
 {
@@ -11,8 +8,7 @@ namespace Apps.IDAL
         int GetUserCountByDepId(string depId);
       
         IQueryable<SysUser> GetListByPosId(string posId);
-        IQueryable<SysJiaPu> GetRefSysJiaPu(string userId);
-        IQueryable<SysJiaPuBefore> GetSysJiaPuBefore(string tid);
+        
         IQueryable<SysRole> GetRefSysRole(string id);
         IQueryable<P_Sys_GetRoleByUserId_Result> GetRoleByUserId( string userId);
         IQueryable<P_Sys_GetUserByDepId_Result> GetUserByDepId(string DepId);
@@ -23,5 +19,6 @@ namespace Apps.IDAL
         /// </summary>
         /// <returns></returns>
         IQueryable<P_Sys_GetAllUsers_Result> GetAllUsers();
+        
     }
 }

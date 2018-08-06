@@ -34,6 +34,8 @@ public partial class SysMessage
 
     public Nullable<System.DateTime> UpdateTime { get; set; }
 
+    public Nullable<bool> IsRead { get; set; }
+
 }
 
 }

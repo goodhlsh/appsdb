@@ -38,6 +38,8 @@ namespace Apps.Models.Spl
 		
 	public virtual string AddressName { get; set; }
 		
+	public virtual string WuliuLink { get; set; }
+		
 }
 
 }

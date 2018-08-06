@@ -28,13 +28,17 @@ public partial class Spl_ProductCategoryS
 
     public string Id { get; set; }
 
-    public string Name { get; set; }
+    public string SonTypeName { get; set; }
 
     public string SupID { get; set; }
 
     public Nullable<bool> Promoted { get; set; }
 
     public string Note { get; set; }
+
+    public string PicShow { get; set; }
+
+    public Nullable<System.DateTime> CreateTime { get; set; }
 
 
 

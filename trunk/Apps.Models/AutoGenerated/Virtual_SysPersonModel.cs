@@ -38,6 +38,8 @@ namespace Apps.Models.Sys
 		
 	public virtual string Category { get; set; }
 		
+	public virtual string UserId { get; set; }
+		
 }
 
 }
