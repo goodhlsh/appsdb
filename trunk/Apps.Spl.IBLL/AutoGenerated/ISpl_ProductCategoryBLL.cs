@@ -16,9 +16,9 @@ using System.Collections.Generic;
 using Apps.Models.Spl;
 namespace Apps.Spl.IBLL
 {
-	public partial interface ISpl_ProductCategoryBLL:IBaseBLL<Spl_ProductCategoryModel>
-	{
-      
-	}
+    public partial interface ISpl_ProductCategoryBLL : IBaseBLL<Spl_ProductCategoryModel>
+    {
+        
+    }
 
 }

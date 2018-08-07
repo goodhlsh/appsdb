@@ -36,12 +36,14 @@
             pagination: true,
             striped: true, //奇偶行是否区分
             singleSelect: true,//单选模式
-            //rownumbers: true,//行号
+            rownumbers: true,//行号
             columns: [[
                 { field: 'Id', title: 'Id', width: 80, hidden: true },
-                { field: 'Name', title: 'Name', width: 80, sortable: true },
-                { field: 'CreateTime', title: 'CreateTime', width: 80, sortable: true },
-                { field: 'CreateBy', title: 'CreateBy', width: 80, sortable: true }
+                { field: 'TypeName', title: '分类名', width: 80, sortable: true },
+                { field: 'Note', title: '说明', width: 160 },
+                { field: 'CreateTime', title: '创建时间', width: 80, sortable: true },
+                { field: 'CreateBy', title: '创建者', width: 80, sortable: true },
+                { field: 'PicShow', title: 'PicShow', width: 80, hidden: true }
             ]]
         });
     });

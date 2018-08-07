@@ -204,9 +204,9 @@ namespace Apps.Core
             container.RegisterType<ISpl_WareBLL, Spl_WareBLL>();//商品
             container.RegisterType<ISpl_WareRepository, Spl_WareRepository>();
 
-            container.RegisterType<ISpl_ProductCategorySBLL, Spl_ProductCategorySBLL>();//商品分类
+            container.RegisterType<ISpl_ProductCategorySBLL, Spl_ProductCategorySBLL>();//商品分类小类
             container.RegisterType<ISpl_ProductCategorySRepository, Spl_ProductCategorySRepository>();
-            container.RegisterType<ISpl_ProductCategorySBLL, Spl_ProductCategorySBLL>();//商品分类
+            container.RegisterType<ISpl_ProductCategoryBLL, Spl_ProductCategoryBLL>();//商品分类大类
             container.RegisterType<ISpl_ProductCategoryRepository, Spl_ProductCategoryRepository>();
 
             container.RegisterType<ISpl_ProductBLL, Spl_ProductBLL>();

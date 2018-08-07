@@ -126,7 +126,7 @@ namespace Apps.Web.Controllers
                     from r in userList
                     select new SysUserModel()
                     {
-                        Id = r.Id,
+                        Id = r.Id,                        
                         //UserName = "<span onclick='SetValue(\"" + r.Id + "\",\"" + r.TrueName + "\")'>" + r.UserName + "</span>",
                         UserName = r.UserName,
                         TrueName = r.TrueName,

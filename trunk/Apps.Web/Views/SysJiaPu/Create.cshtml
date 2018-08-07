@@ -33,9 +33,7 @@
                 });
             }
             return false;
-        });
-
-      
+        });      
        
         $("#btnReturn").click(function () {
             window.parent.frameReturnByClose();
@@ -44,15 +42,20 @@
         $("#selExc").click(function () {
             //$.messageBox5s('hello', 'you');
             $("#modalwindow").html("<iframe width='100%' height='100%' scrolling='no' frameborder='0' src='/SysHelper/UserLookUp_JP'></iframe>");
-            $("#modalwindow").window({ title: '选择人员', width: 620, height: 388, iconCls: 'fa fa-plus' }).window('open');
+            $("#modalwindow").window({ title: '选择用户', width: 620, height: 388, iconCls: 'fa fa-plus' }).window('open');
         });
         $("#selExc2").click(function () {
             $("#modalwindow").html("<iframe width='100%' height='100%' scrolling='no' frameborder='0' src='/SysHelper/UserLookUp2_JP'></iframe>");
-            $("#modalwindow").window({ title: '选择人员', width: 620, height: 388, iconCls: 'fa fa-plus' }).window('open');
+            $("#modalwindow").window({ title: '选择上级', width: 620, height: 388, iconCls: 'fa fa-plus' }).window('open');
         });
         $("#selExc3").click(function () {
             $("#modalwindow").html("<iframe width='100%' height='100%' scrolling='no' frameborder='0' src='/SysHelper/UserLookUp3_JP'></iframe>");
-            $("#modalwindow").window({ title: '选择人员', width: 620, height: 388, iconCls: 'fa fa-plus' }).window('open');
+            $("#modalwindow").window({ title: '选择推荐人', width: 620, height: 388, iconCls: 'fa fa-plus' }).window('open');
+        });
+        $("#selExc4").click(function () {
+            var uid = $("#ParentId").val();
+            $("#modalwindow").html("<iframe width='100%' height='100%' scrolling='no' frameborder='0' src='/SysJiaPu/GetLocal?uid="+uid+"'></iframe>");
+            $("#modalwindow").window({ title: '选择位置', width: 620, height: 1080, iconCls: 'fa fa-plus' }).window('open');
         });
     });
     function SetSelResult(result, resultName) {
@@ -85,9 +88,16 @@
         arrayObj[1] = $("#TName").val();
         return arrayObj;
     }
+    function SetSelResult4(result, resultName) {
+        $("#ZMP15").val(result);
+        $("#SonLoc").val(resultName);
+    }
     //ifram 返回
     function frameReturnByClose() {
         $("#modalwindow").window('close');
+    }
+    function setfjevalue() {
+        $("#FirstJinE").val($("#IsType").val());
     }
 </script>
 <div class="mvctool bgb">
@@ -144,7 +154,7 @@
                         安排位置：
                     </th>
                     <td>
-                        @Html.HiddenFor(model => model.ParentId)
+                        @Html.HiddenFor(model => model.ZMP15)
                         <input id="SonLoc" name="SonLoc" readonly="readonly" type="text" style="width: 90px; display: inline; background: #dedede; ">
                         <a class="fa fa-plus-square color-gray fa-lg" id="selExc4" href="javascript:void(0)"></a>
                     </td>
@@ -154,7 +164,9 @@
                         @Html.LabelFor(model => model.FirstJinE)：
                     </th>
                     <td>
-                        <select id="IsType" name="IsType">
+                        @Html.HiddenFor(model => model.FirstJinE)
+                        <select id="IsType" name="IsType" onchange="setfjevalue()">
+                            <option value="0">请选择</option>
                             <option value="398">398会员</option>
                             <option value="1314">1314会员</option>
                             <option value="8800">8800会员</option>

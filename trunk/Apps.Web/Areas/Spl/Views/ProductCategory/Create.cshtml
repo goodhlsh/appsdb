@@ -12,35 +12,35 @@
 }
 
 <script type="text/javascript">
-    $(function () {
-        $("#btnSave").click(function () {
-            if ($("form").valid()) {
-                $.ajax({
-                    url: "@Url.Action("Create")",
-                    type: "Post",
-                    data: $("form").serialize(),
-                    dataType: "json",
-                    success: function (data) {
-                        if (data.type == 1) {
-                            window.parent.frameReturnByMes(data.message);
-                            window.parent.frameReturnByReload(true);
-                            window.parent.frameReturnByClose()
-                        }
-                        else {
-                            window.parent.frameReturnByMes(data.message);
-                        }
+$(function () {
+    $("#btnSave").click(function () {
+        if ($("form").valid()) {
+            $.ajax({
+                url: "@Url.Action("Create")",
+                type: "Post",
+                data: $("form").serialize(),
+                dataType: "json",
+                success: function (data) {
+                    if (data.type == 1) {
+                        window.parent.frameReturnByMes(data.message);
+                        window.parent.frameReturnByReload(true);
+                        window.parent.frameReturnByClose()
                     }
-                });
-            }
-            return false;
-        });
-        $("#btnReturn").click(function () {
-            window.parent.frameReturnByClose();
-        });
+                    else {
+                        window.parent.frameReturnByMes(data.message);
+                    }
+                }
+            });
+        }
+        return false;
     });
+    $("#btnReturn").click(function () {
+         window.parent.frameReturnByClose();
+    });
+});
 </script>
 <div class="mvctool bgb">
-    @Html.ToolButton("btnSave", "fa fa-save", Resource.Save,ref perm, "Save", true)
+    @Html.ToolButton("btnSave", "fa fa-save", Resource.Save, ref perm, "Save", true)
     @Html.ToolButton("btnReturn", "fa fa-reply", Resource.Reply, false)
 </div>
 @using (Html.BeginForm())
@@ -51,12 +51,21 @@
         <tbody>
             <tr>
                 <th>
-                    @Html.LabelFor(model => model.Name)：
+                    @Html.LabelFor(model => model.TypeName)：
                 </th>
                 <td>
-                    @Html.EditorFor(model => model.Name)
+                    @Html.EditorFor(model => model.TypeName)
                 </td>
-                <td>@Html.ValidationMessageFor(model => model.Name)</td>
+                <td>@Html.ValidationMessageFor(model => model.TypeName)</td>
+            </tr>
+            <tr>
+                <th>
+                    @Html.LabelFor(model => model.Note)：
+                </th>
+                <td>
+                    @Html.EditorFor(model => model.Note)
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.Note)</td>
             </tr>
             <tr>
                 <th>
@@ -66,6 +75,15 @@
                     @Html.EditorFor(model => model.CreateBy)
                 </td>
                 <td>@Html.ValidationMessageFor(model => model.CreateBy)</td>
+            </tr>
+            <tr>
+                <th>
+                    @Html.LabelFor(model => model.PicShow)：
+                </th>
+                <td>
+                    @Html.EditorFor(model => model.PicShow)
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.PicShow)</td>
             </tr>
         </tbody>
     </table>

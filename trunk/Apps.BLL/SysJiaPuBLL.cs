@@ -79,7 +79,7 @@ namespace Apps.BLL
                     ErZiShu = user.ErZiShu,
                     ZMPA2 = user.ZMPA2,
                     TId = user.TId,
-                    TName = user.SysUser.Recommendor
+                    TName = mu_Rep.GetNameById(user.TId)
                 };
                 jiapuInfoList.Add(jiapuModel);
             }
@@ -227,7 +227,7 @@ namespace Apps.BLL
                     {
                         if (sons[i,j]=='1')
                         {
-                            realSon.Add("'"+(i+1).ToString()+"_"+ (j+1).ToString()+"'");
+                            realSon.Add((i+1).ToString()+"_"+ (j+1).ToString());
                         }
                     }
                 }

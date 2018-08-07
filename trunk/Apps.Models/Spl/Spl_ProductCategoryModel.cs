@@ -14,6 +14,11 @@ namespace Apps.Models.Spl
         public override string Id { get; set; }
         [Display(Name = "商品大类名")]
         public override string TypeName { get; set; }
+        [Display(Name ="展示图片")]
         public override string PicShow { get; set; }
+        [Display(Name = "说明")]
+        public override string Note { get; set; }
+        [Display(Name = "创建时间")]
+        public override DateTime? CreateTime { get; set; }
     }
 }

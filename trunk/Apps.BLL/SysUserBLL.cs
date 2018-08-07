@@ -559,14 +559,24 @@ namespace Apps.BLL
         }
         public SysUser GetBySelUserName(string username)
         {
-            if (m_Rep.GetList(a => a.UserName == username) != null)
+            try
             {
-                return m_Rep.GetList(a => a.UserName == username).ToList().First();
+                IQueryable<SysUser> user = m_Rep.GetList(a => a.UserName == username);
+                if (user != null)
+                {
+                    return m_Rep.GetList(a => a.UserName == username).ToList().First();
+                }
+                else
+                {
+                    return null;
+                }
             }
-            else
+            catch (Exception)
             {
+
                 return null;
             }
+           
         }
         public List<SysUser> GetListByDepId(string id)
         {

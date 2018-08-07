@@ -14,7 +14,9 @@ namespace Apps.Web.Areas.Spl.Controllers
     public class ProductCategorySController : BaseController
     {
         [Dependency]
-        public ISpl_ProductCategorySBLL m_BLL { get; set; }
+        public ISpl_ProductCategorySBLL ms_BLL { get; set; }
+        [Dependency]
+        public ISpl_ProductCategoryBLL m_BLL { get; set; }
         ValidationErrors errors = new ValidationErrors();
 
         [SupportFilter]
@@ -26,7 +28,24 @@ namespace Apps.Web.Areas.Spl.Controllers
         [SupportFilter(ActionName = "Index")]
         public JsonResult GetList(GridPager pager, string queryStr)
         {
-            List<Spl_ProductCategorySModel> list = m_BLL.GetList(ref pager, queryStr);
+            List<Spl_ProductCategorySModel> list_tmp = ms_BLL.GetList(ref pager, queryStr);
+            List<Spl_ProductCategorySModel> list = new List<Spl_ProductCategorySModel>();
+            foreach (Spl_ProductCategorySModel item in list_tmp)
+            {
+                list.Add(new Spl_ProductCategorySModel()
+                {
+                    Id = item.Id,
+                    SupID = item.SupID,
+                    SupName = m_BLL.GetById(item.SupID).TypeName,
+                    SonTypeName = item.SonTypeName,
+                    PicShow = item.PicShow,
+                    Note = item.Note,
+                    CreateTime = item.CreateTime,
+                    Promoted = item.Promoted
+                });
+            }
+
+
             GridRows<Spl_ProductCategorySModel> grs = new GridRows<Spl_ProductCategorySModel>();
             grs.rows = list;
             grs.total = pager.totalRows;
@@ -36,6 +55,27 @@ namespace Apps.Web.Areas.Spl.Controllers
         [SupportFilter]
         public ActionResult Create()
         {
+            /* DropDownList()方法 一般用于页面没有绑定模型之时
+             * var provinceList = new List<Spl_ProductCategoryModel>
+             {
+                 new Spl_ProductCategoryModel(){ Id="4E116CAA9382423A9DB8E483F5832948",TypeName="化妆品"},
+                 new Spl_ProductCategoryModel(){ Id="56c80da883af652643474b6b",TypeName="家居用品"}
+             };
+                 //["4E116CAA9382423A9DB8E483F5832948", "化妆品" ];
+             var provinceSelectList = new SelectList(provinceList, "Id", "TypeName");
+             ViewData["provinceSelectList"] = provinceSelectList;
+             */
+            //该方法用于页面上有绑定模型之时，比如在产品的修改或者创建页面，我们都一般会绑定到一个模型，这里就会使用DropDownListFor()方法
+            List<Spl_ProductCategoryModel> models = new List<Spl_ProductCategoryModel>();
+            models = m_BLL.GetPage("", 0, 100);
+            List<Spl_ProCateModel> spl_Pros = new List<Spl_ProCateModel>();
+            foreach (Spl_ProductCategoryModel item in models)
+            {
+                spl_Pros.Add(
+                new Spl_ProCateModel (){ SupName = item.TypeName, SupID = item.Id});
+            };
+            var pcSelect = new SelectList(spl_Pros, "SupID", "SupName");
+            ViewData["pcSelect"] = pcSelect;
             ViewBag.Perm = GetPermission();
             return View();
         }
@@ -49,7 +89,7 @@ namespace Apps.Web.Areas.Spl.Controllers
             if (model != null && ModelState.IsValid)
             {
 
-                if (m_BLL.Create(ref errors, model))
+                if (ms_BLL.Create(ref errors, model))
                 {
                     LogHandler.WriteServiceLog(GetUserId(), "Id" + model.Id + ",SonTypeName" + model.SonTypeName, "成功", "创建", "Spl_ProductCategoryS");
                     return Json(JsonHandler.CreateMessage(1, Resource.InsertSucceed));
@@ -73,7 +113,7 @@ namespace Apps.Web.Areas.Spl.Controllers
         public ActionResult Edit(string id)
         {
             ViewBag.Perm = GetPermission();
-            Spl_ProductCategorySModel entity = m_BLL.GetById(id);
+            Spl_ProductCategorySModel entity = ms_BLL.GetById(id);
             return View(entity);
         }
 
@@ -84,7 +124,7 @@ namespace Apps.Web.Areas.Spl.Controllers
             if (model != null && ModelState.IsValid)
             {
 
-                if (m_BLL.Edit(ref errors, model))
+                if (ms_BLL.Edit(ref errors, model))
                 {
                     LogHandler.WriteServiceLog(GetUserId(), "Id" + model.Id + ",SonTypeName" + model.SonTypeName, "成功", "修改", "Spl_ProductCategoryS");
                     return Json(JsonHandler.CreateMessage(1, Resource.EditSucceed));
@@ -108,7 +148,7 @@ namespace Apps.Web.Areas.Spl.Controllers
         public ActionResult Details(string id)
         {
             ViewBag.Perm = GetPermission();
-            Spl_ProductCategorySModel entity = m_BLL.GetById(id);
+            Spl_ProductCategorySModel entity = ms_BLL.GetById(id);
             return View(entity);
         }
 
@@ -121,7 +161,7 @@ namespace Apps.Web.Areas.Spl.Controllers
         {
             if (!string.IsNullOrWhiteSpace(id))
             {
-                if (m_BLL.Delete(ref errors, id))
+                if (ms_BLL.Delete(ref errors, id))
                 {
                     LogHandler.WriteServiceLog(GetUserId(), "Id:" + id, "成功", "删除", "Spl_ProductCategoryS");
                     return Json(JsonHandler.CreateMessage(1, Resource.DeleteSucceed));

@@ -21,4 +21,3 @@ C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Common\obj\Release\Apps.Co
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Common\obj\Release\Apps.Common.csproj.CopyComplete
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Common\obj\Release\Apps.Common.dll
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Common\obj\Release\Apps.Common.pdb
-C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Common\obj\Release\Apps.Common.csprojResolveAssemblyReference.cache

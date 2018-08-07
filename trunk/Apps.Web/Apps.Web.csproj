@@ -600,6 +600,8 @@
     <Content Include="Areas\WC\Views\OAuth2\Index.cshtml" />
     <Content Include="Areas\WC\Views\OAuth2\UserInfoCallback.cshtml" />
     <Content Include="Content\Templete\PersonBatch.xlsx" />
+    <Content Include="Scripts\jquery.seat-charts.js" />
+    <Content Include="Scripts\jquery.seat-charts.min.js" />
     <Content Include="Views\SysJiaPu\index.cshtml" />
     <Content Include="Views\SysJiaPu\Create.cshtml" />
     <Content Include="Views\SysJiaPu\Edit.cshtml" />
@@ -976,6 +978,7 @@
     <Content Include="Views\SysHelper\UserLookUp2_JP.cshtml" />
     <Content Include="Views\TuiGuang\Index.cshtml" />
     <Content Include="Views\SysHelper\UserLookUp3_JP.cshtml" />
+    <Content Include="Views\SysJiaPu\GetLocal.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Apps.BLL\Apps.BLL.csproj">

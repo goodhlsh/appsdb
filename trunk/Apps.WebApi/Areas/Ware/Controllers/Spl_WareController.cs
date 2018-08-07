@@ -66,14 +66,14 @@ namespace Apps.WebApi.Areas.Ware.Controllers
         public object GetById(string filter)
         {
             JObject opc = JObject.Parse(filter);
-            if (JObject.Parse(opc["where"].ToString())["ID"] == null)
+            if (JObject.Parse(opc["where"].ToString())["Id"] == null)
             {
 
                 return Json("");
             }
 
             Spl_WareModel model = new Spl_WareModel();
-            model = m_BLL.GetById(JObject.Parse(opc["where"].ToString())["ID"].ToString());
+            model = m_BLL.GetById(JObject.Parse(opc["where"].ToString())["Id"].ToString());
             if (model != null)
             {
                 
@@ -138,10 +138,10 @@ namespace Apps.WebApi.Areas.Ware.Controllers
         {
             JObject opc = JObject.Parse(filter);
             var queryStr = "";
-            if (JObject.Parse(opc["where"].ToString())["like"] != null)
+            if (JObject.Parse(opc["where"].ToString())["likes"] != null)
             {
 
-                queryStr = JObject.Parse(opc["where"].ToString())["like"].ToString();
+                queryStr = JObject.Parse(opc["where"].ToString())["likes"].ToString();
             }
 
             List<Spl_WareShowModel> list = m_BLL.GetPageLike(queryStr, int.Parse(opc["skip"].ToString()), int.Parse(opc["limit"].ToString()));

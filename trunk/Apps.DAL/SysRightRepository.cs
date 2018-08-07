@@ -15,7 +15,23 @@ namespace Apps.DAL
             try
             {
                 //写权限操作码表之前，先加模块加入用户角色
-
+                SysRight rg = new SysRight();
+                rg = Context.SysRight.Where(a => a.Id == model.RightId).FirstOrDefault();
+                if (rg == null)
+                {
+                    SysRight rightModel = new SysRight();
+                    string rId = model.RightId.Substring(0, 31);
+                    string mId = model.RightId.Substring(31);
+                    rightModel.Id = model.RightId;
+                    rightModel.ModuleId = mId;
+                    rightModel.RoleId = rId;
+                    rightModel.Rightflag = true;
+                    Context.SysRight.Add(rightModel);
+                    if (Context.SaveChanges() < 0)
+                    {
+                        return 0;
+                    }
+                }
                 //转换
                 SysRightOperate rightOperate = new SysRightOperate();
                 rightOperate.Id = model.Id;

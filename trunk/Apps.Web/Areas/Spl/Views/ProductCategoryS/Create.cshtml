@@ -58,14 +58,28 @@ $(function () {
                 </td>
                 <td>@Html.ValidationMessageFor(model => model.SonTypeName)</td>
             </tr>
-            <tr>
+            @*<tr>
                 <th>
-                    @Html.LabelFor(model => model.SupID)：
+                    @Html.LabelFor(model => model.SupName)：
                 </th>
                 <td>
-                    @Html.EditorFor(model => model.SupID)
+                    @Html.HiddenFor(model => model.SupID)
+                    @Html.DropDownList("province", ViewData["provinceSelectList"] as SelectList, "请选择省份", new
+                {
+                    @class = "form-control  input-small"
+                })
+
                 </td>
                 <td>@Html.ValidationMessageFor(model => model.SupID)</td>
+            </tr>*@
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(tDto => tDto.SupName)：
+                </th>
+                <td>
+                    @Html.DropDownListFor(tDto => tDto.SupID, ViewData["pcSelect"] as SelectList, "---请选择---", new { @class = "form-control" })
+                </td>
+
             </tr>
             <tr>
                 <th>

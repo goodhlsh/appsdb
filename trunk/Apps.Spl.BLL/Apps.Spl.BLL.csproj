@@ -186,6 +186,7 @@
     <Compile Include="Spl_Order_WareBLL.cs" />
     <Compile Include="Spl_PersonBLL.cs" />
     <Compile Include="Spl_ProductBLL.cs" />
+    <Compile Include="Spl_ProductCategoryBLL.cs" />
     <Compile Include="Spl_ProductCategorySBLL.cs" />
     <Compile Include="Spl_WareBLL.cs" />
     <Compile Include="Spl_WareInfoBLL.cs" />

@@ -61,13 +61,27 @@ namespace Apps.Web.Controllers
         [SupportFilter]
         public JsonResult Create(SysJiaPuModel model)
         {
-            model.Id = ResultHelper.NewId;
-            SysUserModel userModel = new SysUserModel();
-            if (ms_BLL.GetById(model.UserId) != null)
+            SysJiaPuModel sysJiaPu = new SysJiaPuModel();
+            if (string.IsNullOrEmpty(model.UserId))
             {
-                userModel = ms_BLL.GetById(model.UserId);//获取用户信息
-                model.TId = userModel.RecommendID;//推荐人
+                return null;
             }
+            sysJiaPu = m_BLL.GetRefSysJiaPu(model.UserId);
+            if (sysJiaPu != null)
+            {
+                return null;
+            }
+            model.Id = ResultHelper.NewId;
+            if (!string.IsNullOrEmpty(model.ZMP15))
+            {
+                int z = int.Parse(model.ZMP15.Substring(0, 1))+65;
+                model.ZMPA2 = ((char)z).ToString()+model.ZMP15.Substring(2);
+            }
+            else
+            {
+                model.ZMPA2 = "Y2";
+            }
+            
             
             model.CreateTime = ResultHelper.NowTime;
             if (model.UserId != null&&model.FirstJinE>=398 && ModelState.IsValid)
@@ -90,8 +104,18 @@ namespace Apps.Web.Controllers
             }
         }
         #endregion
+
+        public ActionResult GetLocal(string uid)
+        {
+            List<string> ss = new List<string>();
+            ss = GetRealSons(uid);
+
+            string[] s = ss.ToArray();// new string[] { "1_1", "2_1", "3_2", "6_1", "8_2" };
+            ViewBag.RealSons = Newtonsoft.Json.JsonConvert.SerializeObject(s);
+            return View();
+        }
         #region  获取用户的儿子位置真实情况
-        [HttpPost]
+
         public List<string> GetRealSons(string userID)
         {
             List<string> sons = new List<string>();

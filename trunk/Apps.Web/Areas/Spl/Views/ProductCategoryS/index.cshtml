@@ -36,15 +36,16 @@
             pagination: true,
             striped: true, //奇偶行是否区分
             singleSelect: true,//单选模式
-            //rownumbers: true,//行号
+            rownumbers: true,//行号
             columns: [[
                 { field: 'Id', title: 'Id', width: 80,hidden:true },
-                { field: 'SonTypeName', title: 'SonTypeName', width: 80,sortable:true },
-                { field: 'SupID', title: '父类ID', width: 80,sortable:true },
-                { field: 'Promoted', title: 'Promoted', width: 80,sortable:true },
-                { field: 'Note', title: 'Note', width: 80,sortable:true },
-                { field: 'PicShow', title: 'PicShow', width: 80,sortable:true },
-                { field: 'CreateTime', title: 'CreateTime', width: 80,sortable:true }
+                { field: 'SonTypeName', title: '分类名称', width: 80,sortable:true },
+                { field: 'SupID', title: '父类ID', width: 80, hidden: true },
+                { field: 'SupName', title: '大类名称', width: 80, sortable: true },
+                { field: 'Promoted', title: '是否推荐', width: 80,sortable:true },
+                { field: 'Note', title: '说明', width: 80,sortable:true },
+                { field: 'PicShow', title: '展示图片', width: 80,sortable:true },
+                { field: 'CreateTime', title: '创建时间', width: 80,sortable:true }
             ]]
         });
     });

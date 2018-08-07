@@ -47,10 +47,7 @@ namespace Apps.Web
 
             bundles.Add(new StyleBundle("~/Content/css").Include("~/Content/site.css"));
 
-
-
-
-
+            bundles.Add(new ScriptBundle("~/bundles/jqueryseat").Include("~/Scripts/jquery.seat-charts.min.js"));
         }
     }
 }

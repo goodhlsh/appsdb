@@ -7,18 +7,19 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>@ViewBag.Title</title><script src="@Url.Content("~/Scripts/jquery.min.js")" type="text/javascript"></script>
+    <title>@ViewBag.Title</title>
+    <script src="@Url.Content("~/Scripts/jquery.min.js")" type="text/javascript"></script>
     <script src="@Url.Content("~/Scripts/easyui/jquery.easyui.min.js")" type="text/javascript"></script>
     <script src="@Url.Content("~/Scripts/easyui/easyui-lang-" + info + ".js")" type="text/javascript"></script>
     @Scripts.Render("~/bundles/easyui/easyuiplus")
+    @Scripts.Render("~/bundles/jqueryseat")
 
     <link href="@Url.Content("~/Content/themes/base/easyui.css")" rel="stylesheet" />
-     @Styles.Render("~/Content/themes/"+themes+"/css")
-     @Styles.Render("~/Content/css")
-     @Scripts.Render("~/bundles/common")
+    @Styles.Render("~/Content/themes/" + themes + "/css")
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/common")
     @Scripts.Render("~/bundles/jqueryfrom")
     <link href="@Url.Content("~/Content/fontawesome/css/font-awesome.min.css")" rel="stylesheet" />
-
 </head>
 <body>
     <div style="padding:4px 5px 0px 5px;">

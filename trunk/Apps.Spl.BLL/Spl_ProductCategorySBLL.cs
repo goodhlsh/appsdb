@@ -1,4 +1,5 @@
-﻿using Apps.Models;
+﻿using Apps.Common;
+using Apps.Models;
 using Apps.Models.Spl;
 using Apps.Spl.IDAL;
 using Microsoft.Practices.Unity;
@@ -15,16 +16,14 @@ namespace Apps.Spl.BLL
         public ISpl_ProductCategorySRepository m_Rep { get; set; }
         public List<Spl_ProductCategorySModel> GetPage(string queryStr, int skip, int limit)
         {
-
-            List<Spl_ProductCategoryS> query = null;
             IQueryable<Spl_ProductCategoryS> list = m_Rep.GetList();
             if (!string.IsNullOrWhiteSpace(queryStr))
             {
                 list = list.Where(a => a.Id==queryStr|| a.SonTypeName == queryStr);
             }
-            query = list.OrderBy(c => c.SonTypeName).Skip(skip).Take(limit).ToList();
+            list = list.OrderBy(c => c.SonTypeName).Skip(skip).Take(limit);
             List<Spl_ProductCategorySModel> productCategoryInfoList = new List<Spl_ProductCategorySModel>();
-            List<Spl_ProductCategoryS> dataList = query.ToList();
+            List<Spl_ProductCategoryS> dataList = list.ToList();
             foreach (var productCategory in dataList)
             {
                 Spl_ProductCategorySModel splproCate = new Spl_ProductCategorySModel
@@ -32,6 +31,7 @@ namespace Apps.Spl.BLL
                     Id=productCategory.Id,
                     SonTypeName = productCategory.SonTypeName,
                     SupID=productCategory.Spl_ProductCategory.Id,
+                    SupName=productCategory.Spl_ProductCategory.TypeName,
                     Promoted=productCategory.Promoted,
                     Note=productCategory.Note,
                     PicShow=productCategory.PicShow
@@ -50,7 +50,7 @@ namespace Apps.Spl.BLL
             }
             query = list.OrderBy(c => c.SonTypeName).Skip(skip).Take(limit).ToList();
             return query;
-        }
+        }        
     }
 }
 

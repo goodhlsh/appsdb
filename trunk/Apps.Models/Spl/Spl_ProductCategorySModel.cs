@@ -15,6 +15,8 @@ namespace Apps.Models.Spl
         public override string SonTypeName { get; set; }
         [Display(Name = "大类ID")]
         public override string SupID { get; set; }
+        [Display(Name = "大类名称")]
+        public string SupName { get; set; }
         [Display(Name = "是否推荐")]
         public override bool? Promoted { get; set; }
         [Display(Name = "备注")]
@@ -22,5 +24,12 @@ namespace Apps.Models.Spl
 
         public override string PicShow { get; set; }
         public override DateTime? CreateTime { get; set; }
+    }
+    public class Spl_ProCateModel
+    {
+        [Display(Name = "大类ID")]
+        public  string SupID { get; set; }
+        [Display(Name = "大类名称")]
+        public string SupName { get; set; }
     }
 }
