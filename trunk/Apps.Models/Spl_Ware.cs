@@ -70,8 +70,6 @@ public partial class Spl_Ware
 
 
 
-    public virtual Spl_ProductCategory Spl_ProductCategory { get; set; }
-
     public virtual ICollection<Spl_Order_Ware> Spl_Order_Ware { get; set; }
 
     public virtual ICollection<Spl_Hotware> Spl_Hotware { get; set; }

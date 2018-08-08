@@ -1,0 +1,38 @@
+﻿@model Apps.Models.Sys.SysWalletModel
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Index_Layout.cshtml";
+}
+
+<table class="formtable">
+    <tbody>
+        <tr>
+            <td colspan="6">
+                账户余额信息
+            </td>
+        </tr>
+        <tr>
+            <th>
+                @Html.LabelFor(model => model.UserName)：
+            </th>
+            <td>
+                @Html.DisplayFor(model => model.UserName)
+            </td>
+            <th>
+                @Html.LabelFor(model => model.TrueName)：
+            </th>
+            <td>
+                @Html.DisplayFor(model=>model.TrueName)
+            </td>
+            <td>
+                &nbsp;
+            </td>
+            <td>
+                &nbsp;
+            </td>
+        </tr>
+       
+    </tbody>
+</table>
+
+

@@ -21,8 +21,6 @@ public partial class Spl_ProductCategory
     public Spl_ProductCategory()
     {
 
-        this.Spl_Ware = new HashSet<Spl_Ware>();
-
         this.Spl_ProductCategoryS = new HashSet<Spl_ProductCategoryS>();
 
     }
@@ -41,8 +39,6 @@ public partial class Spl_ProductCategory
     public string PicShow { get; set; }
 
 
-
-    public virtual ICollection<Spl_Ware> Spl_Ware { get; set; }
 
     public virtual ICollection<Spl_ProductCategoryS> Spl_ProductCategoryS { get; set; }
 

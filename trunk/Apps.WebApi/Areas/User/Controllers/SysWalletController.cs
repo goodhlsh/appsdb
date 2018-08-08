@@ -75,7 +75,7 @@ namespace Apps.WebApi.Areas.User.Controllers
             newmodel.UserId = wallet.UserId;
             newmodel.Balance = wallet.Balance;
             newmodel.Froms = wallet.Froms;
-            if (wallet.Froms == "消费")
+            if (wallet.Froms.Contains("消费"))
             {
                 newmodel.JieYu = wallet.JieYu - wallet.Balance;
             }

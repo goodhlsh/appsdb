@@ -3143,10 +3143,6 @@
             <Parameter Name="erzibiao" Mode="In" Type="String" />
             <Parameter Name="fJE" Mode="In" Type="Decimal" />
           </FunctionImport>
-          <AssociationSet Name="Spl_ProductCategorySpl_Ware" Association="DB.Spl_ProductCategorySpl_Ware">
-            <End Role="Spl_ProductCategory" EntitySet="Spl_ProductCategory" />
-            <End Role="Spl_Ware" EntitySet="Spl_Ware" />
-          </AssociationSet>
           <AssociationSet Name="SysUserSysPurchaseHistory" Association="DB.SysUserSysPurchaseHistory">
             <End Role="SysUser" EntitySet="SysUser" />
             <End Role="SysPurchaseHistory" EntitySet="SysPurchaseHistory" />
@@ -4789,7 +4785,6 @@
           <Property Name="Id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="CreateTime" Type="DateTime" Precision="3" />
           <Property Name="CreateBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Spl_Ware" Relationship="DB.Spl_ProductCategorySpl_Ware" FromRole="Spl_ProductCategory" ToRole="Spl_Ware" />
           <Property Name="TypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Note" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Spl_ProductCategoryS" Relationship="DB.FK_Spl_ProductCategoryS_Spl_ProductCategory" FromRole="Spl_ProductCategory" ToRole="Spl_ProductCategoryS" />
@@ -5104,7 +5099,6 @@
           <Property Name="Creator" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="UpdateTime" Type="DateTime" Precision="3" />
           <Property Name="Editor" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Spl_ProductCategory" Relationship="DB.Spl_ProductCategorySpl_Ware" FromRole="Spl_Ware" ToRole="Spl_ProductCategory" />
           <NavigationProperty Name="Spl_Order_Ware" Relationship="DB.Spl_WareSpl_Order_Ware" FromRole="Spl_Ware" ToRole="Spl_Order_Ware" />
           <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Spl_Hotware" Relationship="DB.FK_Spl_Hotware_Spl_Ware" FromRole="Spl_Ware" ToRole="Spl_Hotware" />
@@ -5327,18 +5321,6 @@
           <NavigationProperty Name="Spl_Ware" Relationship="DB.Spl_WareSpl_Order_Ware" FromRole="Spl_Order_Ware" ToRole="Spl_Ware" />
           <NavigationProperty Name="Spl_Orders" Relationship="DB.FK_Spl_Order_Ware_Spl_Orders" FromRole="Spl_Order_Ware" ToRole="Spl_Orders" />
         </EntityType>
-        <Association Name="Spl_ProductCategorySpl_Ware">
-          <End Type="DB.Spl_ProductCategory" Role="Spl_ProductCategory" Multiplicity="1" />
-          <End Type="DB.Spl_Ware" Role="Spl_Ware" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Spl_ProductCategory">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Spl_Ware">
-              <PropertyRef Name="ProductCategoryId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="SysUserSysPurchaseHistory">
           <End Type="DB.SysUser" Role="SysUser" Multiplicity="1" />
           <End Type="DB.SysPurchaseHistory" Role="SysPurchaseHistory" Multiplicity="*" />

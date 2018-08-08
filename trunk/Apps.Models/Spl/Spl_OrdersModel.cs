@@ -25,7 +25,7 @@ namespace Apps.Models.Spl
         public override string AddressName { get; set; }
         [Display(Name = "下单日期")]
         public override Nullable<System.DateTime> CreateTime { get; set; }
-
+        [Display(Name = "修改日期")]
         public override Nullable<System.DateTime> UpdateTime { get; set; }
         [Display(Name = "订单商品")]
         public List<Spl_Ware> spl_Wares { get; set; }

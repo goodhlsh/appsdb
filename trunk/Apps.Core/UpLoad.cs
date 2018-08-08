@@ -254,6 +254,7 @@ namespace Apps.Core
 
         /// <summary>
         /// 返回上传目录相对路径
+        /// 判断目录不存在务必创建，否则上传不成功
         /// </summary>
         /// <param name="fileName">上传文件名</param>
         private string GetUpLoadPath()
@@ -268,6 +269,11 @@ namespace Apps.Core
                     path += DateTime.Now.ToString("yyyyMM")  + "/" + DateTime.Now.ToString("dd");
                     break;
             }
+            if (!Directory.Exists(Utils.GetMapPath(path)))
+            {
+                Directory.CreateDirectory(Utils.GetMapPath(path));
+            }           
+            
             return path + "/";
         }
 

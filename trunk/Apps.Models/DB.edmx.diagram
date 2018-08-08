@@ -104,7 +104,7 @@
         <EntityTypeShape EntityType="DB.Spl_Actives" Width="1.5" PointX="20.75" PointY="10.75" />
         <EntityTypeShape EntityType="DB.Spl_Hotware" Width="1.5" PointX="12.125" PointY="16.625" />
         <EntityTypeShape EntityType="DB.Spl_Orders" Width="1.5" PointX="10.5" PointY="19" />
-        <EntityTypeShape EntityType="DB.Spl_Ware" Width="1.5" PointX="8.25" PointY="13" />
+        <EntityTypeShape EntityType="DB.Spl_Ware" Width="2" PointX="8.25" PointY="13" />
         <EntityTypeShape EntityType="DB.Spl_WareInfo" Width="1.5" PointX="10.5" PointY="44.125" />
         <EntityTypeShape EntityType="DB.SysAddress" Width="1.5" PointX="10" PointY="13" />
         <EntityTypeShape EntityType="DB.SysDcitTpe" Width="1.5" PointX="0.75" PointY="7.125" />
@@ -118,7 +118,6 @@
         <EntityTypeShape EntityType="DB.SysPurchaseHistory" Width="1.5" PointX="8.25" PointY="46.125" />
         <EntityTypeShape EntityType="DB.SysWallet" Width="1.5" PointX="8.25" PointY="49.25" />
         <EntityTypeShape EntityType="DB.Spl_Order_Ware" Width="1.5" PointX="10.5" PointY="23.375" />
-        <AssociationConnector Association="DB.Spl_ProductCategorySpl_Ware" />
         <AssociationConnector Association="DB.SysUserSysPurchaseHistory" />
         <AssociationConnector Association="DB.SysUserSysWallet" />
         <AssociationConnector Association="DB.SysUserSysErCi" />

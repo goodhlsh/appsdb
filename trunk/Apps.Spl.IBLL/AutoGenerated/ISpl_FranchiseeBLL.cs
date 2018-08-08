@@ -9,13 +9,16 @@
 //------------------------------------------------------------------------------
 
 
+using System;
 using Apps.IBLL;
+using Apps.Common;
+using System.Collections.Generic;
 using Apps.Models.Spl;
 namespace Apps.Spl.IBLL
 {
-    public partial interface ISpl_FranchiseeBLL : IBaseBLL<Spl_FranchiseeModel>
-    {
-        
-    }
+	public partial interface ISpl_FranchiseeBLL:IBaseBLL<Spl_FranchiseeModel>
+	{
+      
+	}
 
 }

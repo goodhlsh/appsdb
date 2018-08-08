@@ -32,17 +32,18 @@ namespace Apps.Spl.BLL
                 model.BrandId = entity.BrandId;
                 model.CreateTime = entity.CreateTime;
                 model.Creator = entity.Creator;
-                model.Description = entity.Description;
-                model.Detail = entity.Description;
+                model.Description = entity.Description;                
                 model.Editor = entity.Editor;
                 model.Price = entity.Price;
                 model.ProductCategoryId = entity.ProductCategoryId;
+                model.ProductCategoryName =entity.Spl_ProductCategoryS==null?"":entity.Spl_ProductCategoryS.SonTypeName;
                 model.PromotionPrice = entity.PromotionPrice;
                 model.ShowType = entity.ShowType;
                 model.Stock = entity.Stock;
                 model.Thumbnail = entity.Thumbnail;
                 model.Unit = entity.Unit;
                 model.UpdateTime = entity.UpdateTime;
+                model.WareInfoId= entity.Spl_WareInfo.FirstOrDefault() == null ? "" : entity.Spl_WareInfo.FirstOrDefault().Id;
                 model.Picture0 = entity.Spl_WareInfo.FirstOrDefault()==null?"": entity.Spl_WareInfo.FirstOrDefault().Picture0;
                 model.Picture1 = entity.Spl_WareInfo.FirstOrDefault() == null ? "" : entity.Spl_WareInfo.FirstOrDefault().Picture1;
                 model.Picture2 = entity.Spl_WareInfo.FirstOrDefault() == null ? "" : entity.Spl_WareInfo.FirstOrDefault().Picture2;
@@ -50,16 +51,62 @@ namespace Apps.Spl.BLL
                 model.Picture4 = entity.Spl_WareInfo.FirstOrDefault() == null ? "" : entity.Spl_WareInfo.FirstOrDefault().Picture4;
                 model.Picture5 = entity.Spl_WareInfo.FirstOrDefault() == null ? "" : entity.Spl_WareInfo.FirstOrDefault().Picture5;
                 model.ToTop = entity.Spl_WareInfo.FirstOrDefault() == null ? false : (bool)entity.Spl_WareInfo.FirstOrDefault().ToTop;
-
+                model.Detail = entity.Spl_WareInfo.FirstOrDefault() == null ? "" : entity.Spl_WareInfo.FirstOrDefault().Detail; 
             }
             return model;
         }
+        public override List<Spl_WareModel> CreateModelList(ref IQueryable<Spl_Ware> queryData)
+        {
 
-        public List<Spl_WareShowModel> GetPage(string queryStr, int skip, int limit)
+            List<Spl_WareModel> modelList = (from r in queryData
+                                             select new Spl_WareModel
+                                             {
+
+                                                 Id = r.Id,
+
+                                                 Name = r.Name,
+
+                                                 ProductCategoryId = r.ProductCategoryId,
+                                                 ProductCategoryName =r.Spl_ProductCategoryS==null?"": r.Spl_ProductCategoryS.SonTypeName,
+                                                 Unit = r.Unit,
+
+                                                 Price = r.Price,
+
+                                                 Stock = r.Stock,
+
+                                                 Note = r.Note,
+
+                                                 Thumbnail = r.Thumbnail,
+
+                                                 ShowType = r.ShowType,
+
+                                                 WareCount = r.WareCount,
+
+                                                 WareState = r.WareState,
+
+                                                 CreateTime = r.CreateTime,
+
+                                                 Creator = r.Creator,
+
+                                                 UpdateTime = r.UpdateTime,
+
+                                                 Editor = r.Editor,
+
+                                                 Description = r.Description,
+
+                                                 BrandId = r.BrandId,
+
+                                                 PromotionPrice = r.PromotionPrice,
+
+                                             }).ToList();
+
+            return modelList;
+        }
+        public List<Spl_WareModel> GetPage(string queryStr, int skip, int limit)
         {
             try
             {
-                List<Spl_WareShowModel> wareShowModels = new List<Spl_WareShowModel>();
+                List<Spl_WareModel> wareShowModels = new List<Spl_WareModel>();
                 List<Spl_Ware> query = null;
                 IQueryable<Spl_Ware> list = m_Rep.GetList();
                 if (!string.IsNullOrWhiteSpace(queryStr))
@@ -69,7 +116,7 @@ namespace Apps.Spl.BLL
                 query = list.OrderBy(c => c.Name).Skip(skip).Take(limit).ToList();
                 foreach (var item in query)
                 {
-                    wareShowModels.Add(new Spl_WareShowModel()
+                    wareShowModels.Add(new Spl_WareModel()
                     {
                         Id = item.Id,
                         ToTop = item.Spl_WareInfo.Count > 0 ? (bool)item.Spl_WareInfo.FirstOrDefault().ToTop : false,
@@ -100,7 +147,7 @@ namespace Apps.Spl.BLL
                 return null;
             }
         }
-        public List<Spl_WareShowModel> GetPage(bool queryStr, int skip, int limit)
+        public List<Spl_WareModel> GetPage(bool queryStr, int skip, int limit)
         {
             return null;
         }
@@ -112,11 +159,11 @@ namespace Apps.Spl.BLL
             query = list.OrderBy(c => c.UpdateTime).Skip(skip).Take(limit).ToList();
             return query;
         }
-        public List<Spl_WareShowModel> GetPageLike(string queryStr, int skip, int limit)
+        public List<Spl_WareModel> GetPageLike(string queryStr, int skip, int limit)
         {
             try
             {
-                List<Spl_WareShowModel> wareShowModels = new List<Spl_WareShowModel>();
+                List<Spl_WareModel> wareShowModels = new List<Spl_WareModel>();
                 List<Spl_Ware> query = null;
                 IQueryable<Spl_Ware> list = m_Rep.GetList();
                 if (!string.IsNullOrWhiteSpace(queryStr))
@@ -126,7 +173,7 @@ namespace Apps.Spl.BLL
                 query = list.OrderBy(c => c.Name).Skip(skip).Take(limit).ToList();
                 foreach (var item in query)
                 {
-                    wareShowModels.Add(new Spl_WareShowModel()
+                    wareShowModels.Add(new Spl_WareModel()
                     {
                         Id = item.Id,
                         ToTop = item.Spl_WareInfo.Count > 0 ? (bool)item.Spl_WareInfo.FirstOrDefault().ToTop:false,

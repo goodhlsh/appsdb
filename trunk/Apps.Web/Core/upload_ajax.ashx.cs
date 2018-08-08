@@ -79,6 +79,8 @@ namespace Apps.Web
             string _upfilepath = ContextRequest.GetQueryString("UpFilePath"); //取得上传的对象名称
             string _delfile = ContextRequest.GetString(_refilepath);
             HttpPostedFile _upfile = context.Request.Files[_upfilepath];
+            
+
             bool _iswater = false; //默认不打水印
             bool _isthumbnail = false; //默认不生成缩略图
             bool _isimage = false;

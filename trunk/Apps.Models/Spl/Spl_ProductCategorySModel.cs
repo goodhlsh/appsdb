@@ -32,4 +32,9 @@ namespace Apps.Models.Spl
         [Display(Name = "大类名称")]
         public string SupName { get; set; }
     }
+    public class Spl_ProCateSModel
+    {
+        public string ProductCategoryId { get; set; }
+        public string ProductCategoryName { get; set; }
+    }
 }

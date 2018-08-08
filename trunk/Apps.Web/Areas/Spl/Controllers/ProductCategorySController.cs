@@ -112,6 +112,16 @@ namespace Apps.Web.Areas.Spl.Controllers
         [SupportFilter]
         public ActionResult Edit(string id)
         {
+            List<Spl_ProductCategoryModel> models = new List<Spl_ProductCategoryModel>();
+            models = m_BLL.GetPage("", 0, 100);
+            List<Spl_ProCateModel> spl_Pros = new List<Spl_ProCateModel>();
+            foreach (Spl_ProductCategoryModel item in models)
+            {
+                spl_Pros.Add(
+                new Spl_ProCateModel() { SupName = item.TypeName, SupID = item.Id });
+            };
+            var pcSelect = new SelectList(spl_Pros, "SupID", "SupName");
+            ViewData["pcSelect"] = pcSelect;
             ViewBag.Perm = GetPermission();
             Spl_ProductCategorySModel entity = ms_BLL.GetById(id);
             return View(entity);

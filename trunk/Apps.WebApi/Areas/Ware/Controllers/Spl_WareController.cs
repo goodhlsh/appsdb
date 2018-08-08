@@ -38,7 +38,7 @@ namespace Apps.WebApi.Areas.Ware.Controllers
                 queryStr = JObject.Parse(opc["where"].ToString())["ID"].ToString();
             }
 
-            List<Spl_WareShowModel> list = m_BLL.GetPage(queryStr, int.Parse(opc["skip"].ToString()), int.Parse(opc["limit"].ToString()));
+            List<Spl_WareModel> list = m_BLL.GetPage(queryStr, int.Parse(opc["skip"].ToString()), int.Parse(opc["limit"].ToString()));
 
             return Json(list);
         }
@@ -58,7 +58,7 @@ namespace Apps.WebApi.Areas.Ware.Controllers
                 queryStr = JObject.Parse(opc["where"].ToString())["warename"].ToString();
             }
 
-            List<Spl_WareShowModel> list = m_BLL.GetPage(queryStr, int.Parse(opc["skip"].ToString()), int.Parse(opc["limit"].ToString()));
+            List<Spl_WareModel> list = m_BLL.GetPage(queryStr, int.Parse(opc["skip"].ToString()), int.Parse(opc["limit"].ToString()));
 
             return Json(list);
         }
@@ -97,13 +97,13 @@ namespace Apps.WebApi.Areas.Ware.Controllers
             
 
             List<Spl_WareInfo> list = m_BLL.GetPageWareInfo(queryStr, int.Parse(opc["skip"].ToString()), int.Parse(opc["limit"].ToString()));
-            List<Spl_WareShowModel> wareShowModels = new List<Spl_WareShowModel>();
+            List<Spl_WareModel> wareShowModels = new List<Spl_WareModel>();
             foreach (var item in list)
             {
                 Spl_WareModel ware = m_BLL.GetById(item.WareId);
                 if (ware != null && item.Picture0 != null)
                 {
-                    wareShowModels.Add(new Spl_WareShowModel()
+                    wareShowModels.Add(new Spl_WareModel()
                     {
                         Id = ware.Id,
                         ToTop = (bool)item.ToTop,
@@ -144,7 +144,7 @@ namespace Apps.WebApi.Areas.Ware.Controllers
                 queryStr = JObject.Parse(opc["where"].ToString())["likes"].ToString();
             }
 
-            List<Spl_WareShowModel> list = m_BLL.GetPageLike(queryStr, int.Parse(opc["skip"].ToString()), int.Parse(opc["limit"].ToString()));
+            List<Spl_WareModel> list = m_BLL.GetPageLike(queryStr, int.Parse(opc["skip"].ToString()), int.Parse(opc["limit"].ToString()));
 
             return Json(list);
         }

@@ -12,31 +12,31 @@
 namespace Apps.Models
 {
 
-using System;
-    
-public partial class P_Sys_GetUserWallet_Result
-{
+    using System;
+    using System.ComponentModel.DataAnnotations;
 
-    public string UserId { get; set; }
+    public partial class P_Sys_GetUserWallet_Result
+    {
+        [Display(Name = "用户ID")]
+        public string UserId { get; set; }
+        [Display(Name = "本次消费")]
+        public Nullable<decimal> Balance { get; set; }
+        [Display(Name = "余额来源")]
+        public string Froms { get; set; }
+        [Display(Name = "当前余额")]
+        public Nullable<decimal> JieYu { get; set; }
+        [Display(Name = "备注说明")]
+        public string Note { get; set; }
+        [Display(Name = "进账日期")]
+        public Nullable<System.DateTime> CreateTime { get; set; }
+        [Display(Name = "改账日期")]
+        public Nullable<System.DateTime> UpdateTime { get; set; }
+        [Display(Name = "用户账号")]
+        public string UserName { get; set; }
+        [Display(Name = "姓名")]
+        public string TrueName { get; set; }
 
-    public Nullable<decimal> Balance { get; set; }
-
-    public string Froms { get; set; }
-
-    public Nullable<decimal> JieYu { get; set; }
-
-    public string Note { get; set; }
-
-    public Nullable<System.DateTime> CreateTime { get; set; }
-
-    public Nullable<System.DateTime> UpdateTime { get; set; }
-
-    public string UserName { get; set; }
-
-    public string TrueName { get; set; }
-
-    public string Id { get; set; }
-
-}
+        public string Id { get; set; }
+    }
 
 }

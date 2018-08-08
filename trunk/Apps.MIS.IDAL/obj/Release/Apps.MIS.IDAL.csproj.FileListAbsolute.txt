@@ -59,7 +59,6 @@ C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.MIS.IDAL\bin\Release\zh-Ha
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.MIS.IDAL\bin\Release\zh-Hans\System.Web.WebPages.resources.dll
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.MIS.IDAL\bin\Release\en-US\Apps.Locale.resources.dll
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.MIS.IDAL\bin\Release\zh-Hans\System.Web.WebPages.Deployment.resources.dll
-C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.MIS.IDAL\obj\Release\Apps.MIS.IDAL.csprojResolveAssemblyReference.cache
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.MIS.IDAL\obj\Release\Apps.MIS.IDAL.csproj.CoreCompileInputs.cache
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.MIS.IDAL\obj\Release\Apps.MIS.IDAL.csproj.CopyComplete
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.MIS.IDAL\obj\Release\Apps.MIS.IDAL.dll

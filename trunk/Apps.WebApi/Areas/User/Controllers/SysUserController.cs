@@ -745,19 +745,28 @@ namespace Apps.WebApi.Areas.User.Controllers
                 //更新jiapubefore表
                 if (ri.ret == 0)
                 {
-                    if (sysJiaPu.Id != null)
+                    if (sysJiaPu_.Id != null)
                     {
                         //UpdateJiaPuBefore()
+                        SysJiaPuBeforeModel sysJiaPuB = new SysJiaPuBeforeModel();
                         SysJiaPuBeforeModel sysJiaPuBefore = new SysJiaPuBeforeModel();
-                        sysJiaPuBefore.Id = sysJiaPu.Id;
-                        //sysJiaPuBefore.uid = sysJiaPu.UserId;
-                        //sysJiaPuBefore.tid = sysJiaPu.TId;
-                        sysJiaPuBefore.isdone = true;
+                        sysJiaPuBefore = mjb_BLL.GetById(sysJiaPu_.Id);
+                        if (sysJiaPuBefore!=null)
+                        {
+                            sysJiaPuB.Id = sysJiaPuBefore.Id;
+                            sysJiaPuB.uid = sysJiaPu_.uid;
+                            sysJiaPuB.tid = sysJiaPu_.tid;
+                            sysJiaPuB.fje = sysJiaPu_.fje;
+                            sysJiaPuB.zmp15 = ZMP15;
+                            sysJiaPuB.isdone = true;
+                            sysJiaPuB.createTime = sysJiaPuBefore.createTime;                            
+                        }
+                        
 
-                        bool res = mjb_BLL.Edit(ref errors, sysJiaPuBefore);
+                        bool res = mjb_BLL.Edit(ref errors, sysJiaPuB);
                         if (res)
                         {
-
+                           
                         }
                     }
                     return Json(ri);

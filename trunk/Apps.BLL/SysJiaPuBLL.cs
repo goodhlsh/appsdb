@@ -294,69 +294,68 @@ namespace Apps.BLL
                                    LevelId = r.LevelId,
                                    jiapuid = r.jiapuid
 
-                               }).ToList();//.Skip(skip).Take(limit).OrderBy(a => a.ZiMu).ToList();
+                               }).Skip(skip).Take(limit).OrderBy(a => a.ZiMu).ToList();
                 string zm, sh;
                 int cout;
-                cout = sons_Result.Count;
-
-                for (int j = 0; j < cout; j++)
+                
+                StringBuilder builder = new StringBuilder();
+                foreach (P_GetAllSons_Result item in sons_Result)
                 {
+                    zm = item.ZiMu.Substring(item.ZiMu.Length - 1);
+                    builder.Append(zm);
+                    builder.Append(",");
+                }
+                builder.Remove(builder.Length - 1, 1);
+                string tmp;
+                tmp= string.Join("", builder.ToString().Split(',').Distinct().ToArray());
+                char[] tmpchar = tmp.ToArray();
+                cout = tmp.Length;
+                for (int i = 0; i < cout; i++)
+                {
+
                     SysSons ss = new SysSons();
-                    if (sons_Result[j].ZiMu != null)
+                    ss.zuname = tmpchar[i].ToString();
+
+                    for (int j = i; j < sons_Result.Count; j++)
                     {
                         zm = sons_Result[j].ZiMu.Substring(sons_Result[j].ZiMu.Length - 1);
-                        ss.zuname = zm;
-                        if (sons_Result[j].ShuZi != null)
+                        if (ss.zuname == zm)
                         {
-                            sh = sons_Result[j].ShuZi.Substring(sons_Result[j].ShuZi.Length - 1);
-                            if (sh == "0")
+                            if (sons_Result[j].ShuZi != null)
                             {
-                                ss.leftTrueName = sons_Result[j].TrueName;
-                            }
-                            if (sh == "1")
-                            {
-                                ss.rightTrueName = sons_Result[j].TrueName;
-                            }
-
-                            for (int k = j + 1; k < sons_Result.Count; k++)
-                            {
-                                if (sons_Result[k].ZiMu == zm)
+                                sh = sons_Result[j].ShuZi.Substring(sons_Result[j].ShuZi.Length - 1);
+                                if (sh == "0")
                                 {
-                                    if (sons_Result[k].ShuZi != null)
-                                    {
-                                        sh = sons_Result[k].ShuZi.Substring(sons_Result[k].ShuZi.Length - 1);
-                                        if (sh == "0")
-                                        {
-                                            ss.leftTrueName = sons_Result[k].TrueName;
-                                        }
-                                        if (sh == "1")
-                                        {
-                                            ss.rightTrueName = sons_Result[k].TrueName;
-                                        }
-                                    }
+                                    ss.leftTrueName = sons_Result[j].TrueName;
                                 }
-                                else
+                                if (sh == "1")
                                 {
-                                    if (sh == "0")
+                                    ss.rightTrueName = sons_Result[j].TrueName;
+                                }
+                                for (int k = j + 1; k < sons_Result.Count; k++)
+                                {
+                                    if (sons_Result[k].ZiMu.Substring(sons_Result[k].ZiMu.Length - 1) == zm)
                                     {
-                                        ss.rightTrueName = "";
-                                    }
-                                    if (sh == "1")
-                                    {
-                                        ss.leftTrueName = "";
+                                        if (sons_Result[k].ShuZi != null)
+                                        {
+                                            sh = sons_Result[k].ShuZi.Substring(sons_Result[k].ShuZi.Length - 1);
+                                            if (sh == "0")
+                                            {
+                                                ss.leftTrueName = sons_Result[k].TrueName;
+                                            }
+                                            if (sh == "1")
+                                            {
+                                                ss.rightTrueName = sons_Result[k].TrueName;
+                                            }
+                                        }
                                     }
                                 }
                             }
                         }
                     }
-                    else
-                    {
-                        ss.zuname = ((char)(65 + j)).ToString();
-                        ss.leftTrueName = "";
-                        ss.rightTrueName = "";
-                    }
+
                     sons.Add(ss);
-                }
+                }               
                 return sons;
             }
             else

@@ -23,7 +23,7 @@ namespace Apps.Models.Sys
         public override string Froms { get; set; }
         [Display(Name = "当前余额")]
         public override Nullable<decimal> JieYu { get; set; }
-
+        [Display(Name = "备注说明")]
         public override string Note { get; set; }
         [Display(Name = "进账日期")]
         public override Nullable<System.DateTime> CreateTime { get; set; }       

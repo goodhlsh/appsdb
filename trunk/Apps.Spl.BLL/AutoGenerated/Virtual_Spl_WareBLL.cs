@@ -112,7 +112,7 @@ namespace Apps.Spl.BLL
 													Name = r.Name,
 
 													ProductCategoryId = r.ProductCategoryId,
-
+                                                    ProductCategoryName=r.Spl_ProductCategoryS.SonTypeName,
 													Unit = r.Unit,
 
 													Price = r.Price,
