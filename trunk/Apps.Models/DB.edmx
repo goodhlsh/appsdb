@@ -5554,6 +5554,7 @@
           <Property Type="String" Name="ParentId" Nullable="true" MaxLength="50" />
           <Property Type="String" Name="LevelId" Nullable="true" MaxLength="50" />
           <Property Type="Int32" Name="LevelMan" Nullable="true" />
+          <Property Type="Int32" Name="LevelMax" Nullable="false" />
         </ComplexType>
         <Association Name="FK_SysPerson_SysUser">
           <End Type="DB.SysUser" Role="SysUser" Multiplicity="0..1" />

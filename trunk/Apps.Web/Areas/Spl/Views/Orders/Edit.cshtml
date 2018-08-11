@@ -47,17 +47,10 @@ $(function () {
 {
     @Html.HiddenFor(model => model.Id)
     @Html.HiddenFor(model => model.CreateTime)
+
     <table class="formtable">
         <tbody>
-            <tr>
-                <th>
-                    @Html.LabelFor(model => model.UserId)：
-                </th>
-                <td>
-                    @Html.EditorFor(model => model.UserId)
-                </td>
-                <td>@Html.ValidationMessageFor(model => model.UserId)</td>
-            </tr>
+           
             <tr>
                 <th>
                     @Html.LabelFor(model => model.TrueName)：
@@ -72,9 +65,9 @@ $(function () {
                     @Html.LabelFor(model => model.OrderNo)：
                 </th>
                 <td>
-                    @Html.EditorFor(model => model.OrderNo)
+                    @Html.DisplayFor(model => model.OrderNo)
                 </td>
-                <td>@Html.ValidationMessageFor(model => model.OrderNo)</td>
+                <td></td>
             </tr>
             <tr>
                 <th>
@@ -84,16 +77,7 @@ $(function () {
                     @Html.EditorFor(model => model.Status)
                 </td>
                 <td>@Html.ValidationMessageFor(model => model.Status)</td>
-            </tr>
-            <tr>
-                <th>
-                    @Html.LabelFor(model => model.AddressId)：
-                </th>
-                <td>
-                    @Html.EditorFor(model => model.AddressId)
-                </td>
-                <td>@Html.ValidationMessageFor(model => model.AddressId)</td>
-            </tr>
+            </tr>            
             <tr>
                 <th>
                     @Html.LabelFor(model => model.AddressName)：
@@ -101,26 +85,17 @@ $(function () {
                 <td>
                     @Html.EditorFor(model => model.AddressName)
                 </td>
-                <td>@Html.ValidationMessageFor(model => model.AddressName)</td>
+                <td></td>
             </tr>
             <tr>
                 <th>
                     @Html.LabelFor(model => model.CreateTime)：
                 </th>
                 <td>
-                    @Html.EditorFor(model => model.CreateTime)
+                    @Html.DisplayFor(model => model.CreateTime)
                 </td>
-                <td>@Html.ValidationMessageFor(model => model.CreateTime)</td>
-            </tr>
-            <tr>
-                <th>
-                    @Html.LabelFor(model => model.UpdateTime)：
-                </th>
-                <td>
-                    @Html.EditorFor(model => model.UpdateTime)
-                </td>
-                <td>@Html.ValidationMessageFor(model => model.UpdateTime)</td>
-            </tr>
+                <td></td>
+            </tr>           
             <tr>
                 <th>
                     @Html.LabelFor(model => model.DingDanKuan)：

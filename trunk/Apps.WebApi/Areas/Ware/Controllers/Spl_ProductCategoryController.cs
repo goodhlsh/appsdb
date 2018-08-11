@@ -33,10 +33,10 @@ namespace Apps.WebApi.Areas.Ware.Controllers
             var queryStr = "";
             if (JObject.Parse(opc["where"].ToString())["ID"] != null) {
 
-                queryStr = JObject.Parse(opc["where"].ToString())["ID"].ToString();
+                 queryStr = JObject.Parse(opc["where"].ToString())["ID"].ToString();
             }
-                
-            List<Spl_ProductCategorySModel> list = m_BLL.GetPage(queryStr, int.Parse(opc["skip"].ToString()), int.Parse(opc["limit"].ToString()));
+            List<Spl_ProductCategorySModel> list = new List<Spl_ProductCategorySModel>();
+            list=m_BLL.GetPage(queryStr, int.Parse(opc["skip"].ToString()), int.Parse(opc["limit"].ToString()));
             return Json(list);
         }
     }

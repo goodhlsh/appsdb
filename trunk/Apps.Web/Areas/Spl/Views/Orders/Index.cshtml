@@ -36,20 +36,33 @@
             pagination: true,
             striped: true, //奇偶行是否区分
             singleSelect: true,//单选模式
-            //rownumbers: true,//行号
+            rownumbers: true,//行号
             columns: [[
-                { field: 'Id', title: '编号', width: 80,hidden:true },
-                { field: 'UserId', title: '用户编号', width: 80,sortable:true },
-                { field: 'TrueName', title: 'TrueName', width: 80,sortable:true },
-                { field: 'OrderNo', title: '对外订单编号', width: 80,sortable:true },
-                { field: 'Status', title: '订单状态', width: 80,sortable:true },
-                { field: 'AddressId', title: '地址编号', width: 80,sortable:true },
-                { field: 'AddressName', title: 'AddressName', width: 80,sortable:true },
-                { field: 'CreateTime', title: '创建时间', width: 80,sortable:true },
-                { field: 'UpdateTime', title: '编辑时间', width: 80,sortable:true },
-                { field: 'DingDanKuan', title: 'DingDanKuan', width: 80,sortable:true },
-                { field: 'OrderWuliu', title: 'OrderWuliu', width: 80,sortable:true },
-                { field: 'WuliuLink', title: 'WuliuLink', width: 80,sortable:true }
+                
+                { field: 'UserId', title: '用户编号', width: 80,hidden:true },
+                { field: 'TrueName', title: '用户名', width: 80,sortable:true },
+                { field: 'OrderNo', title: '订单编号', width: 160,sortable:true },
+                { field: 'Status', title: '订单状态', width: 100,sortable:true },
+                { field: 'AddressId', title: '地址编号', width: 80,hidden:true },
+                { field: 'AddressName', title: '地址', width: 200,sortable:true },
+                { field: 'CreateTime', title: '创建时间', width: 140,sortable:true },
+                { field: 'UpdateTime', title: '编辑时间', width: 140,sortable:true },
+                { field: 'DingDanKuan', title: '订单款', width: 80,sortable:true },
+                { field: 'OrderWuliu', title: '物流编号', width: 200,sortable:true },
+                {
+                    field: 'WuliuLink', title: '查询物流', width: 120, sortable: true, formatter: function (value, row, index) {
+                        if (value != null) {
+                            return '<a class="example" title="' + row.Note + '" href="' + value + '">查看</a>';
+                        }
+                    }
+                },
+                {
+                    field: 'Id', title: '商品清单', width: 120, sortable: true, formatter: function (value, row, index) {
+                        if (value != null) {
+                            return '<a class="example" title="' + row.Note + '" href="Orders/LookUp?OrderId=' + value + '">查看商品</a>';
+                        }
+                    }
+                }
             ]]
         });
     });

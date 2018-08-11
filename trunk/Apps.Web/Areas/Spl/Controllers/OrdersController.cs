@@ -15,6 +15,8 @@ namespace Apps.Web.Areas.Spl.Controllers
     {
         [Dependency]
         public ISpl_OrdersBLL m_BLL { get; set; }
+        [Dependency]
+        public ISpl_Order_WareBLL mow_BLL { get; set; }
         ValidationErrors errors = new ValidationErrors();
 
         [SupportFilter]
@@ -139,6 +141,25 @@ namespace Apps.Web.Areas.Spl.Controllers
             }
 
 
+        }
+        #endregion
+        #region 查看订单商品
+        //[SupportFilter]
+        public ActionResult LookUp(string OrderId)
+        {
+            ViewBag.OrderId = OrderId;
+            //ViewBag.Perm = GetPermission();
+            return View();
+        }
+        [HttpPost]
+        [SupportFilter(ActionName = "Index")]
+        public JsonResult GetOrderWareList(GridPager pager, string queryStr)
+        {
+            List<Spl_Order_WareModel> list = mow_BLL.GetSpl_Order_WareModelsByOrderId(queryStr,(pager.page-1)*pager.rows,pager.rows);
+            GridRows<Spl_Order_WareModel> grs = new GridRows<Spl_Order_WareModel>();
+            grs.rows = list;
+            grs.total = pager.totalRows;
+            return Json(grs);
         }
         #endregion
     }

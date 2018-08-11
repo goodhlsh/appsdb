@@ -20,7 +20,9 @@ public partial class Spl_ProductCategoryS
 
     public Spl_ProductCategoryS()
     {
+
         this.Spl_Ware = new HashSet<Spl_Ware>();
+
     }
 
 

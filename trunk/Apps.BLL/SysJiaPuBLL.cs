@@ -202,8 +202,8 @@ namespace Apps.BLL
                                  trueName = r.TrueName,
                                  parentId = r.ParentId,
                                  levelName = r.LevelId == "3" ? "8800会员" : ((r.LevelId == "2" ? "1314会员" : (r.LevelId == "1" ? "398会员" : "普通会员"))),
-                                 levelMan = (int)r.LevelMan
-
+                                 levelMan = r.LevelMan == null ? 0 : (int)r.LevelMan,
+                                 levelMax = r.LevelMax
                              }).ToList();
             }
             return modelList;

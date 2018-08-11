@@ -705,6 +705,7 @@
       <DependentUpon>DB.tt</DependentUpon>
     </Compile>
     <Compile Include="Spl\BrandTypeModel.cs" />
+    <Compile Include="Spl\Spl_FranchiseeModel.cs" />
     <Compile Include="Spl\Spl_OrdersModel.cs" />
     <Compile Include="Spl\Spl_Order_WareModel.cs" />
     <Compile Include="Spl\Spl_ProductCategoryModel.cs" />

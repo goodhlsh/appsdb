@@ -255,6 +255,7 @@
     <Compile Include="Areas\MIS\Controllers\WebIM_CommonTalkController.cs" />
     <Compile Include="Areas\MIS\MISAreaRegistration.cs" />
     <Compile Include="Areas\Spl\Controllers\ExtEasyUIController.cs" />
+    <Compile Include="Areas\Spl\Controllers\FranchiseeController.cs" />
     <Compile Include="Areas\Spl\Controllers\OrdersController.cs" />
     <Compile Include="Areas\Spl\Controllers\PersonController.cs" />
     <Compile Include="Areas\Spl\Controllers\ProductCategorySController.cs" />
@@ -621,6 +622,10 @@
     <Content Include="Areas\Spl\Views\Orders\Create.cshtml" />
     <Content Include="Areas\Spl\Views\Orders\Edit.cshtml" />
     <Content Include="Areas\Spl\Views\Orders\Index.cshtml" />
+    <Content Include="Areas\Spl\Views\Orders\LookUp.cshtml" />
+    <Content Include="Areas\Spl\Views\Franchisee\Index.cshtml" />
+    <Content Include="Areas\Spl\Views\Franchisee\Edit.cshtml" />
+    <Content Include="Areas\Spl\Views\Franchisee\Create.cshtml" />
     <None Include="job_scheduling_data_2_0.xsd">
       <SubType>Designer</SubType>
     </None>

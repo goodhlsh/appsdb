@@ -8,13 +8,3 @@ D:\ymnets.AdminSystem\trunk\Apps.Locale\obj\Release\Apps.Locale.csproj.GenerateR
 D:\ymnets.AdminSystem\trunk\Apps.Locale\obj\Release\en-US\Apps.Locale.resources.dll
 D:\ymnets.AdminSystem\trunk\Apps.Locale\obj\Release\Apps.Locale.dll
 D:\ymnets.AdminSystem\trunk\Apps.Locale\obj\Release\Apps.Locale.pdb
-C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Locale\bin\Release\Apps.Locale.dll
-C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Locale\bin\Release\Apps.Locale.pdb
-C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Locale\bin\Release\en-US\Apps.Locale.resources.dll
-C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Locale\obj\Release\Apps.Locale.Resource.resources
-C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Locale\obj\Release\Apps.Locale.Resource.en-US.resources
-C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Locale\obj\Release\Apps.Locale.csproj.GenerateResource.cache
-C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Locale\obj\Release\Apps.Locale.csproj.CoreCompileInputs.cache
-C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Locale\obj\Release\en-US\Apps.Locale.resources.dll
-C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Locale\obj\Release\Apps.Locale.dll
-C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Locale\obj\Release\Apps.Locale.pdb

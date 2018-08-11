@@ -27,6 +27,8 @@ public partial class P_GetRecursiveChildren_Result
 
     public Nullable<int> LevelMan { get; set; }
 
+    public int LevelMax { get; set; }
+
 }
 
 }
