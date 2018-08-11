@@ -35,7 +35,8 @@ namespace Apps.Spl.BLL
                     SupName=productCategory.Spl_ProductCategory.TypeName,
                     Promoted=productCategory.Promoted,
                     Note=productCategory.Note,
-                    PicShow=productCategory.PicShow
+                    PicShow=productCategory.PicShow,
+                    ShunXu=productCategory.ShunXu
                 };
                 productCategoryInfoList.Add(splproCate);
             }

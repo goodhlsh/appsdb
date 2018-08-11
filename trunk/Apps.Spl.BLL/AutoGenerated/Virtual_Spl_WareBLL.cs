@@ -89,6 +89,9 @@ namespace Apps.Spl.BLL
 				
 				
 
+				
+				
+
 				);
             }
             else
@@ -112,7 +115,7 @@ namespace Apps.Spl.BLL
 													Name = r.Name,
 
 													ProductCategoryId = r.ProductCategoryId,
-                                                    ProductCategoryName=r.Spl_ProductCategoryS.SonTypeName,
+
 													Unit = r.Unit,
 
 													Price = r.Price,
@@ -142,6 +145,8 @@ namespace Apps.Spl.BLL
 													BrandId = r.BrandId,
 
 													PromotionPrice = r.PromotionPrice,
+
+													ShunXu = r.ShunXu,
           
                                               }).ToList();
 
@@ -195,6 +200,8 @@ namespace Apps.Spl.BLL
 				entity.BrandId = model.BrandId;
 
 				entity.PromotionPrice = model.PromotionPrice;
+
+				entity.ShunXu = model.ShunXu;
   
 
                 if (m_Rep.Create(entity))
@@ -317,6 +324,8 @@ namespace Apps.Spl.BLL
 				entity.BrandId = model.BrandId;
 
 				entity.PromotionPrice = model.PromotionPrice;
+
+				entity.ShunXu = model.ShunXu;
  
 
 
@@ -383,6 +392,8 @@ namespace Apps.Spl.BLL
 				model.BrandId = entity.BrandId;
 
 				model.PromotionPrice = entity.PromotionPrice;
+
+				model.ShunXu = entity.ShunXu;
  
                 return model;
             }

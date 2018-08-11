@@ -68,6 +68,8 @@ public partial class Spl_Ware
 
     public Nullable<decimal> PromotionPrice { get; set; }
 
+    public Nullable<int> ShunXu { get; set; }
+
 
 
     public virtual ICollection<Spl_Order_Ware> Spl_Order_Ware { get; set; }

@@ -86,11 +86,11 @@ namespace Apps.Models.Sys
 		
 	public virtual string LeadName { get; set; }
 		
-	public virtual bool IsSelLead { get; set; }
+	public virtual Nullable<bool> IsSelLead { get; set; }
 		
-	public virtual bool IsReportCalendar { get; set; }
+	public virtual Nullable<bool> IsReportCalendar { get; set; }
 		
-	public virtual bool IsSecretary { get; set; }
+	public virtual Nullable<bool> IsSecretary { get; set; }
 		
 	public virtual string HomePhone { get; set; }
 		

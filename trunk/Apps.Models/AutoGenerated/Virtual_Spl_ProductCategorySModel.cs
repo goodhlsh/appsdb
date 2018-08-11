@@ -30,6 +30,12 @@ namespace Apps.Models.Spl
 		
 	public virtual Nullable<System.DateTime> CreateTime { get; set; }
 		
+	public virtual Nullable<bool> ToTop { get; set; }
+		
+	public virtual string Thumbnail { get; set; }
+		
+	public virtual Nullable<int> ShunXu { get; set; }
+		
 }
 
 }

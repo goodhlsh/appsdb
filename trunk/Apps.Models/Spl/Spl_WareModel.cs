@@ -64,4 +64,23 @@ namespace Apps.Models.Spl
         public string Unit { get; set; }
     }
     
+
+    public partial class Spl_HotwareModel
+    {
+        public override string Id { get; set; }
+
+        public override string WareId { get; set; }
+        [Display(Name ="商品名称")]
+        public string WareName { get; set; }
+        [Display(Name ="图片")]
+        public string Thumbnail { get; set; }
+        [Display(Name ="销售数量")]
+        public override Nullable<int> Amount { get; set; }
+        [Display(Name ="销售金额")]
+        public override Nullable<decimal> SumJinE { get; set; }
+        [Display(Name ="是否显示")]
+        public override Nullable<bool> IsShow { get; set; }
+        [Display(Name ="显示顺序")]
+        public override Nullable<int> ShunXu { get; set; }
+    }
 }

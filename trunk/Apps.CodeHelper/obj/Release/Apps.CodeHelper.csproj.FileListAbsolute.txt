@@ -7,3 +7,13 @@ D:\ymnets.AdminSystem\trunk\Apps.CodeHelper\obj\Release\Apps.CodeHelper.Properti
 D:\ymnets.AdminSystem\trunk\Apps.CodeHelper\obj\Release\Apps.CodeHelper.csproj.GenerateResource.Cache
 D:\ymnets.AdminSystem\trunk\Apps.CodeHelper\obj\Release\Apps.CodeHelper.exe
 D:\ymnets.AdminSystem\trunk\Apps.CodeHelper\obj\Release\Apps.CodeHelper.pdb
+C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.CodeHelper\bin\Release\Apps.CodeHelper.exe.config
+C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.CodeHelper\bin\Release\Apps.CodeHelper.exe
+C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.CodeHelper\bin\Release\Apps.CodeHelper.pdb
+C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.CodeHelper\obj\Release\Apps.CodeHelper.csprojResolveAssemblyReference.cache
+C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.CodeHelper\obj\Release\Apps.CodeHelper.CodeFrom.resources
+C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.CodeHelper\obj\Release\Apps.CodeHelper.Properties.Resources.resources
+C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.CodeHelper\obj\Release\Apps.CodeHelper.csproj.GenerateResource.cache
+C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.CodeHelper\obj\Release\Apps.CodeHelper.csproj.CoreCompileInputs.cache
+C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.CodeHelper\obj\Release\Apps.CodeHelper.exe
+C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.CodeHelper\obj\Release\Apps.CodeHelper.pdb

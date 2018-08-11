@@ -18,6 +18,8 @@ namespace Apps.Spl.BLL
         public ISpl_WareInfoRepository minfo_Rep { get; set; }
         [Dependency]
         public ISpl_ActivesRepository ma_Rep { get; set; }
+        [Dependency]
+        public ISpl_HotwareRepository mh_Rep { get; set; }
 
         public override Spl_WareModel GetById(string id)
         {
@@ -43,6 +45,7 @@ namespace Apps.Spl.BLL
                 model.Thumbnail = entity.Thumbnail;
                 model.Unit = entity.Unit;
                 model.UpdateTime = entity.UpdateTime;
+                model.ShunXu = entity.ShunXu;
                 model.WareInfoId= entity.Spl_WareInfo.FirstOrDefault() == null ? "" : entity.Spl_WareInfo.FirstOrDefault().Id;
                 model.Picture0 = entity.Spl_WareInfo.FirstOrDefault()==null?"": entity.Spl_WareInfo.FirstOrDefault().Picture0;
                 model.Picture1 = entity.Spl_WareInfo.FirstOrDefault() == null ? "" : entity.Spl_WareInfo.FirstOrDefault().Picture1;
@@ -97,6 +100,7 @@ namespace Apps.Spl.BLL
                                                  BrandId = r.BrandId,
 
                                                  PromotionPrice = r.PromotionPrice,
+                                                 ShunXu=r.ShunXu
 
                                              }).ToList();
 
@@ -136,6 +140,7 @@ namespace Apps.Spl.BLL
                         Detail = item.Spl_WareInfo.Count > 0 ? item.Spl_WareInfo.FirstOrDefault().Detail : null,
                         ProductCategoryId = item.ProductCategoryId,
                         Note = item.Note,
+                        ShunXu=item.ShunXu,
                         Unit = item.Unit
                     });
                 }
@@ -153,11 +158,17 @@ namespace Apps.Spl.BLL
         }
         public List<Spl_WareInfo> GetPageWareInfo(bool queryStr, int skip, int limit)
         {
-            List<Spl_WareInfo> query = null;
+            List<Spl_WareInfo> query = new List<Spl_WareInfo>();
             IQueryable<Spl_WareInfo> list = minfo_Rep.GetList();
             list = list.Where(a => a.ToTop == queryStr);
             query = list.OrderBy(c => c.UpdateTime).Skip(skip).Take(limit).ToList();
             return query;
+        }
+
+        public List<P_Spl_GetAllTop_Result> GetAllTopList(bool queryStr, int skip, int limit)
+        {
+            return m_Rep.GetAllTopList(queryStr, skip, limit);
+            
         }
         public List<Spl_WareModel> GetPageLike(string queryStr, int skip, int limit)
         {
@@ -193,6 +204,7 @@ namespace Apps.Spl.BLL
                         Detail = item.Spl_WareInfo.Count > 0 ? item.Spl_WareInfo.FirstOrDefault().Detail : null,
                         ProductCategoryId = item.ProductCategoryId,
                         Note = item.Note,
+                        ShunXu=item.ShunXu,
                         Unit = item.Unit
                     });
                 }
@@ -204,6 +216,14 @@ namespace Apps.Spl.BLL
                 return null;
             }
             
+        }
+        public List<Spl_Hotware> GetHotWare(bool queryStr,int skip,int limit)
+        {
+            List<Spl_Hotware> query = null;
+            IQueryable<Spl_Hotware> list = mh_Rep.GetList();
+            list = list.Where(a => a.IsShow == queryStr);
+            query = list.OrderBy(c => c.ShunXu).Skip(skip).Take(limit).ToList();
+            return query;
         }
         public List<Spl_Actives> GetPageActive(bool queryStr, int skip, int limit)
         {

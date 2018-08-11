@@ -461,13 +461,19 @@
           </Key>
           <Property Name="Id" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Title" Type="varchar" MaxLength="100" />
-          <Property Name="Cont" Type="text" />
+          <Property Name="Cont" Type="varchar" MaxLength="50" />
+          <Property Name="ActType" Type="nchar" MaxLength="10" />
           <Property Name="Fors" Type="varchar" MaxLength="20" />
           <Property Name="BeginDate" Type="datetime" />
           <Property Name="EndDate" Type="datetime" />
           <Property Name="IsShow" Type="bit" />
           <Property Name="CreateTime" Type="datetime" />
           <Property Name="UpdateTime" Type="datetime" />
+          <Property Name="ToTop" Type="bit" />
+          <Property Name="Promoted" Type="bit" />
+          <Property Name="PicShow" Type="varchar" MaxLength="200" />
+          <Property Name="Thumbnail" Type="varchar" MaxLength="200" />
+          <Property Name="ShunXu" Type="int" />
         </EntityType>
         <EntityType Name="Spl_Brand">
           <Key>
@@ -499,6 +505,8 @@
           <Property Name="WareId" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Amount" Type="int" />
           <Property Name="SumJinE" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="IsShow" Type="bit" />
+          <Property Name="ShunXu" Type="int" />
         </EntityType>
         <EntityType Name="Spl_Order_Ware">
           <Key>
@@ -581,6 +589,9 @@
           <Property Name="Note" Type="nvarchar" MaxLength="50" />
           <Property Name="PicShow" Type="varchar" MaxLength="200" />
           <Property Name="CreateTime" Type="datetime" />
+          <Property Name="ToTop" Type="bit" />
+          <Property Name="Thumbnail" Type="varchar" MaxLength="200" />
+          <Property Name="ShunXu" Type="int" />
         </EntityType>
         <EntityType Name="Spl_Ware">
           <Key>
@@ -604,6 +615,7 @@
           <Property Name="Creator" Type="varchar" MaxLength="50" />
           <Property Name="UpdateTime" Type="datetime" />
           <Property Name="Editor" Type="varchar" MaxLength="50" />
+          <Property Name="ShunXu" Type="int" />
         </EntityType>
         <EntityType Name="Spl_Ware_YouHui">
           <Key>
@@ -1050,9 +1062,9 @@
           <Property Name="Attach" Type="varchar" MaxLength="200" />
           <Property Name="Lead" Type="varchar" MaxLength="50" />
           <Property Name="LeadName" Type="varchar" MaxLength="200" />
-          <Property Name="IsSelLead" Type="bit" Nullable="false" />
-          <Property Name="IsReportCalendar" Type="bit" Nullable="false" />
-          <Property Name="IsSecretary" Type="bit" Nullable="false" />
+          <Property Name="IsSelLead" Type="bit" />
+          <Property Name="IsReportCalendar" Type="bit" />
+          <Property Name="IsSecretary" Type="bit" />
           <Property Name="IsAuth" Type="bit" />
           <Property Name="AuditStatus" Type="varchar" MaxLength="50" />
           <Property Name="Note" Type="text" />
@@ -2220,6 +2232,7 @@
         <Function Name="P_QRTZ_GetJobExecuteTime" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="id" Type="varchar" Mode="In" />
         </Function>
+        <Function Name="P_Spl_GetAllTop" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="P_Sys_ClearUnusedRightOperate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="P_Sys_DeleteSysRoleSysUserByRoleId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="roleId" Type="varchar" Mode="In" />
@@ -3282,6 +3295,7 @@
           <Parameter Name="parentId" Mode="In" Type="String" />
           </FunctionImport>
           <EntitySet Name="Spl_Franchisee" EntityType="DB.Spl_Franchisee" />
+          <FunctionImport Name="P_Spl_GetAllTop" ReturnType="Collection(DB.P_Spl_GetAllTop_Result)" />
           </EntityContainer>
         <EntityType Name="DEF_CaseType">
           <Key>
@@ -4131,9 +4145,9 @@
           <Property Name="Attach" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
           <Property Name="Lead" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="LeadName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
-          <Property Name="IsSelLead" Type="Boolean" Nullable="false" />
-          <Property Name="IsReportCalendar" Type="Boolean" Nullable="false" />
-          <Property Name="IsSecretary" Type="Boolean" Nullable="false" />
+          <Property Name="IsSelLead" Type="Boolean" />
+          <Property Name="IsReportCalendar" Type="Boolean" />
+          <Property Name="IsSecretary" Type="Boolean" />
           <NavigationProperty Name="SysUserConfig" Relationship="DB.FK_SysUserConfig_SysUser" FromRole="SysUser" ToRole="SysUserConfig" />
           <NavigationProperty Name="SysRole" Relationship="DB.SysRoleSysUser" FromRole="SysUser" ToRole="SysRole" />
           <NavigationProperty Name="MIS_Article_Comment" Relationship="DB.FK_MIS_Article_Comment_SysUser" FromRole="SysUser" ToRole="MIS_Article_Comment" />
@@ -5043,13 +5057,19 @@
           </Key>
           <Property Name="Id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Title" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="Cont" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Cont" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Fors" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="BeginDate" Type="DateTime" Precision="3" />
           <Property Name="EndDate" Type="DateTime" Precision="3" />
           <Property Name="IsShow" Type="Boolean" />
           <Property Name="CreateTime" Type="DateTime" Precision="3" />
           <Property Name="UpdateTime" Type="DateTime" Precision="3" />
+          <Property Name="ActType" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="ToTop" Type="Boolean" />
+          <Property Name="Promoted" Type="Boolean" />
+          <Property Name="PicShow" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Thumbnail" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="ShunXu" Type="Int32" />
         </EntityType>
         <EntityType Name="Spl_Hotware">
           <Key>
@@ -5060,6 +5080,8 @@
           <Property Name="Amount" Type="Int32" />
           <Property Name="SumJinE" Type="Decimal" Precision="18" Scale="2" />
           <NavigationProperty Name="Spl_Ware" Relationship="DB.FK_Spl_Hotware_Spl_Ware" FromRole="Spl_Hotware" ToRole="Spl_Ware" />
+          <Property Name="IsShow" Type="Boolean" />
+          <Property Name="ShunXu" Type="Int32" />
         </EntityType>
         <EntityType Name="Spl_Orders">
           <Key>
@@ -5108,6 +5130,7 @@
           <NavigationProperty Name="Spl_ProductCategoryS" Relationship="DB.FK_Spl_Ware_Spl_ProductCategoryS" FromRole="Spl_Ware" ToRole="Spl_ProductCategoryS" />
           <NavigationProperty Name="Spl_WareInfo" Relationship="DB.FK_Spl_WareInfo_Spl_Ware" FromRole="Spl_Ware" ToRole="Spl_WareInfo" />
           <NavigationProperty Name="Spl_Ware_YouHui" Relationship="DB.Spl_WareSpl_Ware_YouHui" FromRole="Spl_Ware" ToRole="Spl_Ware_YouHui" />
+          <Property Name="ShunXu" Type="Int32" />
         </EntityType>
         <EntityType Name="Spl_WareInfo">
           <Key>
@@ -5488,6 +5511,9 @@
           <NavigationProperty Name="Spl_Ware" Relationship="DB.FK_Spl_Ware_Spl_ProductCategoryS" FromRole="Spl_ProductCategoryS" ToRole="Spl_Ware" />
           <Property Name="PicShow" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
           <Property Name="CreateTime" Type="DateTime" Precision="3" />
+          <Property Name="ToTop" Type="Boolean" />
+          <Property Name="Thumbnail" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="ShunXu" Type="Int32" />
         </EntityType>
         <Association Name="FK_Spl_Ware_Spl_Brand">
           <End Type="DB.Spl_Brand" Role="Spl_Brand" Multiplicity="1" />
@@ -5738,6 +5764,11 @@
           <Property Name="CreateTime" Type="DateTime" Precision="3" />
           <Property Name="Note" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
+        <ComplexType Name="P_Spl_GetAllTop_Result">
+          <Property Type="String" Name="Id" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="PicShow" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="ttype" Nullable="false" MaxLength="1" />
+        </ComplexType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -6948,6 +6979,12 @@
           <EntitySetMapping Name="Spl_Actives">
             <EntityTypeMapping TypeName="DB.Spl_Actives">
               <MappingFragment StoreEntitySet="Spl_Actives">
+                <ScalarProperty Name="ShunXu" ColumnName="ShunXu" />
+                <ScalarProperty Name="Thumbnail" ColumnName="Thumbnail" />
+                <ScalarProperty Name="PicShow" ColumnName="PicShow" />
+                <ScalarProperty Name="Promoted" ColumnName="Promoted" />
+                <ScalarProperty Name="ToTop" ColumnName="ToTop" />
+                <ScalarProperty Name="ActType" ColumnName="ActType" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
                 <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
@@ -6963,6 +7000,8 @@
           <EntitySetMapping Name="Spl_Hotware">
             <EntityTypeMapping TypeName="DB.Spl_Hotware">
               <MappingFragment StoreEntitySet="Spl_Hotware">
+                <ScalarProperty Name="ShunXu" ColumnName="ShunXu" />
+                <ScalarProperty Name="IsShow" ColumnName="IsShow" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="SumJinE" ColumnName="SumJinE" />
                 <ScalarProperty Name="Amount" ColumnName="Amount" />
@@ -7214,6 +7253,7 @@
           <EntitySetMapping Name="Spl_Ware">
             <EntityTypeMapping TypeName="IsTypeOf(DB.Spl_Ware)">
               <MappingFragment StoreEntitySet="Spl_Ware">
+                <ScalarProperty Name="ShunXu" ColumnName="ShunXu" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="PromotionPrice" ColumnName="PromotionPrice" />
                 <ScalarProperty Name="BrandId" ColumnName="BrandId" />
@@ -7346,6 +7386,9 @@
           <EntitySetMapping Name="Spl_ProductCategoryS">
             <EntityTypeMapping TypeName="DB.Spl_ProductCategoryS">
               <MappingFragment StoreEntitySet="Spl_ProductCategoryS">
+                <ScalarProperty Name="ShunXu" ColumnName="ShunXu" />
+                <ScalarProperty Name="Thumbnail" ColumnName="Thumbnail" />
+                <ScalarProperty Name="ToTop" ColumnName="ToTop" />
                 <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
                 <ScalarProperty Name="SonTypeName" ColumnName="SonTypeName" />
                 <ScalarProperty Name="PicShow" ColumnName="PicShow" />
@@ -7464,6 +7507,15 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="P_Spl_GetAllTop" FunctionName="DB.Store.P_Spl_GetAllTop">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DB.P_Spl_GetAllTop_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="PicShow" ColumnName="PicShow" />
+                <ScalarProperty Name="ttype" ColumnName="ttype" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
           </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

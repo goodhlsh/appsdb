@@ -47,6 +47,12 @@ namespace Apps.Spl.BLL
 				
 				
 
+				
+				
+
+				
+				
+
 				);
             }
             else
@@ -72,6 +78,10 @@ namespace Apps.Spl.BLL
 													Amount = r.Amount,
 
 													SumJinE = r.SumJinE,
+
+													IsShow = r.IsShow,
+
+													ShunXu = r.ShunXu,
           
                                               }).ToList();
 
@@ -97,6 +107,10 @@ namespace Apps.Spl.BLL
 				entity.Amount = model.Amount;
 
 				entity.SumJinE = model.SumJinE;
+
+				entity.IsShow = model.IsShow;
+
+				entity.ShunXu = model.ShunXu;
   
 
                 if (m_Rep.Create(entity))
@@ -191,6 +205,10 @@ namespace Apps.Spl.BLL
 				entity.Amount = model.Amount;
 
 				entity.SumJinE = model.SumJinE;
+
+				entity.IsShow = model.IsShow;
+
+				entity.ShunXu = model.ShunXu;
  
 
 
@@ -229,6 +247,10 @@ namespace Apps.Spl.BLL
 				model.Amount = entity.Amount;
 
 				model.SumJinE = entity.SumJinE;
+
+				model.IsShow = entity.IsShow;
+
+				model.ShunXu = entity.ShunXu;
  
                 return model;
             }

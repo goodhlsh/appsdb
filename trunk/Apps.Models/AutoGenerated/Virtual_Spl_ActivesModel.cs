@@ -34,6 +34,18 @@ namespace Apps.Models.Spl
 		
 	public virtual Nullable<System.DateTime> UpdateTime { get; set; }
 		
+	public virtual string ActType { get; set; }
+		
+	public virtual Nullable<bool> ToTop { get; set; }
+		
+	public virtual Nullable<bool> Promoted { get; set; }
+		
+	public virtual string PicShow { get; set; }
+		
+	public virtual string Thumbnail { get; set; }
+		
+	public virtual Nullable<int> ShunXu { get; set; }
+		
 }
 
 }

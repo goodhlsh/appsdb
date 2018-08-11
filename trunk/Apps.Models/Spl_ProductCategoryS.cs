@@ -40,6 +40,12 @@ public partial class Spl_ProductCategoryS
 
     public Nullable<System.DateTime> CreateTime { get; set; }
 
+    public Nullable<bool> ToTop { get; set; }
+
+    public string Thumbnail { get; set; }
+
+    public Nullable<int> ShunXu { get; set; }
+
 
 
     public virtual Spl_ProductCategory Spl_ProductCategory { get; set; }

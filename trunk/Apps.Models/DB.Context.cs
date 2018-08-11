@@ -1346,6 +1346,13 @@ public partial class DBContainer : DbContext
         return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<P_GetAllSons_Result>("P_GetAllSons", parentIdParameter);
     }
 
+
+    public virtual ObjectResult<P_Spl_GetAllTop_Result> P_Spl_GetAllTop()
+    {
+
+        return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<P_Spl_GetAllTop_Result>("P_Spl_GetAllTop");
+    }
+
 }
 
 }

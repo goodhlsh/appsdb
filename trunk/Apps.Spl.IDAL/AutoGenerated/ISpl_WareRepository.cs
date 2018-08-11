@@ -12,11 +12,13 @@
 using Apps.Models;
 using System;
 using Apps.IDAL;
+using System.Collections.Generic;
+
 namespace Apps.Spl.IDAL
 {
-	public partial interface ISpl_WareRepository:IBaseRepository<Spl_Ware>,IDisposable
-	{
-	
-	}
+    public partial interface ISpl_WareRepository : IBaseRepository<Spl_Ware>, IDisposable
+    {
+       
+    }
 
 }

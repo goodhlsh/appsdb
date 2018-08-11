@@ -52,6 +52,8 @@ namespace Apps.Models.Spl
 		
 	public virtual Nullable<decimal> PromotionPrice { get; set; }
 		
+	public virtual Nullable<int> ShunXu { get; set; }
+		
 }
 
 }

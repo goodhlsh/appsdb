@@ -92,6 +92,7 @@
       <DependentUpon>ICommonRepository.tt</DependentUpon>
     </Compile>
     <Compile Include="ISpl_BrandRepository.cs" />
+    <Compile Include="ISpl_WareRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

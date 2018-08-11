@@ -86,7 +86,7 @@ namespace Apps.WebApi.Areas.Ware.Controllers
 
         }
         [HttpGet]
-        public object GetAllTop(string filter)
+        public object GetAllWareInfo(string filter)
         {
             JObject opc = JObject.Parse(filter);
             bool queryStr = false;
@@ -94,8 +94,6 @@ namespace Apps.WebApi.Areas.Ware.Controllers
             {
                 queryStr = bool.Parse(JObject.Parse(opc["where"].ToString())["toTop"].ToString());
             }
-            
-
             List<Spl_WareInfo> list = m_BLL.GetPageWareInfo(queryStr, int.Parse(opc["skip"].ToString()), int.Parse(opc["limit"].ToString()));
             List<Spl_WareModel> wareShowModels = new List<Spl_WareModel>();
             foreach (var item in list)
@@ -123,13 +121,33 @@ namespace Apps.WebApi.Areas.Ware.Controllers
                         Detail = item.Detail,
                         ProductCategoryId = ware.ProductCategoryId,
                         Note = ware.Note,
-                        Unit = ware.Unit
+                        Unit = ware.Unit,
+                        ShunXu=ware.ShunXu
                         
                     });
                 }
             }
             return Json(wareShowModels);
-
+        }
+        [HttpGet]
+        public object GetAllTop(string filter)
+        {
+            JObject opc = JObject.Parse(filter);
+            bool queryStr = false;
+            if (JObject.Parse(opc["where"].ToString())["toTop"] != null)
+            {
+                queryStr = bool.Parse(JObject.Parse(opc["where"].ToString())["toTop"].ToString());
+            }
+            List<P_Spl_GetAllTop_Result> getAllTop_Results = new List<P_Spl_GetAllTop_Result>();
+            getAllTop_Results=m_BLL.GetAllTopList(queryStr,int.Parse(opc["skip"].ToString()), int.Parse(opc["limit"].ToString()));
+            if (getAllTop_Results!=null)
+            {
+                return Json(getAllTop_Results);
+            }
+            else
+            {
+                return null;
+            }
         }
 
 
@@ -161,6 +179,37 @@ namespace Apps.WebApi.Areas.Ware.Controllers
             List<Spl_Actives> list = m_BLL.GetPageActive(queryStr, int.Parse(opc["skip"].ToString()), int.Parse(opc["limit"].ToString()));
 
             return Json(list);
+        }
+        [HttpGet]
+        public object GetHotWare(string filter)
+        {
+            JObject opc = JObject.Parse(filter);
+            bool queryStr = false;
+            if (JObject.Parse(opc["where"].ToString())["isShow"] != null)
+            {
+                queryStr = bool.Parse(JObject.Parse(opc["where"].ToString())["isShow"].ToString());
+            }
+            List<Spl_Hotware> list = m_BLL.GetHotWare(queryStr, int.Parse(opc["skip"].ToString()), int.Parse(opc["limit"].ToString()));
+            if (list==null)
+            {
+                return null;
+            }
+            List<Spl_HotwareModel> Hotwares = new List<Spl_HotwareModel>();
+            foreach (Spl_Hotware item in list)
+            {
+                Hotwares.Add(new Spl_HotwareModel()
+                {
+                    Id=item.Id,
+                    WareId=item.WareId,
+                    WareName=item.Spl_Ware.Name,
+                    Thumbnail=item.Spl_Ware.Thumbnail,
+                    Amount=item.Amount,
+                    SumJinE=item.SumJinE,
+                    IsShow=item.IsShow,
+                    ShunXu=item.ShunXu
+                });
+            }
+            return Json(Hotwares);
         }
         [HttpGet]
         public object GetAllByShopCart(string filter)

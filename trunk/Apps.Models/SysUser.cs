@@ -130,11 +130,11 @@ public partial class SysUser
 
     public string LeadName { get; set; }
 
-    public bool IsSelLead { get; set; }
+    public Nullable<bool> IsSelLead { get; set; }
 
-    public bool IsReportCalendar { get; set; }
+    public Nullable<bool> IsReportCalendar { get; set; }
 
-    public bool IsSecretary { get; set; }
+    public Nullable<bool> IsSecretary { get; set; }
 
     public string HomePhone { get; set; }
 

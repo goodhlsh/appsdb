@@ -24,6 +24,10 @@ namespace Apps.Models.Spl
 		
 	public virtual Nullable<decimal> SumJinE { get; set; }
 		
+	public virtual Nullable<bool> IsShow { get; set; }
+		
+	public virtual Nullable<int> ShunXu { get; set; }
+		
 }
 
 }

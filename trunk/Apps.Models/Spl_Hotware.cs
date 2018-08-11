@@ -26,6 +26,10 @@ public partial class Spl_Hotware
 
     public Nullable<decimal> SumJinE { get; set; }
 
+    public Nullable<bool> IsShow { get; set; }
+
+    public Nullable<int> ShunXu { get; set; }
+
 
 
     public virtual Spl_Ware Spl_Ware { get; set; }

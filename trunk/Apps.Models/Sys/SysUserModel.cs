@@ -136,13 +136,13 @@ namespace Apps.Models.Sys
         public override string Lead { get; set; }
         public override string LeadName { get; set; }
         [Display(Name = "是否可以自选领导")]
-        public override bool IsSelLead { get; set; }
+        public override Nullable<bool> IsSelLead { get; set; }
 
         [Display(Name = "工作日程汇报是否启用  启用后 他的上司领导将可以看到他的 工作日程汇报.")]
-        public override bool IsReportCalendar { get; set; }
+        public override Nullable<bool> IsReportCalendar { get; set; }
 
         [Display(Name = "开启 小秘书")]
-        public override bool IsSecretary { get; set; }
+        public override Nullable<bool> IsSecretary { get; set; }
         [Display(Name = "家庭电话")]
         public override string HomePhone { get; set; }
         [Display(Name = "微信账号")]

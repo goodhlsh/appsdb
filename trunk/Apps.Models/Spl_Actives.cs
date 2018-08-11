@@ -36,6 +36,18 @@ public partial class Spl_Actives
 
     public Nullable<System.DateTime> UpdateTime { get; set; }
 
+    public string ActType { get; set; }
+
+    public Nullable<bool> ToTop { get; set; }
+
+    public Nullable<bool> Promoted { get; set; }
+
+    public string PicShow { get; set; }
+
+    public string Thumbnail { get; set; }
+
+    public Nullable<int> ShunXu { get; set; }
+
 }
 
 }

@@ -56,6 +56,15 @@ namespace Apps.Spl.BLL
 				
 				
 
+				
+				
+
+				|| a.Thumbnail.Contains(queryStr)
+				
+
+				
+				
+
 				);
             }
             else
@@ -87,6 +96,12 @@ namespace Apps.Spl.BLL
 													PicShow = r.PicShow,
 
 													CreateTime = r.CreateTime,
+
+													ToTop = r.ToTop,
+
+													Thumbnail = r.Thumbnail,
+
+													ShunXu = r.ShunXu,
           
                                               }).ToList();
 
@@ -118,6 +133,12 @@ namespace Apps.Spl.BLL
 				entity.PicShow = model.PicShow;
 
 				entity.CreateTime = model.CreateTime;
+
+				entity.ToTop = model.ToTop;
+
+				entity.Thumbnail = model.Thumbnail;
+
+				entity.ShunXu = model.ShunXu;
   
 
                 if (m_Rep.Create(entity))
@@ -218,6 +239,12 @@ namespace Apps.Spl.BLL
 				entity.PicShow = model.PicShow;
 
 				entity.CreateTime = model.CreateTime;
+
+				entity.ToTop = model.ToTop;
+
+				entity.Thumbnail = model.Thumbnail;
+
+				entity.ShunXu = model.ShunXu;
  
 
 
@@ -262,6 +289,12 @@ namespace Apps.Spl.BLL
 				model.PicShow = entity.PicShow;
 
 				model.CreateTime = entity.CreateTime;
+
+				model.ToTop = entity.ToTop;
+
+				model.Thumbnail = entity.Thumbnail;
+
+				model.ShunXu = entity.ShunXu;
  
                 return model;
             }
