@@ -457,7 +457,7 @@
     <Property Name="Id" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="Title" Type="varchar" MaxLength="100" />
     <Property Name="Cont" Type="varchar" MaxLength="50" />
-    <Property Name="ActType" Type="nchar" MaxLength="10" />
+    <Property Name="ActType" Type="varchar" MaxLength="50" />
     <Property Name="Fors" Type="varchar" MaxLength="20" />
     <Property Name="BeginDate" Type="datetime" />
     <Property Name="EndDate" Type="datetime" />
@@ -502,6 +502,7 @@
     <Property Name="SumJinE" Type="decimal" Precision="18" Scale="2" />
     <Property Name="IsShow" Type="bit" />
     <Property Name="ShunXu" Type="int" />
+    <Property Name="CreateTime" Type="datetime" />
   </EntityType>
   <EntityType Name="Spl_Order_Ware">
     <Key>

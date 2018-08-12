@@ -28,6 +28,8 @@ namespace Apps.Models.Spl
 		
 	public virtual Nullable<int> ShunXu { get; set; }
 		
+	public virtual Nullable<System.DateTime> CreateTime { get; set; }
+		
 }
 
 }

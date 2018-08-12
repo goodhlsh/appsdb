@@ -18,5 +18,6 @@ namespace Apps.Spl.IBLL
         List<Spl_Hotware> GetHotWare(bool queryStr, int skip, int limit);
         List<Spl_Ware> GetProducts(string bid, string tid,int skip,int limit);
         List<P_Spl_GetAllTop_Result> GetAllTopList(bool queryStr, int skip, int limit);
+        List<Spl_WareModel> GetAllList();
     }
 }

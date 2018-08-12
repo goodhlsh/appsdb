@@ -202,11 +202,14 @@ namespace Apps.WebApi.Areas.Ware.Controllers
                     Id=item.Id,
                     WareId=item.WareId,
                     WareName=item.Spl_Ware.Name,
+                    Price=item.Spl_Ware.Price==null?0:item.Spl_Ware.Price,
+                    PromotionPrice=item.Spl_Ware.PromotionPrice==null?0:item.Spl_Ware.PromotionPrice,                    
                     Thumbnail=item.Spl_Ware.Thumbnail,
                     Amount=item.Amount,
-                    SumJinE=item.SumJinE,
+                    SumJinE=item.SumJinE==null?0:item.SumJinE,
                     IsShow=item.IsShow,
-                    ShunXu=item.ShunXu
+                    ShunXu=item.ShunXu,
+                    CreateTime=item.CreateTime
                 });
             }
             return Json(Hotwares);

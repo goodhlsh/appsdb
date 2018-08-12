@@ -212,7 +212,6 @@ namespace Apps.Spl.BLL
             }
             catch (Exception ex)
             {
-
                 return null;
             }
             
@@ -252,6 +251,40 @@ namespace Apps.Spl.BLL
 
             query = list.OrderBy(c => c.Name).Skip(skip).Take(limit).ToList();
             return query;
+        }
+        public List<Spl_WareModel> GetAllList()
+        {
+            List<Spl_WareModel> wareShowModels = new List<Spl_WareModel>();
+            List<Spl_Ware> query = null;
+            IQueryable<Spl_Ware> list = m_Rep.GetList();            
+            query = list.OrderBy(c => c.Name).ToList();
+            foreach (var item in query)
+            {
+                wareShowModels.Add(new Spl_WareModel()
+                {
+                    Id = item.Id,
+                    ToTop = item.Spl_WareInfo.Count > 0 ? (bool)item.Spl_WareInfo.FirstOrDefault().ToTop : false,
+                    Name = item.Name,
+                    Description = item.Description,
+                    PromotionPrice = item.PromotionPrice,
+                    Price = item.Price,
+                    Picture0 = item.Spl_WareInfo.Count > 0 ? item.Spl_WareInfo.FirstOrDefault().Picture0 : null,
+                    Picture1 = item.Spl_WareInfo.Count > 0 ? item.Spl_WareInfo.FirstOrDefault().Picture1 : null,
+                    Picture2 = item.Spl_WareInfo.Count > 0 ? item.Spl_WareInfo.FirstOrDefault().Picture2 : null,
+                    Picture3 = item.Spl_WareInfo.Count > 0 ? item.Spl_WareInfo.FirstOrDefault().Picture3 : null,
+                    Picture4 = item.Spl_WareInfo.Count > 0 ? item.Spl_WareInfo.FirstOrDefault().Picture4 : null,
+                    Picture5 = item.Spl_WareInfo.Count > 0 ? item.Spl_WareInfo.FirstOrDefault().Picture5 : null,
+                    Thumbnail = item.Thumbnail,
+                    ShowType = item.ShowType,
+                    Stock = item.Stock,
+                    Detail = item.Spl_WareInfo.Count > 0 ? item.Spl_WareInfo.FirstOrDefault().Detail : null,
+                    ProductCategoryId = item.ProductCategoryId,
+                    Note = item.Note,
+                    ShunXu = item.ShunXu,
+                    Unit = item.Unit
+                });
+            }
+            return wareShowModels;
         }
     }
 }

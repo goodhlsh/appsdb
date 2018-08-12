@@ -39,9 +39,12 @@ namespace Apps.Web.Areas.Spl.Controllers
                     SupName = m_BLL.GetById(item.SupID).TypeName,
                     SonTypeName = item.SonTypeName,
                     PicShow = item.PicShow,
+                    Thumbnail=item.Thumbnail,
                     Note = item.Note,
                     CreateTime = item.CreateTime,
-                    Promoted = item.Promoted
+                    Promoted = item.Promoted,
+                    ToTop=item.ToTop==null?false:item.ToTop,
+                    ShunXu=item.ShunXu
                 });
             }
 
@@ -86,6 +89,7 @@ namespace Apps.Web.Areas.Spl.Controllers
         {
             model.Id = ResultHelper.NewId;
             model.CreateTime = ResultHelper.NowTime;
+            model.Thumbnail = model.PicShow;//生成缩略图方法
             if (model != null && ModelState.IsValid)
             {
 
@@ -133,7 +137,7 @@ namespace Apps.Web.Areas.Spl.Controllers
         {
             if (model != null && ModelState.IsValid)
             {
-
+                model.Thumbnail = model.PicShow;
                 if (ms_BLL.Edit(ref errors, model))
                 {
                     LogHandler.WriteServiceLog(GetUserId(), "Id" + model.Id + ",SonTypeName" + model.SonTypeName, "成功", "修改", "Spl_ProductCategoryS");

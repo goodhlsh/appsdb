@@ -236,6 +236,9 @@ namespace Apps.Core
             //加盟店
             container.RegisterType<ISpl_FranchiseeBLL, Spl_FranchiseeBLL>();
             container.RegisterType<ISpl_FranchiseeRepository, Spl_FranchiseeRepository>();
+            //热卖商品
+            container.RegisterType<ISpl_HotwareBLL, Spl_HotwareBLL>();//商品
+            container.RegisterType<ISpl_HotwareRepository, Spl_HotwareRepository>();
         }
 
 

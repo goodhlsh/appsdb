@@ -1,0 +1,278 @@
+﻿@model Apps.Models.Sys.SysJiaPuModel
+@using Apps.Web.Core;
+@using Apps.Common;
+@using Apps.Models.Sys;
+@using Apps.Web;
+@using Apps.Locale;
+@using Apps.Models.Sys;
+@{
+    ViewBag.Title = "修改";
+    Layout = "~/Views/Shared/_Index_LayoutEdit.cshtml";
+    List<permModel> perm = null;
+}
+
+<script type="text/javascript">
+$(function () {
+    $("#btnSave").click(function () {
+        if ($("form").valid()) {
+            $.ajax({
+                url: "@Url.Action("Edit")",
+                type: "Post",
+                data: $("form").serialize(),
+                dataType: "json",
+                success: function (data) {
+                    if (data.type == 1) {
+                        window.parent.frameReturnByMes(data.message);
+                        window.parent.frameReturnByReload(true);
+                        window.parent.frameReturnByClose()
+                    }
+                    else {
+                        window.parent.frameReturnByMes(data.message);
+                    }
+                }
+            });
+        }
+        return false;
+    });
+    $("#btnReturn").click(function () {
+         window.parent.frameReturnByClose();
+    });
+});
+</script>
+<div class="mvctool bgb">
+    @Html.ToolButton("btnSave", "fa fa-save", Resource.Save, ref perm, "Save", true)
+    @Html.ToolButton("btnReturn", "fa fa-reply", Resource.Reply, false)
+</div>
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(model => model.CreateTime)
+    <table class="formtable">
+        <tbody>
+            <tr>
+                <th>
+                    @Html.LabelFor(model => model.id)：
+                </th>
+                <td>
+                    @Html.EditorFor(model => model.id)
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.id)</td>
+            </tr>
+            <tr>
+                <th>
+                    @Html.LabelFor(model => model.UserId)：
+                </th>
+                <td>
+                    @Html.EditorFor(model => model.UserId)
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.UserId)</td>
+            </tr>
+            <tr>
+                <th>
+                    @Html.LabelFor(model => model.ParentId)：
+                </th>
+                <td>
+                    @Html.EditorFor(model => model.ParentId)
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.ParentId)</td>
+            </tr>
+            <tr>
+                <th>
+                    @Html.LabelFor(model => model.PPId)：
+                </th>
+                <td>
+                    @Html.EditorFor(model => model.PPId)
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.PPId)</td>
+            </tr>
+            <tr>
+                <th>
+                    @Html.LabelFor(model => model.TId)：
+                </th>
+                <td>
+                    @Html.EditorFor(model => model.TId)
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.TId)</td>
+            </tr>
+            <tr>
+                <th>
+                    @Html.LabelFor(model => model.TopId)：
+                </th>
+                <td>
+                    @Html.EditorFor(model => model.TopId)
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.TopId)</td>
+            </tr>
+            <tr>
+                <th>
+                    @Html.LabelFor(model => model.ZiMu)：
+                </th>
+                <td>
+                    @Html.EditorFor(model => model.ZiMu)
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.ZiMu)</td>
+            </tr>
+            <tr>
+                <th>
+                    @Html.LabelFor(model => model.ShuZi)：
+                </th>
+                <td>
+                    @Html.EditorFor(model => model.ShuZi)
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.ShuZi)</td>
+            </tr>
+            <tr>
+                <th>
+                    @Html.LabelFor(model => model.ErZiShu)：
+                </th>
+                <td>
+                    @Html.EditorFor(model => model.ErZiShu)
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.ErZiShu)</td>
+            </tr>
+            <tr>
+                <th>
+                    @Html.LabelFor(model => model.FirstJinE)：
+                </th>
+                <td>
+                    @Html.EditorFor(model => model.FirstJinE)
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.FirstJinE)</td>
+            </tr>
+            <tr>
+                <th>
+                    @Html.LabelFor(model => model.LevelId)：
+                </th>
+                <td>
+                    @Html.EditorFor(model => model.LevelId)
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.LevelId)</td>
+            </tr>
+            <tr>
+                <th>
+                    @Html.LabelFor(model => model.ZMP15)：
+                </th>
+                <td>
+                    @Html.EditorFor(model => model.ZMP15)
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.ZMP15)</td>
+            </tr>
+            <tr>
+                <th>
+                    @Html.LabelFor(model => model.ZMPA2)：
+                </th>
+                <td>
+                    @Html.EditorFor(model => model.ZMPA2)
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.ZMPA2)</td>
+            </tr>
+            <tr>
+                <th>
+                    @Html.LabelFor(model => model.ZMPB2)：
+                </th>
+                <td>
+                    @Html.EditorFor(model => model.ZMPB2)
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.ZMPB2)</td>
+            </tr>
+            <tr>
+                <th>
+                    @Html.LabelFor(model => model.ZMPC2)：
+                </th>
+                <td>
+                    @Html.EditorFor(model => model.ZMPC2)
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.ZMPC2)</td>
+            </tr>
+            <tr>
+                <th>
+                    @Html.LabelFor(model => model.ZMPD2)：
+                </th>
+                <td>
+                    @Html.EditorFor(model => model.ZMPD2)
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.ZMPD2)</td>
+            </tr>
+            <tr>
+                <th>
+                    @Html.LabelFor(model => model.ZMPE2)：
+                </th>
+                <td>
+                    @Html.EditorFor(model => model.ZMPE2)
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.ZMPE2)</td>
+            </tr>
+            <tr>
+                <th>
+                    @Html.LabelFor(model => model.ZMPF2)：
+                </th>
+                <td>
+                    @Html.EditorFor(model => model.ZMPF2)
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.ZMPF2)</td>
+            </tr>
+            <tr>
+                <th>
+                    @Html.LabelFor(model => model.ZMPG2)：
+                </th>
+                <td>
+                    @Html.EditorFor(model => model.ZMPG2)
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.ZMPG2)</td>
+            </tr>
+            <tr>
+                <th>
+                    @Html.LabelFor(model => model.ZMPH2)：
+                </th>
+                <td>
+                    @Html.EditorFor(model => model.ZMPH2)
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.ZMPH2)</td>
+            </tr>
+            <tr>
+                <th>
+                    @Html.LabelFor(model => model.ZMPI2)：
+                </th>
+                <td>
+                    @Html.EditorFor(model => model.ZMPI2)
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.ZMPI2)</td>
+            </tr>
+            <tr>
+                <th>
+                    @Html.LabelFor(model => model.ZMPJ2)：
+                </th>
+                <td>
+                    @Html.EditorFor(model => model.ZMPJ2)
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.ZMPJ2)</td>
+            </tr>
+            <tr>
+                <th>
+                    @Html.LabelFor(model => model.Comment)：
+                </th>
+                <td>
+                    @Html.EditorFor(model => model.Comment)
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.Comment)</td>
+            </tr>
+            <tr>
+                <th>
+                    @Html.LabelFor(model => model.CreateTime)：
+                </th>
+                <td>
+                    @Html.EditorFor(model => model.CreateTime)
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.CreateTime)</td>
+            </tr>
+            <tr>
+                <th>
+                    @Html.LabelFor(model => model.UpdateTime)：
+                </th>
+                <td>
+                    @Html.EditorFor(model => model.UpdateTime)
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.UpdateTime)</td>
+            </tr>
+        </tbody>
+    </table>
+}

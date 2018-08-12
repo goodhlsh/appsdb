@@ -182,6 +182,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Spl_BrandBLL.cs" />
     <Compile Include="Spl_FranchiseeBLL.cs" />
+    <Compile Include="Spl_HotwareBLL.cs" />
     <Compile Include="Spl_OrdersBLL.cs" />
     <Compile Include="Spl_Order_WareBLL.cs" />
     <Compile Include="Spl_PersonBLL.cs" />

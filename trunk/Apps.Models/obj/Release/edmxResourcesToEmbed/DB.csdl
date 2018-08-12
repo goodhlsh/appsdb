@@ -2369,7 +2369,7 @@
     <Property Name="IsShow" Type="Boolean" />
     <Property Name="CreateTime" Type="DateTime" Precision="3" />
     <Property Name="UpdateTime" Type="DateTime" Precision="3" />
-    <Property Name="ActType" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="ActType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="ToTop" Type="Boolean" />
     <Property Name="Promoted" Type="Boolean" />
     <Property Name="PicShow" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
@@ -2387,6 +2387,7 @@
     <NavigationProperty Name="Spl_Ware" Relationship="DB.FK_Spl_Hotware_Spl_Ware" FromRole="Spl_Hotware" ToRole="Spl_Ware" />
     <Property Name="IsShow" Type="Boolean" />
     <Property Name="ShunXu" Type="Int32" />
+    <Property Name="CreateTime" Type="DateTime" Precision="3" />
   </EntityType>
   <EntityType Name="Spl_Orders">
     <Key>

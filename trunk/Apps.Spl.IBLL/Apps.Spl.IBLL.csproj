@@ -93,6 +93,7 @@
     </Compile>
     <Compile Include="ISpl_BrandBLL.cs" />
     <Compile Include="ISpl_FranchiseeBLL.cs" />
+    <Compile Include="ISpl_HotwareBLL.cs" />
     <Compile Include="ISpl_OrdersBLL.cs" />
     <Compile Include="ISpl_Order_WareBLL.cs" />
     <Compile Include="ISpl_PersonBLL.cs" />

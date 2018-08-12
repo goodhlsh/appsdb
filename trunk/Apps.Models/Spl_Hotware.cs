@@ -30,6 +30,8 @@ public partial class Spl_Hotware
 
     public Nullable<int> ShunXu { get; set; }
 
+    public Nullable<System.DateTime> CreateTime { get; set; }
+
 
 
     public virtual Spl_Ware Spl_Ware { get; set; }

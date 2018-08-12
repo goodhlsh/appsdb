@@ -74,6 +74,10 @@ namespace Apps.Models.Spl
         public string WareName { get; set; }
         [Display(Name ="图片")]
         public string Thumbnail { get; set; }
+        [Display(Name ="促销价")]
+        public Nullable<decimal> PromotionPrice { get; set; }
+        [Display(Name ="原价")]
+        public Nullable<decimal> Price { get; set; }
         [Display(Name ="销售数量")]
         public override Nullable<int> Amount { get; set; }
         [Display(Name ="销售金额")]

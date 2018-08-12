@@ -37,10 +37,8 @@ namespace Apps.Web.Areas.MIS.Controllers
         /// <returns>视图</returns>
         [SupportFilter]
         public ActionResult Index()
-        {
-            
+        {            
             return View();
-
         }
 
         /// <summary>

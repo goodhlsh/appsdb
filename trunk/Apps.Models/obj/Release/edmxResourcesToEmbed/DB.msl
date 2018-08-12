@@ -1226,6 +1226,7 @@
     <EntitySetMapping Name="Spl_Hotware">
       <EntityTypeMapping TypeName="DB.Spl_Hotware">
         <MappingFragment StoreEntitySet="Spl_Hotware">
+          <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
           <ScalarProperty Name="ShunXu" ColumnName="ShunXu" />
           <ScalarProperty Name="IsShow" ColumnName="IsShow" />
           <ScalarProperty Name="Id" ColumnName="Id" />
