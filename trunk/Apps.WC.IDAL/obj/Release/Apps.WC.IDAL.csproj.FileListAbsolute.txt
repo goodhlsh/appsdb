@@ -53,7 +53,6 @@ C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.WC.IDAL\bin\Release\zh-Han
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.WC.IDAL\bin\Release\zh-Hans\System.Web.WebPages.resources.dll
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.WC.IDAL\bin\Release\en-US\Apps.Locale.resources.dll
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.WC.IDAL\bin\Release\zh-Hans\System.Web.WebPages.Deployment.resources.dll
-C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.WC.IDAL\obj\Release\Apps.WC.IDAL.csprojResolveAssemblyReference.cache
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.WC.IDAL\obj\Release\Apps.WC.IDAL.csproj.CoreCompileInputs.cache
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.WC.IDAL\obj\Release\Apps.WC.IDAL.csproj.CopyComplete
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.WC.IDAL\obj\Release\Apps.WC.IDAL.dll

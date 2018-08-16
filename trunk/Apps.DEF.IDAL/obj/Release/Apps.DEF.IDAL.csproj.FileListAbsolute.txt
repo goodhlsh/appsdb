@@ -59,8 +59,8 @@ C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.DEF.IDAL\bin\Release\zh-Ha
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.DEF.IDAL\bin\Release\zh-Hans\System.Web.WebPages.resources.dll
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.DEF.IDAL\bin\Release\en-US\Apps.Locale.resources.dll
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.DEF.IDAL\bin\Release\zh-Hans\System.Web.WebPages.Deployment.resources.dll
-C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.DEF.IDAL\obj\Release\Apps.DEF.IDAL.csprojResolveAssemblyReference.cache
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.DEF.IDAL\obj\Release\Apps.DEF.IDAL.csproj.CoreCompileInputs.cache
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.DEF.IDAL\obj\Release\Apps.DEF.IDAL.csproj.CopyComplete
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.DEF.IDAL\obj\Release\Apps.DEF.IDAL.dll
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.DEF.IDAL\obj\Release\Apps.DEF.IDAL.pdb
+C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.DEF.IDAL\obj\Release\Apps.DEF.IDAL.csprojResolveAssemblyReference.cache

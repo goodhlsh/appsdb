@@ -54,7 +54,6 @@ namespace Apps.WebApi.Areas.Ware.Controllers
             var queryStr = "";
             if (JObject.Parse(opc["where"].ToString())["warename"] != null)
             {
-
                 queryStr = JObject.Parse(opc["where"].ToString())["warename"].ToString();
             }
 
@@ -68,15 +67,13 @@ namespace Apps.WebApi.Areas.Ware.Controllers
             JObject opc = JObject.Parse(filter);
             if (JObject.Parse(opc["where"].ToString())["Id"] == null)
             {
-
                 return Json("");
             }
 
             Spl_WareModel model = new Spl_WareModel();
             model = m_BLL.GetById(JObject.Parse(opc["where"].ToString())["Id"].ToString());
             if (model != null)
-            {
-                
+            {                
                 return Json(model);
             }
             else
@@ -122,8 +119,7 @@ namespace Apps.WebApi.Areas.Ware.Controllers
                         ProductCategoryId = ware.ProductCategoryId,
                         Note = ware.Note,
                         Unit = ware.Unit,
-                        ShunXu=ware.ShunXu
-                        
+                        ShunXu=ware.ShunXu                        
                     });
                 }
             }

@@ -45,10 +45,10 @@ namespace Apps.Web.Areas.MIS.Controllers
             foreach (var model1 in category1)
             {
                 category2 = categoryBLL.GetList(model1.Id);
-                model1.clildren = new List<MIS_Article_CategoryModel>();
+                model1.children = new List<MIS_Article_CategoryModel>();
                 foreach(var model2 in category2)
                 {
-                    model1.clildren.Add(model2);
+                    model1.children.Add(model2);
                 }
                 category.Add(model1);
             }

@@ -60,6 +60,9 @@
     <File Include="Areas/LanPay/Views/web.config">
       <publishTime>07/09/2018 16:02:19</publishTime>
     </File>
+    <File Include="Areas/MIS/Views/web.config">
+      <publishTime>08/13/2018 10:24:54</publishTime>
+    </File>
     <File Include="Areas/Spl2/Views/web.config">
       <publishTime>05/22/2018 12:29:01</publishTime>
     </File>
@@ -91,13 +94,13 @@
       <publishTime>08/13/2018 01:28:05</publishTime>
     </File>
     <File Include="bin/Apps.Core.dll">
-      <publishTime>08/13/2018 01:28:14</publishTime>
+      <publishTime>08/13/2018 12:27:48</publishTime>
     </File>
     <File Include="bin/Apps.Core.dll.config">
       <publishTime>07/12/2018 11:54:30</publishTime>
     </File>
     <File Include="bin/Apps.Core.pdb">
-      <publishTime>08/13/2018 01:28:14</publishTime>
+      <publishTime>08/13/2018 12:27:48</publishTime>
     </File>
     <File Include="bin/Apps.DAL.dll">
       <publishTime>08/13/2018 01:28:09</publishTime>
@@ -196,13 +199,13 @@
       <publishTime>08/13/2018 01:28:05</publishTime>
     </File>
     <File Include="bin/Apps.MIS.BLL.dll">
-      <publishTime>08/13/2018 01:28:12</publishTime>
+      <publishTime>08/13/2018 12:27:46</publishTime>
     </File>
     <File Include="bin/Apps.MIS.BLL.dll.config">
       <publishTime>07/12/2018 12:02:28</publishTime>
     </File>
     <File Include="bin/Apps.MIS.BLL.pdb">
-      <publishTime>08/13/2018 01:28:12</publishTime>
+      <publishTime>08/13/2018 12:27:46</publishTime>
     </File>
     <File Include="bin/Apps.MIS.DAL.dll">
       <publishTime>08/13/2018 01:28:09</publishTime>
@@ -214,10 +217,10 @@
       <publishTime>08/13/2018 01:28:09</publishTime>
     </File>
     <File Include="bin/Apps.MIS.IBLL.dll">
-      <publishTime>08/13/2018 01:28:10</publishTime>
+      <publishTime>08/13/2018 12:27:45</publishTime>
     </File>
     <File Include="bin/Apps.MIS.IBLL.pdb">
-      <publishTime>08/13/2018 01:28:10</publishTime>
+      <publishTime>08/13/2018 12:27:45</publishTime>
     </File>
     <File Include="bin/Apps.MIS.IDAL.dll">
       <publishTime>08/13/2018 01:28:09</publishTime>
@@ -295,10 +298,10 @@
       <publishTime>08/13/2018 01:28:11</publishTime>
     </File>
     <File Include="bin/Apps.WebApi.dll">
-      <publishTime>08/13/2018 01:28:16</publishTime>
+      <publishTime>08/14/2018 10:28:27</publishTime>
     </File>
     <File Include="bin/Apps.WebApi.pdb">
-      <publishTime>08/13/2018 01:28:16</publishTime>
+      <publishTime>08/14/2018 10:28:27</publishTime>
     </File>
     <File Include="bin/en-US/Apps.Locale.resources.dll">
       <publishTime>08/13/2018 01:28:05</publishTime>

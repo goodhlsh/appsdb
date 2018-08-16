@@ -24,7 +24,7 @@ namespace Apps.MIS.IBLL
         /// <returns>列表</returns>
         List<MIS_ArticleModel> GetList(ref GridPager pager, string queryStr,string cid,bool isManage,string userId,int check);
         List<MIS_ArticleModel> GetListByIsType(ref GridPager pager,int isType);
-     
+        List<MIS_ArticleModel> GetListByIsType(string queryStr,string categoryId,int isType, int skip,int limit);
         /// <summary>
         /// 删除一个实体
         /// </summary>

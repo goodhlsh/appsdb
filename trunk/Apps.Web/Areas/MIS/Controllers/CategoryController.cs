@@ -154,10 +154,10 @@ namespace Apps.Web.Areas.MIS.Controllers
 
             foreach (var model in list)
             {
-                model.clildren = m_BLL.GetList(model.Id);
-                foreach (var m in model.clildren)
+                model.children = m_BLL.GetList(model.Id);
+                foreach (var m in model.children)
                 {
-                    m.clildren = m_BLL.GetList(m.Id);
+                    m.children = m_BLL.GetList(m.Id);
                 }
             }
 

@@ -102,7 +102,7 @@ p, ul, li, dl, dd, dt, form, h1, h2, h3, h4, h5, h6 {
                             {
                                 <li>
                                     <h4>@(model.Name)</h4>
-                                    @foreach (var model1 in model.clildren)
+                                    @foreach (var model1 in model.children)
                                     {
                                         <div class="list">
                                             <a id="category_@(model1.Id)" href="/Mis/Article/Index?cid=@(model1.Id)">@(model1.Name)</a>

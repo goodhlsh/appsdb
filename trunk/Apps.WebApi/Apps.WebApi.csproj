@@ -259,6 +259,8 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\LanPay\Views\Shared\" />
+    <Folder Include="Areas\MIS\Models\" />
+    <Folder Include="Areas\MIS\Views\Shared\" />
     <Folder Include="Areas\User\Models\" />
     <Folder Include="Areas\User\Views\Shared\" />
     <Folder Include="Areas\Ware\Models\" />
@@ -278,6 +280,8 @@
     <Compile Include="Areas\LanPay\Controllers\WxPayController.cs" />
     <Compile Include="Areas\LanPay\Models\PayOrderMo.cs" />
     <Compile Include="Areas\LanPay\LanPayAreaRegistration.cs" />
+    <Compile Include="Areas\MIS\Controllers\MyArticleController.cs" />
+    <Compile Include="Areas\MIS\MISAreaRegistration.cs" />
     <Compile Include="Areas\User\Controllers\SysAchievementController.cs" />
     <Compile Include="Areas\User\Controllers\SysMessageController.cs" />
     <Compile Include="Areas\User\Controllers\SysUserController.cs" />
@@ -318,6 +322,7 @@
     <Content Include="Areas\LanPay\Controllers\cert\apiclient_cert.p12" />
     <Content Include="Areas\LanPay\Controllers\cert\apiclient_cert.pem" />
     <Content Include="Areas\LanPay\Controllers\cert\apiclient_key.pem" />
+    <Content Include="Areas\MIS\Views\web.config" />
     <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -379,6 +384,10 @@
     <ProjectReference Include="..\Apps.Locale\Apps.Locale.csproj">
       <Project>{a670269b-b46c-4c77-be86-4be2d26cd126}</Project>
       <Name>Apps.Locale</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Apps.MIS.IBLL\Apps.MIS.IBLL.csproj">
+      <Project>{B2294816-F6AF-4856-A84F-1D72A139AA75}</Project>
+      <Name>Apps.MIS.IBLL</Name>
     </ProjectReference>
     <ProjectReference Include="..\Apps.Models\Apps.Models.csproj">
       <Project>{54f6cd9e-178f-4240-8a67-33e79cb5f2c9}</Project>

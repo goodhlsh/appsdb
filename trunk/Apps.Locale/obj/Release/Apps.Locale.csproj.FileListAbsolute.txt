@@ -11,7 +11,6 @@ D:\ymnets.AdminSystem\trunk\Apps.Locale\obj\Release\Apps.Locale.pdb
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Locale\bin\Release\Apps.Locale.dll
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Locale\bin\Release\Apps.Locale.pdb
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Locale\bin\Release\en-US\Apps.Locale.resources.dll
-C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Locale\obj\Release\Apps.Locale.csprojResolveAssemblyReference.cache
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Locale\obj\Release\Apps.Locale.Resource.resources
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Locale\obj\Release\Apps.Locale.Resource.en-US.resources
 C:\Users\LabCenter\Documents\GitHub\appsdb\trunk\Apps.Locale\obj\Release\Apps.Locale.csproj.GenerateResource.cache

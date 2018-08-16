@@ -48,7 +48,7 @@ namespace Apps.Models.MIS
         [Display(Name = "创建时间")]
         public override DateTime? CreateTime { get; set; }
 
-        public List<MIS_Article_CategoryModel> clildren { get; set; }
+        public List<MIS_Article_CategoryModel> children { get; set; }
 
         public  string state { get; set; }
 

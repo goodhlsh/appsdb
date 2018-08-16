@@ -40,6 +40,7 @@ namespace Apps.MIS.BLL
                 model.Id = entity.Id;
                 model.ChannelId = entity.ChannelId;
                 model.CategoryId = entity.CategoryId;
+                model.CategoryName = entity.MIS_Article_Category.Name;               
                 model.Title = entity.Title;
                 model.CreaterName = entity.SysUser.TrueName;
                 model.ImgUrl = entity.ImgUrl;
@@ -48,12 +49,13 @@ namespace Apps.MIS.BLL
                 model.Click = entity.Click;
                 model.CheckFlag = entity.CheckFlag;
                 model.Checker = entity.Checker;
+                model.CheckerName = entity.SysUser.TrueName;
                 model.CheckDateTime = entity.CheckDateTime;
                 model.Creater = entity.Creater;
                 model.CreateTime = entity.CreateTime;
                 model.CustomLink = entity.CustomLink;
                 model.IsType = entity.IsType;
-                model.CategoryIdParent = entity.MIS_Article_Category.ParentId;
+                model.CategoryIdParent = entity.MIS_Article_Category.ParentId;                
                 return model;
             }
             else
@@ -129,10 +131,9 @@ namespace Apps.MIS.BLL
                                                     CheckDateTime = r.CheckDateTime,
                                                     Creater = r.Creater,
                                                     CreaterName = r.SysUser.TrueName,
-                                                    CreateTime = r.CreateTime,
+                                                    CreateTime =r.CreateTime,
                                                     CustomLink = r.CustomLink,
-                                                    IsType = r.IsType,
-
+                                                    IsType = r.IsType
                                                 }).ToList();
 
             return modelList;
@@ -147,7 +148,20 @@ namespace Apps.MIS.BLL
             queryData = LinqHelper.SortingAndPaging(queryData, pager.sort, pager.order, pager.page, pager.rows);
             return CreateModelList(ref queryData);
         }
-       
+
+        public List<MIS_ArticleModel> GetListByIsType(string queryStr,string categoryId, int isType, int skip, int limit)
+        {
+            IQueryable<MIS_Article> queryData = null;
+            if (!string.IsNullOrEmpty(queryStr))
+            {
+                queryData = m_Rep.GetList().Where(a => a.IsType == isType&&a.CategoryId==categoryId&&a.Title.Contains(queryStr)).OrderBy(a => a.CreateTime);
+            }
+            else
+            {
+                queryData = m_Rep.GetList().Where(a => a.IsType == isType && a.CategoryId == categoryId).OrderBy(a => a.CreateTime);
+            }
+                return CreateModelList(ref queryData);
+        }
         /// <summary>
         /// 删除一个实体
         /// </summary>
