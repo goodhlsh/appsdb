@@ -79,7 +79,9 @@ namespace Apps.BLL
                     ErZiShu = user.ErZiShu,
                     ZMPA2 = user.ZMPA2,
                     TId = user.TId,
-                    TName = mu_Rep.GetNameById(user.TId)
+                    TName = mu_Rep.GetNameById(user.TId),
+                    FrozenMoney=user.FrozenMoney,
+                    ZMP15=user.ZMP15
                 };
                 jiapuInfoList.Add(jiapuModel);
             }
@@ -114,6 +116,7 @@ namespace Apps.BLL
                 jiaPuModel.ZiMu = item.ZiMu;
                 jiaPuModel.ZMP15 = item.ZMP15;
                 jiaPuModel.ZMPA2 = item.ZMPA2;
+                jiaPuModel.FrozenMoney = item.FrozenMoney;
                 list_m.Add(jiaPuModel);
             }
 
@@ -176,6 +179,7 @@ namespace Apps.BLL
                 jiaPuModel.ZMPH2 = jiaPu.ZMPH2;
                 jiaPuModel.ZMPI2 = jiaPu.ZMPI2;
                 jiaPuModel.ZMPJ2 = jiaPu.ZMPJ2;
+                jiaPuModel.FrozenMoney = jiaPu.FrozenMoney;
 
                 return jiaPuModel;
             }

@@ -29,24 +29,24 @@ namespace Apps.Models.Spl
         public override Nullable<int> Stock { get; set; }
         [Display(Name = "备注说明")]
         public override string Note { get; set; }
-        [Display(Name = "缩列图")]
+        [Display(Name = "首页展图")]
         public override string Thumbnail { get; set; }
         [Display(Name = "显示方式")]
         public override string ShowType { get; set; }
         [Display(Name = "描述")]
         public override string Description { get; set; }
         public string WareInfoId { get; set; }
-        [Display(Name = "首页展图")]
+        [Display(Name = "产品头部展图1")]
         public string Picture0 { get; set; }
-        [Display(Name = "产品头部展图")]
+        [Display(Name = "产品头部展图2")]
         public string Picture1 { get; set; }
-        [Display(Name = "产品头部展图")]
+        [Display(Name = "产品头部展图3")]
         public string Picture2 { get; set; }
-        [Display(Name = "产品介绍展图")]
+        [Display(Name = "产品介绍展图1")]
         public string Picture3 { get; set; }
-        [Display(Name = "产品介绍展图")]
+        [Display(Name = "产品介绍展图2")]
         public string Picture4 { get; set; }
-        [Display(Name = "产品介绍展图")]
+        [Display(Name = "产品介绍展图3")]
         public string Picture5 { get; set; }
         [Display(Name = "其他")]
         public string Detail { get; set; }

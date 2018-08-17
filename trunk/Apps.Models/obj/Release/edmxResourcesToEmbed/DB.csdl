@@ -2561,6 +2561,8 @@
     <Property Name="TopId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="TId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="SysUser" Relationship="DB.FK_SysJiaPu_SysUser" FromRole="SysJiaPu" ToRole="SysUser" />
+    <Property Name="UpTimes" Type="Int16" />
+    <Property Name="FrozenMoney" Type="Decimal" Precision="18" Scale="2" />
   </EntityType>
   <EntityType Name="SysLevels">
     <Key>

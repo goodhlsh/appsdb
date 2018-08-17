@@ -283,6 +283,8 @@
     <Compile Include="Areas\MIS\Controllers\MyArticleController.cs" />
     <Compile Include="Areas\MIS\MISAreaRegistration.cs" />
     <Compile Include="Areas\User\Controllers\SysAchievementController.cs" />
+    <Compile Include="Areas\User\Controllers\SysErCiController.cs" />
+    <Compile Include="Areas\User\Controllers\SysFirstController.cs" />
     <Compile Include="Areas\User\Controllers\SysMessageController.cs" />
     <Compile Include="Areas\User\Controllers\SysUserController.cs" />
     <Compile Include="Areas\User\Controllers\SysWalletController.cs" />

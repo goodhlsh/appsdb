@@ -845,6 +845,7 @@
       <DependentUpon>DB.tt</DependentUpon>
     </Compile>
     <Compile Include="Sys\SysAddressModel.cs" />
+    <Compile Include="Sys\SysFirstModel.cs" />
     <Compile Include="Sys\SysJiaPuBeforeModel.cs" />
     <Compile Include="Sys\SysJiaPuModel.cs" />
     <Compile Include="Sys\SysMessageModel.cs" />

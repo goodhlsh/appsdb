@@ -68,6 +68,10 @@ public partial class SysJiaPu
 
     public string TId { get; set; }
 
+    public Nullable<short> UpTimes { get; set; }
+
+    public Nullable<decimal> FrozenMoney { get; set; }
+
 
 
     public virtual SysLevels SysLevels { get; set; }

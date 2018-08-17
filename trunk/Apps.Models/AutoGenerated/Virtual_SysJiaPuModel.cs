@@ -66,6 +66,10 @@ namespace Apps.Models.Sys
 		
 	public virtual string TId { get; set; }
 		
+	public virtual Nullable<short> UpTimes { get; set; }
+		
+	public virtual Nullable<decimal> FrozenMoney { get; set; }
+		
 }
 
 }

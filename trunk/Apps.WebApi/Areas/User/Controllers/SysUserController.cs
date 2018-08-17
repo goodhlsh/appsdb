@@ -269,6 +269,7 @@ namespace Apps.WebApi.Areas.User.Controllers
                     userInfo.TName = mj_BLL.GetRefSysJiaPu(model.Id).TName;
                     userInfo.PId = mj_BLL.GetRefSysJiaPu(model.Id).ParentId;
                     userInfo.PName = mj_BLL.GetRefSysJiaPu(model.Id).ParentName;
+                    userInfo.FrozenMoney = mj_BLL.GetRefSysJiaPu(model.Id).FrozenMoney;
                 }
                 if (mj_BLL.GetRefSysJiaPu(model.Id) != null && islBll.GetById(mj_BLL.GetRefSysJiaPu(model.Id).LevelId.ToString()) != null)
                 {

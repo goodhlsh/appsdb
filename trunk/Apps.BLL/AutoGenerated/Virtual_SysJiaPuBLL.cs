@@ -111,6 +111,12 @@ namespace Apps.BLL
 				|| a.TId.Contains(queryStr)
 				
 
+				
+				
+
+				
+				
+
 				);
             }
             else
@@ -178,6 +184,10 @@ namespace Apps.BLL
 													TopId = r.TopId,
 
 													TId = r.TId,
+
+													UpTimes = r.UpTimes,
+
+													FrozenMoney = r.FrozenMoney,
           
                                               }).ToList();
 
@@ -245,6 +255,10 @@ namespace Apps.BLL
 				entity.TopId = model.TopId;
 
 				entity.TId = model.TId;
+
+				entity.UpTimes = model.UpTimes;
+
+				entity.FrozenMoney = model.FrozenMoney;
   
 
                 if (m_Rep.Create(entity))
@@ -381,6 +395,10 @@ namespace Apps.BLL
 				entity.TopId = model.TopId;
 
 				entity.TId = model.TId;
+
+				entity.UpTimes = model.UpTimes;
+
+				entity.FrozenMoney = model.FrozenMoney;
  
 
 
@@ -461,6 +479,10 @@ namespace Apps.BLL
 				model.TopId = entity.TopId;
 
 				model.TId = entity.TId;
+
+				model.UpTimes = entity.UpTimes;
+
+				model.FrozenMoney = entity.FrozenMoney;
  
                 return model;
             }

@@ -793,6 +793,8 @@
     <Property Name="Comment" Type="text" />
     <Property Name="CreateTime" Type="datetime" />
     <Property Name="UpdateTime" Type="datetime" />
+    <Property Name="UpTimes" Type="smallint" />
+    <Property Name="FrozenMoney" Type="decimal" Precision="18" Scale="2" />
   </EntityType>
   <EntityType Name="SysJiaPuBefore">
     <Key>

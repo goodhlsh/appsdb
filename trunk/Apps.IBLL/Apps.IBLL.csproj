@@ -151,6 +151,7 @@
     <Compile Include="ISysAddressBLL.cs" />
     <Compile Include="ISysAreasBLL.cs" />
     <Compile Include="ISysExceptionBLL.cs" />
+    <Compile Include="ISysFirstBLL.cs" />
     <Compile Include="ISysJiaPuBeforeBLL.cs" />
     <Compile Include="ISysJiaPuBLL.cs" />
     <Compile Include="ISysLogBLL.cs" />

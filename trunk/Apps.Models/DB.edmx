@@ -798,6 +798,8 @@
           <Property Name="Comment" Type="text" />
           <Property Name="CreateTime" Type="datetime" />
           <Property Name="UpdateTime" Type="datetime" />
+          <Property Name="UpTimes" Type="smallint" />
+          <Property Name="FrozenMoney" Type="decimal" Precision="18" Scale="2" />
         </EntityType>
         <EntityType Name="SysJiaPuBefore">
           <Key>
@@ -5257,6 +5259,8 @@
           <Property Name="TopId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="TId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="SysUser" Relationship="DB.FK_SysJiaPu_SysUser" FromRole="SysJiaPu" ToRole="SysUser" />
+          <Property Name="UpTimes" Type="Int16" />
+          <Property Name="FrozenMoney" Type="Decimal" Precision="18" Scale="2" />
           </EntityType>
         <EntityType Name="SysLevels">
           <Key>
@@ -7126,6 +7130,8 @@
           <EntitySetMapping Name="SysJiaPu">
             <EntityTypeMapping TypeName="DB.SysJiaPu">
               <MappingFragment StoreEntitySet="SysJiaPu">
+                <ScalarProperty Name="FrozenMoney" ColumnName="FrozenMoney" />
+                <ScalarProperty Name="UpTimes" ColumnName="UpTimes" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="TId" ColumnName="TId" />
                 <ScalarProperty Name="TopId" ColumnName="TopId" />

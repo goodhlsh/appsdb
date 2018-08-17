@@ -25,7 +25,9 @@ namespace Apps.Models.Sys
         public string PId { get; set; }
         public string PName { get; set; }
         public string Jibie { get; set; }
-        public int? TuiCount { get; set; }
+        public int? TuiCount { get; set; }        
+        public Nullable<decimal> FrozenMoney { get; set; }
+
     }
     public class SysUserChangePwd
     {

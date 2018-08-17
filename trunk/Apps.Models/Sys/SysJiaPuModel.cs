@@ -13,25 +13,26 @@ namespace Apps.Models.Sys
         public override string Id { get; set; }
 
         public override string UserId { get; set; }
-        [Display(Name ="用户账号")]
+        [Display(Name = "用户账号")]
         public string UserName { get; set; }
         [Display(Name = "用户姓名")]
         public string TrueName { get; set; }
         public override string ParentId { get; set; }
-        [Display(Name ="上级领导")]
+        [Display(Name = "上级领导")]
         public string ParentName { get; set; }
-        [Display(Name ="入会金额")]
+        [Display(Name = "入会金额")]
         public override decimal FirstJinE { get; set; }
-        [Display(Name ="级别")]
+        [Display(Name = "级别")]
         public override string LevelId { get; set; }
-        [Display(Name ="指定位置")]
+        [Display(Name = "指定位置")]
         public override string ZMP15 { get; set; }
         public override string TId { get; set; }
         [Display(Name = "推荐人")]
         public string TName { get; set; }
-        [Display(Name ="入会时间")]
+        [Display(Name = "入会时间")]
         public override DateTime? CreateTime { get; set; }
-
+        [Display(Name = "冻结款")]
+        public override decimal? FrozenMoney{get;set;}
     }
     public class SysJiaPuRModel
     {

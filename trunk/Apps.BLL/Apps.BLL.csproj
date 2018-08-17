@@ -273,6 +273,7 @@
     <Compile Include="SysAreasBLL.cs" />
     <Compile Include="SysConfigBLL.cs" />
     <Compile Include="SysExceptionBLL.cs" />
+    <Compile Include="SysFirstBLL.cs" />
     <Compile Include="SysJiaPuBeforeBLL.cs" />
     <Compile Include="SysJiaPuBLL.cs" />
     <Compile Include="SysLogBLL.cs" />
