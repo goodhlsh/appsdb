@@ -60,50 +60,30 @@ namespace Apps.Spl.BLL
         }
         public override List<Spl_WareModel> CreateModelList(ref IQueryable<Spl_Ware> queryData)
         {
-
             List<Spl_WareModel> modelList = (from r in queryData
                                              select new Spl_WareModel
                                              {
-
                                                  Id = r.Id,
-
                                                  Name = r.Name,
-
                                                  ProductCategoryId = r.ProductCategoryId,
                                                  ProductCategoryName =r.Spl_ProductCategoryS==null?"": r.Spl_ProductCategoryS.SonTypeName,
                                                  Unit = r.Unit,
-
                                                  Price = r.Price,
-
                                                  Stock = r.Stock,
-
                                                  Note = r.Note,
-
                                                  Thumbnail = r.Thumbnail,
-
                                                  ShowType = r.ShowType,
-
                                                  WareCount = r.WareCount,
-
                                                  WareState = r.WareState,
-
                                                  CreateTime = r.CreateTime,
-
                                                  Creator = r.Creator,
-
                                                  UpdateTime = r.UpdateTime,
-
                                                  Editor = r.Editor,
-
                                                  Description = r.Description,
-
                                                  BrandId = r.BrandId,
-
                                                  PromotionPrice = r.PromotionPrice,
                                                  ShunXu=r.ShunXu
-
                                              }).ToList();
-
             return modelList;
         }
         public List<Spl_WareModel> GetPage(string queryStr, int skip, int limit)
@@ -148,7 +128,6 @@ namespace Apps.Spl.BLL
             }
             catch (Exception ex)
             {
-
                 return null;
             }
         }
@@ -167,8 +146,7 @@ namespace Apps.Spl.BLL
 
         public List<P_Spl_GetAllTop_Result> GetAllTopList(bool queryStr, int skip, int limit)
         {
-            return m_Rep.GetAllTopList(queryStr, skip, limit);
-            
+            return m_Rep.GetAllTopList(queryStr, skip, limit);            
         }
         public List<Spl_WareModel> GetPageLike(string queryStr, int skip, int limit)
         {
@@ -213,8 +191,7 @@ namespace Apps.Spl.BLL
             catch (Exception ex)
             {
                 return null;
-            }
-            
+            }            
         }
         public List<Spl_Hotware> GetHotWare(bool queryStr,int skip,int limit)
         {

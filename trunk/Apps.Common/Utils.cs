@@ -727,7 +727,7 @@ namespace Apps.Common
         /// <returns>绝对路径</returns>
         public static string GetMapPath(string strPath)
         {
-            if (strPath.ToLower().StartsWith("http://"))
+            if (strPath.ToLower().StartsWith("http://")|| strPath.ToLower().StartsWith("c:\\"))
             {
                 return strPath;
             }

@@ -19,18 +19,18 @@ namespace Apps.WebApi.Areas.User.Controllers
         public ISysWalletBLL sysWBLL { get; set; }
 
         ValidationErrors errors = new ValidationErrors();
+        /// <summary>
+        /// 获取所有人当前余额
+        /// </summary>
+        /// <param name="filter"></param>
+        /// <returns></returns>
         public object GetList(string filter)
         {
-            JObject opc = JObject.Parse(filter);
-            var queryStr = "";
-            if (JObject.Parse(opc["where"].ToString())["userId"] != null)
-            {
-                queryStr = JObject.Parse(opc["where"].ToString())["userId"].ToString();
-            }
-
+            JObject opc = JObject.Parse(filter);            
+            
             List<P_Sys_GetUserWallet_Result> datalist = new List<P_Sys_GetUserWallet_Result>();
             
-            datalist = sysWBLL.GetUserWallet().Where(a => a.UserId==queryStr).ToList(); ;
+            datalist = sysWBLL.GetUserWallet().ToList(); ;
             datalist=datalist.OrderByDescending(a => a.CreateTime).Skip(int.Parse(opc["skip"].ToString())).Take(int.Parse(opc["limit"].ToString())).ToList();
             List<SysWalletModel> sysWalletModels = new List<SysWalletModel>();
 
@@ -42,12 +42,18 @@ namespace Apps.WebApi.Areas.User.Controllers
                     Balance=item.Balance,
                     CreateTime=item.CreateTime,
                     JieYu=item.JieYu,
-                    Froms=item.Froms 
+                    Froms=item.Froms,
+                    Note=item.Note
                 });
             }
 
             return Json(sysWalletModels);
         }
+        /// <summary>
+        /// 获取某人当前余额
+        /// </summary>
+        /// <param name="filter"></param>
+        /// <returns></returns>
         [HttpGet]
         public SysWalletModel GetWallet(string filter)
         {
@@ -60,12 +66,29 @@ namespace Apps.WebApi.Areas.User.Controllers
 
             return sysWBLL.GetWallByUserID(queryStr);
         }
-        
+        /// <summary>
+        /// 获取某人余额账单
+        /// </summary>
+        /// <param name="filter"></param>
+        /// <returns></returns>
+        [HttpGet]
+        public object GetAllWalletByUserId(string filter)
+        {
+            JObject opc = JObject.Parse(filter);
+            var queryStr = "";
+            if (JObject.Parse(opc["where"].ToString())["userid"] != null)
+            {
+                queryStr = JObject.Parse(opc["where"].ToString())["userid"].ToString();
+            }
+            return Json(sysWBLL.GetAllWallByUserID(queryStr)); 
+        }
         /// <summary>
         /// 购买或充值都可以调用此方法
         /// </summary>
         /// <param name="wallet">消费</param>
         /// <param name="wallet">充值</param>
+        /// <param name="wallet">分红</param>
+        /// <param name="wallet">奖励</param>
         /// <returns></returns>
         [HttpPost]
         public object PostWallet([FromBody]SysWallet wallet)

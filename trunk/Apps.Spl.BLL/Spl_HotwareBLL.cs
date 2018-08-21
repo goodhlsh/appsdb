@@ -46,9 +46,9 @@ namespace Apps.Spl.BLL
                                                     WareName=r.Spl_Ware.Name,
                                                     Thumbnail=r.Spl_Ware.Thumbnail,
                                                     Amount = r.Amount,
-                                                    SumJinE = r.SumJinE,
+                                                    SumJinE = r.SumJinE,                                                    
                                                     IsShow = r.IsShow,
-                                                    ShunXu = r.ShunXu,
+                                                    ShunXu = r.ShunXu
                                                 }).ToList();
 
             return modelList;

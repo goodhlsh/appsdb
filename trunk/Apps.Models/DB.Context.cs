@@ -1148,38 +1148,6 @@ public partial class DBContainer : DbContext
     }
 
 
-    public virtual int P_Sys_PutZi(string uid, string tid, string pid, string erzibiao, Nullable<decimal> fJE)
-    {
-
-        var uidParameter = uid != null ?
-            new ObjectParameter("uid", uid) :
-            new ObjectParameter("uid", typeof(string));
-
-
-        var tidParameter = tid != null ?
-            new ObjectParameter("tid", tid) :
-            new ObjectParameter("tid", typeof(string));
-
-
-        var pidParameter = pid != null ?
-            new ObjectParameter("pid", pid) :
-            new ObjectParameter("pid", typeof(string));
-
-
-        var erzibiaoParameter = erzibiao != null ?
-            new ObjectParameter("erzibiao", erzibiao) :
-            new ObjectParameter("erzibiao", typeof(string));
-
-
-        var fJEParameter = fJE.HasValue ?
-            new ObjectParameter("fJE", fJE) :
-            new ObjectParameter("fJE", typeof(decimal));
-
-
-        return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("P_Sys_PutZi", uidParameter, tidParameter, pidParameter, erzibiaoParameter, fJEParameter);
-    }
-
-
     public virtual int P_Sys_PutZiBefore(string uid, string tid, Nullable<decimal> fje)
     {
 
@@ -1259,38 +1227,6 @@ public partial class DBContainer : DbContext
     }
 
 
-    public virtual int P_Sys_PutZi1(string uid, string tid, string pid, string erzibiao, Nullable<decimal> fJE)
-    {
-
-        var uidParameter = uid != null ?
-            new ObjectParameter("uid", uid) :
-            new ObjectParameter("uid", typeof(string));
-
-
-        var tidParameter = tid != null ?
-            new ObjectParameter("tid", tid) :
-            new ObjectParameter("tid", typeof(string));
-
-
-        var pidParameter = pid != null ?
-            new ObjectParameter("pid", pid) :
-            new ObjectParameter("pid", typeof(string));
-
-
-        var erzibiaoParameter = erzibiao != null ?
-            new ObjectParameter("erzibiao", erzibiao) :
-            new ObjectParameter("erzibiao", typeof(string));
-
-
-        var fJEParameter = fJE.HasValue ?
-            new ObjectParameter("fJE", fJE) :
-            new ObjectParameter("fJE", typeof(decimal));
-
-
-        return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("P_Sys_PutZi1", uidParameter, tidParameter, pidParameter, erzibiaoParameter, fJEParameter);
-    }
-
-
     public virtual int P_Sys_PutSon(string uid, string tid, string pid, string erzibiao, Nullable<decimal> fJE)
     {
 
@@ -1351,6 +1287,38 @@ public partial class DBContainer : DbContext
     {
 
         return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<P_Spl_GetAllTop_Result>("P_Spl_GetAllTop");
+    }
+
+
+    public virtual int P_Sys_PutZiSun(string uid, string tid, string pid, string erzibiao, Nullable<decimal> fJE)
+    {
+
+        var uidParameter = uid != null ?
+            new ObjectParameter("uid", uid) :
+            new ObjectParameter("uid", typeof(string));
+
+
+        var tidParameter = tid != null ?
+            new ObjectParameter("tid", tid) :
+            new ObjectParameter("tid", typeof(string));
+
+
+        var pidParameter = pid != null ?
+            new ObjectParameter("pid", pid) :
+            new ObjectParameter("pid", typeof(string));
+
+
+        var erzibiaoParameter = erzibiao != null ?
+            new ObjectParameter("erzibiao", erzibiao) :
+            new ObjectParameter("erzibiao", typeof(string));
+
+
+        var fJEParameter = fJE.HasValue ?
+            new ObjectParameter("fJE", fJE) :
+            new ObjectParameter("fJE", typeof(decimal));
+
+
+        return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("P_Sys_PutZiSun", uidParameter, tidParameter, pidParameter, erzibiaoParameter, fJEParameter);
     }
 
 }

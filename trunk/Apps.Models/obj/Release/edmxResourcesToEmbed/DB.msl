@@ -1707,7 +1707,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <FunctionImportMapping FunctionImportName="P_Sys_PutZi1" FunctionName="DB.Store.P_Sys_PutZi" />
     <FunctionImportMapping FunctionImportName="P_Sys_PutSon" FunctionName="DB.Store.P_Sys_PutSon" />
     <FunctionImportMapping FunctionImportName="P_GetAllSons" FunctionName="DB.Store.P_GetAllSons">
       <ResultMapping>
@@ -1744,5 +1743,6 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="P_Sys_PutZiSun" FunctionName="DB.Store.P_Sys_PutZiSun" />
   </EntityContainerMapping>
 </Mapping>

@@ -141,7 +141,16 @@ namespace Apps.BLL
         /// <param name="fJE"></param>
         public int IntoSysJiaPu(string userId, string tid, string pid, string erbiao, decimal fJE)
         {
-            return jpRep.IntoSysJiaPu(userId, tid, pid, erbiao, fJE);
+            //判断28是否开启
+            Apps.Models.Sys.SysConfigModel siteConfig = new Apps.BLL.SysConfigBLL().loadConfig(Utils.GetXmlMapPath("Configpath"));
+            if (siteConfig.isopen28==0)
+            {
+                return jpRep.IntoSysJiaPu(userId, tid, pid, erbiao, fJE);
+            }
+            else
+            {
+                return jpRep.IntoZiSunSysJiaPu(userId, tid, pid, erbiao, fJE);
+            }
         }
        
         //获取指定用户的家谱个人信息
@@ -199,16 +208,34 @@ namespace Apps.BLL
             IQueryable<P_GetRecursiveChildren_Result> queryData = jpRep.P_GetRecursiveChildren(uid);
             if (queryData != null)
             {
-                modelList = (from r in queryData
-                             select new SysAllChildUser
-                             {
-                                 userId = r.UserId,
-                                 trueName = r.TrueName,
-                                 parentId = r.ParentId,
-                                 levelName = r.LevelId == "3" ? "8800会员" : ((r.LevelId == "2" ? "1314会员" : (r.LevelId == "1" ? "398会员" : "普通会员"))),
-                                 levelMan = r.LevelMan == null ? 0 : (int)r.LevelMan,
-                                 levelMax = r.LevelMax
-                             }).ToList();
+                //判断28是否开启
+                Apps.Models.Sys.SysConfigModel siteConfig = new Apps.BLL.SysConfigBLL().loadConfig(Utils.GetXmlMapPath("Configpath"));
+                if (siteConfig.isopen28 == 0)
+                {
+                    modelList = (from r in queryData
+                                 select new SysAllChildUser
+                                 {
+                                     userId = r.UserId,
+                                     trueName = r.TrueName,
+                                     parentId = r.ParentId,
+                                     levelName = r.LevelId == "3" ? "8800会员" : ((r.LevelId == "2" ? "1314会员" : (r.LevelId == "1" ? "398会员" : "普通会员"))),
+                                     levelMan = r.LevelMan == null ? 0 : (int)r.LevelMan,
+                                     levelMax = r.LevelMax
+                                 }).ToList();
+                }
+                else
+                {
+                    modelList = (from r in queryData
+                                 select new SysAllChildUser
+                                 {
+                                     userId = r.UserId,
+                                     trueName = r.TrueName,
+                                     parentId = r.ParentId,
+                                     levelName = r.LevelId == "3" ? "8800会员" : ((r.LevelId == "2" ? "1314会员" : (r.LevelId == "1" ? "398会员" : "普通会员"))),
+                                     levelMan = r.LevelMan == null ? 0 : (int)r.LevelMan,
+                                     levelMax = r.LevelMax
+                                 }).Where(a=>a.levelMan<3).ToList();
+                }
             }
             return modelList;
         }

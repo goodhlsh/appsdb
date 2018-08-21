@@ -1,0 +1,176 @@
+﻿@model Apps.Models.Spl.Spl_ActivesModel
+@using Apps.Web.Core;
+@using Apps.Common;
+@using Apps.Models.Spl;
+@using Apps.Web;
+@using Apps.Locale;
+@using Apps.Models.Sys;
+@{
+    ViewBag.Title = "创建";
+    Layout = "~/Views/Shared/_Index_LayoutEdit.cshtml";
+    List<permModel> perm = null;
+}
+
+<script type="text/javascript">
+$(function () {
+    $("#btnSave").click(function () {
+        if ($("form").valid()) {
+            $.ajax({
+                url: "@Url.Action("Create")",
+                type: "Post",
+                data: $("form").serialize(),
+                dataType: "json",
+                success: function (data) {
+                    if (data.type == 1) {
+                        window.parent.frameReturnByMes(data.message);
+                        window.parent.frameReturnByReload(true);
+                        window.parent.frameReturnByClose()
+                    }
+                    else {
+                        window.parent.frameReturnByMes(data.message);
+                    }
+                }
+            });
+        }
+        return false;
+    });
+    $("#btnReturn").click(function () {
+         window.parent.frameReturnByClose();
+    });
+});
+</script>
+<div class="mvctool bgb">
+    @Html.ToolButton("btnSave", "fa fa-save", Resource.Save, ref perm, "Save", true)
+    @Html.ToolButton("btnReturn", "fa fa-reply", Resource.Reply, false)
+</div>
+@using (Html.BeginForm())
+{
+    <div id="ErrMesList">
+        <div id="ErrMesListContent">
+            @Html.ValidationSummary(false)
+        </div>
+    </div>
+    @Html.HiddenFor(model => model.Id)
+    <input id="CreateTime" type="hidden" name="CreateTime" value="2000-1-1" />
+    <table class="formtable">
+        <tbody>
+            <tr>
+                <th>
+                    @Html.LabelFor(model => model.Title)：
+                </th>
+                <td>
+                    @Html.EditorFor(model => model.Title)
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.Title)</td>
+            </tr>
+            <tr>
+                <th>
+                    @Html.LabelFor(model => model.Cont)：
+                </th>
+                <td>
+                    @Html.EditorFor(model => model.Cont)
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.Cont)</td>
+            </tr>
+            <tr>
+                <th>
+                    @Html.LabelFor(model => model.ActType)：
+                </th>
+                <td>
+                    @Html.DropDownListFor(tDto => tDto.ActType, ViewData["actSelect"] as SelectList, "---请选择---", new { @class = "form-control" })
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.ActType)</td>
+            </tr>
+            <tr>
+                <th>
+                    @Html.LabelFor(model => model.Fors)：
+                </th>
+                <td>
+                    @Html.EditorFor(model => model.Fors)
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.Fors)</td>
+            </tr>
+            <tr>
+                <th>
+                    @Html.LabelFor(model => model.BeginDate)：
+                </th>
+                <td>
+                    @Html.TextBoxFor(model => model.BeginDate, new { @onClick = "WdatePicker()", Value = String.Format("{0:yyyy-MM-dd}", Model.BeginDate), @style = "width:105px" })
+                </td>
+                <td></td>
+            </tr>
+            <tr>
+                <th>
+                    @Html.LabelFor(model => model.EndDate)：
+                </th>
+                <td>
+                    @Html.TextBoxFor(model => model.EndDate, new { @onClick = "WdatePicker()", Value = String.Format("{0:yyyy-MM-dd}", Model.EndDate), @style = "width:105px" })
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.EndDate)</td>
+            </tr>
+            <tr>
+                <th>
+                    @Html.LabelFor(model => model.IsShow)：
+                </th>
+                <td>
+                    @Html.SwitchButtonByEdit("IsShow", true)
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.IsShow)</td>
+            </tr>
+
+            <tr>
+                <th>
+                    @Html.LabelFor(model => model.ToTop)：
+                </th>
+                <td>
+                    @Html.SwitchButtonByEdit("ToTop", true)
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.ToTop)</td>
+            </tr>
+            @*<tr>
+                    <th>
+                        @Html.LabelFor(model => model.Promoted)：
+                    </th>
+                    <td>
+                        @Html.SwitchButtonByEdit("Promoted", true)
+                    </td>
+                    <td>@Html.ValidationMessageFor(model => model.Promoted)</td>
+                </tr>*@
+            <tr>
+                <th>
+                    @Html.LabelFor(model => model.PicShow)：
+                </th>
+                <td>
+                    @Html.HiddenFor(model => model.PicShow)
+                    <img class="expic" src="/Content/Images/NotPic.jpg" onclick="javascript:$('#FileUpload').trigger('click');" /><br />
+
+                    <input type="file" class="displaynone" id="FileUpload" name="FileUpload" onchange="Upload('SingleFile', 'PicShow', 'FileUpload','1','1');" />
+                    <span class="uploading">@Resource.Uploading</span>
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.PicShow)</td>
+            </tr>
+            <tr>
+                <th>
+                    @Html.LabelFor(model => model.Thumbnail)：
+                </th>
+                <td>
+                    @Html.HiddenFor(model => model.Thumbnail)
+                    <img class="expic" src="/Content/Images/NotPic.jpg" onclick="javascript:$('#FileUpload1').trigger('click');" /><br />
+
+                    <input type="file" class="displaynone" id="FileUpload1" name="FileUpload1" onchange="Upload('SingleFile', 'Thumbnail', 'FileUpload1','1','1');" />
+                    <span class="uploading">@Resource.Uploading</span>
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.Thumbnail)</td>
+            </tr>
+            <tr>
+                <th>
+                    @Html.LabelFor(model => model.ShunXu)：
+                </th>
+                <td>
+                    @Html.EditorFor(model => model.ShunXu)
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.ShunXu)</td>
+            </tr>
+        </tbody>
+    </table>
+}

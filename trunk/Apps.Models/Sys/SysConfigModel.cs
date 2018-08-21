@@ -27,7 +27,7 @@ namespace Apps.Models.Sys
         private int _webstatus = 1;
         private string _webclosereason = "";
         private string _webcountcode = "";
-
+        
 
 
         //===============IM JOB LOG Ex Config===============
@@ -74,6 +74,8 @@ namespace Apps.Models.Sys
         //==============系统安装时配置信息==============
         private string _sysdatabaseprefix = "Sys_";
         private string _sysencryptstring = "App";
+        //==============分销平台配置信息==============
+        private int _isopen28 = 0;
 
         /// <summary>
         /// 站点名称
@@ -489,6 +491,9 @@ namespace Apps.Models.Sys
              get { return _issinglelogin; }
              set { _issinglelogin = value; }
         }
-
+        /// <summary>
+        /// 配置是否开放28功能
+        /// </summary>
+        public int isopen28 { get => _isopen28; set => _isopen28 = value; }
     }
 }

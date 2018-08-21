@@ -1,0 +1,135 @@
+﻿@model Apps.Models.Spl.Spl_ProductCategorySModel
+@using Apps.Web.Core;
+@using Apps.Common;
+@using Apps.Models.Spl;
+@using Apps.Web;
+@using Apps.Locale;
+@using Apps.Models.Sys;
+@{
+    ViewBag.Title = "创建";
+    Layout = "~/Views/Shared/_Index_LayoutEdit.cshtml";
+    List<permModel> perm = null;
+}
+
+<script type="text/javascript">
+$(function () {
+    $("#btnSave").click(function () {
+        if ($("form").valid()) {
+            $.ajax({
+                url: "@Url.Action("Create")",
+                type: "Post",
+                data: $("form").serialize(),
+                dataType: "json",
+                success: function (data) {
+                    if (data.type == 1) {
+                        window.parent.frameReturnByMes(data.message);
+                        window.parent.frameReturnByReload(true);
+                        window.parent.frameReturnByClose()
+                    }
+                    else {
+                        window.parent.frameReturnByMes(data.message);
+                    }
+                }
+            });
+        }
+        return false;
+    });
+    $("#btnReturn").click(function () {
+         window.parent.frameReturnByClose();
+    });
+});
+</script>
+<div class="mvctool bgb">
+    @Html.ToolButton("btnSave", "fa fa-save", Resource.Save, ref perm, "Save", true)
+    @Html.ToolButton("btnReturn", "fa fa-reply", Resource.Reply, false)
+</div>
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(model => model.Id)
+    <input id="CreateTime" type="hidden" name="CreateTime" value="2000-1-1" />
+    <table class="formtable">
+        <tbody>
+            <tr>
+                <th>
+                    @Html.LabelFor(model => model.SonTypeName)：
+                </th>
+                <td>
+                    @Html.EditorFor(model => model.SonTypeName)
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.SonTypeName)</td>
+            </tr>
+            @*<tr>
+            <th>
+                @Html.LabelFor(model => model.SupName)：
+            </th>
+            <td>
+                @Html.HiddenFor(model => model.SupID)
+                @Html.DropDownList("province", ViewData["provinceSelectList"] as SelectList, "请选择省份", new
+            {
+                @class = "form-control  input-small"
+            })
+
+            </td>
+            <td>@Html.ValidationMessageFor(model => model.SupID)</td>
+        </tr>*@
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(tDto => tDto.SupName)：
+                </th>
+                <td>
+                    @Html.DropDownListFor(tDto => tDto.SupID, ViewData["pcSelect"] as SelectList, "---请选择---", new { @class = "form-control" })
+                </td>
+
+            </tr>
+            <tr>
+                <th>
+                    @Html.LabelFor(model => model.Promoted)：
+                </th>
+                <td>
+                    @Html.SwitchButtonByEdit("Promoted", true)
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.Promoted)</td>
+            </tr>
+            <tr>
+                <th>
+                    @Html.LabelFor(model => model.Note)：
+                </th>
+                <td>
+                    @Html.TextAreaFor(model => model.Note)
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.Note)</td>
+            </tr>
+            <tr>
+                <th>
+                    @Html.LabelFor(model => model.PicShow)：
+                </th>
+                <td>
+                    @Html.HiddenFor(model => model.PicShow)
+                    <img class="expic" src="/Content/Images/NotPic.jpg" onclick="javascript:$('#FileUpload').trigger('click');" /><br />
+
+                    <input type="file" class="displaynone" id="FileUpload" name="FileUpload" onchange="Upload('SingleFile', 'PicShow', 'FileUpload','1','1');" />
+                    <span class="uploading">@Resource.Uploading</span>
+                </td>
+                <td></td>
+            </tr>
+            <tr>
+                <th>
+                    @Html.LabelFor(model => model.ToTop)：
+                </th>
+                <td>
+                    @Html.SwitchButtonByEdit("ToTop", true)
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.ToTop)</td>
+            </tr>
+            <tr>
+                <th>
+                    @Html.LabelFor(model => model.ShunXu)：
+                </th>
+                <td>
+                    @Html.EditorFor(model => model.ShunXu)
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.ShunXu)</td>
+            </tr>
+        </tbody>
+    </table>
+}

@@ -10,8 +10,23 @@ namespace Apps.IBLL
 {
    public partial interface ISysWalletBLL
     {
-       SysWalletModel GetWallByUserID(string userID);
-       List<P_Sys_GetUserWallet_Result> GetUserWallet();
+        /// <summary>
+        /// 获取某人当前余额
+        /// </summary>
+        /// <param name="userID"></param>
+        /// <returns></returns>
+        SysWalletModel GetWallByUserID(string userID);
+        /// <summary>
+        /// 获取某人余额账单
+        /// </summary>
+        /// <param name="userID"></param>
+        /// <returns></returns>
+        List<SysWalletModel> GetAllWallByUserID(string userID);
+        /// <summary>
+        ///  获取所有人当前余额
+        /// </summary>
+        /// <returns></returns>
+        List<P_Sys_GetUserWallet_Result> GetUserWallet();
        
     }
 }

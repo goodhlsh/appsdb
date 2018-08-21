@@ -1,0 +1,197 @@
+﻿@model Apps.Models.Spl.Spl_WareModel
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Index_Layout.cshtml";
+}
+
+<table class="formtable">
+    <tbody>
+        <tr>
+            <th>
+                @Html.LabelFor(model => model.Name)：
+            </th>
+            <td>
+                @Html.DisplayFor(model => model.Name)
+            </td>
+            
+        </tr>
+        <tr>
+            <th>
+                @Html.LabelFor(model => model.ProductCategoryName)：
+            </th>
+            <td>
+                @Html.DisplayFor(model => model.ProductCategoryName)
+            </td>
+            
+        </tr>
+        <tr>
+            <th>
+                @Html.LabelFor(model => model.Unit)：
+            </th>
+            <td>
+                @Html.DisplayFor(model => model.Unit)
+            </td>
+           
+        </tr>
+        <tr>
+            <th>
+                @Html.LabelFor(model => model.Price)：
+            </th>
+            <td>
+                @Html.DisplayFor(model => model.Price)
+            </td>
+            
+        </tr>
+        <tr>
+            <th>
+                @Html.LabelFor(model => model.PromotionPrice)：
+            </th>
+            <td>
+                @Html.DisplayFor(model => model.PromotionPrice)
+            </td>
+            
+        </tr>
+        <tr>
+            <th>
+                @Html.LabelFor(model => model.Stock)：
+            </th>
+            <td>
+                @Html.DisplayFor(model => model.Stock)
+            </td>
+            
+        </tr>
+        <tr>
+            <th>
+                @Html.LabelFor(model => model.Description)：
+            </th>
+            <td>
+                @Html.DisplayFor(model => model.Description)
+            </td>
+            
+        </tr>
+        <tr>
+            <th>
+                @Html.LabelFor(model => model.Note)：
+            </th>
+            <td>
+                @Html.DisplayFor(model => model.Note)
+            </td>
+           
+        </tr>
+        <tr>
+            <th>
+                @Html.LabelFor(model => model.Thumbnail)：
+            </th>
+            <td>                
+                <img class="expic" src="@((Model.Thumbnail==null||Model.Thumbnail=="")?"/Content/Images/NotPic.jpg":Model.Thumbnail)" />
+            </td>
+        </tr>
+        
+        <tr>
+            <th>
+                @Html.LabelFor(model => model.Picture0)：
+            </th>
+            <td>
+                
+                <img class="expic" src="@((Model.Picture0==null||Model.Picture0=="")?"/Content/Images/NotPic.jpg":Model.Picture0)" />
+
+               
+            </td>
+           
+        </tr>
+        <tr>
+            <th>
+                @Html.LabelFor(model => model.Picture1)：
+            </th>
+            <td>
+                
+                <img class="expic" src="@((Model.Picture1==null||Model.Picture1=="")?"/Content/Images/NotPic.jpg":Model.Picture1)"  /><br />
+
+               
+            </td>
+           
+        </tr>
+        <tr>
+            <th>
+                @Html.LabelFor(model => model.Picture2)：
+            </th>
+            <td>
+                
+                <img class="expic" src="@((Model.Picture2==null||Model.Picture2=="")?"/Content/Images/NotPic.jpg":Model.Picture2)"/><br />
+
+            </td>
+           
+        </tr>
+        <tr>
+            <th>
+                @Html.LabelFor(model => model.Picture3)：
+            </th>
+            <td>
+               
+                <img class="expic" src="@((Model.Picture3==null||Model.Picture3=="")?"/Content/Images/NotPic.jpg":Model.Picture3)"  /><br />
+
+            </td>
+           
+        </tr>
+        <tr>
+            <th>
+                @Html.LabelFor(model => model.Picture4)：
+            </th>
+            <td>
+                
+                <img class="expic" src="@((Model.Picture4==null||Model.Picture4=="")?"/Content/Images/NotPic.jpg":Model.Picture4)" /><br />
+
+            </td>
+           
+        </tr>
+        <tr>
+            <th>
+                @Html.LabelFor(model => model.Picture5)：
+            </th>
+            <td>
+                
+                <img class="expic" src="@((Model.Picture5==null||Model.Picture5=="")?"/Content/Images/NotPic.jpg":Model.Picture5)" /><br />
+
+            </td>
+            
+        </tr>
+        <tr>
+            <th>
+                @Html.LabelFor(model => model.ToTop)：
+            </th>
+            <td>
+                @Html.DisplayName(Model.ToTop==false?"否":"是")
+            </td>
+           
+        </tr>
+        <tr>
+            <th>
+                @Html.LabelFor(model => model.Detail)：
+            </th>
+            <td>
+                @Html.DisplayFor(model => model.Detail)
+            </td>
+          
+        </tr>
+       
+        <tr>
+            <th>
+                @Html.LabelFor(model => model.Creator)：
+            </th>
+            <td>
+                @Html.DisplayFor(model => model.Creator)
+            </td>
+           
+        </tr>
+
+        <tr>
+            <th>
+                @Html.LabelFor(model => model.Editor)：
+            </th>
+            <td>
+                @Html.DisplayFor(model => model.Editor)
+            </td>
+           
+        </tr>
+    </tbody>
+</table>

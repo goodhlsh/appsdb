@@ -1,0 +1,35 @@
+﻿@model Apps.Models.Sys.SysJiaPuModel
+@using Apps.Web.Core;
+@using Apps.Common;
+@using Apps.Models.Sys;
+@using Apps.Web;
+@using Apps.Locale;
+@using Apps.Models.Sys;
+@{
+    ViewBag.Title = "主页";
+    Layout = "~/Views/Shared/_Index_Layout.cshtml";
+
+}
+<script src="~/Scripts/echarts.min.js"></script>
+<!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+<div id="main"></div>
+
+
+
+<div id="modalwindow" class="easyui-window" data-options="modal:true,closed:true,minimizable:false,shadow:false"></div>
+<script type="text/javascript">
+    $(function () {
+        
+                $.post("@Url.Action("GetOptionByBarChart")",  function (option) {
+                    // 使用刚指定的配置项和数据显示图表。
+                    myChart.setOption(option);
+                });
+            
+        });
+
+        // 基于准备好的dom，初始化echarts实例
+        $("#main").width($(window).width()-10).height($(window).height()- 10);
+        var myChart = echarts.init(document.getElementById('main'));
+
+  
+</script>

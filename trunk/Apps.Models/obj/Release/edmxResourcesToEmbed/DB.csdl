@@ -455,13 +455,6 @@
       <Parameter Name="jine" Mode="In" Type="Decimal" />
       <Parameter Name="orderid" Mode="In" Type="String" />
     </FunctionImport>
-    <FunctionImport Name="P_Sys_PutZi">
-      <Parameter Name="uid" Mode="In" Type="String" />
-      <Parameter Name="tid" Mode="In" Type="String" />
-      <Parameter Name="pid" Mode="In" Type="String" />
-      <Parameter Name="erzibiao" Mode="In" Type="String" />
-      <Parameter Name="fJE" Mode="In" Type="Decimal" />
-    </FunctionImport>
     <AssociationSet Name="SysUserSysPurchaseHistory" Association="DB.SysUserSysPurchaseHistory">
       <End Role="SysUser" EntitySet="SysUser" />
       <End Role="SysPurchaseHistory" EntitySet="SysPurchaseHistory" />
@@ -579,13 +572,6 @@
       <End Role="SysUser" EntitySet="SysUser" />
       <End Role="SysTuiUser" EntitySet="SysTuiUser" />
     </AssociationSet>
-    <FunctionImport Name="P_Sys_PutZi1">
-      <Parameter Name="uid" Mode="In" Type="String" />
-      <Parameter Name="tid" Mode="In" Type="String" />
-      <Parameter Name="pid" Mode="In" Type="String" />
-      <Parameter Name="erzibiao" Mode="In" Type="String" />
-      <Parameter Name="fJE" Mode="In" Type="Decimal" />
-    </FunctionImport>
     <FunctionImport Name="P_Sys_PutSon">
       <Parameter Name="uid" Mode="In" Type="String" />
       <Parameter Name="tid" Mode="In" Type="String" />
@@ -601,6 +587,13 @@
     </FunctionImport>
     <EntitySet Name="Spl_Franchisee" EntityType="DB.Spl_Franchisee" />
     <FunctionImport Name="P_Spl_GetAllTop" ReturnType="Collection(DB.P_Spl_GetAllTop_Result)" />
+    <FunctionImport Name="P_Sys_PutZiSun">
+      <Parameter Name="uid" Mode="In" Type="String" />
+      <Parameter Name="tid" Mode="In" Type="String" />
+      <Parameter Name="pid" Mode="In" Type="String" />
+      <Parameter Name="erzibiao" Mode="In" Type="String" />
+      <Parameter Name="fJE" Mode="In" Type="Decimal" />
+    </FunctionImport>
   </EntityContainer>
   <EntityType Name="DEF_CaseType">
     <Key>
@@ -1332,6 +1325,7 @@
     <Property Type="String" Name="CurrentLoginIP" Nullable="true" MaxLength="50" />
     <Property Type="DateTime" Name="CurrentLoginTime" Nullable="true" />
     <Property Type="DateTime" Name="LastPasswdTime" Nullable="true" />
+    <Property Type="Int32" Name="TuiCount" Nullable="false" />
   </ComplexType>
   <ComplexType Name="P_Sys_GetUserByRoleId_Result">
     <Property Type="String" Name="Id" Nullable="true" MaxLength="50" />

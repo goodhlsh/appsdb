@@ -27,6 +27,11 @@ namespace Apps.WebApi.Areas.Ware.Controllers
         [Dependency]
         public ISysAddressBLL SysAddressBLL { get; set; }
         ValidationErrors errors = new ValidationErrors();
+        /// <summary>
+        /// 创建订单
+        /// </summary>
+        /// <param name="spl_Orders"></param>
+        /// <returns></returns>
         [HttpPost]
         public object PostOrder([FromBody]Spl_OrdersModel spl_Orders)
         {
@@ -42,10 +47,10 @@ namespace Apps.WebApi.Areas.Ware.Controllers
             newmodel.Description = spl_Orders.Description;
 
             SysAddressModel sysAddress = new SysAddressModel();
-            if (spl_Orders.AddressId!=null)
+            if (spl_Orders.AddressId != null)
             {
                 sysAddress = SysAddressBLL.GetById(spl_Orders.AddressId);
-            }            
+            }
             if (sysAddress != null)
             {
                 newmodel.AddressName = sysAddress.Province + "省" + sysAddress.City + "市" + sysAddress.Street + '-' + sysAddress.House;
@@ -61,7 +66,7 @@ namespace Apps.WebApi.Areas.Ware.Controllers
             {
                 if (spl_Orders.spl_Wares != null)
                 {
-                    //写入order-ware表
+                    //将商品信息写入order-ware表
                     List<Spl_Ware> wares = spl_Orders.spl_Wares;
                     foreach (Spl_Ware item in wares)
                     {
@@ -73,7 +78,6 @@ namespace Apps.WebApi.Areas.Ware.Controllers
                         order_Ware.Amount = item.WareCount;
                         order_Ware.SumJinE = item.WareCount * item.Price;
                         order_WareBLL.Create(ref errors, order_Ware);
-
                     }
                     return Json(newmodel);
                 }
@@ -86,9 +90,12 @@ namespace Apps.WebApi.Areas.Ware.Controllers
             {
                 return null;
             }
-
-
         }
+        /// <summary>
+        /// 编辑订单
+        /// </summary>
+        /// <param name="spl_OrderEdit"></param>
+        /// <returns></returns>
         [HttpPost]
         public object PostEditOrder([FromBody]Spl_OrderEditModel spl_OrderEdit)
         {
@@ -103,6 +110,11 @@ namespace Apps.WebApi.Areas.Ware.Controllers
             }
             return Json(retb);
         }
+        /// <summary>
+        /// 获取某状态下的我的订单
+        /// </summary>
+        /// <param name="filter"></param>
+        /// <returns></returns>
         [HttpGet]
         public object GetOrderListByStatus(string filter)
         {
@@ -131,7 +143,7 @@ namespace Apps.WebApi.Areas.Ware.Controllers
                 queryStr = "已完成";
             }
             spl_s = SplOdersBLL.GetListWithStatus(queryStr, userId, int.Parse(opc["skip"].ToString()), int.Parse(opc["limit"].ToString()));
-            if (spl_s!=null)
+            if (spl_s != null)
             {
                 return Json(spl_s);
             }
@@ -141,9 +153,14 @@ namespace Apps.WebApi.Areas.Ware.Controllers
             }
 
         }
+        /// <summary>
+        /// 获取某个订单
+        /// </summary>
+        /// <param name="filter"></param>
+        /// <returns></returns>
         [HttpGet]
         public object GetOrderById(string filter)
-        {            
+        {
             JObject opc = JObject.Parse(filter);
             var queryStr = "";
             if (JObject.Parse(opc["where"].ToString())["orderId"] != null)
@@ -151,7 +168,7 @@ namespace Apps.WebApi.Areas.Ware.Controllers
                 queryStr = JObject.Parse(opc["where"].ToString())["orderId"].ToString();
             }
             Spl_OrdersModel model = SplOdersBLL.GetById(queryStr);
-            if (model!=null)
+            if (model != null)
             {
                 return Json(model);
             }
@@ -160,6 +177,11 @@ namespace Apps.WebApi.Areas.Ware.Controllers
                 return null;
             }
         }
+        /// <summary>
+        /// 获取某订单的商品
+        /// </summary>
+        /// <param name="filter"></param>
+        /// <returns></returns>
         [HttpGet]
         public object GetOrderWaresById(string filter)
         {
@@ -170,7 +192,7 @@ namespace Apps.WebApi.Areas.Ware.Controllers
                 queryStr = JObject.Parse(opc["where"].ToString())["orderId"].ToString();
             }
             List<Spl_Order_WareModel> spl_Order_Wares = order_WareBLL.GetSpl_Order_WareModelsByOrderId(queryStr, int.Parse(opc["skip"].ToString()), int.Parse(opc["limit"].ToString()));
-            if (spl_Order_Wares!=null)
+            if (spl_Order_Wares != null)
             {
                 return Json(spl_Order_Wares);
             }

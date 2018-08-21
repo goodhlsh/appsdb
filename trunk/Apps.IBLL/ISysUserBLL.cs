@@ -30,6 +30,7 @@ namespace Apps.IBLL
         /// <param name="model"></param>
         /// <returns></returns>
         bool Edit(ref ValidationErrors errors, SysUserEditModel model);
+        bool EditTuiCount(ref ValidationErrors errors, SysUserEditModel model);
         bool EditPwd(ref ValidationErrors errors, SysUserEditModel model);
         string GetNameById(string id);
         List<SysUser> GetListBySelName(string name);

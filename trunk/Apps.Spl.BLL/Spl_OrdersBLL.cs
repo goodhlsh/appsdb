@@ -29,6 +29,7 @@ namespace Apps.Spl.BLL
                 spl.Id = item.Id;
                 spl.OrderNo = item.OrderNo;
                 spl.OrderWuliu = item.OrderWuliu;
+                spl.WuliuLink = item.WuliuLink;
                 spl.Status = item.Status;
                 spl.TrueName = item.TrueName;
                 spl.UserId = item.UserId;
@@ -78,6 +79,7 @@ namespace Apps.Spl.BLL
                 model.DingDanKuan = entity.DingDanKuan;
 
                 model.OrderWuliu = entity.OrderWuliu;
+                model.WuliuLink = entity.WuliuLink;
 
                 model.TrueName = entity.TrueName;
 

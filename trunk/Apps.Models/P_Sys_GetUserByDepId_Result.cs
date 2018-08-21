@@ -141,6 +141,8 @@ public partial class P_Sys_GetUserByDepId_Result
 
     public Nullable<System.DateTime> LastPasswdTime { get; set; }
 
+    public int TuiCount { get; set; }
+
 }
 
 }

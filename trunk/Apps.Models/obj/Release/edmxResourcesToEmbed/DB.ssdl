@@ -2288,7 +2288,7 @@
     <Parameter Name="erzibiao" Type="varchar" Mode="In" />
     <Parameter Name="fJE" Type="decimal" Mode="In" />
   </Function>
-  <Function Name="P_Sys_PutZi" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+  <Function Name="P_Sys_PutZiSun" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="uid" Type="varchar" Mode="In" />
     <Parameter Name="tid" Type="varchar" Mode="In" />
     <Parameter Name="pid" Type="varchar" Mode="In" />

@@ -154,11 +154,11 @@ namespace Apps.MIS.BLL
             IQueryable<MIS_Article> queryData = null;
             if (!string.IsNullOrEmpty(queryStr))
             {
-                queryData = m_Rep.GetList().Where(a => a.IsType == isType&&a.CategoryId==categoryId&&a.Title.Contains(queryStr)).OrderBy(a => a.CreateTime);
+                queryData = m_Rep.GetList().Where(a => a.IsType == isType&&a.CategoryId==categoryId&&a.Title.Contains(queryStr)).Skip(skip).Take(limit).OrderBy(a => a.CreateTime);
             }
             else
             {
-                queryData = m_Rep.GetList().Where(a => a.IsType == isType && a.CategoryId == categoryId).OrderBy(a => a.CreateTime);
+                queryData = m_Rep.GetList().Where(a => a.IsType == isType && a.CategoryId == categoryId).Skip(skip).Take(limit).OrderBy(a => a.CreateTime);
             }
                 return CreateModelList(ref queryData);
         }

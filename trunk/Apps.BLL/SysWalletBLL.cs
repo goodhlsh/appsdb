@@ -36,9 +36,34 @@ namespace Apps.BLL
 
             return sm;
         }
+        public List<SysWalletModel> GetAllWallByUserID(string userID)
+        {
+            IQueryable<SysWallet> sw = sysWRep.GetWallByUserID(userID);
+            if (sw == null || sw.Count() <= 0) return null;
+            List<SysWallet> ss = sw.ToList();
+            List<SysWalletModel> sm = new List<SysWalletModel>();
+            foreach (SysWallet s in ss)
+            {
+                sm.Add(new SysWalletModel()
+                {
+                    Id = s.Id,
+                    Balance = s.Balance,
+                    CreateTime = s.CreateTime,
+                    Froms = s.Froms,
+                    JieYu = s.JieYu,
+                    Note = s.Note,
+                    UpdateTime = s.UpdateTime,
+                    UserId = s.UserId,
+                    ShunXu = s.ShunXu,
+                    TrueName = s.SysUser.TrueName
+                });
+            }
+
+            return sm;
+        }
         public List<P_Sys_GetUserWallet_Result> GetUserWallet()
         {
             return m_Rep.GetUserWallet();
-        }        
+        }
     }
 }

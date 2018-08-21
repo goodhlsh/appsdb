@@ -37,6 +37,16 @@ namespace Apps.DAL
 
             return this.SaveChanges();
         }
+        public int IntoZiSunSysJiaPu(string userId, string tid, string pid, string erbiao, decimal fJE)
+        {
+            if (fJE <= 0)
+            {
+                fJE = 0;
+            }
+            Context.P_Sys_PutZiSun(userId, tid, pid, erbiao, fJE);
+
+            return this.SaveChanges();
+        }
 
         public IQueryable<P_GetRecursiveChildren_Result> P_GetRecursiveChildren(string uid)
         {

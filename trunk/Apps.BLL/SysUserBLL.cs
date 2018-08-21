@@ -96,7 +96,9 @@ namespace Apps.BLL
                     LeadName=user.LeadName,
                     IsAuth=user.IsAuth,
                     RecommendID=user.RecommendID,
-                    Recommendor=user.Recommendor
+                    Recommendor=user.Recommendor,
+                    TuiCount=user.TuiCount,
+                    Card=user.Card
 
                 };
                 userInfoList.Add(userModel);
@@ -151,7 +153,8 @@ namespace Apps.BLL
                                                 IsSecretary = r.IsSecretary,
                                                 IsAuth=r.IsAuth,
                                                 RecommendID=r.RecommendID,
-                                                Recommendor=r.Recommendor
+                                                Recommendor=r.Recommendor,
+                                                TuiCount=r.TuiCount
                                                 
                                             }).ToList();
             return modelList;
@@ -253,7 +256,9 @@ namespace Apps.BLL
                                                 IsSecretary = (bool)r.IsSecretary,
                                                 IsAuth=r.IsAuth,
                                                 RecommendID=r.RecommendID,
-                                                Recommendor=r.Recommendor
+                                                Recommendor=r.Recommendor,
+                                                TuiCount=r.TuiCount
+                                                
                                                
                                             }).ToList();
             foreach (var v in modelList)
@@ -441,7 +446,37 @@ namespace Apps.BLL
                 return false;
             }
         }
+        public bool EditTuiCount(ref ValidationErrors errors, SysUserEditModel model)
+        {
+            try
+            {
+                SysUser entity = m_Rep.GetById(model.Id);
+                if (entity == null)
+                {
+                    errors.Add(Resource.Disable);
+                    return false;
+                }
 
+                entity.TuiCount = model.TuiCount;
+
+                if (m_Rep.Edit(entity))
+                {
+                    return true;
+                }
+                else
+                {
+                    errors.Add(Resource.NoDataChange);
+                    return false;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                errors.Add(ex.Message);
+                ExceptionHander.WriteException(ex);
+                return false;
+            }
+        }
         public bool EditPwd(ref ValidationErrors errors, SysUserEditModel model)
         {
             try

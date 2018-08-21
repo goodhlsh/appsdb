@@ -504,6 +504,7 @@ namespace Apps.WebApi.Areas.User.Controllers
                 newmodel.UserId = sysJia.UserId;
                 newmodel.ZMP15 = sysJia.ZMP15;
                 newmodel.ZMPA2 = sysJia.ZMPA2;
+                newmodel.FrozenMoney = sysJia.FrozenMoney;
                 bool ret;
                 ret = mj_BLL.Edit(ref errors, newmodel);
                 if (ret)
@@ -545,30 +546,34 @@ namespace Apps.WebApi.Areas.User.Controllers
             }
             if (sysJiaPu_.tid != null)
             {
-                sysJiaPu = mj_BLL.GetRefSysJiaPu(sysJiaPu_.tid);
-                int loc;
-                char[] z = ZMP15.ToCharArray();
-                if (z[1] == '2')
-                {
-                    return null;
-                }
-                loc = z[0] - 'A';
-                char[] ZM = sysJiaPu.ZMP15.Substring(loc, 2).ToCharArray();
+                //sysJiaPu = mj_BLL.GetRefSysJiaPu(sysJiaPu_.tid);
+                //if (sysJiaPu==null)
+                //{
+                //    return null;
+                //}
+                //int loc;
+                //char[] z = ZMP15.ToCharArray();
+                //if (z[1] == '2')
+                //{
+                //    return null;
+                //}
+                //loc = z[0] - 'A';
+                //char[] ZM = sysJiaPu.ZMP15.Substring(loc, 2).ToCharArray();
 
-                if (z[1] == '0')
-                {
-                    if (ZM[0] == '1')
-                    {
-                        return null;
-                    }
-                }
-                if (z[1] == '1')
-                {
-                    if (ZM[1] == '1')
-                    {
-                        return null;
-                    }
-                }
+                //if (z[1] == '0')
+                //{
+                //    if (ZM[0] == '1')
+                //    {
+                //        return null;
+                //    }
+                //}
+                //if (z[1] == '1')
+                //{
+                //    if (ZM[1] == '1')
+                //    {
+                //        return null;
+                //    }
+                //}
                 #region 自动匹配位置
                 /*
                                 if (sysJiaPu.ZMP15 != null)
@@ -741,7 +746,7 @@ namespace Apps.WebApi.Areas.User.Controllers
                                 */
                 #endregion
 
-                if (!string.IsNullOrEmpty(sysJiaPu_.uid) && sysJiaPu_.tid.Length > 28)
+               // if (!string.IsNullOrEmpty(sysJiaPu_.uid) && sysJiaPu_.tid.Length > 28)
                     ri.ret = mj_BLL.IntoSysJiaPu(sysJiaPu_.uid, sysJiaPu_.tid, sysJiaPu_.tid, ZMP15, sysJiaPu_.fje);
                 //更新jiapubefore表
                 if (ri.ret == 0)
